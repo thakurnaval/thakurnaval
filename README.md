@@ -30,6 +30,12 @@
 
 <a href="https://twitter.com/nthakur_dot_com" target="blank"><img align="center" src="https://github.com/thakurnaval/thakurnaval/blob/main/assets/twitter.svg" alt="Naval Thakur" height="30" width="30" /></a>
 <a href="https://linkedin.com/in/navalthakur" target="blank"><img align="center" src="https://github.com/thakurnaval/thakurnaval/blob/main/assets/linkedin.svg" alt="Naval Thakur" height="30" width="30" /></a>
+
+  ![GitHub repo size](https://img.shields.io/github/repo-size/thakurnaval/thakurnaval)
+  ![GitHub stars](https://img.shields.io/github/stars/thakurnaval/thakurnaval?style=social)
+  ![GitHub forks](https://img.shields.io/github/forks/thakurnaval/thakurnaval?style=social)
+  [![Twitter Follow](https://img.shields.io/twitter/follow/nthakur_dot_com?style=social)](https://twitter.com/intent/follow?screen_name=nthakur_dot_com)
+  [![YouTube Video Views](https://img.shields.io/youtube/views/SEvppxS8n3M?style=social)](https://www.youtube.com/@devopsism)
 </p>
 
 <!-- GitHub stats -->
