@@ -28,8 +28,8 @@
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 
-<a href="https://twitter.com/nthakur_dot_com" target="blank"><img align="center" src="https://github.com/thakurnaval/thakurnaval/blob/master/assets/twitter.svg" alt="Naval Thakur" height="30" width="30" /></a>
-<a href="https://linkedin.com/in/navalthakur" target="blank"><img align="center" src="https://github.com/thakurnaval/thakurnaval/blob/master/assets/linkedin.svg" alt="Naval Thakur" height="30" width="30" /></a>
+<a href="https://twitter.com/nthakur_dot_com" target="blank"><img align="center" src="https://github.com/thakurnaval/thakurnaval/blob/main/assets/twitter.svg" alt="Naval Thakur" height="30" width="30" /></a>
+<a href="https://linkedin.com/in/navalthakur" target="blank"><img align="center" src="https://github.com/thakurnaval/thakurnaval/blob/main/assets/linkedin.svg" alt="Naval Thakur" height="30" width="30" /></a>
 </p>
 
 <!-- GitHub stats -->
