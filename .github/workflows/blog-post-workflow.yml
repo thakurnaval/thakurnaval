@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: Pull in dev.to posts
-        uses: thakurnaval/thakurnaval/blog-post-workflow@v1
+        uses: actions/checkout
+      - name: Pull in nthakur posts
+        uses: thakurnaval/thakurnaval/blog-post-workflow
         with:
           feed_list: "https://nthakur.com/articles/feed/"
