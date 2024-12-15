@@ -54,6 +54,7 @@
 
 <h2><b>Upcoming Sections</b></h2>
 📌 Languages and Tools </br>
+📌 My Followers </br>
 
 <!--
 - ☁️  **CLOUD:** build and teach in/for/with the cloud, [100+ resouces for you](https://github.com/lynnlangit/learning-cloud)
