@@ -2,7 +2,7 @@
 <h2>Hi there! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px"> I am Naval Thakur</h2>
 <h3>Glad to see you here!</h3>
 
-![Banner]([(https://github.com/thakurnaval/thakurnaval/blob/main/assets/nthakur-hero-banner.png)])
+<img src="https://github.com/thakurnaval/thakurnaval/blob/main/assets/nthakur-hero-banner.png" height="450" width="950" />
 
 - 🔭 Currently focused on empowering cross-functional teams to enhance the speed and reliability of our software delivery processes.
 - 🌱 Currently exploring how AI and ML technologies can improve our software delivery processes.
