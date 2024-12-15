@@ -41,9 +41,14 @@
 <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=thakurnaval&show_icons=true&hide_border=true&layout=compact&langs_count=8&theme=dark"/>
 </p>
 
+
+# Blog posts
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
+
+
 <h2><b>Upcoming Sections</b></h2>
-📌 Languages and Tools
-📌 Latest Blog Posts
+📌 Languages and Tools </br>
 
 <!--
 - ☁️  **CLOUD:** build and teach in/for/with the cloud, [100+ resouces for you](https://github.com/lynnlangit/learning-cloud)
