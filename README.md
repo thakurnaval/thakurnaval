@@ -44,6 +44,11 @@
 
 # Blog posts
 <!-- BLOG-POST-LIST:START -->
+- [Planisware: Driving Efficiency in Strategic and Project Portfolio Management](https://nthakur.com/planisware-spm-ppm/)
+- [IT Governance](https://nthakur.com/it-governance/)
+- [AI-900-Azure AI Fundamentals](https://nthakur.com/ai-900/)
+- [DP-900-Azure Data Fundamentals](https://nthakur.com/dp-900/)
+- [SC-900-Microsoft Certified: Security, Compliance, and Identity Fundamentals](https://nthakur.com/sc-900/)
 <!-- BLOG-POST-LIST:END -->
 
 
