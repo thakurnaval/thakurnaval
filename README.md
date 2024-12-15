@@ -3,8 +3,10 @@
 <h3>Glad to see you here!</h3>
 
 <a href="https://nthakur.com">
-<img src="https://github.com/thakurnaval/thakurnaval/blob/main/assets/nthakur-hero-banner.png" height="450" width="950" />
+  <img src="https://github.com/thakurnaval/thakurnaval/blob/main/assets/nthakur-hero-banner.png" height="450" width="950" />
 </a>
+</br>
+
 - 🔭 Currently focused on empowering cross-functional teams to enhance the speed and reliability of our software delivery processes.
 - 🌱 Currently exploring how AI and ML technologies can improve our software delivery processes.
 - 👯 Eager to collaborate on projects that are ambitious enough to aim for the stars, yet challenging enough to keep me grounded.
