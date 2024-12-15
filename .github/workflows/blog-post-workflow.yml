@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: thakurnaval/blog-post-workflow@main
+      - uses: thakurnaval/thakurnaval/blog-post-workflow@main
         with:
           feed_list: "https://nthakur.com/articles/feed/main.xml"
