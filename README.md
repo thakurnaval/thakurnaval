@@ -20,7 +20,7 @@
 --->
 
 <p align="left"> 
-  Visit Counter: </br><!-- retro visitor counter -->
+  <h2>👯 Visit Counter: </h2><!-- retro visitor counter -->
   <img src="https://profile-counter.glitch.me/thakurnaval/count.svg" />
 </p>
 
@@ -33,15 +33,17 @@
 </p>
 
 <!-- GitHub stats -->
-<b>⚡ My Dev Statistics</b>
-
+<h2><b>⚡ My Dev Statistics</b></h2>
 <p>
 <!-- GitHub Stats -->
 <img height="180em" src="https://github-readme-stats.vercel.app/api?username=thakurnaval&show_icons=true&hide_border=true&theme=dark" />
-
 <!-- Most Used Languages -->
 <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=thakurnaval&show_icons=true&hide_border=true&layout=compact&langs_count=8&theme=dark"/>
 </p>
+
+<h2><b>Upcoming Sections</b></h2>
+📌 Languages and Tools
+📌 Latest Blog Posts
 
 <!--
 - ☁️  **CLOUD:** build and teach in/for/with the cloud, [100+ resouces for you](https://github.com/lynnlangit/learning-cloud)
