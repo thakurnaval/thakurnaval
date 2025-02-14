@@ -51,11 +51,11 @@
 
 # Blog posts
 <!-- BLOG-POST-LIST:START -->
+- [Preparing for the Planisware Administrator Expert Certification Exam: A Comprehensive Guide](https://nthakur.com/preparing-for-the-planisware-administrator-expert-certification-exam-a-comprehensive-guide/)
+- [Planisware Unleashed: The Ultimate Tool for Project Portfolio Management – A Comparison](https://nthakur.com/planisware-unleashed-the-ultimate-tool-for-project-portfolio-management-a-comparison/)
+- [Mastering Project Portfolio Planning with Planisware](https://nthakur.com/mastering-project-portfolio-planning-with-planisware/)
+- [Managing Your Strategic Portfolio with Planisware: A Comprehensive Guide](https://nthakur.com/managing-your-strategic-portfolio-with-planisware-a-comprehensive-guide/)
 - [Planisware: Driving Efficiency in Strategic and Project Portfolio Management](https://nthakur.com/planisware-spm-ppm/)
-- [IT Governance](https://nthakur.com/it-governance/)
-- [AI-900-Azure AI Fundamentals](https://nthakur.com/ai-900/)
-- [DP-900-Azure Data Fundamentals](https://nthakur.com/dp-900/)
-- [SC-900-Microsoft Certified: Security, Compliance, and Identity Fundamentals](https://nthakur.com/sc-900/)
 <!-- BLOG-POST-LIST:END -->
 
 
