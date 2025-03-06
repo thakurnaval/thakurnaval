@@ -51,11 +51,11 @@
 
 # Blog posts
 <!-- BLOG-POST-LIST:START -->
+- [The Day You Became A Better Writer](https://nthakur.com/the-day-you-became-a-better-writer/)
 - [Lean Portfolio Management](https://nthakur.com/lean-portfolio-management/)
 - [Preparing for the Planisware Administrator Expert Certification Exam: A Comprehensive Guide](https://nthakur.com/preparing-for-the-planisware-administrator-expert-certification-exam-a-comprehensive-guide/)
 - [Planisware Unleashed: The Ultimate Tool for Project Portfolio Management – A Comparison](https://nthakur.com/planisware-unleashed-the-ultimate-tool-for-project-portfolio-management-a-comparison/)
 - [Mastering Project Portfolio Planning with Planisware](https://nthakur.com/mastering-project-portfolio-planning-with-planisware/)
-- [Managing Your Strategic Portfolio with Planisware: A Comprehensive Guide](https://nthakur.com/managing-your-strategic-portfolio-with-planisware-a-comprehensive-guide/)
 <!-- BLOG-POST-LIST:END -->
 
 
