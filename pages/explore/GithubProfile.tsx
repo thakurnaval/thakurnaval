@@ -1,4 +1,12 @@
-<p align="center">
+
+import React, { useState } from 'react';
+import SimplePage from '../../components/SimplePage';
+import { Github, Copy, Check, Download, FileCode } from 'lucide-react';
+
+const GithubProfile: React.FC = () => {
+  const [copied, setCopied] = useState(false);
+
+  const mainReadme = `<p align="center">
   <img src="https://media.licdn.com/dms/image/v2/D4D03AQFU1owfBTxUYw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715523762536?e=1770854400&v=beta&t=0-jG3iMJ0s4UpL732iWLRQFrJA5-OeYnQTK2IRBR-Sk" width="120" style="border-radius: 50%; border: 3px solid #00f1d4;" alt="Naval Thakur">
 </p>
 
@@ -96,4 +104,78 @@ I'm always open to discussing cloud transformation, speaking at events, or helpi
 
 <p align="center">
   <em>&copy; 2025 Naval Thakur | Hand-crafted for Engineering Excellence</em>
-</p>
+</p>`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(mainReadme);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDownloadAll = () => {
+    const download = (filename: string, text: string) => {
+      const element = document.createElement('a');
+      element.setAttribute('href', 'data:text/markdown;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    };
+    download('README.md', mainReadme);
+  };
+
+  return (
+    <SimplePage 
+      title="GitHub Profile Export" 
+      subtitle="The layout below is designed to mirror your website's architecture for a unified professional brand."
+    >
+      <div className="space-y-8">
+        <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+          <div className="flex items-center gap-3 mb-4">
+            <Github className="text-primary dark:text-white" />
+            <h2 className="text-xl font-bold text-primary dark:text-white">Unified Branding Setup</h2>
+          </div>
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            By using HTML tables and custom badges, your GitHub profile will now feature the same "Expertise Pillars" grid as your homepage.
+          </p>
+          <ol className="list-decimal list-inside space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <li>Copy the code block below.</li>
+            <li>Go to your <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded">your-username/your-username</code> repo.</li>
+            <li>Paste it into <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded">README.md</code> and enjoy the unified look!</li>
+          </ol>
+        </div>
+
+        <div className="relative group">
+          <div className="absolute right-4 top-4 flex gap-2 z-10">
+            <button 
+              onClick={handleCopy}
+              className="p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2 text-xs font-bold text-primary dark:text-white"
+            >
+              {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
+              {copied ? 'Copied!' : 'Copy Markdown'}
+            </button>
+            <button 
+              onClick={handleDownloadAll}
+              className="p-2 bg-primary text-white rounded-lg shadow-sm hover:bg-primary/90 transition-colors flex items-center gap-2 text-xs font-bold"
+            >
+              <Download size={14} />
+              Download .md
+            </button>
+          </div>
+          
+          <div className="bg-slate-900 rounded-xl overflow-hidden shadow-2xl border border-slate-800">
+            <div className="px-4 py-2 bg-slate-800 border-b border-slate-700 flex items-center justify-between">
+              <span className="text-xs font-mono text-slate-400">README.md (Unified Design)</span>
+            </div>
+            <pre className="p-6 overflow-auto max-h-[500px] text-xs font-mono text-slate-300 leading-relaxed scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900">
+              {mainReadme}
+            </pre>
+          </div>
+        </div>
+      </div>
+    </SimplePage>
+  );
+};
+
+export default GithubProfile;
