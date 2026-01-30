@@ -1,7 +1,7 @@
 title: Naval Thakur
 description: DevOps, FinOps & GenAI Expert Coaching
 url: "https://thakurnaval.github.io"
-baseurl: "" # Set to your repo name if not a user site
+baseurl: "/thakurnaval"
 
 # Social Links
 social:
