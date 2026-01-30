@@ -1,0 +1,28 @@
+title: Naval Thakur
+description: DevOps, FinOps & GenAI Expert Coaching
+url: "https://thakurnaval.github.io"
+baseurl: "" # Set to your repo name if not a user site
+
+# Social Links
+social:
+  linkedin: navalthakur
+  twitter: nthakur_dot_com
+  github: thakurnaval
+  youtube: "@devopsism"
+
+# Build Settings
+markdown: kramdown
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - vite.config.ts
+  - App.tsx
+  - index.tsx
+  - types.ts
+  - constants.ts

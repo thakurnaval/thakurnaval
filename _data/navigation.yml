@@ -1,0 +1,27 @@
+- label: Home
+  link: /
+- label: DevOps
+  link: /devops/
+  children:
+    - { label: Frameworks, link: /devops/frameworks }
+    - { label: Assessment, link: /devops/assessment }
+    - { label: Maturity Model, link: /devops/maturity }
+    - { label: SRE, link: /devops/sre }
+- label: SecOps
+  link: /secops/
+  children:
+    - { label: Cognitive DevSecOps, link: /secops/cognitive-devsecops }
+    - { label: Threat Modelling, link: /secops/threat-modeling }
+- label: FinOps
+  link: /finops/
+  children:
+    - { label: Framework, link: /finops/framework }
+    - { label: Optimization, link: /finops/optimization }
+- label: GenAI
+  link: /genai/
+- label: Architecture
+  link: /architecture/
+- label: About
+  link: /about/
+- label: Contact
+  link: /contact/
