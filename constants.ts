@@ -1,7 +1,7 @@
 
 import { NavItem, TalkProps, ArticleProps, FinOpsChartData, GalleryImage } from './types';
 
-export const PROFILE_IMAGE_URL = "https://media.licdn.com/dms/image/v2/D4D03AQFU1owfBTxUYw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715523762536?e=1770854400&v=beta&t=0-jG3iMJ0s4UpL732iWLRQFrJA5-OeYnQTK2IRBR-Sk";
+export const PROFILE_IMAGE_URL = "assets/img/profile.jpg";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },

@@ -19,7 +19,7 @@ title: Home | Naval Thakur
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                <img src="https://media.licdn.com/dms/image/v2/D4D03AQFU1owfBTxUYw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715523762536?e=1770854400&v=beta&t=0-jG3iMJ0s4UpL732iWLRQFrJA5-OeYnQTK2IRBR-Sk" class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-secondary shadow-2xl object-cover">
+                <img src="assets/img/profile.jpg" class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-secondary shadow-2xl object-cover">
             </div>
         </div>
     </div>

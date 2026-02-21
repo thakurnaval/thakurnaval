@@ -7,7 +7,7 @@ const GithubProfile: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const mainReadme = `<p align="center">
-  <img src="https://media.licdn.com/dms/image/v2/D4D03AQFU1owfBTxUYw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715523762536?e=1770854400&v=beta&t=0-jG3iMJ0s4UpL732iWLRQFrJA5-OeYnQTK2IRBR-Sk" width="120" style="border-radius: 50%; border: 3px solid #00f1d4;" alt="Naval Thakur">
+  <img src="assets/img/profile.jpg" width="120" style="border-radius: 50%; border: 3px solid #00f1d4;" alt="Naval Thakur">
 </p>
 
 <h1 align="center">Naval Thakur</h1>
