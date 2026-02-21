@@ -46,7 +46,7 @@ const Gallery: React.FC = () => {
                 srcSet={getSrcSet(img)}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 alt={`${img.title} event in ${img.location} - Naval Thakur professional engagement`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
                 width="800"
                 height="600"

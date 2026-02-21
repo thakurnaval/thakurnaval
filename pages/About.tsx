@@ -332,7 +332,7 @@ const About: React.FC = () => {
                  <img 
                    src={PROFILE_IMAGE_URL}
                    alt="Naval Thakur - Technologist and DevOps Transformation Coach Profile Image" 
-                   className="w-full aspect-square object-cover" 
+                   className="w-full aspect-square object-cover object-top" 
                  />
                  <div className="p-6">
                    <div className="flex gap-4 justify-center">

@@ -66,7 +66,7 @@ const Articles: React.FC = () => {
                        `}
                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                        alt={article.title} 
-                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                       className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                        loading="lazy"
                        width="600"
                        height="400"

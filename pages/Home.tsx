@@ -48,7 +48,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="flex flex-col md:flex-row items-start justify-between gap-12">
             <div className="md:w-1/2 space-y-6">
               <div className="inline-block px-4 py-1.5 rounded-full border border-slate-500 bg-slate-800/50 backdrop-blur-sm text-sm font-medium text-highlight">
                 Technologist & Transformation Coach
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
                 <img
                   src={PROFILE_IMAGE_URL}
                   alt="Professional headshot of Naval Thakur, DevOps and FinOps Leader"
-                  className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full shadow-2xl border-2 border-highlight"
+                  className="w-64 h-64 md:w-80 md:h-80 object-cover object-top rounded-full shadow-2xl border-2 border-highlight"
                 />
               </div>
             </div>
@@ -213,7 +213,7 @@ const Home: React.FC = () => {
                     <img 
                       src={`https://images.unsplash.com/photo-${ARTICLE_IMAGES[idx % ARTICLE_IMAGES.length]}?q=80&w=600&auto=format&fit=crop`}
                       alt={`Article cover for: ${article.title}`} 
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity"
                       loading="lazy"
                     />
                     <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 text-xs font-bold text-primary dark:text-white rounded shadow-sm">

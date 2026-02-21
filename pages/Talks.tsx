@@ -123,7 +123,7 @@ Email: contact@nthakur.com
                  <img 
                    src={PROFILE_IMAGE_URL}
                    alt="Speaker Profile" 
-                   className="w-full h-full object-cover" 
+                   className="w-full h-full object-cover object-top" 
                    width="100"
                    height="100"
                  />
