@@ -1,7 +1,78 @@
 
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import Home from './pages/Home';
+import DevOps from './pages/DevOps';
+import SecOps from './pages/SecOps';
+import FinOps from './pages/FinOps';
+import GenAI from './pages/GenAI';
+import Architecture from './pages/Architecture';
+import Talks from './pages/Talks';
+import Articles from './pages/Articles';
+import Gallery from './pages/Gallery';
+import About from './pages/About';
+import Contact from './pages/Contact';
+
+// DevOps Subpages
+import DevOpsFrameworks from './pages/devops/DevOpsFrameworks';
+import DevOpsAssessment from './pages/devops/DevOpsAssessment';
+import DevOpsMaturity from './pages/devops/DevOpsMaturity';
+import DevOpsPractices from './pages/devops/DevOpsPractices';
+import DevOpsTools from './pages/devops/DevOpsTools';
+import SRE from './pages/devops/SRE';
+import PlatformEngineering from './pages/devops/PlatformEngineering';
+import ChaosEngineering from './pages/devops/ChaosEngineering';
+import DevOpsRoadmap from './pages/devops/DevOpsRoadmap';
+
+// SecOps Subpages
+import CognitiveDevSecOps from './pages/secops/CognitiveDevSecOps';
+import SecOpsPractices from './pages/secops/SecOpsPractices';
+import DevSecOpsPractices from './pages/secops/DevSecOpsPractices';
+import SecOpsPrinciples from './pages/secops/SecOpsPrinciples';
+import SecOpsAutomation from './pages/secops/SecOpsAutomation';
+import ThreatModelling from './pages/secops/ThreatModelling';
+import ContinuousSecurity from './pages/secops/ContinuousSecurity';
+import CloudSecurity from './pages/secops/CloudSecurity';
+import SastDast from './pages/secops/SastDast';
+import ContainerSecurity from './pages/secops/ContainerSecurity';
+
+// FinOps Subpages
+import FinOpsFramework from './pages/finops/FinOpsFramework';
+import CostVisibility from './pages/finops/CostVisibility';
+import OptimizationStrategies from './pages/finops/OptimizationStrategies';
+import UnitEconomics from './pages/finops/UnitEconomics';
+import Forecasting from './pages/finops/Forecasting';
+import FinOpsCulture from './pages/finops/FinOpsCulture';
+
+// GenAI Subpages
+import GenAIFundamentals from './pages/genai/GenAIFundamentals';
+import LLMOps from './pages/genai/LLMOps';
+import RAGArchitecture from './pages/genai/RAGArchitecture';
+import AIAgents from './pages/genai/AIAgents';
+import AIGovernance from './pages/genai/AIGovernance';
+import PromptEngineering from './pages/genai/PromptEngineering';
+
+// Architecture Subpages
+import DesignPatterns from './pages/architecture/DesignPatterns';
+import SolidPrinciples from './pages/architecture/SolidPrinciples';
+import SystemDesignProcess from './pages/architecture/SystemDesignProcess';
+import CloudArchitecture from './pages/architecture/CloudArchitecture';
+import DataArchitecture from './pages/architecture/DataArchitecture';
+import Microservices from './pages/architecture/Microservices';
+import ApiDesign from './pages/architecture/ApiDesign';
+import SystemSecurity from './pages/architecture/SystemSecurity';
+import TwelveFactor from './pages/architecture/TwelveFactor';
+import CodingStandards from './pages/architecture/CodingStandards';
+import TOGAF from './pages/architecture/TOGAF';
+import ITGovernance from './pages/architecture/ITGovernance';
+import SoftwareEngineering from './pages/architecture/SoftwareEngineering';
+
+// Explore Subpages
+import BookSummaries from './pages/explore/BookSummaries';
+import Certifications from './pages/explore/Certifications';
+import MentalModels from './pages/explore/MentalModels';
+import GithubProfile from './pages/explore/GithubProfile';
 
 // Loading Component
 const PageLoader = () => (
@@ -9,79 +80,6 @@ const PageLoader = () => (
     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary dark:border-secondary"></div>
   </div>
 );
-
-// Lazy Loaded Pages
-const Home = lazy(() => import('./pages/Home'));
-const DevOps = lazy(() => import('./pages/DevOps'));
-const SecOps = lazy(() => import('./pages/SecOps'));
-const FinOps = lazy(() => import('./pages/FinOps'));
-const GenAI = lazy(() => import('./pages/GenAI'));
-const Architecture = lazy(() => import('./pages/Architecture'));
-const Talks = lazy(() => import('./pages/Talks'));
-const Articles = lazy(() => import('./pages/Articles'));
-const Gallery = lazy(() => import('./pages/Gallery'));
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-
-// DevOps Subpages
-const DevOpsFrameworks = lazy(() => import('./pages/devops/DevOpsFrameworks'));
-const DevOpsAssessment = lazy(() => import('./pages/devops/DevOpsAssessment'));
-const DevOpsMaturity = lazy(() => import('./pages/devops/DevOpsMaturity'));
-const DevOpsPractices = lazy(() => import('./pages/devops/DevOpsPractices'));
-const DevOpsTools = lazy(() => import('./pages/devops/DevOpsTools'));
-const SRE = lazy(() => import('./pages/devops/SRE'));
-const PlatformEngineering = lazy(() => import('./pages/devops/PlatformEngineering'));
-const ChaosEngineering = lazy(() => import('./pages/devops/ChaosEngineering'));
-const DevOpsRoadmap = lazy(() => import('./pages/devops/DevOpsRoadmap'));
-
-// SecOps Subpages
-const CognitiveDevSecOps = lazy(() => import('./pages/secops/CognitiveDevSecOps'));
-const SecOpsPractices = lazy(() => import('./pages/secops/SecOpsPractices'));
-const DevSecOpsPractices = lazy(() => import('./pages/secops/DevSecOpsPractices'));
-const SecOpsPrinciples = lazy(() => import('./pages/secops/SecOpsPrinciples'));
-const SecOpsAutomation = lazy(() => import('./pages/secops/SecOpsAutomation'));
-const ThreatModelling = lazy(() => import('./pages/secops/ThreatModelling'));
-const ContinuousSecurity = lazy(() => import('./pages/secops/ContinuousSecurity'));
-const CloudSecurity = lazy(() => import('./pages/secops/CloudSecurity'));
-const SastDast = lazy(() => import('./pages/secops/SastDast'));
-const ContainerSecurity = lazy(() => import('./pages/secops/ContainerSecurity'));
-
-// FinOps Subpages
-const FinOpsFramework = lazy(() => import('./pages/finops/FinOpsFramework'));
-const CostVisibility = lazy(() => import('./pages/finops/CostVisibility'));
-const OptimizationStrategies = lazy(() => import('./pages/finops/OptimizationStrategies'));
-const UnitEconomics = lazy(() => import('./pages/finops/UnitEconomics'));
-const Forecasting = lazy(() => import('./pages/finops/Forecasting'));
-const FinOpsCulture = lazy(() => import('./pages/finops/FinOpsCulture'));
-
-// GenAI Subpages
-const GenAIFundamentals = lazy(() => import('./pages/genai/GenAIFundamentals'));
-const LLMOps = lazy(() => import('./pages/genai/LLMOps'));
-const RAGArchitecture = lazy(() => import('./pages/genai/RAGArchitecture'));
-const AIAgents = lazy(() => import('./pages/genai/AIAgents'));
-const AIGovernance = lazy(() => import('./pages/genai/AIGovernance'));
-const PromptEngineering = lazy(() => import('./pages/genai/PromptEngineering'));
-
-// Architecture Subpages
-const DesignPatterns = lazy(() => import('./pages/architecture/DesignPatterns'));
-const SolidPrinciples = lazy(() => import('./pages/architecture/SolidPrinciples'));
-const SystemDesignProcess = lazy(() => import('./pages/architecture/SystemDesignProcess'));
-const CloudArchitecture = lazy(() => import('./pages/architecture/CloudArchitecture'));
-const DataArchitecture = lazy(() => import('./pages/architecture/DataArchitecture'));
-const Microservices = lazy(() => import('./pages/architecture/Microservices'));
-const ApiDesign = lazy(() => import('./pages/architecture/ApiDesign'));
-const SystemSecurity = lazy(() => import('./pages/architecture/SystemSecurity'));
-const TwelveFactor = lazy(() => import('./pages/architecture/TwelveFactor'));
-const CodingStandards = lazy(() => import('./pages/architecture/CodingStandards'));
-const TOGAF = lazy(() => import('./pages/architecture/TOGAF'));
-const ITGovernance = lazy(() => import('./pages/architecture/ITGovernance'));
-const SoftwareEngineering = lazy(() => import('./pages/architecture/SoftwareEngineering'));
-
-// Explore Subpages
-const BookSummaries = lazy(() => import('./pages/explore/BookSummaries'));
-const Certifications = lazy(() => import('./pages/explore/Certifications'));
-const MentalModels = lazy(() => import('./pages/explore/MentalModels'));
-const GithubProfile = lazy(() => import('./pages/explore/GithubProfile'));
 
 // Scroll handling is managed by Layout.tsx using useLocation hook
 
