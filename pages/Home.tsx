@@ -40,7 +40,8 @@ const Home: React.FC = () => {
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=60&auto=format&w=1920&fit=crop"
             alt="Abstract digital network representing cloud infrastructure and global DevOps connectivity" 
             className="w-full h-full object-cover opacity-70"
-            fetchPriority="high"
+            // @ts-ignore
+            fetchpriority="high"
             loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/30"></div>
