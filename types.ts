@@ -20,6 +20,7 @@ export interface TalkProps {
   tags: string[];
   audience?: string;
   duration?: string;
+  link?: string;
 }
 
 export interface ArticleProps {
@@ -40,6 +41,15 @@ export interface GalleryImage {
 export interface ValueProp {
   title: string;
   icon: LucideIcon;
+}
+
+export interface ProjectProps {
+  title: string;
+  description: string;
+  technologies: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  image?: string;
 }
 
 export interface FinOpsChartData {

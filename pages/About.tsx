@@ -264,15 +264,7 @@ const About: React.FC = () => {
     {
       category: "Business & Risk Management",
       items: [
-        "COBIT® 2019 Foundation Certificate (ISACA, Dec 2019)",
-        "Bloomberg Market Concepts (Bloomberg, Nov 2017)",
-        "Six Sigma Green Belt (Genpact, Jul 2016)"
-      ]
-    },
-    {
-      category: "Legacy Professional Certifications",
-      items: [
-        "MCPS: Microsoft Certified Professional (Microsoft, Dec 2014)"
+        "COBIT® 2019 Foundation Certificate (ISACA, Dec 2019)"
       ]
     }
   ];

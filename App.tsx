@@ -1,18 +1,21 @@
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import { initGA } from './src/services/analytics';
 import Home from './pages/Home';
 import DevOps from './pages/DevOps';
 import SecOps from './pages/SecOps';
 import FinOps from './pages/FinOps';
 import GenAI from './pages/GenAI';
 import Architecture from './pages/Architecture';
+import AIinSDLC from './pages/AIinSDLC';
 import Talks from './pages/Talks';
 import Articles from './pages/Articles';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Projects from './pages/Projects';
 
 // DevOps Subpages
 import DevOpsFrameworks from './pages/devops/DevOpsFrameworks';
@@ -53,6 +56,14 @@ import AIAgents from './pages/genai/AIAgents';
 import AIGovernance from './pages/genai/AIGovernance';
 import PromptEngineering from './pages/genai/PromptEngineering';
 
+// AI in SDLC Subpages
+import Coding from './pages/ai-sdlc/Coding';
+import Testing from './pages/ai-sdlc/Testing';
+import Requirements from './pages/ai-sdlc/Requirements';
+import CodeReview from './pages/ai-sdlc/CodeReview';
+import Deployment from './pages/ai-sdlc/Deployment';
+import Monitoring from './pages/ai-sdlc/Monitoring';
+
 // Architecture Subpages
 import DesignPatterns from './pages/architecture/DesignPatterns';
 import SolidPrinciples from './pages/architecture/SolidPrinciples';
@@ -72,7 +83,14 @@ import SoftwareEngineering from './pages/architecture/SoftwareEngineering';
 import BookSummaries from './pages/explore/BookSummaries';
 import Certifications from './pages/explore/Certifications';
 import MentalModels from './pages/explore/MentalModels';
-import GithubProfile from './pages/explore/GithubProfile';
+
+// Article Pages
+import CloudComputingFundamentals from './pages/articles/CloudComputingFundamentals';
+import ScalingDevSecOpsArticle from './pages/talks/ScalingDevSecOps';
+import FinancialImpactCloudNativeArticle from './pages/talks/FinancialImpactCloudNative';
+import GenAINewTeamMemberArticle from './pages/talks/GenAINewTeamMember';
+import CulturalTransformationDevOpsArticle from './pages/talks/CulturalTransformationDevOps';
+import ZeroTrustCloudNativeArticle from './pages/talks/ZeroTrustCloudNative';
 
 // Loading Component
 const PageLoader = () => (
@@ -84,6 +102,10 @@ const PageLoader = () => (
 // Scroll handling is managed by Layout.tsx using useLocation hook
 
 const App: React.FC = () => {
+  useEffect(() => {
+    initGA();
+  }, []);
+
   return (
     <Router>
       <Layout>
@@ -97,6 +119,7 @@ const App: React.FC = () => {
             <Route path="/secops" element={<SecOps />} />
             <Route path="/finops" element={<FinOps />} />
             <Route path="/genai" element={<GenAI />} />
+            <Route path="/ai-sdlc" element={<AIinSDLC />} />
             
             {/* DevOps Subpages */}
             <Route path="/devops/frameworks" element={<DevOpsFrameworks />} />
@@ -137,6 +160,14 @@ const App: React.FC = () => {
             <Route path="/genai/governance" element={<AIGovernance />} />
             <Route path="/genai/prompt-engineering" element={<PromptEngineering />} />
 
+            {/* AI in SDLC Subpages */}
+            <Route path="/ai-sdlc/coding" element={<Coding />} />
+            <Route path="/ai-sdlc/testing" element={<Testing />} />
+            <Route path="/ai-sdlc/requirements" element={<Requirements />} />
+            <Route path="/ai-sdlc/code-review" element={<CodeReview />} />
+            <Route path="/ai-sdlc/deployment" element={<Deployment />} />
+            <Route path="/ai-sdlc/monitoring" element={<Monitoring />} />
+
             {/* Architecture Subpages */}
             <Route path="/architecture/design-patterns" element={<DesignPatterns />} />
             <Route path="/architecture/solid-principles" element={<SolidPrinciples />} />
@@ -159,10 +190,18 @@ const App: React.FC = () => {
             <Route path="/explore/books" element={<BookSummaries />} />
             <Route path="/explore/certifications" element={<Certifications />} />
             <Route path="/explore/mental-models" element={<MentalModels />} />
-            <Route path="/explore/github-profile" element={<GithubProfile />} />
+
+            {/* Article Pages */}
+            <Route path="/articles/cloud-computing-fundamentals" element={<CloudComputingFundamentals />} />
+            <Route path="/talks/scaling-devsecops-enterprise" element={<ScalingDevSecOpsArticle />} />
+            <Route path="/talks/financial-impact-cloud-native" element={<FinancialImpactCloudNativeArticle />} />
+            <Route path="/talks/genai-new-team-member" element={<GenAINewTeamMemberArticle />} />
+            <Route path="/talks/cultural-transformation-devops" element={<CulturalTransformationDevOpsArticle />} />
+            <Route path="/talks/zero-trust-cloud-native" element={<ZeroTrustCloudNativeArticle />} />
 
             {/* Core Pages */}
             <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>

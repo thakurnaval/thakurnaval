@@ -82,38 +82,33 @@ Email: contact@nthakur.com
                <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center">
                  <Mic2 className="mr-3 text-secondary" /> Speaking Topics
                </h2>
-               <div className="space-y-6">
-                 {RECENT_TALKS.concat([
-                   {
-                     title: "Cultural Transformation in DevOps",
-                     description: "Moving beyond tools to address the human factor in technical change.",
-                     tags: ["Culture", "Management"],
-                     audience: "Leaders, HR",
-                     duration: "45 min"
-                   },
-                   {
-                     title: "Zero Trust Security for Cloud Native",
-                     description: "Implementing strict identity and network policies in K8s environments.",
-                     tags: ["SecOps", "Kubernetes"],
-                     audience: "Security Engineers",
-                     duration: "50 min"
-                   }
-                 ]).map((talk, idx) => (
-                   <div key={idx} className="bg-white dark:bg-slate-800 p-6 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
-                     <div className="flex flex-wrap gap-2 mb-3">
-                        {talk.tags.map(tag => (
-                          <span key={tag} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded uppercase tracking-wider">{tag}</span>
-                        ))}
-                     </div>
-                     <h3 className="text-xl font-bold text-primary dark:text-white mb-2">{talk.title}</h3>
-                     <p className="text-slate-600 dark:text-slate-300 mb-4">{talk.description}</p>
-                     <div className="flex flex-wrap text-sm text-slate-500 dark:text-slate-400 gap-4">
-                       <span><strong>Audience:</strong> {talk.audience}</span>
-                       <span><strong>Duration:</strong> {talk.duration}</span>
-                     </div>
-                   </div>
-                 ))}
-               </div>
+                <div className="space-y-6">
+                  {RECENT_TALKS.map((talk, idx) => (
+                    <div key={idx} className="bg-white dark:bg-slate-800 p-6 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                         {talk.tags.map(tag => (
+                           <span key={tag} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded uppercase tracking-wider">{tag}</span>
+                         ))}
+                      </div>
+                      <h3 className="text-xl font-bold text-primary dark:text-white mb-2">{talk.title}</h3>
+                      <p className="text-slate-600 dark:text-slate-300 mb-4">{talk.description}</p>
+                      <div className="flex flex-wrap items-center justify-between gap-4">
+                        <div className="flex flex-wrap text-sm text-slate-500 dark:text-slate-400 gap-4">
+                          <span><strong>Audience:</strong> {talk.audience}</span>
+                          <span><strong>Duration:</strong> {talk.duration}</span>
+                        </div>
+                        {talk.link && (
+                          <Link 
+                            to={talk.link} 
+                            className="text-secondary font-bold text-sm hover:underline flex items-center"
+                          >
+                            Read Article &rarr;
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
             </div>
           </div>
 

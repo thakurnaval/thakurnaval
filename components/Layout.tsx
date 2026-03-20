@@ -3,6 +3,7 @@ import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Linkedin, Github, Moon, Sun, ChevronDown, Twitter, Youtube, Search, ArrowRight, FileText, Hash } from 'lucide-react';
 import { NAV_ITEMS, FEATURED_ARTICLES, PROFILE_IMAGE_URL } from '../constants';
 import { NavItem } from '../types';
+import { trackPageView, trackEvent } from '../src/services/analytics';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,6 +33,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       root.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
+    trackEvent('Theme', 'Toggle', theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -43,6 +45,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     setIsMenuOpen(false);
     setIsSearchOpen(false);
     window.scrollTo(0, 0);
+    trackPageView(location.pathname);
   }, [location]);
 
   // Focus input when search opens
@@ -266,7 +269,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               
               <div className="flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-700">
                 <button
-                  onClick={() => setIsSearchOpen(true)}
+                  onClick={() => {
+                    setIsSearchOpen(true);
+                    trackEvent('Search', 'Open');
+                  }}
                   className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-primary dark:text-slate-300 transition-colors"
                   aria-label="Open global site search"
                 >
@@ -385,10 +391,24 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 Helping organizations build resilient, secure, and cost-effective cloud ecosystems through DevOps, SecOps, FinOps, and GenAI coaching.
               </p>
               <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/in/navalthakur" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" aria-label="Visit Naval's LinkedIn Profile">
+                <a 
+                  href="https://www.linkedin.com/in/navalthakur" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" 
+                  aria-label="Visit Naval's LinkedIn Profile"
+                  onClick={() => trackEvent('Social', 'Click', 'LinkedIn')}
+                >
                   <Linkedin size={20} />
                 </a>
-                <a href="https://x.com/nthakur_dot_com" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" aria-label="Follow Naval on X (Twitter)">
+                <a 
+                  href="https://x.com/nthakur_dot_com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" 
+                  aria-label="Follow Naval on X (Twitter)"
+                  onClick={() => trackEvent('Social', 'Click', 'Twitter')}
+                >
                   <Twitter size={20} />
                 </a>
                 <a href="https://github.com/thakurnaval" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" aria-label="View Naval's GitHub Repositories">

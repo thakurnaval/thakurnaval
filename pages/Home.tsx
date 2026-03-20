@@ -4,7 +4,8 @@ import { ArrowRight, ShieldCheck, TrendingUp, BrainCircuit, CheckCircle2, Termin
 import Section from '../components/Section';
 import NewsletterSignup from '../components/NewsletterSignup';
 import SEO from '../components/SEO';
-import { FEATURED_ARTICLES, RECENT_TALKS, PROFILE_IMAGE_URL } from '../constants';
+import { FEATURED_ARTICLES, RECENT_TALKS, PROFILE_IMAGE_URL, PROJECTS } from '../constants';
+import ProjectCard from '../components/ProjectCard';
 
 const Home: React.FC = () => {
   const ARTICLE_IMAGES = [
@@ -191,11 +192,39 @@ const Home: React.FC = () => {
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{talk.title}</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-grow">{talk.description}</p>
-              <div className="text-xs text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4 mt-auto">
-                Audience: {talk.audience} • {talk.duration}
+              <div className="text-xs text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4 mt-auto flex justify-between items-center">
+                <span>Audience: {talk.audience} • {talk.duration}</span>
+                {talk.link && (
+                  <Link to={talk.link} className="text-primary dark:text-secondary font-bold hover:underline flex items-center ml-2">
+                    Read More <ArrowRight size={12} className="ml-1" />
+                  </Link>
+                )}
               </div>
             </div>
           ))}
+        </div>
+      </Section>
+
+      {/* Featured Projects Teaser */}
+      <Section bg="gray">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
+            <p className="text-slate-600 dark:text-slate-400">Open-source contributions and educational technical resources.</p>
+          </div>
+          <Link to="/projects" className="hidden md:flex items-center font-medium text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary-hover">
+            View all projects <ArrowRight size={16} className="ml-1" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {PROJECTS.slice(0, 3).map((project, idx) => (
+            <ProjectCard key={idx} {...project} />
+          ))}
+        </div>
+        <div className="mt-10 text-center md:hidden">
+          <Link to="/projects" className="inline-flex items-center font-medium text-primary dark:text-secondary hover:underline">
+            View all projects <ArrowRight size={16} className="ml-1" />
+          </Link>
         </div>
       </Section>
 
