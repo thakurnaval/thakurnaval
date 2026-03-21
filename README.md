@@ -79,10 +79,12 @@ I help enterprises build resilient, secure, and cost-effective cloud ecosystems.
 ---
 
 ### 🏆 Credentials
-- **Google Cloud:** GenAI Leader, Cloud Digital Leader
-- **Microsoft:** Azure DevOps Solutions (AZ-400), AI Fundamentals
+- **Google Cloud:** GenAI Leader, Cloud Digital Leader, Assoicate Cloud engineer, 
+- **Microsoft:** Azure DevOps Solutions (AZ-400), Foundation - (AI, Data, Cloud, Security) 
 - **FinOps:** Certified Practitioner (Linux Foundation)
 - **Agile:** PSM I, PSPO I, SAFe 5 Agilist
+- **FinOps:** FinOps Certified Practitioner
+- **IT Governance-** COBIT Foundation  
 
 ---
 
