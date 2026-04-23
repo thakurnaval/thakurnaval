@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SimplePage from '../../components/SimplePage';
 import { ShieldCheck, AlertTriangle, GitMerge, CheckCircle2, Clock, Users, Layers, ArrowRight } from 'lucide-react';
 
@@ -131,9 +132,9 @@ const SecOpsBridgingTheGap: React.FC = () => {
               <p className="text-sm leading-relaxed">
                 I run SecOps gap analyses for enterprise engineering organizations — mapping current pipeline security coverage, identifying the highest-risk gaps, and designing a phased remediation roadmap. Typically a 2-day engagement with the engineering and security leads.
               </p>
-              <a href="/#/contact?topic=Workshop / Training" className="inline-flex items-center mt-4 text-sm font-bold text-secondary hover:underline">
+              <Link to="/contact?topic=Workshop / Training" className="inline-flex items-center mt-4 text-sm font-bold text-secondary hover:underline">
                 Request an Assessment <ArrowRight size={14} className="ml-1" />
-              </a>
+              </Link>
             </div>
           </div>
         </section>

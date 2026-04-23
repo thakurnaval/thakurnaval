@@ -109,6 +109,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Mental Models', path: '/explore/mental-models' },
     ]
   },
+  { label: 'Work With Me', path: '/work-with-me' },
   { label: 'Contact', path: '/contact' },
 ];
 

@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
           <p className="text-xl text-slate-100 max-w-2xl">
-             Let's discuss how we can work together.
+            Whether it's a keynote, a workshop, an advisory engagement, or a mentoring conversation — start here.
           </p>
         </div>
       </div>
@@ -88,9 +88,30 @@ const Contact: React.FC = () => {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
+            {/* Quick engagement links */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+              {[
+                { label: 'Speaking', topic: 'Speaking Engagement', color: 'blue' },
+                { label: 'Workshop', topic: 'Workshop / Training', color: 'teal' },
+                { label: 'Advisory', topic: 'Consulting', color: 'purple' },
+              ].map(({ label, topic, color }) => (
+                <button
+                  key={label}
+                  onClick={() => setFormData(prev => ({ ...prev, topic }))}
+                  className={`p-3 rounded-lg border text-sm font-semibold text-center transition-colors
+                    ${formData.topic === topic
+                      ? 'bg-secondary/10 border-secondary text-primary dark:text-secondary'
+                      : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-secondary/50'
+                    }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
             <h2 className="text-2xl font-bold text-primary dark:text-white mb-6">Contact Information</h2>
             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-              Interested in booking Naval for a speaking engagement, a workshop, or a consulting engagement? Fill out the form or reach out directly via social channels.
+              Select an engagement type above or describe your need in the form. Naval responds to all enquiries within 2 business days.
             </p>
 
             <div className="space-y-6">
@@ -100,7 +121,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                    <h3 className="font-bold text-primary dark:text-white">Email</h3>
-                   <p className="text-slate-600 dark:text-slate-400">contact@nthakur.com</p>
+                   <a href="mailto:contact@nthakur.com" className="text-slate-600 dark:text-slate-400 hover:text-secondary transition-colors">contact@nthakur.com</a>
                 </div>
               </div>
               <div className="flex items-start">
@@ -108,15 +129,15 @@ const Contact: React.FC = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                   <h3 className="font-bold text-primary dark:text-white">Location</h3>
-                   <p className="text-slate-600 dark:text-slate-400">Available for Global Remote Work & Travel</p>
+                   <h3 className="font-bold text-primary dark:text-white">Availability</h3>
+                   <p className="text-slate-600 dark:text-slate-400">Remote globally · On-site India · Travel on request</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 p-6 bg-slate-50 dark:bg-slate-800 border-l-4 border-secondary rounded-r-lg text-sm text-slate-600 dark:text-slate-400">
-              <h3 className="font-bold text-primary dark:text-white mb-2">Private & Secure</h3>
-              <p>Your data is sent directly to Naval's private database. We never share your information with third parties.</p>
+            <div className="mt-8 p-5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-400">
+              <p className="font-semibold text-primary dark:text-white mb-1">Not sure which engagement fits?</p>
+              <p>Browse the <a href="/work-with-me" className="text-secondary hover:underline font-medium">Work With Me</a> page for a full breakdown of speaking, workshop, and advisory offerings before reaching out.</p>
             </div>
           </div>
 

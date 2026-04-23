@@ -1,10 +1,11 @@
 
 import React, { Suspense, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import { initGA } from './src/services/analytics';
 import Home from './pages/Home';
 import CognitiveOps from './pages/CognitiveOps';
+import WorkWithMe from './pages/WorkWithMe';
 import DevOps from './pages/DevOps';
 import SecOps from './pages/SecOps';
 import FinOps from './pages/FinOps';
@@ -117,6 +118,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cognitiveops" element={<CognitiveOps />} />
+            <Route path="/work-with-me" element={<WorkWithMe />} />
 
             {/* Main Pillars */}
             <Route path="/architecture" element={<Architecture />} />

@@ -44,9 +44,9 @@ const NewsletterSignup: React.FC = () => {
         <div className="inline-flex items-center justify-center p-3 bg-white/10 rounded-full mb-6">
           <Mail className="w-6 h-6 text-secondary" />
         </div>
-        <h2 className="text-3xl font-bold text-white mb-4">Join the DevOpsism Newsletter</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">The CognitiveOps Brief</h2>
         <p className="text-slate-100 mb-8 text-lg">
-          Get weekly insights on System Architecture, Cloud Cost Optimization, and Engineering Leadership.
+          Every two weeks: one real-world CloudOps lesson, one tool worth knowing, one GenAI pattern to try. Under 5 minutes.
         </p>
 
         {status === 'success' ? (

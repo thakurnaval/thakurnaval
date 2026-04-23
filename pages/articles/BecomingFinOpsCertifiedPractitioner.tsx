@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SimplePage from '../../components/SimplePage';
 import { DollarSign, BookOpen, CheckCircle2, Calendar, Target, Award, ArrowRight, TrendingDown, BarChart3, Users } from 'lucide-react';
 
@@ -129,9 +130,9 @@ const BecomingFinOpsCertifiedPractitioner: React.FC = () => {
               <p className="text-sm leading-relaxed">
                 I run occasional FinOps certification study groups for small cohorts of practitioners, architects, and finance leaders. We cover the framework together, work through real-world scenarios, and do exam prep in the final week. If you're preparing for your FOCP, reach out.
               </p>
-              <a href="/#/contact?topic=Mentorship" className="inline-flex items-center mt-4 text-sm font-bold text-secondary hover:underline">
+              <Link to="/contact?topic=Mentorship" className="inline-flex items-center mt-4 text-sm font-bold text-secondary hover:underline">
                 Join the Study Group <ArrowRight size={14} className="ml-1" />
-              </a>
+              </Link>
             </div>
           </div>
         </section>

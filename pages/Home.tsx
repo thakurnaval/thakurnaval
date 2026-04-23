@@ -88,6 +88,27 @@ const Home: React.FC = () => {
         </div>
       </div>
 
+      {/* Impact Metrics Bar */}
+      <div className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+            {[
+              { value: '$600K+', label: 'Cost Savings Delivered', sub: 'Single migration, Genpact' },
+              { value: '18+', label: 'Years of Experience', sub: 'Enterprise cloud & DevOps' },
+              { value: '35+', label: 'Projects Delivered', sub: 'Across 3 cloud platforms' },
+              { value: '30%', label: 'Avg. Cloud Cost Reduction', sub: 'Via FinOps practices' },
+              { value: '5', label: 'Expertise Pillars', sub: 'DevOps · SecOps · FinOps · GenAI · Architecture' },
+            ].map(({ value, label, sub }) => (
+              <div key={label} className="flex flex-col items-center">
+                <span className="text-3xl md:text-4xl font-bold text-primary dark:text-white">{value}</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">{label}</span>
+                <span className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{sub}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Expertise Pillars */}
       <Section bg="gray">
         <div className="text-center max-w-3xl mx-auto mb-16">

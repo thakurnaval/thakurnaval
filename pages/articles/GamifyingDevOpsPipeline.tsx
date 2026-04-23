@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SimplePage from '../../components/SimplePage';
 import { Gamepad2, Trophy, Zap, TrendingUp, Users, BarChart3, Star, GitMerge } from 'lucide-react';
 
@@ -129,7 +130,7 @@ const GamifyingDevOpsPipeline: React.FC = () => {
               <p className="text-sm leading-relaxed">
                 I run hands-on DevOps gamification workshops for engineering teams and leadership groups. We design the metric framework, set up the tooling, and run the first sprint together. If this resonates, let's talk.
               </p>
-              <a href="/#/contact?topic=Workshop / Training" className="inline-block mt-4 text-sm font-bold text-secondary hover:underline">Book a Workshop &rarr;</a>
+              <Link to="/contact?topic=Workshop / Training" className="inline-block mt-4 text-sm font-bold text-secondary hover:underline">Book a Workshop &rarr;</Link>
             </div>
           </div>
         </section>
