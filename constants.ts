@@ -1,7 +1,7 @@
 
 import { NavItem, TalkProps, ArticleProps, FinOpsChartData, GalleryImage, ProjectProps, SpeakingAppearance } from './types';
 
-export const PROFILE_IMAGE_URL = "assets/img/profile.jpg";
+export const PROFILE_IMAGE_URL = "/assets/img/profile.jpg";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
