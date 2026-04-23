@@ -1,7 +1,23 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(gcloud --version)",
+      "Bash(gcloud config *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(gh --version)",
+      "Bash(gcloud projects *)",
+      "Bash(gcloud services *)",
+      "Bash(gcloud artifacts *)",
+      "Bash(gcloud iam *)",
+      "Bash(gh secret *)",
+      "Bash(gh run *)",
+      "Bash(gh workflow *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(gcloud run *)"
     ]
   }
 }
