@@ -432,12 +432,14 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </div>
 
             <div>
-              <h4 className="text-white font-semibold mb-4">Resources</h4>
+              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm text-slate-200">
-                <li><Link to="/talks" className="hover:text-secondary transition-colors">Talks & Webinars</Link></li>
+                <li><Link to="/cognitiveops" className="hover:text-secondary transition-colors">The CognitiveOps Model</Link></li>
                 <li><Link to="/articles" className="hover:text-secondary transition-colors">Articles & Blog</Link></li>
-                <li><Link to="/gallery" className="hover:text-secondary transition-colors">Photo Gallery</Link></li>
-                <li><Link to="/contact" className="hover:text-secondary transition-colors">Book a Workshop</Link></li>
+                <li><Link to="/talks" className="hover:text-secondary transition-colors">Speaking</Link></li>
+                <li><Link to="/case-studies" className="hover:text-secondary transition-colors">Case Studies</Link></li>
+                <li><Link to="/work-with-me" className="hover:text-secondary transition-colors">Work With Me</Link></li>
+                <li><Link to="/contact" className="hover:text-secondary transition-colors">Contact</Link></li>
               </ul>
             </div>
           </div>

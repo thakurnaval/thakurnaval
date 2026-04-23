@@ -7,97 +7,25 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'The Model', path: '/cognitiveops' },
   {
-    label: 'DevOps',
-    path: '/devops',
+    label: 'Expertise',
     children: [
-      { label: 'DevOps Frameworks', path: '/devops/frameworks' },
-      { label: 'Assessment', path: '/devops/assessment' },
-      { label: 'Maturity Model', path: '/devops/maturity' },
-      { label: 'Practices', path: '/devops/practices' },
-      { label: 'Tool-stack', path: '/devops/tools' },
-      { label: 'SRE', path: '/devops/sre' },
-      { label: 'Platform Engineering', path: '/devops/platform-engineering' },
-      { label: 'Chaos Engineering', path: '/devops/chaos-engineering' },
-      { label: 'Engineer Roadmap', path: '/devops/roadmap' },
+      { label: 'DevOps', path: '/devops' },
+      { label: 'SecOps', path: '/secops' },
+      { label: 'FinOps', path: '/finops' },
+      { label: 'GenAI', path: '/genai' },
+      { label: 'AI in SDLC', path: '/ai-sdlc' },
+      { label: 'Architecture', path: '/architecture' },
     ]
   },
-  { 
-    label: 'SecOps', 
-    path: '/secops',
-    children: [
-      { label: 'Cognitive DevSecOps', path: '/secops/cognitive-devsecops' },
-      { label: 'SecOps Practices', path: '/secops/practices' },
-      { label: 'DevSecOps Practices', path: '/secops/devsecops-practices' },
-      { label: 'Principles', path: '/secops/principles' },
-      { label: 'Automation & Tooling', path: '/secops/automation' },
-      { label: 'Threat Modelling', path: '/secops/threat-modeling' },
-      { label: 'Continuous Security', path: '/secops/continuous-security' },
-      { label: 'Cloud Security', path: '/secops/cloud-security' },
-      { label: 'SAST & DAST Tooling', path: '/secops/sast-dast' },
-      { label: 'Container Security', path: '/secops/container-security' },
-    ]
-  },
-  { 
-    label: 'FinOps', 
-    path: '/finops',
-    children: [
-      { label: 'FinOps Framework', path: '/finops/framework' },
-      { label: 'Cost Visibility & Allocation', path: '/finops/cost-visibility' },
-      { label: 'Optimization Strategies', path: '/finops/optimization' },
-      { label: 'Unit Economics', path: '/finops/unit-economics' },
-      { label: 'Forecasting & Budgeting', path: '/finops/forecasting' },
-      { label: 'FinOps Culture', path: '/finops/culture' },
-    ]
-  },
-  { 
-    label: 'GenAI', 
-    path: '/genai',
-    children: [
-      { label: 'GenAI Fundamentals', path: '/genai/fundamentals' },
-      { label: 'LLMOps', path: '/genai/llmops' },
-      { label: 'RAG Architecture', path: '/genai/rag' },
-      { label: 'AI Agents', path: '/genai/agents' },
-      { label: 'Governance & Ethics', path: '/genai/governance' },
-      { label: 'Prompt Engineering', path: '/genai/prompt-engineering' },
-    ]
-  },
-  { 
-    label: 'AI in SDLC', 
-    path: '/ai-sdlc',
-    children: [
-      { label: 'AI-Powered Coding', path: '/ai-sdlc/coding' },
-      { label: 'AI in Testing', path: '/ai-sdlc/testing' },
-      { label: 'AI in Requirements', path: '/ai-sdlc/requirements' },
-      { label: 'AI in Code Review', path: '/ai-sdlc/code-review' },
-      { label: 'AI in Deployment', path: '/ai-sdlc/deployment' },
-      { label: 'AI in Monitoring', path: '/ai-sdlc/monitoring' },
-    ]
-  },
-  { 
-    label: 'Architecture', 
-    path: '/architecture',
-    children: [
-      { label: 'Design Patterns', path: '/architecture/design-patterns' },
-      { label: 'SOLID Principles', path: '/architecture/solid-principles' },
-      { label: 'System Design Process', path: '/architecture/system-design-process' },
-      { label: 'Cloud Architecture', path: '/architecture/cloud-architecture' },
-      { label: 'Data Architecture', path: '/architecture/data-architecture' },
-      { label: 'Microservices', path: '/architecture/microservices' },
-      { label: 'API Design', path: '/architecture/api-design' },
-      { label: 'Security in Design', path: '/architecture/system-security' },
-      { label: 'Twelve-Factor App', path: '/architecture/twelve-factor' },
-      { label: 'Coding Standards', path: '/architecture/coding-standards' },
-      { label: 'TOGAF', path: '/architecture/togaf' },
-      { label: 'IT Governance', path: '/architecture/it-governance' },
-      { label: 'Software Engineering', path: '/architecture/software-engineering' },
-    ]
-  },
-  { label: 'Insights', path: '/articles',
+  {
+    label: 'Insights',
+    path: '/articles',
     children: [
       { label: 'Articles & Blog', path: '/articles' },
       { label: 'Talks & Webinars', path: '/talks' },
     ]
   },
+  { label: 'Speaking', path: '/talks' },
   {
     label: 'About',
     children: [
@@ -111,7 +39,6 @@ export const NAV_ITEMS: NavItem[] = [
     ]
   },
   { label: 'Work With Me', path: '/work-with-me' },
-  { label: 'Contact', path: '/contact' },
 ];
 
 export const RECENT_TALKS: TalkProps[] = [
