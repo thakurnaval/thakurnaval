@@ -18,6 +18,7 @@ import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
+import CaseStudies from './pages/CaseStudies';
 
 // DevOps Subpages
 import DevOpsFrameworks from './pages/devops/DevOpsFrameworks';
@@ -212,6 +213,7 @@ const App: React.FC = () => {
             {/* Core Pages */}
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>

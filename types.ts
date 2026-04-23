@@ -57,3 +57,12 @@ export interface FinOpsChartData {
   cost: number;
   savings: number;
 }
+
+export interface SpeakingAppearance {
+  event: string;
+  topic: string;
+  year: string;
+  location: string;
+  type: 'Conference' | 'Webinar' | 'Workshop' | 'Panel' | 'Internal';
+  recordingUrl?: string;
+}

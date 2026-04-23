@@ -1,5 +1,5 @@
 
-import { NavItem, TalkProps, ArticleProps, FinOpsChartData, GalleryImage, ProjectProps } from './types';
+import { NavItem, TalkProps, ArticleProps, FinOpsChartData, GalleryImage, ProjectProps, SpeakingAppearance } from './types';
 
 export const PROFILE_IMAGE_URL = "assets/img/profile.jpg";
 
@@ -102,6 +102,7 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'About',
     children: [
       { label: 'About Naval', path: '/about' },
+      { label: 'Case Studies', path: '/case-studies' },
       { label: 'Projects', path: '/projects' },
       { label: 'Photo Gallery', path: '/gallery' },
       { label: 'Book Summaries', path: '/explore/books' },
@@ -181,6 +182,48 @@ export const FEATURED_ARTICLES: ArticleProps[] = [
     tag: "FinOps",
     link: "/articles/finops-certified-practitioner"
   }
+];
+
+// Add external conference, meetup, and webinar appearances here.
+// Each entry needs: event, topic, year, location, type, and optional recordingUrl.
+export const SPEAKING_APPEARANCES: SpeakingAppearance[] = [
+  {
+    event: 'SLB Cloud Computing SIG',
+    topic: 'Cloud Cost Optimisation & FinOps Practices',
+    year: '2022–2023',
+    location: 'Pune, India (Internal Webinar Series)',
+    type: 'Webinar',
+  },
+  {
+    event: 'SLB Cloud Computing SIG',
+    topic: 'GenAI Adoption in Enterprise Engineering',
+    year: '2022–2023',
+    location: 'Pune, India (Internal Webinar Series)',
+    type: 'Webinar',
+  },
+  {
+    event: 'SLB Open Source SIG',
+    topic: 'Open Source Standards & Community-Led Innovation',
+    year: '2021',
+    location: 'Pune, India (Internal Webinar Series)',
+    type: 'Webinar',
+  },
+  {
+    event: 'FinOps Foundation Community',
+    topic: 'Cloud Financial Management & Tagging Strategy',
+    year: '2022–2025',
+    location: 'Virtual (FinOps Foundation)',
+    type: 'Webinar',
+  },
+  // Add your external conference appearances below this line:
+  // {
+  //   event: 'Conference Name',
+  //   topic: 'Talk Title',
+  //   year: '2024',
+  //   location: 'City, Country',
+  //   type: 'Conference',
+  //   recordingUrl: 'https://youtu.be/...',
+  // },
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
