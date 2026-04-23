@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, TrendingUp, BrainCircuit, CheckCircle2, Terminal, Users, Lightbulb, Layers, GraduationCap, FileText, MessageSquare, Cpu } from 'lucide-react';
 import Section from '../components/Section';
 import NewsletterSignup from '../components/NewsletterSignup';
+import Testimonials from '../components/Testimonials';
 import SEO from '../components/SEO';
 import { FEATURED_ARTICLES, RECENT_TALKS, PROFILE_IMAGE_URL, PROJECTS } from '../constants';
 import ProjectCard from '../components/ProjectCard';
@@ -52,23 +53,25 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row items-start justify-between gap-12">
             <div className="md:w-1/2 space-y-6">
               <div className="inline-block px-4 py-1.5 rounded-full border border-slate-500 bg-slate-800/50 backdrop-blur-sm text-sm font-medium text-highlight">
-                Technologist & Transformation Coach
+                Practice Manager, SLB &nbsp;·&nbsp; 18+ Years in Enterprise Cloud
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white shadow-sm">
                 Naval Thakur
               </h1>
               <h2 className="text-xl md:text-2xl text-slate-100 font-medium leading-normal drop-shadow-md">
-                DevOps <span className="text-highlight">•</span> SecOps <span className="text-highlight">•</span> FinOps <span className="text-highlight">•</span> GenAI <span className="text-highlight">•</span> Architecture
+                Most enterprises have automated their pipelines.
+                <br />
+                <span className="text-highlight">Very few have made them intelligent.</span>
               </h2>
               <p className="text-lg text-slate-100 max-w-xl leading-relaxed drop-shadow-md">
-                Empowering enterprises with 18+ years of expertise in <Link to="/devops/sre" className="hover:text-secondary underline decoration-secondary/30">Site Reliability Engineering</Link>, <Link to="/finops" className="hover:text-secondary underline decoration-secondary/30">FinOps leadership</Link>, and AIOps strategies.
+                Naval helps organizations bridge that gap — from <Link to="/devops" className="hover:text-secondary underline decoration-secondary/30">automated DevSecOps</Link> to <Link to="/genai" className="hover:text-secondary underline decoration-secondary/30">AI-native CloudOps</Link> — without losing the FinOps discipline that keeps it financially sustainable.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link to="/contact?topic=Workshop / Training" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md text-primary bg-secondary hover:bg-secondary-hover transition-all shadow-lg hover:shadow-secondary/25" aria-label="Book a talk or workshop with Naval">
                   Book a Talk / Workshop
                 </Link>
-                <Link to="/devops" className="inline-flex items-center justify-center px-6 py-3 border border-white/30 bg-white/10 backdrop-blur-sm text-base font-medium rounded-md text-white hover:bg-white/20 transition-all" aria-label="Explore DevOps expertise">
-                  Explore Expertise
+                <Link to="/cognitiveops" className="inline-flex items-center justify-center px-6 py-3 border border-white/30 bg-white/10 backdrop-blur-sm text-base font-medium rounded-md text-white hover:bg-white/20 transition-all" aria-label="Explore the CognitiveOps Model">
+                  The CognitiveOps Model <ArrowRight size={16} className="ml-2" />
                 </Link>
               </div>
             </div>
@@ -169,6 +172,20 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
+      </Section>
+
+      {/* Testimonials */}
+      <Section bg="gray">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-primary dark:text-secondary text-xs font-bold uppercase tracking-wider mb-4">
+            What People Say
+          </div>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Trusted by Engineers & Leaders</h2>
+          <p className="text-slate-600 dark:text-slate-400">
+            Feedback from the teams, peers, and mentees Naval has worked with across 18+ years.
+          </p>
+        </div>
+        <Testimonials />
       </Section>
 
       {/* Talks & Webinars Teaser */}

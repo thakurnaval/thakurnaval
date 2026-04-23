@@ -5,8 +5,9 @@ export const PROFILE_IMAGE_URL = "assets/img/profile.jpg";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
-  { 
-    label: 'DevOps', 
+  { label: 'The Model', path: '/cognitiveops' },
+  {
+    label: 'DevOps',
     path: '/devops',
     children: [
       { label: 'DevOps Frameworks', path: '/devops/frameworks' },
@@ -91,13 +92,17 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Software Engineering', path: '/architecture/software-engineering' },
     ]
   },
-  { 
-    label: 'Explore', 
+  { label: 'Insights', path: '/articles',
+    children: [
+      { label: 'Articles & Blog', path: '/articles' },
+      { label: 'Talks & Webinars', path: '/talks' },
+    ]
+  },
+  {
+    label: 'About',
     children: [
       { label: 'About Naval', path: '/about' },
       { label: 'Projects', path: '/projects' },
-      { label: 'Talks & Webinars', path: '/talks' },
-      { label: 'Articles & Blog', path: '/articles' },
       { label: 'Photo Gallery', path: '/gallery' },
       { label: 'Book Summaries', path: '/explore/books' },
       { label: 'Certifications', path: '/explore/certifications' },
@@ -159,33 +164,27 @@ export const FEATURED_ARTICLES: ArticleProps[] = [
   },
   {
     title: "Fun with DevOps: Gamifying the Pipeline",
-    summary: "How to increase engagement and reduce build failures through gamification strategies.",
+    summary: "How to increase team engagement and reduce build failures using the principles of game design — leaderboards, streaks, and fast feedback loops.",
     tag: "DevOps",
-    link: "#"
+    link: "/articles/gamifying-devops-pipeline"
   },
   {
     title: "SecOps: Bridging the Gap",
-    summary: "Practical steps to align your security team with your agile delivery cycle.",
+    summary: "Practical steps to align your security team with your agile delivery cycle — closing the timing, language, and tooling gaps that create risk.",
     tag: "SecOps",
-    link: "#"
+    link: "/articles/secops-bridging-the-gap"
   },
   {
     title: "Becoming a FinOps Certified Practitioner",
-    summary: "A study guide and roadmap for achieving your FinOps certification this year.",
+    summary: "A practitioner's 8-week study guide and real-world advice for passing the FOCP exam — from someone who has done it.",
     tag: "FinOps",
-    link: "#"
+    link: "/articles/finops-certified-practitioner"
   }
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
-  { id: 101, title: 'Keynote at DevOps World', location: 'San Francisco', imgId: '1544531586-fde5298cdd40' },
-  { id: 102, title: 'Workshop Session', location: 'London', imgId: '1531482615713-2afd69097998' },
-  { id: 103, title: 'Team Brainstorming', location: 'Bangalore', imgId: '1552664730-d307ca884978' },
-  { id: 104, title: 'Panel Discussion', location: 'Singapore', imgId: '1558403190-c7505d02f743' },
-  { id: 105, title: 'Cloud Summit', location: 'New York', imgId: '1515187029135-18ee286d815b' },
-  { id: 106, title: 'Mentoring Session', location: 'Remote', imgId: '1551836022-d5d88e9218df' },
-  { id: 107, title: 'Hackathon Judge', location: 'Berlin', imgId: '1504384308090-c54be385e8ff' },
-  { id: 108, title: 'Community Meetup', location: 'Mumbai', imgId: '1528605248644-14dd04022da1' },
+  // Add real event photos here — each entry needs: title (event name), location, and src (local asset path e.g. 'assets/img/gallery/event-name.jpg')
+  // Example: { id: 101, title: 'DevOps Community Meetup', location: 'Pune', src: 'assets/img/gallery/pune-meetup-2024.jpg' }
 ];
 
 export const FINOPS_DATA: FinOpsChartData[] = [

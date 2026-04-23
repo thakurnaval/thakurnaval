@@ -1,0 +1,136 @@
+# Deploy to Google Cloud Run
+# ─────────────────────────────────────────────────────────────────────────────
+# REQUIRED GITHUB SECRETS — set these in:
+#   GitHub repo → Settings → Secrets and variables → Actions
+#
+#   GCP_PROJECT_ID          Your Google Cloud project ID (e.g. my-project-123)
+#   GCP_REGION              Cloud Run region (e.g. asia-south1, us-central1)
+#   GCP_SERVICE_NAME        Cloud Run service name (e.g. nthakur-portfolio)
+#   GCP_ARTIFACT_REGISTRY   Artifact Registry repo name (e.g. nthakur-portfolio)
+#   GCP_SA_EMAIL            Service account email used to deploy
+#   GCP_WORKLOAD_IDENTITY_PROVIDER
+#                           Full WIF provider resource name — see setup guide below
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# ONE-TIME GCP SETUP (run these in Cloud Shell or gcloud CLI):
+#
+#   # 1. Enable required APIs
+#   gcloud services enable \
+#     run.googleapis.com \
+#     artifactregistry.googleapis.com \
+#     iam.googleapis.com \
+#     iamcredentials.googleapis.com
+#
+#   # 2. Create Artifact Registry repository
+#   gcloud artifacts repositories create $REPO_NAME \
+#     --repository-format=docker \
+#     --location=$REGION
+#
+#   # 3. Create a dedicated service account for deployments
+#   gcloud iam service-accounts create github-actions-deploy \
+#     --display-name="GitHub Actions Deploy"
+#
+#   # 4. Grant it the minimum required roles
+#   gcloud projects add-iam-policy-binding $PROJECT_ID \
+#     --member="serviceAccount:github-actions-deploy@$PROJECT_ID.iam.gserviceaccount.com" \
+#     --role="roles/run.admin"
+#   gcloud projects add-iam-policy-binding $PROJECT_ID \
+#     --member="serviceAccount:github-actions-deploy@$PROJECT_ID.iam.gserviceaccount.com" \
+#     --role="roles/artifactregistry.writer"
+#   gcloud projects add-iam-policy-binding $PROJECT_ID \
+#     --member="serviceAccount:github-actions-deploy@$PROJECT_ID.iam.gserviceaccount.com" \
+#     --role="roles/iam.serviceAccountUser"
+#
+#   # 5. Create Workload Identity Pool and Provider
+#   gcloud iam workload-identity-pools create "github-pool" \
+#     --location="global" \
+#     --display-name="GitHub Actions Pool"
+#
+#   gcloud iam workload-identity-pools providers create-oidc "github-provider" \
+#     --location="global" \
+#     --workload-identity-pool="github-pool" \
+#     --display-name="GitHub Provider" \
+#     --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository" \
+#     --issuer-uri="https://token.actions.githubusercontent.com"
+#
+#   # 6. Allow the GitHub repo to impersonate the service account
+#   #    Replace YOUR_GITHUB_ORG/YOUR_REPO with your actual repo
+#   gcloud iam service-accounts add-iam-policy-binding \
+#     github-actions-deploy@$PROJECT_ID.iam.gserviceaccount.com \
+#     --role="roles/iam.workloadIdentityUser" \
+#     --member="principalSet://iam.googleapis.com/projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/github-pool/attribute.repository/YOUR_GITHUB_ORG/YOUR_REPO"
+#
+#   # 7. Get the WIF provider resource name for the secret
+#   gcloud iam workload-identity-pools providers describe github-provider \
+#     --location="global" \
+#     --workload-identity-pool="github-pool" \
+#     --format="value(name)"
+#   # Copy the output → set as GCP_WORKLOAD_IDENTITY_PROVIDER secret
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Build & Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  IMAGE: ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_ARTIFACT_REGISTRY }}/${{ secrets.GCP_SERVICE_NAME }}
+
+jobs:
+  build-and-deploy:
+    name: Build, Push & Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # Required for Workload Identity Federation
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SA_EMAIL }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.pkg.dev --quiet
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ secrets.GCP_SERVICE_NAME }}
+          region: ${{ secrets.GCP_REGION }}
+          image: ${{ env.IMAGE }}:${{ github.sha }}
+          flags: >-
+            --allow-unauthenticated
+            --min-instances=0
+            --max-instances=3
+            --memory=256Mi
+            --cpu=1
+            --port=8080
+
+      - name: Print deployed URL
+        run: echo "Deployed to ${{ steps.deploy.outputs.url }}"

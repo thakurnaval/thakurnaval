@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import { initGA } from './src/services/analytics';
 import Home from './pages/Home';
+import CognitiveOps from './pages/CognitiveOps';
 import DevOps from './pages/DevOps';
 import SecOps from './pages/SecOps';
 import FinOps from './pages/FinOps';
@@ -86,6 +87,9 @@ import MentalModels from './pages/explore/MentalModels';
 
 // Article Pages
 import CloudComputingFundamentals from './pages/articles/CloudComputingFundamentals';
+import GamifyingDevOpsPipeline from './pages/articles/GamifyingDevOpsPipeline';
+import SecOpsBridgingTheGap from './pages/articles/SecOpsBridgingTheGap';
+import BecomingFinOpsCertifiedPractitioner from './pages/articles/BecomingFinOpsCertifiedPractitioner';
 import ScalingDevSecOpsArticle from './pages/talks/ScalingDevSecOps';
 import FinancialImpactCloudNativeArticle from './pages/talks/FinancialImpactCloudNative';
 import GenAINewTeamMemberArticle from './pages/talks/GenAINewTeamMember';
@@ -112,7 +116,8 @@ const App: React.FC = () => {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            
+            <Route path="/cognitiveops" element={<CognitiveOps />} />
+
             {/* Main Pillars */}
             <Route path="/architecture" element={<Architecture />} />
             <Route path="/devops" element={<DevOps />} />
@@ -193,6 +198,9 @@ const App: React.FC = () => {
 
             {/* Article Pages */}
             <Route path="/articles/cloud-computing-fundamentals" element={<CloudComputingFundamentals />} />
+            <Route path="/articles/gamifying-devops-pipeline" element={<GamifyingDevOpsPipeline />} />
+            <Route path="/articles/secops-bridging-the-gap" element={<SecOpsBridgingTheGap />} />
+            <Route path="/articles/finops-certified-practitioner" element={<BecomingFinOpsCertifiedPractitioner />} />
             <Route path="/talks/scaling-devsecops-enterprise" element={<ScalingDevSecOpsArticle />} />
             <Route path="/talks/financial-impact-cloud-native" element={<FinancialImpactCloudNativeArticle />} />
             <Route path="/talks/genai-new-team-member" element={<GenAINewTeamMemberArticle />} />
