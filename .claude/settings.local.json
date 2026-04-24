@@ -21,7 +21,8 @@
       "Bash(gcloud beta *)",
       "PowerShell(gcloud beta run domain-mappings create --service=nthakur-portfolio --domain=nthakur.com --project=navalthakur --region=us-central1 2>&1)",
       "PowerShell(gcloud run services delete nthakur-portfolio --region=asia-south1 --project=navalthakur --quiet 2>&1)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "WebFetch(domain:sessionize.com)"
     ]
   }
 }

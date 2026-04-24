@@ -7,50 +7,149 @@ import { RECENT_TALKS, SPEAKING_APPEARANCES, PROFILE_IMAGE_URL } from '../consta
 
 const Talks: React.FC = () => {
   const handleDownloadKit = () => {
-    // Construct the Speaker Kit content dynamically
-    const bio = `
-# Naval Thakur - Speaker Kit
+    const content = `# Naval Thakur — Speaker Kit
+*Updated April 2026 · nthakur.com · contact@nthakur.com*
 
-## Short Bio
-Naval Thakur is a seasoned technologist and transformation leader with over 18 years of experience helping enterprises scale their software delivery and operations. He specializes in DevSecOps, FinOps, and GenAI.
+---
 
-## Social Links
-- LinkedIn: https://www.linkedin.com/in/navalthakur
-- Twitter/X: https://x.com/nthakur_dot_com
-- GitHub: https://github.com/thakurnaval
-- Website: https://nthakur.com
-- Speaker Profile: https://sessionize.com/nthakur/
+## Profile
 
-## Signature Talks & Topics
-${RECENT_TALKS.concat([
-  {
-    title: "Cultural Transformation in DevOps",
-    description: "Moving beyond tools to address the human factor in technical change.",
-    tags: ["Culture", "Management"],
-    audience: "Leaders, HR",
-    duration: "45 min"
-  },
-  {
-    title: "Zero Trust Security for Cloud Native",
-    description: "Implementing strict identity and network policies in K8s environments.",
-    tags: ["SecOps", "Kubernetes"],
-    audience: "Security Engineers",
-    duration: "50 min"
-  }
-]).map(talk => `
-### ${talk.title}
-- **Abstract:** ${talk.description}
-- **Audience:** ${talk.audience}
-- **Duration:** ${talk.duration}
-- **Tags:** ${talk.tags.join(', ')}
-`).join('\n')}
+| | |
+|---|---|
+| **Role** | Practice Manager, SLB |
+| **Location** | Pune, India |
+| **Experience** | 18+ years enterprise cloud transformation |
+| **Website** | https://nthakur.com |
+| **Sessionize** | https://sessionize.com/nthakur/ |
+| **LinkedIn** | https://linkedin.com/in/navalthakur |
+| **Twitter/X** | @nthakur_dot_com |
+| **GitHub** | https://github.com/thakurnaval |
+
+---
+
+## Short Bio (under 100 words)
+
+Naval Thakur is a Practice Manager at SLB with 18+ years of enterprise cloud transformation experience across DevSecOps, FinOps, and Generative AI. He created the CognitiveOps Maturity Model — a four-layer framework helping organisations move from manual operations to AI-autonomous engineering. Naval holds 39+ professional certifications including FinOps Certified Practitioner, Google Cloud GenAI Leader, CKA, and AWS Solutions Architect. MBA Gold Medalist from MDI Gurgaon. Practitioner-first speaker — every session is built on real transformation lessons, not vendor narratives.
+
+---
+
+## Full Bio
+
+Naval Thakur is an enterprise cloud and DevOps leader with 18+ years of hands-on experience transforming engineering organisations at scale. As Practice Manager at SLB, one of the world's largest energy technology companies, he has led DevSecOps, FinOps, and GenAI adoption programmes spanning global delivery teams, saving over $600K in cloud costs and accelerating delivery cycles across dozens of projects.
+
+Naval is the creator of the CognitiveOps Maturity Model — a four-layer framework that maps an organisation's journey from manual, reactive operations through automation and intelligent tooling, to AI-autonomous engineering at scale. The model is freely available at nthakur.com and used to assess and guide engineering teams worldwide.
+
+He holds 39+ professional certifications — including FinOps Certified Practitioner, Google Cloud GenAI Leader, Certified Kubernetes Administrator (CKA), AWS Solutions Architect, and TOGAF 9. MBA Gold Medalist from MDI Gurgaon. Naval speaks, trains, and writes at the intersection of cloud operations, financial accountability, and AI adoption — always practitioner-first.
+
+---
+
+## Sessions Catalogue
+
+### 1. From DevOps to CognitiveOps: The Next Five Years
+**Tags:** DevOps, AI, Future of Engineering, Leadership
+**Format:** Keynote or conference talk (30–45 min)
+**Audience:** Engineering leaders, architects, CTOs, DevOps practitioners
+
+Most organisations are still celebrating the fact that they have a CI/CD pipeline. But the frontier has already moved. In this talk, Naval maps the next five years of enterprise engineering — from the automation we have now to the AI-orchestrated, self-healing, policy-driven systems that forward-thinking organisations are already piloting. Drawing on the CognitiveOps Maturity Model, Naval shows audiences exactly where they sit today, what Layer 4 looks like in practice, and the specific decisions that separate organisations that will lead this transition from those that will follow. Practitioner-first, no vendor slides, genuinely actionable.
+
+---
+
+### 2. GenAI in Enterprise Operations: Patterns That Actually Work
+**Tags:** GenAI, AIOps, Enterprise AI, LLMOps, Productivity
+**Format:** Conference talk or workshop (45–60 min)
+**Audience:** Engineering managers, SREs, platform engineers, AI leads
+
+The enterprise GenAI conversation has been dominated by demos and vendor promises. This talk cuts through it. Naval shares the patterns that have actually delivered measurable ROI in large engineering organisations — and the patterns that look great in a pilot but fail at scale. Topics: how to operationalise LLMs without unacceptable latency or cost, governance structures that prevent compliance risk, and how to measure GenAI ROI in a way that finance and leadership will accept.
+
+---
+
+### 3. Cloud Financial Intelligence: What FinOps Practitioners Get Wrong
+**Tags:** FinOps, Cloud Cost, Cloud Financial Management
+**Format:** Conference talk (30–45 min)
+**Audience:** FinOps practitioners, engineering managers, finance leads, CTOs
+
+An honest practitioner's post-mortem: the tagging strategies that created unmanageable overhead, the chargeback models that caused conflict rather than eliminating it, and the forecasting approaches that didn't survive a product launch. Naval shares what he has learned from the failures alongside the patterns that actually moved the needle — and the things the FinOps Foundation curriculum doesn't always tell you.
+
+---
+
+### 4. Achieving Enterprise-wide Agility: Beyond the Technology Stack
+**Tags:** Agile, Transformation, Culture, Leadership, Change Management
+**Format:** Keynote or conference talk (45–60 min)
+**Audience:** Engineering directors, transformation leads, senior leadership
+
+Most enterprise agile transformations fail not because teams lack skills, but because the organisation's structure, incentives, and culture contradict agile principles at every level above the team. Naval maps the specific structural and cultural blockers that prevent enterprise agility from spreading beyond pilot teams, and the interventions that have actually worked.
+
+---
+
+### 5. Infrastructure as Code with Azure Pipelines: Terraform + SaltStack in Production
+**Tags:** IaC, Terraform, Azure Pipelines, DevOps, Cloud Infrastructure
+**Format:** Technical talk or workshop (45–75 min)
+**Audience:** DevOps engineers, platform engineers, cloud architects, SREs
+
+Hard-won lessons from running Terraform and SaltStack deployments through Azure Pipelines at enterprise scale — drift detection strategies, state management approaches that don't create operational risk, and pipeline design decisions that separate maintainable IaC from slowly accumulating technical debt. Includes practical patterns you can apply immediately.
+
+---
+
+### 6. The 7 Cs of DevOps: A Framework That Actually Sticks
+**Tags:** DevOps, Continuous Delivery, CI/CD, Platform Engineering
+**Format:** Conference talk or workshop (45–60 min)
+**Audience:** DevOps practitioners, engineering managers, developers, SREs
+
+Naval's 7 Cs framework — Continuous Integration, Delivery, Deployment, Quality, Compliance, Monitoring, and Feedback — gives engineering teams a structured lens for diagnosing gaps and sequencing improvements. This talk shows how to use it to identify your single highest-leverage next step, regardless of where your team currently sits on the maturity curve.
+
+---
+
+### 7. Seven Habits of Highly Effective DevOps Teams
+**Tags:** DevOps, Culture, Team Effectiveness, Engineering Excellence
+**Format:** Conference talk (30–45 min)
+**Audience:** Engineering managers, DevOps practitioners, team leads
+
+The difference between high-performing and perpetually-firefighting DevOps teams is rarely the tools they use. Naval distils the seven habits that consistently separate effective teams — behavioural and cultural habits, not tooling choices — meaning they are available to every team regardless of stack or budget.
+
+---
+
+### 8. Building Trust Economies: Blockchain, Smart Contracts & DApps on Azure
+**Tags:** Blockchain, Smart Contracts, DApps, Azure, Web3
+**Format:** Conference talk (45–60 min)
+**Audience:** Architects, developers, enterprise innovation leads
+
+An honest assessment of where distributed ledger technology actually delivers enterprise value. Naval built and presented blockchain solutions on Azure at Global Azure Bootcamp and APGI. Covers governance models for smart contract lifecycle management, the trust assumptions DApps actually require, and the use cases where blockchain's tamper-evidence properties are genuinely valuable versus where a traditional database serves better.
+
+---
+
+## Selected Past Appearances
+
+| Event | Topic | Year | Type |
+|-------|-------|------|------|
+| Software Engineering Bootcamp, Pune | Agile, DevOps, Architecture & Coding Practices | 2024 | Workshop |
+| FinOps Foundation Community | Cloud Financial Management & Tagging Strategy | 2022–2025 | Webinar |
+| SLB Cloud Computing SIG | GenAI Adoption in Enterprise Engineering | 2022–2023 | Webinar |
+| SLB Cloud Computing SIG | Cloud Cost Optimisation & FinOps Practices | 2022–2023 | Webinar |
+| Pune DevCon 2019 | Infrastructure as Code with Azure Pipelines | 2019 | Conference |
+| Global Azure Bootcamp 2019 | Building Trust Economies using Blockchain Apps on Azure | 2019 | Conference |
+| APGI 2019 | Achieving Enterprise-wide Agility using Technology Stack | 2019 | Conference |
+| Microsoft DevCon Pune | DevOps @ Microsoft — Tools & Practices | 2019 | Conference |
+
+---
+
+## Speaker Requirements
+
+- **AV:** Clicker, HDMI/USB-C adaptor, lapel mic preferred for keynotes
+- **Slides:** Shared 5 business days before event
+- **Remote:** Available for virtual events (Zoom, Teams, Google Meet)
+- **Travel:** Available for on-site India events; international by arrangement
+- **Lead time:** 4–6 weeks for new talks; existing sessions available with 2 weeks notice
+
+---
 
 ## Contact
-Email: contact@nthakur.com
-    `;
 
-    // Create a Blob and trigger download
-    const blob = new Blob([bio], { type: 'text/markdown' });
+**Email:** contact@nthakur.com
+**Website:** https://nthakur.com/work-with-me
+**Sessionize:** https://sessionize.com/nthakur/
+`;
+
+    const blob = new Blob([content], { type: 'text/markdown' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;

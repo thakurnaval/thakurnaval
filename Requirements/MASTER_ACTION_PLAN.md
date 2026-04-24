@@ -11,13 +11,16 @@ This is the single source of truth for all outstanding action items across the w
 |------|--------|
 | Website — core platform | ✅ Complete |
 | Website — social proof | 🔲 Testimonials outstanding |
-| Website — assessments | 🔄 1 of 5+ built (DevOps/CognitiveOps) |
+| Website — assessments | ✅ All 7 built + hub page at `/assessments` |
+| Website — nav & discoverability | ✅ Assessment CTAs on all section pages + nav dropdown |
 | Website — newsletter archive | 🔲 Not started |
+| Website — Sessionize integration | ✅ Added to Talks page + WorkWithMe page |
 | LinkedIn — tagline & About | ✅ Content ready — apply manually |
 | LinkedIn — Featured section | 🔲 Not updated |
 | Content publishing | 🔲 No articles published yet |
 | Newsletter issues | 🔲 6 draft topics identified — none written |
 | Conference CFP | 🔲 Not submitted |
+| Speaker profile (Sessionize) | ✅ Profile live + `SpeakerProfile.md` created |
 
 ---
 
@@ -41,24 +44,19 @@ This is the single source of truth for all outstanding action items across the w
 - [ ] Define repeatable issue layout for site display
 - [ ] Add route to `App.tsx` and navigation if appropriate
 
-### P3 — Assessment Engine: Additional Assessments
-Four assessments from the Digital Product Plan remain to be built. The CognitiveOps Assessment engine (`pages/devops/DevOpsAssessment.tsx`) is the reference implementation.
+### P3 — Assessment Engine ✅ COMPLETE
+All 7 assessments built and live. Hub page at `/assessments` added to nav.
 
 | Assessment | Route | Status | Notes |
 |------------|-------|--------|-------|
-| CognitiveOps Maturity (DevOps+SecOps+FinOps+GenAI) | `/cognitiveops/assessment` | ✅ Built | Email gate, PDF, 13 questions |
-| Agile Maturity Assessment | `/agile/assessment` | 🔲 Not started | |
-| Project Management Assessment | `/projects/assessment` | 🔲 Not started | |
-| Well-Architected Framework Assessment | `/architecture/assessment` | 🔲 Not started | |
-| FinOps Maturity Assessment | `/finops/assessment` | 🔲 Not started | |
-| Cloud Security / SecOps Assessment | `/secops/assessment` | 🔲 Not started | |
-| GenAI Readiness Assessment | `/genai/assessment` | 🔲 Not started | |
-
-**Design constraints for each new assessment:**
-- Reuse the 7-screen state machine pattern from `DevOpsAssessment.tsx`
-- 10–15 scored questions per pillar, 4 maturity layers, email gate before results
-- PDF generation via `window.open()` + `document.write()` + `window.print()` (no new deps)
-- Each assessment should serve as a lead magnet and consultation funnel
+| CognitiveOps Maturity (DevOps+SecOps+FinOps+GenAI) | `/devops/assessment` | ✅ Built | Email gate, PDF, 13 questions, 4 pillars |
+| Agile Maturity Assessment | `/agile/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
+| FinOps Maturity Assessment | `/finops/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
+| Cloud Security / SecOps Assessment | `/secops/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
+| GenAI Readiness Assessment | `/genai/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
+| Well-Architected Framework Assessment | `/architecture/assessment` | ✅ Built | 5 pillars × 3 questions, 15 total |
+| Project Management Assessment | `/pm/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
+| Assessments Hub | `/assessments` | ✅ Built | Card grid, nav link, section CTAs |
 
 ---
 
@@ -70,6 +68,7 @@ Four assessments from the Digital Product Plan remain to be built. The Cognitive
 - [ ] Update LinkedIn Featured section with:
   - Link to `/cognitiveops`
   - Link to best published article on nthakur.com
+  - Link to `/assessments` (new — good lead gen hook: "Find your maturity layer")
   - Link to speaker kit PDF
 
 ### Testimonials / Social Proof
@@ -84,7 +83,7 @@ Four assessments from the Digital Product Plan remain to be built. The Cognitive
 - [ ] Write and publish one long-form article (1,500+ words) on nthakur.com
   - Suggested angle: *"Here's what I saw when I ran FinOps at a $50B energy company"*
   - Or: *"From DevOps to CognitiveOps: What the Next 5 Years Look Like"*
-  - Publish to `/insights` or a new `/articles` section
+  - Publish to `/articles`
 
 ### Ongoing Content Cadence
 
@@ -129,6 +128,11 @@ Six draft topics are ready. The goal is one issue every 2 weeks, under 5 minutes
 ---
 
 ## 5 — Speaking & Conference CFPs
+
+### Sessionize Profile
+- ✅ Profile live at https://sessionize.com/nthakur/
+- ✅ Link added to Talks page and WorkWithMe page on nthakur.com
+- ✅ 8 sessions catalogued in `Requirements/SpeakerProfile.md`
 
 ### Target Events (pick 1–2 this year)
 - [ ] **FinOps X** — FinOps practitioner community, high fit for cloud cost angle
@@ -193,3 +197,13 @@ These items are done. Listed here for context only.
 | BrowserRouter — all 50+ URLs real and indexable | Apr 2026 |
 | Structured data — JSON-LD on home and key pages | Apr 2026 |
 | WCAG contrast fix — secondary-dark on all light backgrounds | Apr 2026 |
+| Agile Maturity Assessment (`/agile/assessment`) | Apr 2026 |
+| FinOps Maturity Assessment (`/finops/assessment`) | Apr 2026 |
+| Cloud Security Assessment (`/secops/assessment`) | Apr 2026 |
+| GenAI Readiness Assessment (`/genai/assessment`) | Apr 2026 |
+| Well-Architected Assessment (`/architecture/assessment`) | Apr 2026 |
+| Project Management Assessment (`/pm/assessment`) | Apr 2026 |
+| Assessments hub page (`/assessments`) + nav link | Apr 2026 |
+| Assessment CTAs added to DevOps, FinOps, SecOps, GenAI, Architecture pages | Apr 2026 |
+| Sessionize URL added to Talks + WorkWithMe pages | Apr 2026 |
+| SpeakerProfile.md created with 8 session abstracts | Apr 2026 |
