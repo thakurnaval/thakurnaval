@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Settings, RefreshCw, BarChart2, GitMerge } from 'lucide-react';
+import { Settings, RefreshCw, BarChart2, GitMerge, ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 
@@ -66,12 +66,12 @@ const DevOps: React.FC = () => {
             </div>
 
             <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-6 rounded-r-lg mt-8">
-              <h2 className="text-xl font-bold text-blue-900 dark:text-blue-200 mb-2">DevOps Maturity Assessment</h2>
+              <h2 className="text-xl font-bold text-blue-900 dark:text-blue-200 mb-2">CognitiveOps Maturity Assessment</h2>
               <p className="text-blue-800 dark:text-blue-300 mb-4">
-                Are you "Doing DevOps" or just using tools? My structured decision-tree assessment helps identify where your organization stands on the maturity curve—from "Ad-hoc" to "Optimized".
+                13 questions across DevOps, SecOps, FinOps, and GenAI. Find your maturity layer and download a personalised PDF report with prioritised next steps — free, instant, no account required.
               </p>
-              <Link to="/contact?topic=Consulting" className="text-blue-700 dark:text-blue-400 font-bold hover:underline">
-                Request an Assessment Session &rarr;
+              <Link to="/devops/assessment" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm">
+                Take the Assessment <ArrowRight size={15} />
               </Link>
             </div>
             

@@ -15,6 +15,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'GenAI', path: '/genai' },
       { label: 'AI in SDLC', path: '/ai-sdlc' },
       { label: 'Architecture', path: '/architecture' },
+      { label: 'Maturity Assessments', path: '/assessments' },
     ]
   },
   {

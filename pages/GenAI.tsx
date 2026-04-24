@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bot, Sparkles, Database, Lock } from 'lucide-react';
+import { Bot, Sparkles, Database, Lock, ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 
@@ -78,9 +78,14 @@ const GenAI: React.FC = () => {
             <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
               Naval helps organizations build the "Ops" around their AI initiatives, ensuring they are scalable, secure, and cost-efficient.
             </p>
-            <Link to="/contact?topic=Consulting" className="inline-block px-8 py-3 bg-secondary text-primary font-bold rounded-lg hover:bg-secondary-hover shadow-lg transition-all">
-              Discuss GenAIOps Strategy
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link to="/contact?topic=Consulting" className="inline-block px-8 py-3 bg-secondary text-primary font-bold rounded-lg hover:bg-secondary-hover shadow-lg transition-all">
+                Discuss GenAIOps Strategy
+              </Link>
+              <Link to="/genai/assessment" className="inline-flex items-center gap-2 px-8 py-3 border-2 border-primary text-primary dark:border-white dark:text-white font-bold rounded-lg hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-colors">
+                Take GenAI Readiness Assessment <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       </Section>

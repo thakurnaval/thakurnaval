@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { PieChart, Pie, Cell } from 'recharts';
-import { TrendingDown, Target, Percent, DollarSign } from 'lucide-react';
+import { TrendingDown, Target, Percent, DollarSign, ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 import { FINOPS_DATA } from '../constants';
@@ -156,6 +156,12 @@ const FinOps: React.FC = () => {
                  </Link>
                  <Link to="/articles" className="block w-full py-3 bg-white dark:bg-slate-800 border border-secondary text-primary dark:text-white text-center font-bold rounded hover:bg-secondary/10 transition-colors">
                    Read FinOps Guide
+                 </Link>
+               </div>
+               <div className="mt-6 pt-6 border-t border-secondary/20">
+                 <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">Not sure where to start?</p>
+                 <Link to="/finops/assessment" className="flex items-center justify-between text-sm font-semibold text-primary dark:text-secondary hover:underline">
+                   Take the FinOps Maturity Assessment <ArrowRight size={14} />
                  </Link>
                </div>
              </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Lock, AlertTriangle, Eye } from 'lucide-react';
+import { Shield, Lock, AlertTriangle, Eye, ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 
@@ -78,6 +78,17 @@ const SecOps: React.FC = () => {
               </ul>
             </div>
             
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/40 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-red-600 dark:text-red-400 mb-1">Free Assessment</div>
+                <div className="font-bold text-slate-900 dark:text-white">Cloud Security Maturity Assessment</div>
+                <div className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">16 questions · ~4 min · PDF report included</div>
+              </div>
+              <Link to="/secops/assessment" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm shrink-0">
+                Take Assessment <ArrowRight size={15} />
+              </Link>
+            </div>
+
             <div className="pt-8">
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4">Deep Dive</h2>
               <div className="flex flex-wrap gap-3">

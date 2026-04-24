@@ -104,8 +104,11 @@ const Architecture: React.FC = () => {
                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
                  Whether you are launching a startup or modernizing a legacy enterprise system, a solid architectural foundation is key.
                </p>
-               <Link to="/contact?topic=Consulting" className="block w-full py-3 bg-secondary text-primary text-center font-bold rounded hover:bg-secondary-hover transition-colors mb-4">
+               <Link to="/contact?topic=Consulting" className="block w-full py-3 bg-secondary text-primary text-center font-bold rounded hover:bg-secondary-hover transition-colors mb-3">
                  Book an Architecture Review
+               </Link>
+               <Link to="/architecture/assessment" className="block w-full py-3 bg-white dark:bg-slate-900 border border-primary/30 dark:border-slate-600 text-primary dark:text-white text-center font-bold rounded hover:border-primary transition-colors mb-4 text-sm">
+                 Take Well-Architected Assessment →
                </Link>
                
                <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
