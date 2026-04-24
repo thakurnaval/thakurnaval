@@ -223,6 +223,16 @@ export const FINOPS_DATA: FinOpsChartData[] = [
 
 export const PROJECTS: ProjectProps[] = [
   {
+    title: "TrueNorth",
+    description: "Enterprise-grade OKR management platform — the world's best OKR solution. Features full OKR hierarchy across all organisational levels, real-time progress analytics & forecasting, and cascading alignment with full dependency mapping. Built to move everyone in one direction.",
+    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST APIs", "Analytics"],
+  },
+  {
+    title: "BookEx",
+    description: "A community-driven book exchange platform built for parents, by parents in Pune. Enables families to share, lend, and discover books for children — reducing waste, cutting costs, and building neighbourhood community around reading.",
+    technologies: ["React", "Node.js", "MongoDB", "Firebase"],
+  },
+  {
     title: "Generative AI for Beginners",
     description: "A comprehensive 21-lesson course to get started building with Generative AI. Covers fundamentals to advanced topics like RAG and AI Agents.",
     technologies: ["Python", "OpenAI", "Azure AI", "LangChain"],
