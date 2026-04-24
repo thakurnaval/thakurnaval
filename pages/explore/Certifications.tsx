@@ -20,11 +20,11 @@ const CERT_GROUPS: CertGroup[] = [
   {
     category: 'Microsoft',
     certs: [
-      { name: 'DevOps Engineer Expert (AZ-400)', issuer: 'Microsoft', year: 'Nov 2019', badge: 'assets/img/gallery/az400.png', credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
-      { name: 'Azure Fundamentals (AZ-900)', issuer: 'Microsoft', year: 'Feb 2020', badge: 'assets/img/gallery/az900.png' },
-      { name: 'Azure AI Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: 'assets/img/gallery/azure-ai-fundamentals-600x600-1.png' },
-      { name: 'Azure Data Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: 'assets/img/gallery/azure-data-fundamentals-600x600-1.png' },
-      { name: 'Security, Compliance & Identity Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: 'assets/img/gallery/security-compliance-and-identity-fundamentals-600x600-1.png' },
+      { name: 'DevOps Engineer Expert (AZ-400)', issuer: 'Microsoft', year: 'Nov 2019', badge: '/assets/img/gallery/az400.png', credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
+      { name: 'Azure Fundamentals (AZ-900)', issuer: 'Microsoft', year: 'Feb 2020', badge: '/assets/img/gallery/az900.png' },
+      { name: 'Azure AI Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: '/assets/img/gallery/azure-ai-fundamentals-600x600-1.png' },
+      { name: 'Azure Data Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: '/assets/img/gallery/azure-data-fundamentals-600x600-1.png' },
+      { name: 'Security, Compliance & Identity Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: '/assets/img/gallery/security-compliance-and-identity-fundamentals-600x600-1.png' },
       { name: 'MCP — 70-496: Administering Team Foundation Server', issuer: 'Microsoft', year: '2015', badge: null, credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
       { name: 'MCP — 70-497: Software Testing with Visual Studio', issuer: 'Microsoft', year: '2015', badge: null, credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
     ],
@@ -33,43 +33,43 @@ const CERT_GROUPS: CertGroup[] = [
     category: 'Google Cloud',
     certs: [
       { name: 'Generative AI Leader', issuer: 'Google Cloud', year: 'Expires Nov 2028', badge: null },
-      { name: 'Cloud Digital Leader', issuer: 'Google Cloud', year: 'Expires Feb 2027', badge: 'assets/img/gallery/GCP-CDL.png' },
-      { name: 'Associate Cloud Engineer', issuer: 'Google Cloud', year: 'Expired Oct 2022', badge: 'assets/img/gallery/GCP-ACE.png', credlyUrl: 'https://www.credential.net/825411d0-b8ad-44ce-8783-e0571a75839f' },
+      { name: 'Cloud Digital Leader', issuer: 'Google Cloud', year: 'Expires Feb 2027', badge: '/assets/img/gallery/GCP-CDL.png' },
+      { name: 'Associate Cloud Engineer', issuer: 'Google Cloud', year: 'Expired Oct 2022', badge: '/assets/img/gallery/GCP-ACE.png', credlyUrl: 'https://www.credential.net/825411d0-b8ad-44ce-8783-e0571a75839f' },
     ],
   },
   {
     category: 'FinOps',
     certs: [
-      { name: 'FinOps Certified Practitioner (FOCP)', issuer: 'FinOps Foundation / Linux Foundation', year: 'Nov 2022', badge: 'assets/img/gallery/finops-logo-square-300x300-1.png' },
+      { name: 'FinOps Certified Practitioner (FOCP)', issuer: 'FinOps Foundation / Linux Foundation', year: 'Nov 2022', badge: '/assets/img/gallery/finops-logo-square-300x300-1.png' },
     ],
   },
   {
     category: 'Scrum & Agile',
     certs: [
-      { name: 'Professional Scrum Master™ I (PSM I)', issuer: 'Scrum.org', year: 'Nov 2018', badge: 'assets/img/gallery/psm-1.png', credlyUrl: 'https://www.scrum.org/user/422413' },
-      { name: 'Professional Scrum Product Owner™ I (PSPO I)', issuer: 'Scrum.org', year: 'Jul 2019', badge: 'assets/img/gallery/pspo-1.png', credlyUrl: 'https://www.scrum.org/user/422413' },
-      { name: 'Certified Scrum@Scale Practitioner', issuer: 'Scrum Alliance / Scrum@Scale', year: 'Apr 2019', badge: 'assets/img/gallery/Scrum-at-scale-prac.png', credlyUrl: 'https://www.scrumatscale.com/certificate-lookup/' },
-      { name: 'Certified SAFe® 5 Agilist', issuer: 'Scaled Agile Inc.', year: 'Expired Jan 2022', badge: 'assets/img/gallery/cert_mark_SA_badge_large_300px.png' },
+      { name: 'Professional Scrum Master™ I (PSM I)', issuer: 'Scrum.org', year: 'Nov 2018', badge: '/assets/img/gallery/psm-1.png', credlyUrl: 'https://www.scrum.org/user/422413' },
+      { name: 'Professional Scrum Product Owner™ I (PSPO I)', issuer: 'Scrum.org', year: 'Jul 2019', badge: '/assets/img/gallery/pspo-1.png', credlyUrl: 'https://www.scrum.org/user/422413' },
+      { name: 'Certified Scrum@Scale Practitioner', issuer: 'Scrum Alliance / Scrum@Scale', year: 'Apr 2019', badge: '/assets/img/gallery/Scrum-at-scale-prac.png', credlyUrl: 'https://www.scrumatscale.com/certificate-lookup/' },
+      { name: 'Certified SAFe® 5 Agilist', issuer: 'Scaled Agile Inc.', year: 'Expired Jan 2022', badge: '/assets/img/gallery/cert_mark_SA_badge_large_300px.png' },
     ],
   },
   {
     category: 'Blockchain',
     certs: [
-      { name: 'IBM Blockchain Foundation Developer', issuer: 'IBM', year: 'Dec 2017', badge: 'assets/img/gallery/Blockchain_Developer_Foundation.png', credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
-      { name: 'IBM Blockchain Essentials', issuer: 'IBM', year: 'Dec 2017', badge: null, credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
+      { name: 'IBM Blockchain Foundation Developer', issuer: 'IBM', year: 'Dec 2017', badge: '/assets/img/gallery/Blockchain_Developer_Foundation.png', credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
+      { name: 'IBM Blockchain Essentials', issuer: 'IBM', year: 'Dec 2017', badge: '/assets/img/gallery/Blockchain_Essentials.png', credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
     ],
   },
   {
     category: 'Cloud Infrastructure',
     certs: [
-      { name: 'Oracle Cloud Infrastructure Foundations Associate', issuer: 'Oracle', year: 'Expired Jan 2022', badge: 'assets/img/gallery/03_Oracle_Cloud_Infrastructure_Foundations_Associate.png' },
+      { name: 'Oracle Cloud Infrastructure Foundations Associate', issuer: 'Oracle', year: 'Expired Jan 2022', badge: '/assets/img/gallery/03_Oracle_Cloud_Infrastructure_Foundations_Associate.png' },
     ],
   },
   {
     category: 'Governance & ITSM',
     certs: [
-      { name: 'COBIT® 2019 Foundation Certificate', issuer: 'ISACA', year: 'Nov 2019', badge: 'assets/img/gallery/ISACA_COBIT.png', credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
-      { name: 'ITIL v3 Foundation', issuer: 'AXELOS / EXIN-ISEB', year: '2009', badge: 'assets/img/gallery/itilv3.jpg' },
+      { name: 'COBIT® 2019 Foundation Certificate', issuer: 'ISACA', year: 'Nov 2019', badge: '/assets/img/gallery/ISACA_COBIT.png', credlyUrl: 'https://www.youracclaim.com/users/naval-thakur/badges' },
+      { name: 'ITIL v3 Foundation', issuer: 'AXELOS / EXIN-ISEB', year: '2009', badge: '/assets/img/gallery/itilv3.jpg' },
     ],
   },
   {

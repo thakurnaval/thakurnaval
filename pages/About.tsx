@@ -503,7 +503,7 @@ const About: React.FC = () => {
                  <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
                    <div className="flex flex-col sm:flex-row items-center gap-6">
                      <img
-                       src="assets/img/gallery/naval-convocation.jpg"
+                       src="/assets/img/gallery/naval-convocation.jpg"
                        alt="Naval Thakur MBA Convocation, MDI Gurgaon"
                        className="w-40 h-40 object-cover object-top rounded-xl shadow-md border border-slate-200 dark:border-slate-700 shrink-0"
                        loading="lazy"
