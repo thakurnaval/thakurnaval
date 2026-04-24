@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mic2, Users, Briefcase, CheckCircle2, ArrowRight, GraduationCap, Clock, Building2, Globe } from 'lucide-react';
+import { Mic2, Users, Briefcase, CheckCircle2, ArrowRight, GraduationCap, Clock, Building2, Globe, ExternalLink } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 import NewsletterSignup from '../components/NewsletterSignup';
@@ -16,6 +16,7 @@ interface Offer {
   cta: string;
   topic: string;
   accent: string;
+  sessionize?: string;
 }
 
 const OFFERS: Offer[] = [
@@ -34,6 +35,7 @@ const OFFERS: Offer[] = [
       'Follow-up resource pack for attendees',
     ],
     formats: ['Keynote (30–60 min)', 'Panel discussion', 'Fireside chat', 'Virtual webinar'],
+    sessionize: 'https://sessionize.com/nthakur/',
     cta: 'Enquire About Speaking',
     topic: 'Speaking Engagement',
     accent: 'blue',
@@ -137,7 +139,7 @@ const WorkWithMe: React.FC = () => {
       {/* Paid Offers */}
       <Section bg="white">
         <div className="max-w-5xl mx-auto space-y-10">
-          {OFFERS.map(({ icon: Icon, tag, title, tagline, description, includes, formats, cta, topic, accent }) => {
+          {OFFERS.map(({ icon: Icon, tag, title, tagline, description, includes, formats, cta, topic, accent, sessionize }) => {
             const cls = accentClasses[accent];
             return (
               <div key={tag} className={`rounded-2xl border ${cls.border} ${cls.bg} overflow-hidden`}>
@@ -177,13 +179,23 @@ const WorkWithMe: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-6">
+                      <div className="mt-6 flex flex-col gap-3">
                         <Link
                           to={`/contact?topic=${encodeURIComponent(topic)}`}
                           className="inline-flex items-center px-6 py-3 bg-primary dark:bg-secondary text-white dark:text-primary font-bold rounded-lg hover:opacity-90 transition-opacity"
                         >
                           {cta} <ArrowRight size={16} className="ml-2" />
                         </Link>
+                        {sessionize && (
+                          <a
+                            href={sessionize}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-sm font-semibold text-secondary-dark dark:text-secondary hover:underline"
+                          >
+                            <ExternalLink size={14} className="mr-1.5" /> View full session catalogue on Sessionize
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>

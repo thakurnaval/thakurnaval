@@ -19,6 +19,7 @@ Naval Thakur is a seasoned technologist and transformation leader with over 18 y
 - Twitter/X: https://x.com/nthakur_dot_com
 - GitHub: https://github.com/thakurnaval
 - Website: https://nthakur.com
+- Speaker Profile: https://sessionize.com/nthakur/
 
 ## Signature Talks & Topics
 ${RECENT_TALKS.concat([
@@ -198,13 +199,22 @@ Email: contact@nthakur.com
                  Naval is an engaging speaker who translates complex technical concepts into actionable business strategies.
                </p>
                
-               <button 
+               <button
                 onClick={handleDownloadKit}
-                className="w-full flex items-center justify-center py-2 border border-slate-300 dark:border-slate-600 rounded text-slate-700 dark:text-slate-300 font-medium hover:bg-white dark:hover:bg-slate-700 hover:text-primary dark:hover:text-white transition-colors mb-4"
+                className="w-full flex items-center justify-center py-2 border border-slate-300 dark:border-slate-600 rounded text-slate-700 dark:text-slate-300 font-medium hover:bg-white dark:hover:bg-slate-700 hover:text-primary dark:hover:text-white transition-colors mb-3"
                >
                  <Download size={16} className="mr-2" /> Download Speaker Kit
                </button>
-               
+
+               <a
+                 href="https://sessionize.com/nthakur/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="w-full flex items-center justify-center py-2 border border-slate-300 dark:border-slate-600 rounded text-slate-700 dark:text-slate-300 font-medium hover:bg-white dark:hover:bg-slate-700 hover:text-primary dark:hover:text-white transition-colors mb-4"
+               >
+                 <ExternalLink size={16} className="mr-2" /> View on Sessionize
+               </a>
+
                <div className="text-center">
                  <p className="text-xs text-slate-400 uppercase tracking-wide font-bold mb-2">Book for your event</p>
                  <Link to="/contact?topic=Speaking Engagement" className="block w-full py-3 bg-secondary text-primary font-bold rounded hover:bg-secondary-hover transition-colors">

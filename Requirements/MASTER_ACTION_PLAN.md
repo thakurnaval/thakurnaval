@@ -65,8 +65,8 @@ Four assessments from the Digital Product Plan remain to be built. The Cognitive
 ## 2 — LinkedIn: Manual Actions
 
 ### Immediate (this week)
-- [ ] Apply the new tagline: *"Transforming Enterprises Through DevSecOps, FinOps & GenAI | Practice Manager, SLB | Thought Leader & Practitioner | 39+ Certifications | 3,500+ Followers | nThakur.com"*
-- [ ] Apply the new About section (rewritten version from April 2026 session)
+- [x] Apply the new tagline: *"Transforming Enterprises Through DevSecOps, FinOps & GenAI | Practice Manager, SLB | Thought Leader & Practitioner | 39+ Certifications | 3,500+ Followers | nThakur.com"*
+- [x] Apply the new About section (rewritten version from April 2026 session)
 - [ ] Update LinkedIn Featured section with:
   - Link to `/cognitiveops`
   - Link to best published article on nthakur.com
