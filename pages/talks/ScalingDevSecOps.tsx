@@ -21,12 +21,12 @@ const ScalingDevSecOps: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 not-prose">
             <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border-l-4 border-secondary">
-              <Shield className="w-8 h-8 text-secondary mb-4" />
+              <Shield className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4" />
               <h3 className="text-lg font-bold mb-2">Security as Code</h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">Automating policies and compliance checks directly into the CI/CD pipeline.</p>
             </div>
             <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border-l-4 border-secondary">
-              <Zap className="w-8 h-8 text-secondary mb-4" />
+              <Zap className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4" />
               <h3 className="text-lg font-bold mb-2">Security at Speed</h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">Implementing guardrails that allow developers to move fast without breaking security.</p>
             </div>
@@ -67,7 +67,7 @@ const ScalingDevSecOps: React.FC = () => {
 
           <div className="my-12 p-8 bg-primary text-white rounded-2xl not-prose">
             <h3 className="text-2xl font-bold mb-4 flex items-center">
-              <Users className="mr-3 text-secondary" /> 
+              <Users className="mr-3 text-secondary-dark dark:text-secondary" /> 
               Scaling the Human Factor
             </h3>
             <p className="text-slate-300 mb-6">
@@ -75,15 +75,15 @@ const ScalingDevSecOps: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 border border-white/10 rounded-lg">
-                <div className="text-secondary font-bold text-2xl mb-1">1:100</div>
+                <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">1:100</div>
                 <div className="text-xs uppercase tracking-wider">Security to Dev Ratio</div>
               </div>
               <div className="p-4 border border-white/10 rounded-lg">
-                <div className="text-secondary font-bold text-2xl mb-1">60%</div>
+                <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">60%</div>
                 <div className="text-xs uppercase tracking-wider">Reduction in Vulnerabilities</div>
               </div>
               <div className="p-4 border border-white/10 rounded-lg">
-                <div className="text-secondary font-bold text-2xl mb-1">4x</div>
+                <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">4x</div>
                 <div className="text-xs uppercase tracking-wider">Faster Feedback Loops</div>
               </div>
             </div>
@@ -104,28 +104,28 @@ const ScalingDevSecOps: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 not-prose">
             <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
               <h4 className="font-bold flex items-center gap-2 mb-2">
-                <BarChart className="w-4 h-4 text-secondary" />
+                <BarChart className="w-4 h-4 text-secondary-dark dark:text-secondary" />
                 Mean Time to Remediate (MTTR)
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">How quickly can we fix a critical vulnerability once it's discovered?</p>
             </div>
             <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
               <h4 className="font-bold flex items-center gap-2 mb-2">
-                <Lock className="w-4 h-4 text-secondary" />
+                <Lock className="w-4 h-4 text-secondary-dark dark:text-secondary" />
                 Vulnerability Age
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">How long do known vulnerabilities persist in our environment?</p>
             </div>
             <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
               <h4 className="font-bold flex items-center gap-2 mb-2">
-                <Rocket className="w-4 h-4 text-secondary" />
+                <Rocket className="w-4 h-4 text-secondary-dark dark:text-secondary" />
                 Deployment Frequency
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">Is security slowing down our ability to ship value to customers?</p>
             </div>
             <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
               <h4 className="font-bold flex items-center gap-2 mb-2">
-                <Shield className="w-4 h-4 text-secondary" />
+                <Shield className="w-4 h-4 text-secondary-dark dark:text-secondary" />
                 Security Debt
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">The accumulation of unaddressed security issues over time.</p>

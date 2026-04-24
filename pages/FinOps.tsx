@@ -130,7 +130,7 @@ const FinOps: React.FC = () => {
             <div>
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4">GenAI in FinOps</h2>
               <p className="text-slate-600 dark:text-slate-300">
-                Leveraging Generative AI to analyze billing data, <Link to="/finops/forecasting" className="text-secondary hover:underline">forecast anomalies</Link>, and suggest architectural changes for cost efficiency.
+                Leveraging Generative AI to analyze billing data, <Link to="/finops/forecasting" className="text-secondary-dark dark:text-secondary hover:underline">forecast anomalies</Link>, and suggest architectural changes for cost efficiency.
               </p>
             </div>
             

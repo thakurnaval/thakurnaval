@@ -67,7 +67,7 @@ const SecOpsBridgingTheGap: React.FC = () => {
                     <p className="text-sm text-slate-600 dark:text-slate-400"><strong>The problem:</strong> {problem}</p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-secondary-dark dark:text-secondary shrink-0 mt-0.5" />
                     <p className="text-sm text-slate-700 dark:text-slate-300"><strong>The fix:</strong> {fix}</p>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ const SecOpsBridgingTheGap: React.FC = () => {
               { metric: 'Security Debt Ratio', target: 'Trending down', desc: 'Open critical/high findings vs. total code surface. Track the trend, not the absolute number.' },
             ].map(({ metric, target, desc }) => (
               <div key={metric} className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 p-5 text-center">
-                <p className="text-xs font-bold uppercase tracking-wider text-secondary mb-2">{metric}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-secondary-dark dark:text-secondary mb-2">{metric}</p>
                 <p className="text-lg font-bold text-primary dark:text-white mb-2">{target}</p>
                 <p className="text-xs text-slate-500 dark:text-slate-400">{desc}</p>
               </div>
@@ -126,13 +126,13 @@ const SecOpsBridgingTheGap: React.FC = () => {
 
         <section className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
           <div className="flex items-start gap-4">
-            <ShieldCheck className="w-8 h-8 text-secondary shrink-0 mt-1" />
+            <ShieldCheck className="w-8 h-8 text-secondary-dark dark:text-secondary shrink-0 mt-1" />
             <div>
               <h3 className="text-lg font-bold text-primary dark:text-white mb-2">Run a DevSecOps Readiness Assessment</h3>
               <p className="text-sm leading-relaxed">
                 I run SecOps gap analyses for enterprise engineering organizations — mapping current pipeline security coverage, identifying the highest-risk gaps, and designing a phased remediation roadmap. Typically a 2-day engagement with the engineering and security leads.
               </p>
-              <Link to="/contact?topic=Workshop / Training" className="inline-flex items-center mt-4 text-sm font-bold text-secondary hover:underline">
+              <Link to="/contact?topic=Workshop / Training" className="inline-flex items-center mt-4 text-sm font-bold text-secondary-dark dark:text-secondary hover:underline">
                 Request an Assessment <ArrowRight size={14} className="ml-1" />
               </Link>
             </div>

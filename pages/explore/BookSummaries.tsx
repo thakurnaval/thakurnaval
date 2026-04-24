@@ -104,7 +104,7 @@ const BookSummaries: React.FC = () => {
               </div>
               <div className="flex-grow">
                 <h3 className="text-xl font-bold text-primary dark:text-white mb-1 leading-tight">{book.title}</h3>
-                <p className="text-sm font-medium text-secondary mb-3">by {book.author}</p>
+                <p className="text-sm font-medium text-secondary-dark dark:text-secondary mb-3">by {book.author}</p>
                 <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{book.desc}</p>
               </div>
            </div>

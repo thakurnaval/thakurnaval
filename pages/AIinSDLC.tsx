@@ -62,7 +62,7 @@ const AIinSDLC: React.FC = () => {
               { icon: Activity, title: 'AI in Monitoring', link: '/ai-sdlc/monitoring', desc: 'Anomaly detection, root cause analysis, and predictive alerting.' },
             ].map((item, idx) => (
               <Link key={idx} to={item.link} className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-secondary dark:hover:border-secondary transition-all group">
-                <item.icon className="w-10 h-10 text-secondary mb-4 group-hover:scale-110 transition-transform" />
+                <item.icon className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold text-primary dark:text-white mb-2 group-hover:text-secondary">{item.title}</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm">{item.desc}</p>
               </Link>
@@ -72,7 +72,7 @@ const AIinSDLC: React.FC = () => {
           {/* Dedicated Case Studies Section */}
           <div id="case-studies" className="pt-8">
             <div className="flex items-center gap-3 mb-8">
-              <TrendingUp className="w-8 h-8 text-secondary" />
+              <TrendingUp className="w-8 h-8 text-secondary-dark dark:text-secondary" />
               <h2 className="text-3xl font-bold text-primary dark:text-white">AI in SDLC Case Studies</h2>
             </div>
             
@@ -80,7 +80,7 @@ const AIinSDLC: React.FC = () => {
               {caseStudies.map((study, idx) => (
                 <div key={idx} className="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-2xl border border-slate-200 dark:border-slate-700">
                   <h3 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-2">
-                    <Lightbulb className="w-6 h-6 text-secondary" />
+                    <Lightbulb className="w-6 h-6 text-secondary-dark dark:text-secondary" />
                     {study.title}
                   </h3>
                   
@@ -97,7 +97,7 @@ const AIinSDLC: React.FC = () => {
                     
                     <div className="space-y-3">
                       <h4 className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                        <Brain className="w-4 h-4 text-secondary" />
+                        <Brain className="w-4 h-4 text-secondary-dark dark:text-secondary" />
                         AI Solution
                       </h4>
                       <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
@@ -107,7 +107,7 @@ const AIinSDLC: React.FC = () => {
                     
                     <div className="space-y-3">
                       <h4 className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4 text-secondary" />
+                        <TrendingUp className="w-4 h-4 text-secondary-dark dark:text-secondary" />
                         The Impact
                       </h4>
                       <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">

@@ -94,7 +94,7 @@ const MATURITY_LAYERS: MaturityLayer[] = [
       'Engineering teams set intent; AI executes and reports exceptions',
     ],
     icon: BrainCircuit,
-    color: 'text-secondary',
+    color: 'text-secondary-dark dark:text-secondary',
     bgColor: 'bg-secondary/10 dark:bg-secondary/5',
     borderColor: 'border-secondary dark:border-secondary/60',
     pillars: [
@@ -142,7 +142,7 @@ const CognitiveOps: React.FC = () => {
           <div className="w-full h-full bg-gradient-to-l from-secondary to-transparent"></div>
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-4xl">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary text-sm font-bold mb-6">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary-dark dark:text-secondary text-sm font-bold mb-6">
             Original Framework by Naval Thakur
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6">
@@ -186,7 +186,7 @@ const CognitiveOps: React.FC = () => {
             </div>
             <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
               <div className="flex items-start gap-4 mb-6">
-                <Lightbulb className="w-8 h-8 text-secondary shrink-0" />
+                <Lightbulb className="w-8 h-8 text-secondary-dark dark:text-secondary shrink-0" />
                 <div>
                   <h3 className="font-bold text-primary dark:text-white text-lg mb-1">The Core Claim</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
@@ -195,7 +195,7 @@ const CognitiveOps: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-start gap-4 mb-6">
-                <BarChart3 className="w-8 h-8 text-secondary shrink-0" />
+                <BarChart3 className="w-8 h-8 text-secondary-dark dark:text-secondary shrink-0" />
                 <div>
                   <h3 className="font-bold text-primary dark:text-white text-lg mb-1">Where Most Orgs Are</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
@@ -204,7 +204,7 @@ const CognitiveOps: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Users className="w-8 h-8 text-secondary shrink-0" />
+                <Users className="w-8 h-8 text-secondary-dark dark:text-secondary shrink-0" />
                 <div>
                   <h3 className="font-bold text-primary dark:text-white text-lg mb-1">Who This Is For</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
@@ -266,7 +266,7 @@ const CognitiveOps: React.FC = () => {
                 <ul className="space-y-3">
                   {active.characteristics.map(c => (
                     <li key={c} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
-                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-secondary-dark dark:text-secondary shrink-0 mt-0.5" />
                       {c}
                     </li>
                   ))}
@@ -316,7 +316,7 @@ const CognitiveOps: React.FC = () => {
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-secondary transition-colors">{title}</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{desc}</p>
-                  <div className="mt-3 flex items-center text-sm font-semibold text-secondary">
+                  <div className="mt-3 flex items-center text-sm font-semibold text-secondary-dark dark:text-secondary">
                     Explore <ArrowRight size={14} className="ml-1" />
                   </div>
                 </div>
@@ -335,7 +335,7 @@ const CognitiveOps: React.FC = () => {
               <div className="text-white md:w-2/3">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">Which layer is your organization at?</h2>
                 <p className="text-slate-200 text-lg">
-                  Take the <Link to="/devops/assessment" className="text-secondary font-bold hover:underline">DevOps Maturity Assessment</Link> to find out — and get a prioritized roadmap for your next layer.
+                  Take the <Link to="/devops/assessment" className="text-secondary-dark dark:text-secondary font-bold hover:underline">DevOps Maturity Assessment</Link> to find out — and get a prioritized roadmap for your next layer.
                 </p>
               </div>
               <div className="md:w-1/3 flex justify-center md:justify-end gap-3 flex-wrap">

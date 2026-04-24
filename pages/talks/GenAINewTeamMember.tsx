@@ -15,12 +15,12 @@ const GenAINewTeamMember: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 not-prose">
           <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border-l-4 border-secondary">
-            <Brain className="w-8 h-8 text-secondary mb-4" />
+            <Brain className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-lg font-bold mb-2">Cognitive SRE</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">Moving beyond automation to intelligent reasoning and decision support.</p>
           </div>
           <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border-l-4 border-secondary">
-            <Zap className="w-8 h-8 text-secondary mb-4" />
+            <Zap className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-lg font-bold mb-2">MTTR Reduction</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">Using LLMs to summarize incidents and suggest root causes in seconds.</p>
           </div>
@@ -50,7 +50,7 @@ const GenAINewTeamMember: React.FC = () => {
 
         <div className="my-12 p-8 bg-primary text-white rounded-2xl not-prose">
           <h3 className="text-2xl font-bold mb-4 flex items-center">
-            <Cpu className="mr-3 text-secondary" /> 
+            <Cpu className="mr-3 text-secondary-dark dark:text-secondary" /> 
             The LLMOps Pipeline for SRE
           </h3>
           <p className="text-slate-200 mb-6">
@@ -58,15 +58,15 @@ const GenAINewTeamMember: React.FC = () => {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="p-4 border border-white/10 rounded-lg">
-              <div className="text-secondary font-bold text-2xl mb-1">RAG</div>
+              <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">RAG</div>
               <div className="text-xs uppercase tracking-wider">Retrieval Augmented Generation</div>
             </div>
             <div className="p-4 border border-white/10 rounded-lg">
-              <div className="text-secondary font-bold text-2xl mb-1">Guardrails</div>
+              <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">Guardrails</div>
               <div className="text-xs uppercase tracking-wider">Safety & Compliance</div>
             </div>
             <div className="p-4 border border-white/10 rounded-lg">
-              <div className="text-secondary font-bold text-2xl mb-1">Feedback</div>
+              <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">Feedback</div>
               <div className="text-xs uppercase tracking-wider">RLHF from SREs</div>
             </div>
           </div>
@@ -89,27 +89,27 @@ const GenAINewTeamMember: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 not-prose">
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
             <h4 className="font-bold flex items-center gap-2 mb-2">
-              <BarChart className="w-4 h-4 text-secondary" />
+              <BarChart className="w-4 h-4 text-secondary-dark dark:text-secondary" />
               MTTD/MTTR Reduction
             </h4>
             <p className="text-sm text-slate-600 dark:text-slate-400">Reduction in time to detect and resolve incidents.</p>
           </div>
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
-            <Shield className="w-4 h-4 text-secondary" />
+            <Shield className="w-4 h-4 text-secondary-dark dark:text-secondary" />
             <h4 className="font-bold flex items-center gap-2 mb-2">
               Hypothesis Accuracy
             </h4>
             <p className="text-sm text-slate-600 dark:text-slate-400">Percentage of AI-generated RCAs that were correct.</p>
           </div>
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
-            <MessageSquare className="w-4 h-4 text-secondary" />
+            <MessageSquare className="w-4 h-4 text-secondary-dark dark:text-secondary" />
             <h4 className="font-bold flex items-center gap-2 mb-2">
               Developer Sentiment
             </h4>
             <p className="text-sm text-slate-600 dark:text-slate-400">Qualitative feedback on whether the AI reduces toil.</p>
           </div>
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
-            <Terminal className="w-4 h-4 text-secondary" />
+            <Terminal className="w-4 h-4 text-secondary-dark dark:text-secondary" />
             <h4 className="font-bold flex items-center gap-2 mb-2">
               Toil Reduction
             </h4>

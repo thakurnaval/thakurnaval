@@ -56,7 +56,7 @@ const Testimonials: React.FC = () => {
             <div>
               <p className="font-bold text-slate-900 dark:text-white text-sm">{t.name}</p>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{t.title}, {t.company}</p>
-              <p className="text-xs text-secondary mt-1">{t.relationship}</p>
+              <p className="text-xs text-secondary-dark dark:text-secondary mt-1">{t.relationship}</p>
             </div>
             {t.linkedinUrl && (
               <a

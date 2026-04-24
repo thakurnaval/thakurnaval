@@ -13,13 +13,13 @@ const DesignPatterns: React.FC = () => {
         <section>
           <h2 className="text-2xl font-bold text-primary dark:text-white mb-4">Why Architecture Patterns Matter</h2>
           <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            Design patterns provide a shared language for developers. Instead of reinventing the wheel, we use battle-tested templates like <Link to="/architecture/solid-principles" className="text-secondary hover:underline">SOLID principles</Link> to build systems that are easy to test, maintain, and extend.
+            Design patterns provide a shared language for developers. Instead of reinventing the wheel, we use battle-tested templates like <Link to="/architecture/solid-principles" className="text-secondary-dark dark:text-secondary hover:underline">SOLID principles</Link> to build systems that are easy to test, maintain, and extend.
           </p>
         </section>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="p-8 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
-            <Box className="w-10 h-10 text-secondary mb-4" />
+            <Box className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-xl font-bold text-primary dark:text-white mb-3">Creational Patterns</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
               Focus on object creation mechanisms that increase flexibility and reuse of existing code.
@@ -32,7 +32,7 @@ const DesignPatterns: React.FC = () => {
           </div>
 
           <div className="p-8 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
-            <Layers className="w-10 h-10 text-secondary mb-4" />
+            <Layers className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-xl font-bold text-primary dark:text-white mb-3">Structural Patterns</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
               Explaining how to assemble objects and classes into larger structures while keeping them flexible.
@@ -45,7 +45,7 @@ const DesignPatterns: React.FC = () => {
           </div>
 
           <div className="p-8 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
-            <Zap className="w-10 h-10 text-secondary mb-4" />
+            <Zap className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-xl font-bold text-primary dark:text-white mb-3">Behavioral Patterns</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
               Concerned with algorithms and the assignment of responsibilities between objects.
@@ -58,14 +58,14 @@ const DesignPatterns: React.FC = () => {
           </div>
 
           <div className="p-8 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
-            <Share2 className="w-10 h-10 text-secondary mb-4" />
+            <Share2 className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-xl font-bold text-primary dark:text-white mb-3">Cloud Patterns</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-              Patterns essential for modern <Link to="/architecture/cloud-architecture" className="text-secondary hover:underline">cloud-native development</Link>.
+              Patterns essential for modern <Link to="/architecture/cloud-architecture" className="text-secondary-dark dark:text-secondary hover:underline">cloud-native development</Link>.
             </p>
             <ul className="space-y-2 text-xs font-medium text-slate-500">
               <li className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-secondary"></span> <strong>Circuit Breaker:</strong> Preventing cascading failures in microservices.</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-secondary"></span> <strong>Saga Pattern:</strong> Managing distributed transactions in <Link to="/architecture/microservices" className="text-secondary hover:underline">microservices</Link>.</li>
+              <li className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-secondary"></span> <strong>Saga Pattern:</strong> Managing distributed transactions in <Link to="/architecture/microservices" className="text-secondary-dark dark:text-secondary hover:underline">microservices</Link>.</li>
               <li className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-secondary"></span> <strong>CQRS:</strong> Separating read and write operations for performance.</li>
             </ul>
           </div>

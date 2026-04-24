@@ -338,7 +338,7 @@ const MentalModels: React.FC = () => {
               className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all group"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-secondary group-hover:bg-secondary group-hover:text-primary transition-colors">
+                <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-secondary-dark dark:text-secondary group-hover:bg-secondary group-hover:text-primary transition-colors">
                   {getCategoryIcon(model.category)}
                 </div>
                 <div>
@@ -352,7 +352,7 @@ const MentalModels: React.FC = () => {
               {model.example && (
                 <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 border-l-4 border-secondary">
                   <p className="text-xs italic text-slate-500 dark:text-slate-400">
-                    <span className="font-bold not-italic text-secondary mr-1">Example:</span>
+                    <span className="font-bold not-italic text-secondary-dark dark:text-secondary mr-1">Example:</span>
                     {model.example}
                   </p>
                 </div>

@@ -40,9 +40,9 @@ const BecomingFinOpsCertifiedPractitioner: React.FC = () => {
               { icon: Users, title: 'Real-time Decision Making', weight: '~35%', topics: ['FinOps team structure', 'Optimization strategies', 'Commitment discounts (RIs, CUDs)', 'Stakeholder alignment'] },
             ].map(({ icon: Icon, title, weight, topics }) => (
               <div key={title} className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
-                <Icon className="w-8 h-8 text-secondary mb-3" />
+                <Icon className="w-8 h-8 text-secondary-dark dark:text-secondary mb-3" />
                 <h3 className="font-bold text-primary dark:text-white mb-1">{title}</h3>
-                <span className="text-xs font-bold text-secondary">{weight} of exam</span>
+                <span className="text-xs font-bold text-secondary-dark dark:text-secondary">{weight} of exam</span>
                 <ul className="mt-3 space-y-1">
                   {topics.map(t => (
                     <li key={t} className="text-xs text-slate-600 dark:text-slate-400 flex items-center gap-1">
@@ -69,13 +69,13 @@ const BecomingFinOpsCertifiedPractitioner: React.FC = () => {
             ].map(({ week, focus, tasks }) => (
               <div key={week} className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 p-5">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold rounded-full">{week}</span>
+                  <span className="px-3 py-1 bg-secondary/10 text-secondary-dark dark:text-secondary text-xs font-bold rounded-full">{week}</span>
                   <h3 className="font-bold text-primary dark:text-white">{focus}</h3>
                 </div>
                 <ul className="space-y-2 ml-2">
                   {tasks.map(t => (
                     <li key={t} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-secondary-dark dark:text-secondary shrink-0 mt-0.5" />
                       {t}
                     </li>
                   ))}
@@ -124,13 +124,13 @@ const BecomingFinOpsCertifiedPractitioner: React.FC = () => {
 
         <section className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
           <div className="flex items-start gap-4">
-            <Award className="w-8 h-8 text-secondary shrink-0 mt-1" />
+            <Award className="w-8 h-8 text-secondary-dark dark:text-secondary shrink-0 mt-1" />
             <div>
               <h3 className="text-lg font-bold text-primary dark:text-white mb-2">FinOps Study Group & Coaching</h3>
               <p className="text-sm leading-relaxed">
                 I run occasional FinOps certification study groups for small cohorts of practitioners, architects, and finance leaders. We cover the framework together, work through real-world scenarios, and do exam prep in the final week. If you're preparing for your FOCP, reach out.
               </p>
-              <Link to="/contact?topic=Mentorship" className="inline-flex items-center mt-4 text-sm font-bold text-secondary hover:underline">
+              <Link to="/contact?topic=Mentorship" className="inline-flex items-center mt-4 text-sm font-bold text-secondary-dark dark:text-secondary hover:underline">
                 Join the Study Group <ArrowRight size={14} className="ml-1" />
               </Link>
             </div>

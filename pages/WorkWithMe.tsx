@@ -114,7 +114,7 @@ const WorkWithMe: React.FC = () => {
       {/* Hero */}
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <div className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-bold uppercase tracking-wider mb-6">
+          <div className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary-dark dark:text-secondary text-xs font-bold uppercase tracking-wider mb-6">
             Engagements
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Work With Naval</h1>
@@ -129,7 +129,7 @@ const WorkWithMe: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-3 max-w-4xl">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shrink-0"></span>
           <p className="text-sm text-slate-700 dark:text-slate-300">
-            <strong>Currently accepting engagements for Q3 2026 onwards.</strong> For urgent requests, reach out directly at <a href="mailto:contact@nthakur.com" className="text-secondary hover:underline font-semibold">contact@nthakur.com</a>.
+            <strong>Currently accepting engagements for Q3 2026 onwards.</strong> For urgent requests, reach out directly at <a href="mailto:contact@nthakur.com" className="text-secondary-dark dark:text-secondary hover:underline font-semibold">contact@nthakur.com</a>.
           </p>
         </div>
       </div>
@@ -161,7 +161,7 @@ const WorkWithMe: React.FC = () => {
                       <ul className="space-y-2">
                         {includes.map(item => (
                           <li key={item} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
-                            <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-secondary-dark dark:text-secondary shrink-0 mt-0.5" />
                             {item}
                           </li>
                         ))}
@@ -216,7 +216,7 @@ const WorkWithMe: React.FC = () => {
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-grow">{desc}</p>
                 <Link
                   to={`/contact?topic=${encodeURIComponent(topic)}`}
-                  className="mt-6 inline-flex items-center text-sm font-bold text-secondary hover:underline"
+                  className="mt-6 inline-flex items-center text-sm font-bold text-secondary-dark dark:text-secondary hover:underline"
                 >
                   {cta} <ArrowRight size={14} className="ml-1" />
                 </Link>
@@ -236,7 +236,7 @@ const WorkWithMe: React.FC = () => {
               { icon: Clock, label: 'Lead time', value: '4–6 weeks for workshops · 2 weeks for talks' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="bg-slate-50 dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800">
-                <Icon className="w-6 h-6 text-secondary mx-auto mb-3" />
+                <Icon className="w-6 h-6 text-secondary-dark dark:text-secondary mx-auto mb-3" />
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">{label}</p>
                 <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">{value}</p>
               </div>

@@ -173,7 +173,7 @@ const Home: React.FC = () => {
                 <Lightbulb className="w-8 h-8 text-primary dark:text-secondary" />
                 <div>
                   <h4 className="font-bold text-slate-900 dark:text-white text-lg">Thought Leadership</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Regular speaker at international conferences and author of <Link to="/articles" className="text-secondary hover:underline">technical deep-dives</Link>.</p>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Regular speaker at international conferences and author of <Link to="/articles" className="text-secondary-dark dark:text-secondary hover:underline">technical deep-dives</Link>.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4 mb-6">
@@ -214,7 +214,7 @@ const Home: React.FC = () => {
         <div className="flex justify-between items-end mb-12">
           <div>
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Recent Talks & Webinars</h2>
-            <p className="text-slate-600 dark:text-slate-400">Sharing knowledge with the global tech community via <Link to="/talks" className="text-secondary hover:underline">keynotes and workshops</Link>.</p>
+            <p className="text-slate-600 dark:text-slate-400">Sharing knowledge with the global tech community via <Link to="/talks" className="text-secondary-dark dark:text-secondary hover:underline">keynotes and workshops</Link>.</p>
           </div>
           <Link to="/talks" className="hidden md:flex items-center font-medium text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary-hover">
             View all talks <ArrowRight size={16} className="ml-1" />
@@ -270,7 +270,7 @@ const Home: React.FC = () => {
       <Section bg="white">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Latest Insights</h2>
-          <p className="text-slate-600 dark:text-slate-400">Deep dives into tools, culture, and methodology. Explore our <Link to="/articles" className="text-secondary hover:underline">article archives</Link>.</p>
+          <p className="text-slate-600 dark:text-slate-400">Deep dives into tools, culture, and methodology. Explore our <Link to="/articles" className="text-secondary-dark dark:text-secondary hover:underline">article archives</Link>.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {FEATURED_ARTICLES.map((article, idx) => (
@@ -308,7 +308,7 @@ const Home: React.FC = () => {
            </div>
            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Career Guidance & Mentorship</h2>
            <p className="text-slate-600 dark:text-slate-400">
-             I offer limited free slots to help aspiring engineers and architects navigate their <Link to="/devops/roadmap" className="text-secondary hover:underline">DevOps careers</Link>.
+             I offer limited free slots to help aspiring engineers and architects navigate their <Link to="/devops/roadmap" className="text-secondary-dark dark:text-secondary hover:underline">DevOps careers</Link>.
            </p>
         </div>
 
@@ -348,7 +348,7 @@ const Home: React.FC = () => {
              </div>
              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Interview Prep</h3>
              <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-grow">
-               Mock interviews for <Link to="/architecture/system-design-process" className="text-secondary hover:underline">System Design</Link> or Behavioral rounds with actionable feedback.
+               Mock interviews for <Link to="/architecture/system-design-process" className="text-secondary-dark dark:text-secondary hover:underline">System Design</Link> or Behavioral rounds with actionable feedback.
              </p>
              <Link to="/contact?topic=Interview Prep" className="text-sm font-bold text-primary dark:text-teal-400 hover:underline">
                Schedule Mock Interview &rarr;
@@ -365,7 +365,7 @@ const Home: React.FC = () => {
              <div className="text-white md:w-2/3">
                <h2 className="text-2xl md:text-3xl font-bold mb-4">Where do you stand?</h2>
                <p className="text-slate-100 text-lg mb-0">
-                 Take the <Link to="/devops/assessment" className="text-secondary font-bold hover:underline">DevOps Maturity Assessment</Link>. A decision-tree style evaluation to identify bottlenecks.
+                 Take the <Link to="/devops/assessment" className="text-secondary-dark dark:text-secondary font-bold hover:underline">DevOps Maturity Assessment</Link>. A decision-tree style evaluation to identify bottlenecks.
                </p>
              </div>
              <div className="md:w-1/3 flex justify-center md:justify-end">

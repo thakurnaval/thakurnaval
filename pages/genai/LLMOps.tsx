@@ -18,11 +18,11 @@ const LLMOps: React.FC = () => {
       <h3 className="text-2xl font-bold text-primary dark:text-white mb-4">Fine-tuning vs RAG</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="p-4 border border-slate-200 dark:border-slate-700 rounded">
-           <h4 className="font-bold text-secondary">RAG (Context)</h4>
+           <h4 className="font-bold text-secondary-dark dark:text-secondary">RAG (Context)</h4>
            <p className="text-sm mt-2">Giving the model a textbook. Best for adding new knowledge or reducing hallucinations.</p>
         </div>
         <div className="p-4 border border-slate-200 dark:border-slate-700 rounded">
-           <h4 className="font-bold text-secondary">Fine-tuning (Behavior)</h4>
+           <h4 className="font-bold text-secondary-dark dark:text-secondary">Fine-tuning (Behavior)</h4>
            <p className="text-sm mt-2">Sending the model to school. Best for changing the format, tone, or style of response.</p>
         </div>
       </div>

@@ -116,7 +116,7 @@ const Contact: React.FC = () => {
 
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="p-3 bg-secondary/10 rounded-lg text-secondary mr-4">
+                <div className="p-3 bg-secondary/10 rounded-lg text-secondary-dark dark:text-secondary mr-4">
                   <Mail size={24} />
                 </div>
                 <div>
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="p-3 bg-secondary/10 rounded-lg text-secondary mr-4">
+                <div className="p-3 bg-secondary/10 rounded-lg text-secondary-dark dark:text-secondary mr-4">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
 
             <div className="mt-8 p-5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-400">
               <p className="font-semibold text-primary dark:text-white mb-1">Not sure which engagement fits?</p>
-              <p>Browse the <a href="/work-with-me" className="text-secondary hover:underline font-medium">Work With Me</a> page for a full breakdown of speaking, workshop, and advisory offerings before reaching out.</p>
+              <p>Browse the <a href="/work-with-me" className="text-secondary-dark dark:text-secondary hover:underline font-medium">Work With Me</a> page for a full breakdown of speaking, workshop, and advisory offerings before reaching out.</p>
             </div>
           </div>
 

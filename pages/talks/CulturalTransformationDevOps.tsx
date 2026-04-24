@@ -10,7 +10,7 @@ const CulturalTransformationDevOps: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link 
           to="/talks" 
-          className="inline-flex items-center text-secondary hover:underline mb-8 font-medium"
+          className="inline-flex items-center text-secondary-dark dark:text-secondary hover:underline mb-8 font-medium"
         >
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Talks
         </Link>
@@ -21,7 +21,7 @@ const CulturalTransformationDevOps: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="flex items-center gap-2 mb-4">
-            <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold rounded-full uppercase tracking-widest">
+            <span className="px-3 py-1 bg-secondary/10 text-secondary-dark dark:text-secondary text-xs font-bold rounded-full uppercase tracking-widest">
               Cultural Transformation
             </span>
             <span className="text-slate-400 text-sm">12 Min Read</span>
@@ -38,7 +38,7 @@ const CulturalTransformationDevOps: React.FC = () => {
           <div className="prose prose-slate dark:prose-invert max-w-none">
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center">
-                <Users className="mr-3 text-secondary" /> The Illusion of the Toolchain
+                <Users className="mr-3 text-secondary-dark dark:text-secondary" /> The Illusion of the Toolchain
               </h2>
               <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                 In the early days of the DevOps movement, the focus was revolutionary: breaking down the silos between development and operations. We promised faster deployments, higher stability, and happier teams. However, as the movement matured, it became increasingly commoditized. Organizations began to believe that "doing DevOps" simply meant buying a CI/CD platform, containerizing applications, and hiring a few "DevOps Engineers."
@@ -50,7 +50,7 @@ const CulturalTransformationDevOps: React.FC = () => {
 
             <section className="mb-12 bg-slate-50 dark:bg-slate-800/50 p-8 rounded-2xl border border-slate-100 dark:border-slate-700">
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center">
-                <ShieldCheck className="mr-3 text-secondary" /> Psychological Safety: The Foundation
+                <ShieldCheck className="mr-3 text-secondary-dark dark:text-secondary" /> Psychological Safety: The Foundation
               </h2>
               <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                 The most critical component of a successful DevOps transformation is psychological safety. Coined by Amy Edmondson and popularized by Google's Project Aristotle, psychological safety is the belief that one will not be punished or humiliated for speaking up with ideas, questions, concerns, or mistakes.
@@ -58,7 +58,7 @@ const CulturalTransformationDevOps: React.FC = () => {
               <div className="grid md:grid-cols-2 gap-6 mt-8">
                 <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
                   <h3 className="font-bold text-primary dark:text-white mb-2 flex items-center">
-                    <Zap className="mr-2 h-4 w-4 text-secondary" /> Blameless Post-Mortems
+                    <Zap className="mr-2 h-4 w-4 text-secondary-dark dark:text-secondary" /> Blameless Post-Mortems
                   </h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Focus on the "how" and "what" rather than the "who." Treat every incident as a learning opportunity for the system, not a trial for the individual.
@@ -66,7 +66,7 @@ const CulturalTransformationDevOps: React.FC = () => {
                 </div>
                 <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
                   <h3 className="font-bold text-primary dark:text-white mb-2 flex items-center">
-                    <MessageSquare className="mr-2 h-4 w-4 text-secondary" /> Radical Candor
+                    <MessageSquare className="mr-2 h-4 w-4 text-secondary-dark dark:text-secondary" /> Radical Candor
                   </h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Encourage honest feedback that is delivered with personal care. High-performing teams challenge each other directly because they trust each other.
@@ -77,7 +77,7 @@ const CulturalTransformationDevOps: React.FC = () => {
 
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center">
-                <Target className="mr-3 text-secondary" /> Aligning Incentives
+                <Target className="mr-3 text-secondary-dark dark:text-secondary" /> Aligning Incentives
               </h2>
               <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                 Historically, Developers were incentivized for "velocity" (shipping features), while Operations were incentivized for "stability" (keeping things running). These goals are inherently in conflict. If I get a bonus for shipping code and you get fired if the site goes down, we are natural enemies.
@@ -89,22 +89,22 @@ const CulturalTransformationDevOps: React.FC = () => {
 
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center">
-                <Lightbulb className="mr-3 text-secondary" /> The Role of Leadership
+                <Lightbulb className="mr-3 text-secondary-dark dark:text-secondary" /> The Role of Leadership
               </h2>
               <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                 Culture is not something you "install." It is the shadow cast by leadership. If executives demand DevOps results but continue to manage via command-and-control, the transformation will fail. Leaders must transition from "Gatekeepers" to "Enablers."
               </p>
               <ul className="list-none space-y-4 mt-6">
                 <li className="flex items-start">
-                  <span className="h-6 w-6 rounded-full bg-secondary/20 text-secondary flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</span>
+                  <span className="h-6 w-6 rounded-full bg-secondary/20 text-secondary-dark dark:text-secondary flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</span>
                   <span className="text-slate-600 dark:text-slate-300"><strong>Model Vulnerability:</strong> When leaders admit their own mistakes, they give permission for others to do the same.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="h-6 w-6 rounded-full bg-secondary/20 text-secondary flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</span>
+                  <span className="h-6 w-6 rounded-full bg-secondary/20 text-secondary-dark dark:text-secondary flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</span>
                   <span className="text-slate-600 dark:text-slate-300"><strong>Invest in Learning:</strong> Allocate real time (not just "after hours") for experimentation, training, and cross-pollination of skills.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="h-6 w-6 rounded-full bg-secondary/20 text-secondary flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</span>
+                  <span className="h-6 w-6 rounded-full bg-secondary/20 text-secondary-dark dark:text-secondary flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</span>
                   <span className="text-slate-600 dark:text-slate-300"><strong>Celebrate the "Unseen" Work:</strong> Recognize the engineers who prevent fires, not just the "heroes" who put them out.</span>
                 </li>
               </ul>
@@ -112,7 +112,7 @@ const CulturalTransformationDevOps: React.FC = () => {
 
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center">
-                <Heart className="mr-3 text-secondary" /> Conclusion: The Human API
+                <Heart className="mr-3 text-secondary-dark dark:text-secondary" /> Conclusion: The Human API
               </h2>
               <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                 Technical change is relatively easy; human change is hard. As we move into an era of even greater automation and AI-driven operations, the "human factor" becomes our most valuable asset. Empathy, communication, and shared purpose are the true drivers of high-performing technology organizations.

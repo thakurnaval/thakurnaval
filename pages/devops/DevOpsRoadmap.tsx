@@ -23,7 +23,7 @@ const DevOpsRoadmap: React.FC = () => {
             <div className="w-full p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-center font-bold text-primary dark:text-white shadow-sm">
               {step}
             </div>
-            {i < 7 && <ArrowDown className="text-secondary" size={24} />}
+            {i < 7 && <ArrowDown className="text-secondary-dark dark:text-secondary" size={24} />}
           </React.Fragment>
         ))}
       </div>

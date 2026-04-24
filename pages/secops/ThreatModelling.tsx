@@ -18,7 +18,7 @@ const ThreatModelling: React.FC = () => {
           { t: "Elevation of Privilege", d: "Gaining higher access rights than authorized." },
         ].map((item, i) => (
           <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded bg-white dark:bg-slate-800">
-            <h4 className="font-bold text-secondary">{item.t}</h4>
+            <h4 className="font-bold text-secondary-dark dark:text-secondary">{item.t}</h4>
             <p className="text-sm text-slate-600 dark:text-slate-400">{item.d}</p>
           </div>
         ))}

@@ -88,7 +88,7 @@ const Community: React.FC = () => {
       {/* Hero */}
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary-dark dark:text-secondary text-xs font-bold uppercase tracking-wider mb-4">
             Giving Back
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Community & Free Mentoring</h1>
@@ -101,7 +101,7 @@ const Community: React.FC = () => {
       {/* Opening statement */}
       <Section bg="white">
         <div className="max-w-3xl mx-auto text-center">
-          <Heart className="w-10 h-10 text-secondary mx-auto mb-6" />
+          <Heart className="w-10 h-10 text-secondary-dark dark:text-secondary mx-auto mb-6" />
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
             Access is free. The time is limited.
           </h2>
@@ -143,7 +143,7 @@ const Community: React.FC = () => {
                   <ul className="space-y-2">
                     {offer.goodFor.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
-                        <CheckCircle2 size={15} className="text-secondary mt-0.5 shrink-0" />
+                        <CheckCircle2 size={15} className="text-secondary-dark dark:text-secondary mt-0.5 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -168,10 +168,10 @@ const Community: React.FC = () => {
             <div className="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-secondary/10 rounded-full blur-2xl" />
             <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start">
               <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center shrink-0">
-                <Calendar size={30} className="text-secondary" />
+                <Calendar size={30} className="text-secondary-dark dark:text-secondary" />
               </div>
               <div className="flex-grow">
-                <div className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-bold uppercase tracking-wider mb-3">
+                <div className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary-dark dark:text-secondary text-xs font-bold uppercase tracking-wider mb-3">
                   Coming Soon
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-3">Monthly Office Hours</h2>

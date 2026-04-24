@@ -185,7 +185,7 @@ const CaseStudies: React.FC = () => {
 
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <div className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-bold uppercase tracking-wider mb-6">
+          <div className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary-dark dark:text-secondary text-xs font-bold uppercase tracking-wider mb-6">
             Proof of Work
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Case Studies</h1>
@@ -281,7 +281,7 @@ const CaseStudies: React.FC = () => {
                         <ul className="space-y-2">
                           {cs.results.map((point, i) => (
                             <li key={i} className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed flex items-start gap-2">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-secondary shrink-0 mt-0.5" />
+                              <CheckCircle2 className="w-3.5 h-3.5 text-secondary-dark dark:text-secondary shrink-0 mt-0.5" />
                               {point}
                             </li>
                           ))}
@@ -296,7 +296,7 @@ const CaseStudies: React.FC = () => {
                       </div>
                       <Link
                         to={`/contact?topic=Consulting`}
-                        className="text-sm font-bold text-secondary hover:underline flex items-center gap-1 shrink-0"
+                        className="text-sm font-bold text-secondary-dark dark:text-secondary hover:underline flex items-center gap-1 shrink-0"
                       >
                         Discuss a similar engagement <ArrowRight size={14} />
                       </Link>
@@ -309,7 +309,7 @@ const CaseStudies: React.FC = () => {
         </div>
 
         <div className="max-w-4xl mx-auto mt-12 p-8 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 text-center">
-          <Layers className="w-8 h-8 text-secondary mx-auto mb-3" />
+          <Layers className="w-8 h-8 text-secondary-dark dark:text-secondary mx-auto mb-3" />
           <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Facing a similar challenge?</h2>
           <p className="text-slate-500 dark:text-slate-400 text-sm mb-6 max-w-xl mx-auto">
             These case studies represent the kind of work Naval does in fractional advisory and consulting engagements. If your organisation is tackling a DevOps, FinOps, or GenAI transformation, let's talk.

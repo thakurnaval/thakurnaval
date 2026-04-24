@@ -19,7 +19,7 @@ const RAGArchitecture: React.FC = () => {
         </div>
         <ArrowRight className="text-slate-300" />
         <div className="flex flex-col items-center p-3 bg-white dark:bg-slate-800 rounded border border-slate-200">
-          <Database className="w-8 h-8 text-secondary mb-2" />
+          <Database className="w-8 h-8 text-secondary-dark dark:text-secondary mb-2" />
           <span className="text-sm font-bold">Vector DB</span>
         </div>
         <ArrowRight className="text-slate-300" />

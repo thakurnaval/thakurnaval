@@ -54,7 +54,7 @@ const GamifyingDevOpsPipeline: React.FC = () => {
               },
             ].map(({ icon: Icon, title, body }) => (
               <div key={title} className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
-                <Icon className="w-8 h-8 text-secondary mb-4" />
+                <Icon className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4" />
                 <h3 className="text-lg font-bold text-primary dark:text-white mb-2">{title}</h3>
                 <p className="text-sm leading-relaxed">{body}</p>
               </div>
@@ -124,13 +124,13 @@ const GamifyingDevOpsPipeline: React.FC = () => {
 
         <section className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
           <div className="flex items-start gap-4">
-            <Users className="w-8 h-8 text-secondary shrink-0 mt-1" />
+            <Users className="w-8 h-8 text-secondary-dark dark:text-secondary shrink-0 mt-1" />
             <div>
               <h3 className="text-lg font-bold text-primary dark:text-white mb-2">Want to Run a Deployment League with Your Team?</h3>
               <p className="text-sm leading-relaxed">
                 I run hands-on DevOps gamification workshops for engineering teams and leadership groups. We design the metric framework, set up the tooling, and run the first sprint together. If this resonates, let's talk.
               </p>
-              <Link to="/contact?topic=Workshop / Training" className="inline-block mt-4 text-sm font-bold text-secondary hover:underline">Book a Workshop &rarr;</Link>
+              <Link to="/contact?topic=Workshop / Training" className="inline-block mt-4 text-sm font-bold text-secondary-dark dark:text-secondary hover:underline">Book a Workshop &rarr;</Link>
             </div>
           </div>
         </section>

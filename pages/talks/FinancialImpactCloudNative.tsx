@@ -21,12 +21,12 @@ const FinancialImpactCloudNative: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 not-prose">
             <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border-l-4 border-secondary">
-              <DollarSign className="w-8 h-8 text-secondary mb-4" />
+              <DollarSign className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4" />
               <h3 className="text-lg font-bold mb-2">Cost Visibility</h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">Gaining 100% transparency into who is spending what and why.</p>
             </div>
             <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border-l-4 border-secondary">
-              <TrendingDown className="w-8 h-8 text-secondary mb-4" />
+              <TrendingDown className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4" />
               <h3 className="text-lg font-bold mb-2">30% Reduction</h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">Achievable savings through rigorous optimization and cultural alignment.</p>
             </div>
@@ -71,7 +71,7 @@ const FinancialImpactCloudNative: React.FC = () => {
 
           <div className="my-12 p-8 bg-primary text-white rounded-2xl not-prose">
             <h3 className="text-2xl font-bold mb-4 flex items-center">
-              <PieChart className="mr-3 text-secondary" /> 
+              <PieChart className="mr-3 text-secondary-dark dark:text-secondary" /> 
               The FinOps Lifecycle
             </h3>
             <p className="text-slate-200 mb-6">
@@ -79,15 +79,15 @@ const FinancialImpactCloudNative: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 border border-white/10 rounded-lg">
-                <div className="text-secondary font-bold text-2xl mb-1">Inform</div>
+                <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">Inform</div>
                 <div className="text-xs uppercase tracking-wider">Visibility & Allocation</div>
               </div>
               <div className="p-4 border border-white/10 rounded-lg">
-                <div className="text-secondary font-bold text-2xl mb-1">Optimize</div>
+                <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">Optimize</div>
                 <div className="text-xs uppercase tracking-wider">Rightsizing & Waste</div>
               </div>
               <div className="p-4 border border-white/10 rounded-lg">
-                <div className="text-secondary font-bold text-2xl mb-1">Operate</div>
+                <div className="text-secondary-dark dark:text-secondary font-bold text-2xl mb-1">Operate</div>
                 <div className="text-xs uppercase tracking-wider">Governance & Culture</div>
               </div>
             </div>
@@ -112,27 +112,27 @@ const FinancialImpactCloudNative: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 not-prose">
             <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
               <h4 className="font-bold flex items-center gap-2 mb-2">
-                <BarChart3 className="w-4 h-4 text-secondary" />
+                <BarChart3 className="w-4 h-4 text-secondary-dark dark:text-secondary" />
                 Cost per Transaction
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">Linking cloud spend directly to business output.</p>
             </div>
             <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
-              <ShieldCheck className="w-4 h-4 text-secondary" />
+              <ShieldCheck className="w-4 h-4 text-secondary-dark dark:text-secondary" />
               <h4 className="font-bold flex items-center gap-2 mb-2">
                 Budget Adherence
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">Reducing variance between forecasted and actual spend.</p>
             </div>
             <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
-              <Zap className="w-4 h-4 text-secondary" />
+              <Zap className="w-4 h-4 text-secondary-dark dark:text-secondary" />
               <h4 className="font-bold flex items-center gap-2 mb-2">
                 Optimization Rate
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">Percentage of resources that are considered 'rightsized'.</p>
             </div>
             <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
-              <DollarSign className="w-4 h-4 text-secondary" />
+              <DollarSign className="w-4 h-4 text-secondary-dark dark:text-secondary" />
               <h4 className="font-bold flex items-center gap-2 mb-2">
                 Effective Savings Rate
               </h4>

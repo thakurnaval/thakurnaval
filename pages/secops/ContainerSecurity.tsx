@@ -12,7 +12,7 @@ const ContainerSecurity: React.FC = () => {
       
       <div className="space-y-8">
         <div className="flex items-start">
-           <Box className="w-8 h-8 text-secondary mr-4 flex-shrink-0" />
+           <Box className="w-8 h-8 text-secondary-dark dark:text-secondary mr-4 flex-shrink-0" />
            <div>
              <h4 className="text-lg font-bold text-primary dark:text-white">Build: Image Scanning</h4>
              <p className="text-slate-600 dark:text-slate-400">
@@ -22,7 +22,7 @@ const ContainerSecurity: React.FC = () => {
         </div>
 
         <div className="flex items-start">
-           <Layers className="w-8 h-8 text-secondary mr-4 flex-shrink-0" />
+           <Layers className="w-8 h-8 text-secondary-dark dark:text-secondary mr-4 flex-shrink-0" />
            <div>
              <h4 className="text-lg font-bold text-primary dark:text-white">Deploy: Admission Controllers</h4>
              <p className="text-slate-600 dark:text-slate-400">
@@ -32,7 +32,7 @@ const ContainerSecurity: React.FC = () => {
         </div>
 
         <div className="flex items-start">
-           <ShieldCheck className="w-8 h-8 text-secondary mr-4 flex-shrink-0" />
+           <ShieldCheck className="w-8 h-8 text-secondary-dark dark:text-secondary mr-4 flex-shrink-0" />
            <div>
              <h4 className="text-lg font-bold text-primary dark:text-white">Runtime: Threat Detection</h4>
              <p className="text-slate-600 dark:text-slate-400">

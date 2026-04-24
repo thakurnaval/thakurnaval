@@ -121,7 +121,7 @@ const Articles: React.FC = () => {
               <p className="text-lg font-medium">No articles match "{query}" {activeTag !== 'All' ? `in ${activeTag}` : ''}.</p>
               <button
                 onClick={() => { setQuery(''); setActiveTag('All'); }}
-                className="mt-4 text-sm font-semibold text-secondary hover:underline"
+                className="mt-4 text-sm font-semibold text-secondary-dark dark:text-secondary hover:underline"
               >
                 Clear filters
               </button>

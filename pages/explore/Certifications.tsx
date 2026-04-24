@@ -83,7 +83,7 @@ const CertCard: React.FC<{ cert: Cert }> = ({ cert }) => (
         />
       ) : (
         <div className="w-20 h-20 rounded-full bg-secondary/10 flex items-center justify-center">
-          <Award className="w-10 h-10 text-secondary" />
+          <Award className="w-10 h-10 text-secondary-dark dark:text-secondary" />
         </div>
       )}
     </div>
@@ -95,7 +95,7 @@ const CertCard: React.FC<{ cert: Cert }> = ({ cert }) => (
         href={cert.credlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 text-xs font-semibold text-secondary hover:text-secondary/80 transition-colors"
+        className="inline-flex items-center gap-1 text-xs font-semibold text-secondary-dark dark:text-secondary hover:text-secondary/80 transition-colors"
       >
         Verify on Credly <ExternalLink size={11} />
       </a>

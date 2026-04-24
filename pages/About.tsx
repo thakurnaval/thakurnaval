@@ -22,7 +22,7 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({ title, icon: Ic
         aria-expanded={isOpen}
       >
         <h3 className="text-xl md:text-2xl font-bold text-primary dark:text-white flex items-center">
-          <Icon className="mr-3 text-secondary shrink-0" /> {title}
+          <Icon className="mr-3 text-secondary-dark dark:text-secondary shrink-0" /> {title}
         </h3>
         {isOpen ? (
           <ChevronUp className="w-6 h-6 text-slate-400 shrink-0 ml-4" />
@@ -361,12 +361,12 @@ const About: React.FC = () => {
                {/* Key Stats / Quick Info */}
                <div className="grid grid-cols-2 gap-4">
                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-slate-100 dark:border-slate-700">
-                    <Globe className="w-6 h-6 mx-auto text-secondary mb-2" />
+                    <Globe className="w-6 h-6 mx-auto text-secondary-dark dark:text-secondary mb-2" />
                     <span className="block text-2xl font-bold text-primary dark:text-white">18+</span>
                     <span className="text-xs text-slate-500">Years Exp</span>
                  </div>
                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-slate-100 dark:border-slate-700">
-                    <Briefcase className="w-6 h-6 mx-auto text-secondary mb-2" />
+                    <Briefcase className="w-6 h-6 mx-auto text-secondary-dark dark:text-secondary mb-2" />
                     <span className="block text-2xl font-bold text-primary dark:text-white">35+</span>
                     <span className="text-xs text-slate-500">Projects</span>
                  </div>
@@ -398,7 +398,7 @@ const About: React.FC = () => {
                  {experience.map((companyData, idx) => (
                    <div key={idx} className="relative border-l-2 border-slate-200 dark:border-slate-700 pl-8 ml-3 md:ml-4 pb-2">
                       <span className="absolute -left-[21px] top-0 flex items-center justify-center w-10 h-10 bg-white dark:bg-slate-900 border-2 border-secondary rounded-full shadow-sm z-10">
-                        <Building2 size={20} className="text-secondary" />
+                        <Building2 size={20} className="text-secondary-dark dark:text-secondary" />
                       </span>
                       
                       <div className="mb-8 flex items-center gap-4 flex-wrap">
@@ -438,7 +438,7 @@ const About: React.FC = () => {
 
                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
                                  <div className="flex items-start gap-3">
-                                   <div className={`p-2 rounded-lg shrink-0 mt-1 ${isCurrent ? 'bg-secondary/10 text-secondary' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+                                   <div className={`p-2 rounded-lg shrink-0 mt-1 ${isCurrent ? 'bg-secondary/10 text-secondary-dark dark:text-secondary' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
                                       <RoleIcon size={20} />
                                    </div>
                                    <div>

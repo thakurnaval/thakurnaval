@@ -44,7 +44,7 @@ const SecOps: React.FC = () => {
                  </div>
                  <h3 className="text-xl font-bold text-primary dark:text-white">The Solution</h3>
                  <p className="text-slate-600 dark:text-slate-400 text-sm">
-                   Automated security scanning (<Link to="/secops/sast-dast" className="text-secondary hover:underline">SAST/DAST</Link>), policy-as-code, and <Link to="/secops/continuous-security" className="text-secondary hover:underline">continuous compliance</Link> monitoring within the pipeline.
+                   Automated security scanning (<Link to="/secops/sast-dast" className="text-secondary-dark dark:text-secondary hover:underline">SAST/DAST</Link>), policy-as-code, and <Link to="/secops/continuous-security" className="text-secondary-dark dark:text-secondary hover:underline">continuous compliance</Link> monitoring within the pipeline.
                  </p>
                </div>
             </div>
@@ -53,14 +53,14 @@ const SecOps: React.FC = () => {
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4">Core Concepts</h2>
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <Lock className="w-6 h-6 text-secondary mt-1 mr-4 flex-shrink-0" />
+                  <Lock className="w-6 h-6 text-secondary-dark dark:text-secondary mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-bold text-slate-900 dark:text-white text-lg"><Link to="/secops/automation" className="hover:text-secondary">Security as Code</Link></h3>
                     <p className="text-slate-600 dark:text-slate-400 mt-1">Defining security policies in Git and enforcing them automatically during deployment.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <Eye className="w-6 h-6 text-secondary mt-1 mr-4 flex-shrink-0" />
+                  <Eye className="w-6 h-6 text-secondary-dark dark:text-secondary mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-bold text-slate-900 dark:text-white text-lg"><Link to="/secops/continuous-security" className="hover:text-secondary">Continuous Monitoring</Link></h3>
                     <p className="text-slate-600 dark:text-slate-400 mt-1">Real-time threat detection and automated incident response workflows.</p>

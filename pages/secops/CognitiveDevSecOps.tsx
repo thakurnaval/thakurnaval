@@ -19,28 +19,28 @@ const CognitiveDevSecOps: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-            <Brain className="w-10 h-10 text-secondary mb-4" />
+            <Brain className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-xl font-bold text-primary dark:text-white mb-2">Contextual Awareness</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               AI doesn't just see a code snippet; it understands the business logic and intent, allowing it to spot vulnerabilities that traditional scanners miss.
             </p>
           </div>
           <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-            <Shield className="w-10 h-10 text-secondary mb-4" />
+            <Shield className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-xl font-bold text-primary dark:text-white mb-2">Auto-Remediation</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Generating suggested pull requests to fix vulnerabilities the moment they are detected, rather than just raising an alert.
             </p>
           </div>
           <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-            <Zap className="w-10 h-10 text-secondary mb-4" />
+            <Zap className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-xl font-bold text-primary dark:text-white mb-2">Intelligent Triage</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Reducing alert fatigue by automatically filtering false positives and prioritizing risks based on actual exploitability.
             </p>
           </div>
           <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-            <RefreshCw className="w-10 h-10 text-secondary mb-4" />
+            <RefreshCw className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
             <h3 className="text-xl font-bold text-primary dark:text-white mb-2">Feedback Loops</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Using production telemetry to train the AI on what "normal" looks like, creating a truly self-improving security ecosystem.

@@ -80,7 +80,7 @@ Email: contact@nthakur.com
           <div className="lg:col-span-2">
             <div className="mb-12">
                <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center">
-                 <Mic2 className="mr-3 text-secondary" /> Speaking Topics
+                 <Mic2 className="mr-3 text-secondary-dark dark:text-secondary" /> Speaking Topics
                </h2>
                 <div className="space-y-6">
                   {RECENT_TALKS.map((talk, idx) => (
@@ -100,7 +100,7 @@ Email: contact@nthakur.com
                         {talk.link && (
                           <Link 
                             to={talk.link} 
-                            className="text-secondary font-bold text-sm hover:underline flex items-center"
+                            className="text-secondary-dark dark:text-secondary font-bold text-sm hover:underline flex items-center"
                           >
                             Read Article &rarr;
                           </Link>
@@ -114,7 +114,7 @@ Email: contact@nthakur.com
             {/* Past appearances */}
             <div>
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center">
-                <Calendar className="mr-3 text-secondary" /> Past Appearances
+                <Calendar className="mr-3 text-secondary-dark dark:text-secondary" /> Past Appearances
               </h2>
               <div className="space-y-3">
                 {SPEAKING_APPEARANCES.map((appearance, idx) => (
@@ -162,7 +162,7 @@ Email: contact@nthakur.com
                             href={appearance.recordingUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-secondary hover:text-secondary/80"
+                            className="text-secondary-dark dark:text-secondary hover:text-secondary/80"
                             aria-label="Watch recording"
                             title="Watch recording"
                           >

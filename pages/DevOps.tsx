@@ -29,7 +29,7 @@ const DevOps: React.FC = () => {
                 DevOps is not just Jenkins pipelines or Kubernetes clusters. It is a fundamental shift in how organizations build, deliver, and run software. It breaks down the silos between Development and Operations, fostering a culture of shared responsibility.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                By implementing <Link to="/devops/practices" className="text-secondary hover:underline font-medium">CI/CD</Link>, <Link to="/devops/tools" className="text-secondary hover:underline font-medium">Infrastructure as Code (IaC)</Link>, and automated testing, we reduce the "fear of release" and enable businesses to respond to market changes instantly.
+                By implementing <Link to="/devops/practices" className="text-secondary-dark dark:text-secondary hover:underline font-medium">CI/CD</Link>, <Link to="/devops/tools" className="text-secondary-dark dark:text-secondary hover:underline font-medium">Infrastructure as Code (IaC)</Link>, and automated testing, we reduce the "fear of release" and enable businesses to respond to market changes instantly.
               </p>
             </div>
 
@@ -41,7 +41,7 @@ const DevOps: React.FC = () => {
                 { icon: Settings, title: 'Process', desc: 'Agile methodologies applied to Ops.', link: '/devops/maturity' },
               ].map((item, idx) => (
                 <Link key={idx} to={item.link} className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border border-slate-100 dark:border-slate-700 hover:border-secondary transition-colors group">
-                  <item.icon className="w-8 h-8 text-secondary mb-3 group-hover:scale-110 transition-transform" />
+                  <item.icon className="w-8 h-8 text-secondary-dark dark:text-secondary mb-3 group-hover:scale-110 transition-transform" />
                   <h3 className="font-bold text-primary dark:text-white mb-1 group-hover:text-secondary">{item.title}</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400">{item.desc}</p>
                 </Link>
@@ -58,7 +58,7 @@ const DevOps: React.FC = () => {
                   "Reliability: Self-healing infrastructure and automated rollbacks."
                 ].map((point, i) => (
                   <li key={i} className="flex items-start">
-                    <span className="mr-3 text-secondary font-bold">✓</span>
+                    <span className="mr-3 text-secondary-dark dark:text-secondary font-bold">✓</span>
                     <span className="text-slate-700 dark:text-slate-300">{point}</span>
                   </li>
                 ))}

@@ -13,14 +13,14 @@ const ZeroTrustCloudNativeArticle = () => {
         >
           <Link 
             to="/talks" 
-            className="inline-flex items-center text-secondary hover:text-secondary/80 mb-8 transition-colors"
+            className="inline-flex items-center text-secondary-dark dark:text-secondary hover:text-secondary/80 mb-8 transition-colors"
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Talks
           </Link>
 
           <header className="mb-12">
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold rounded-full uppercase tracking-wider">SecOps</span>
+              <span className="px-3 py-1 bg-secondary/10 text-secondary-dark dark:text-secondary text-xs font-bold rounded-full uppercase tracking-wider">SecOps</span>
               <span className="px-3 py-1 bg-primary/10 text-primary dark:text-primary-light text-xs font-bold rounded-full uppercase tracking-wider">Kubernetes</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-primary dark:text-white mb-6 leading-tight">
@@ -34,7 +34,7 @@ const ZeroTrustCloudNativeArticle = () => {
           <div className="prose prose-slate dark:prose-invert max-w-none">
             <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mb-12">
               <h2 className="text-2xl font-bold text-primary dark:text-white mt-0 mb-4 flex items-center">
-                <ShieldAlert className="mr-3 text-secondary" /> The Death of the Perimeter
+                <ShieldAlert className="mr-3 text-secondary-dark dark:text-secondary" /> The Death of the Perimeter
               </h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 Traditional security models relied on a "castle and moat" approach: once you were inside the network perimeter, you were trusted. In a cloud-native environment, this model is fundamentally broken. Containers are ephemeral, IP addresses are reused, and the "perimeter" is now everywhere.
@@ -48,17 +48,17 @@ const ZeroTrustCloudNativeArticle = () => {
             
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="p-6 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
-                <Fingerprint className="h-10 w-10 text-secondary mb-4" />
+                <Fingerprint className="h-10 w-10 text-secondary-dark dark:text-secondary mb-4" />
                 <h3 className="text-lg font-bold mb-2">Strong Identity</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400">Workload-to-workload authentication using SPIFFE/mTLS.</p>
               </div>
               <div className="p-6 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
-                <Network className="h-10 w-10 text-secondary mb-4" />
+                <Network className="h-10 w-10 text-secondary-dark dark:text-secondary mb-4" />
                 <h3 className="text-lg font-bold mb-2">Micro-segmentation</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400">L3/L4 and L7 network policies to restrict lateral movement.</p>
               </div>
               <div className="p-6 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
-                <Eye className="h-10 w-10 text-secondary mb-4" />
+                <Eye className="h-10 w-10 text-secondary-dark dark:text-secondary mb-4" />
                 <h3 className="text-lg font-bold mb-2">Continuous Observability</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400">Real-time monitoring of traffic patterns and policy violations.</p>
               </div>
@@ -120,23 +120,23 @@ spec:
               <h3 className="text-2xl font-bold mb-4 relative z-10">The Zero Trust Checklist</h3>
               <ul className="space-y-3 relative z-10">
                 <li className="flex items-start">
-                  <FileCheck className="h-5 w-5 mr-3 text-secondary shrink-0 mt-1" />
+                  <FileCheck className="h-5 w-5 mr-3 text-secondary-dark dark:text-secondary shrink-0 mt-1" />
                   <span>Enable mTLS for all inter-service communication.</span>
                 </li>
                 <li className="flex items-start">
-                  <FileCheck className="h-5 w-5 mr-3 text-secondary shrink-0 mt-1" />
+                  <FileCheck className="h-5 w-5 mr-3 text-secondary-dark dark:text-secondary shrink-0 mt-1" />
                   <span>Implement Default Deny network policies in every namespace.</span>
                 </li>
                 <li className="flex items-start">
-                  <FileCheck className="h-5 w-5 mr-3 text-secondary shrink-0 mt-1" />
+                  <FileCheck className="h-5 w-5 mr-3 text-secondary-dark dark:text-secondary shrink-0 mt-1" />
                   <span>Rotate secrets and certificates automatically (e.g., using Cert-Manager).</span>
                 </li>
                 <li className="flex items-start">
-                  <FileCheck className="h-5 w-5 mr-3 text-secondary shrink-0 mt-1" />
+                  <FileCheck className="h-5 w-5 mr-3 text-secondary-dark dark:text-secondary shrink-0 mt-1" />
                   <span>Scan container images for vulnerabilities at build and runtime.</span>
                 </li>
                 <li className="flex items-start">
-                  <FileCheck className="h-5 w-5 mr-3 text-secondary shrink-0 mt-1" />
+                  <FileCheck className="h-5 w-5 mr-3 text-secondary-dark dark:text-secondary shrink-0 mt-1" />
                   <span>Use OIDC for human access to the Kubernetes API.</span>
                 </li>
               </ul>

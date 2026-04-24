@@ -21,7 +21,7 @@ const CostVisibility: React.FC = () => {
           { k: "Owner", v: "team-alpha@company.com", d: "Who do I contact?" },
         ].map((tag, i) => (
           <div key={i} className="flex items-center p-3 bg-slate-50 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
-            <Tag className="w-5 h-5 text-secondary mr-3" />
+            <Tag className="w-5 h-5 text-secondary-dark dark:text-secondary mr-3" />
             <div>
               <span className="font-mono text-xs font-bold text-primary dark:text-white bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded mr-2">{tag.k}</span>
               <span className="font-mono text-xs text-slate-600 dark:text-slate-300 mr-2">={tag.v}</span>

@@ -42,7 +42,7 @@ const NewsletterSignup: React.FC = () => {
       
       <div className="relative z-10 max-w-2xl mx-auto">
         <div className="inline-flex items-center justify-center p-3 bg-white/10 rounded-full mb-6">
-          <Mail className="w-6 h-6 text-secondary" />
+          <Mail className="w-6 h-6 text-secondary-dark dark:text-secondary" />
         </div>
         <h2 className="text-3xl font-bold text-white mb-4">The CognitiveOps Brief</h2>
         <p className="text-slate-100 mb-8 text-lg">

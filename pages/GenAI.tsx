@@ -25,7 +25,7 @@ const GenAI: React.FC = () => {
           <div>
             <h2 className="text-3xl font-bold text-primary dark:text-white mb-6">The Intersection of AI and Ops</h2>
             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-              Generative AI is transforming how we write code, manage incidents, and optimize costs. But implementing LLMs introduces new challenges in security (<Link to="/genai/governance" className="text-secondary hover:underline">LLM Security</Link>), cost governance (Tokenomics), and operations (<Link to="/genai/llmops" className="text-secondary hover:underline">LLMOps</Link>).
+              Generative AI is transforming how we write code, manage incidents, and optimize costs. But implementing LLMs introduces new challenges in security (<Link to="/genai/governance" className="text-secondary-dark dark:text-secondary hover:underline">LLM Security</Link>), cost governance (Tokenomics), and operations (<Link to="/genai/llmops" className="text-secondary-dark dark:text-secondary hover:underline">LLMOps</Link>).
             </p>
           </div>
 
@@ -57,7 +57,7 @@ const GenAI: React.FC = () => {
               }
             ].map((item, idx) => (
               <Link key={idx} to={item.link} className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-secondary dark:hover:border-secondary transition-colors block group">
-                <item.icon className="w-8 h-8 text-secondary mb-4 group-hover:scale-110 transition-transform" />
+                <item.icon className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold text-primary dark:text-white mb-2 group-hover:text-secondary">{item.title}</h3>
                 <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
               </Link>

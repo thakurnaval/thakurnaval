@@ -24,21 +24,21 @@ const CloudComputingFundamentals: React.FC = () => {
           <h2 className="text-2xl font-bold text-primary dark:text-white mb-6">Service Models: IaaS, PaaS, and SaaS</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-              <Server className="w-10 h-10 text-secondary mb-4" />
+              <Server className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
               <h3 className="text-xl font-bold text-primary dark:text-white mb-2">IaaS</h3>
               <p className="text-sm">
                 <strong>Infrastructure as a Service</strong> provides access to virtualized computing resources such as servers, storage, and networking. Customers have complete control over the operating systems and applications.
               </p>
             </div>
             <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-              <Layers className="w-10 h-10 text-secondary mb-4" />
+              <Layers className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
               <h3 className="text-xl font-bold text-primary dark:text-white mb-2">PaaS</h3>
               <p className="text-sm">
                 <strong>Platform as a Service</strong> provides a platform for developing, testing, and deploying applications without managing the underlying infrastructure. Developers can focus purely on writing code.
               </p>
             </div>
             <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-              <RefreshCw className="w-10 h-10 text-secondary mb-4" />
+              <RefreshCw className="w-10 h-10 text-secondary-dark dark:text-secondary mb-4" />
               <h3 className="text-xl font-bold text-primary dark:text-white mb-2">SaaS</h3>
               <p className="text-sm">
                 <strong>Software as a Service</strong> provides access to applications hosted and managed by a third-party provider. Accessed via browser or mobile app, paying only for the software used.
@@ -51,35 +51,35 @@ const CloudComputingFundamentals: React.FC = () => {
           <h2 className="text-2xl font-bold text-primary dark:text-white mb-6">Key Benefits</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
             <div className="flex items-start">
-              <Zap className="w-6 h-6 text-secondary mr-4 shrink-0 mt-1" />
+              <Zap className="w-6 h-6 text-secondary-dark dark:text-secondary mr-4 shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-slate-900 dark:text-white">Scalability</h4>
                 <p className="text-sm">Quickly scale resources up or down as needed without investing in new hardware.</p>
               </div>
             </div>
             <div className="flex items-start">
-              <DollarSign className="w-6 h-6 text-secondary mr-4 shrink-0 mt-1" />
+              <DollarSign className="w-6 h-6 text-secondary-dark dark:text-secondary mr-4 shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-slate-900 dark:text-white">Cost Savings</h4>
                 <p className="text-sm">Eliminates expensive upfront hardware costs; pay only for the resources you actually use.</p>
               </div>
             </div>
             <div className="flex items-start">
-              <Globe className="w-6 h-6 text-secondary mr-4 shrink-0 mt-1" />
+              <Globe className="w-6 h-6 text-secondary-dark dark:text-secondary mr-4 shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-slate-900 dark:text-white">Flexibility</h4>
                 <p className="text-sm">Access computing resources from anywhere, at any time, and from any device.</p>
               </div>
             </div>
             <div className="flex items-start">
-              <RefreshCw className="w-6 h-6 text-secondary mr-4 shrink-0 mt-1" />
+              <RefreshCw className="w-6 h-6 text-secondary-dark dark:text-secondary mr-4 shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-slate-900 dark:text-white">Reliability</h4>
                 <p className="text-sm">High levels of uptime and redundancy ensure applications and data are always available.</p>
               </div>
             </div>
             <div className="flex items-start">
-              <Shield className="w-6 h-6 text-secondary mr-4 shrink-0 mt-1" />
+              <Shield className="w-6 h-6 text-secondary-dark dark:text-secondary mr-4 shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-slate-900 dark:text-white">Security</h4>
                 <p className="text-sm">Cloud providers invest heavily in security expertise and measures, often surpassing individual org capabilities.</p>

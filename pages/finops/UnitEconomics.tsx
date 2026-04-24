@@ -14,7 +14,7 @@ const UnitEconomics: React.FC = () => {
 
       <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg mb-8">
          <h3 className="text-xl font-bold text-primary dark:text-white mb-4 text-center">The Golden Metric</h3>
-         <div className="flex justify-center items-center text-2xl font-bold font-mono text-secondary">
+         <div className="flex justify-center items-center text-2xl font-bold font-mono text-secondary-dark dark:text-secondary">
             Cost per Transaction / Customer / Order
          </div>
       </div>

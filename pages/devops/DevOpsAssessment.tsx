@@ -23,7 +23,7 @@ const DevOpsAssessment: React.FC = () => {
           "Automation Level: Is infrastructure manual or defined as code?"
         ].map((area, i) => (
           <div key={i} className="flex items-start">
-             <CheckSquare className="w-5 h-5 text-secondary mr-3 mt-1 flex-shrink-0" />
+             <CheckSquare className="w-5 h-5 text-secondary-dark dark:text-secondary mr-3 mt-1 flex-shrink-0" />
              <span className="text-slate-700 dark:text-slate-300">{area}</span>
           </div>
         ))}

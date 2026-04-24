@@ -17,21 +17,21 @@ const CloudSecurity: React.FC = () => {
 
       <div className="space-y-6">
         <div className="flex items-start">
-           <UserCheck className="w-6 h-6 text-secondary mr-4 flex-shrink-0" />
+           <UserCheck className="w-6 h-6 text-secondary-dark dark:text-secondary mr-4 flex-shrink-0" />
            <div>
              <h4 className="font-bold text-primary dark:text-white">Identity & Access Management (IAM)</h4>
              <p className="text-slate-600 dark:text-slate-400">Granular permissions, MFA enforcement, and separating duties to prevent unauthorized access.</p>
            </div>
         </div>
         <div className="flex items-start">
-           <Cloud className="w-6 h-6 text-secondary mr-4 flex-shrink-0" />
+           <Cloud className="w-6 h-6 text-secondary-dark dark:text-secondary mr-4 flex-shrink-0" />
            <div>
              <h4 className="font-bold text-primary dark:text-white">Network Security</h4>
              <p className="text-slate-600 dark:text-slate-400">VPCs, Subnets, Security Groups, and WAF (Web Application Firewalls) to control traffic flow.</p>
            </div>
         </div>
         <div className="flex items-start">
-           <Lock className="w-6 h-6 text-secondary mr-4 flex-shrink-0" />
+           <Lock className="w-6 h-6 text-secondary-dark dark:text-secondary mr-4 flex-shrink-0" />
            <div>
              <h4 className="font-bold text-primary dark:text-white">Data Protection</h4>
              <p className="text-slate-600 dark:text-slate-400">Encryption at rest (KMS) and in transit (TLS). Tokenization of sensitive PII data.</p>

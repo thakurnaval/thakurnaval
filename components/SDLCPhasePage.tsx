@@ -15,7 +15,7 @@ const SDLCPhasePage: React.FC<SDLCPhaseProps> = ({ title, subtitle, icon: Icon, 
     <SimplePage title={title} subtitle={subtitle}>
       <div className="max-w-4xl space-y-12">
         <div className="flex items-start gap-6">
-          <div className="p-4 rounded-2xl bg-secondary/10 text-secondary">
+          <div className="p-4 rounded-2xl bg-secondary/10 text-secondary-dark dark:text-secondary">
             <Icon className="w-12 h-12" />
           </div>
           <div className="flex-grow">

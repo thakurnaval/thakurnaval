@@ -31,7 +31,7 @@ const GalleryCard: React.FC<{ img: GalleryImage }> = ({ img }) => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
           <h3 className="text-white font-bold text-lg mb-1 flex items-center">
-            <Camera size={16} className="mr-2 text-secondary" />
+            <Camera size={16} className="mr-2 text-secondary-dark dark:text-secondary" />
             {img.title}
           </h3>
           <p className="text-slate-300 text-sm flex items-center">

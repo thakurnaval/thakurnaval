@@ -35,7 +35,7 @@ const Architecture: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                <Link to="/architecture/microservices" className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-secondary transition-colors group">
-                 <Layers className="w-8 h-8 text-secondary mb-4 group-hover:scale-110 transition-transform" />
+                 <Layers className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4 group-hover:scale-110 transition-transform" />
                  <h3 className="text-xl font-bold text-primary dark:text-white mb-2 group-hover:text-secondary">Microservices & Modularity</h3>
                  <p className="text-slate-600 dark:text-slate-400">
                    Decomposing complex domains into loosely coupled, independently deployable services using Domain-Driven Design (DDD).
@@ -43,7 +43,7 @@ const Architecture: React.FC = () => {
                </Link>
                
                <Link to="/architecture/cloud-architecture" className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-secondary transition-colors group">
-                 <Network className="w-8 h-8 text-secondary mb-4 group-hover:scale-110 transition-transform" />
+                 <Network className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4 group-hover:scale-110 transition-transform" />
                  <h3 className="text-xl font-bold text-primary dark:text-white mb-2 group-hover:text-secondary">Event-Driven Design</h3>
                  <p className="text-slate-600 dark:text-slate-400">
                    Building reactive systems that scale using asynchronous messaging patterns, Kafka, and EventBridge.
@@ -51,7 +51,7 @@ const Architecture: React.FC = () => {
                </Link>
 
                <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-secondary transition-colors">
-                 <Server className="w-8 h-8 text-secondary mb-4" />
+                 <Server className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4" />
                  <h3 className="text-xl font-bold text-primary dark:text-white mb-2">Legacy Modernization</h3>
                  <p className="text-slate-600 dark:text-slate-400">
                    Strategies like the Strangler Fig pattern to incrementally refactor monoliths without stopping business delivery.
@@ -59,7 +59,7 @@ const Architecture: React.FC = () => {
                </div>
 
                <Link to="/architecture/data-architecture" className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-secondary transition-colors group">
-                 <Database className="w-8 h-8 text-secondary mb-4 group-hover:scale-110 transition-transform" />
+                 <Database className="w-8 h-8 text-secondary-dark dark:text-secondary mb-4 group-hover:scale-110 transition-transform" />
                  <h3 className="text-xl font-bold text-primary dark:text-white mb-2 group-hover:text-secondary">Data Persistence Strategy</h3>
                  <p className="text-slate-600 dark:text-slate-400">
                    Choosing the right tool for the job: Polyglot persistence, caching strategies, and eventual consistency models.
@@ -80,7 +80,7 @@ const Architecture: React.FC = () => {
                    "Cost-Aware Architecture (FinOps by Design)"
                  ].map((item, i) => (
                    <li key={i} className="flex items-start">
-                     <Box className="w-5 h-5 text-secondary mr-3 mt-1 flex-shrink-0" />
+                     <Box className="w-5 h-5 text-secondary-dark dark:text-secondary mr-3 mt-1 flex-shrink-0" />
                      <span className="text-slate-700 dark:text-slate-300 font-medium">{item}</span>
                    </li>
                  ))}
@@ -113,7 +113,7 @@ const Architecture: React.FC = () => {
                  <ul className="space-y-3">
                    <li>
                      <Link to="/articles" className="group flex items-start">
-                       <ArrowRight className="w-4 h-4 text-secondary mt-1 mr-2 flex-shrink-0" />
+                       <ArrowRight className="w-4 h-4 text-secondary-dark dark:text-secondary mt-1 mr-2 flex-shrink-0" />
                        <span className="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-secondary transition-colors">
                          Monolith to Microservices: A Survival Guide
                        </span>
@@ -121,7 +121,7 @@ const Architecture: React.FC = () => {
                    </li>
                    <li>
                      <Link to="/articles" className="group flex items-start">
-                       <ArrowRight className="w-4 h-4 text-secondary mt-1 mr-2 flex-shrink-0" />
+                       <ArrowRight className="w-4 h-4 text-secondary-dark dark:text-secondary mt-1 mr-2 flex-shrink-0" />
                        <span className="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-secondary transition-colors">
                          Designing for Failure in Distributed Systems
                        </span>
