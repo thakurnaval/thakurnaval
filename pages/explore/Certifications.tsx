@@ -1,37 +1,143 @@
 import React from 'react';
-import SimplePage from '../../components/SimplePage';
-import { Award } from 'lucide-react';
+import { ExternalLink, Award } from 'lucide-react';
+import Section from '../../components/Section';
+import SEO from '../../components/SEO';
+
+interface Cert {
+  name: string;
+  issuer: string;
+  year: string;
+  badge: string | null;
+  credlyUrl?: string; // add Credly badge URL here when available
+}
+
+interface CertGroup {
+  category: string;
+  certs: Cert[];
+}
+
+const CERT_GROUPS: CertGroup[] = [
+  {
+    category: 'Microsoft Azure',
+    certs: [
+      { name: 'DevOps Engineer Expert (AZ-400)', issuer: 'Microsoft', year: 'Nov 2019', badge: 'assets/img/gallery/az400.png' },
+      { name: 'Azure Fundamentals (AZ-900)', issuer: 'Microsoft', year: 'Feb 2020', badge: 'assets/img/gallery/az900.png' },
+      { name: 'Azure AI Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: 'assets/img/gallery/azure-ai-fundamentals-600x600-1.png' },
+      { name: 'Azure Data Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: 'assets/img/gallery/azure-data-fundamentals-600x600-1.png' },
+      { name: 'Security, Compliance & Identity Fundamentals', issuer: 'Microsoft', year: 'Jun 2022', badge: 'assets/img/gallery/security-compliance-and-identity-fundamentals-600x600-1.png' },
+    ],
+  },
+  {
+    category: 'Google Cloud',
+    certs: [
+      { name: 'Generative AI Leader', issuer: 'Google Cloud', year: 'Expires Nov 2028', badge: null },
+      { name: 'Cloud Digital Leader', issuer: 'Google Cloud', year: 'Expires Feb 2027', badge: 'assets/img/gallery/GCP-CDL.png' },
+      { name: 'Associate Cloud Engineer', issuer: 'Google Cloud', year: 'Expired Oct 2022', badge: 'assets/img/gallery/GCP-ACE.png' },
+    ],
+  },
+  {
+    category: 'FinOps',
+    certs: [
+      { name: 'FinOps Certified Practitioner (FOCP)', issuer: 'FinOps Foundation / Linux Foundation', year: 'Nov 2022', badge: 'assets/img/gallery/finops-logo-square-300x300-1.png' },
+    ],
+  },
+  {
+    category: 'Scrum & Agile',
+    certs: [
+      { name: 'Professional Scrum Master™ I (PSM I)', issuer: 'Scrum.org', year: 'Nov 2018', badge: 'assets/img/gallery/psm-1.png' },
+      { name: 'Professional Scrum Product Owner™ I (PSPO I)', issuer: 'Scrum.org', year: 'Jul 2019', badge: 'assets/img/gallery/pspo-1.png' },
+      { name: 'Certified Scrum@Scale Practitioner', issuer: 'Scrum@Scale', year: 'Apr 2019', badge: 'assets/img/gallery/Scrum-at-scale-prac.png' },
+      { name: 'Certified SAFe® 5 Agilist', issuer: 'Scaled Agile Inc.', year: 'Expired Jan 2022', badge: 'assets/img/gallery/cert_mark_SA_badge_large_300px.png' },
+    ],
+  },
+  {
+    category: 'Blockchain',
+    certs: [
+      { name: 'IBM Blockchain Foundation Developer', issuer: 'IBM', year: 'Dec 2017', badge: 'assets/img/gallery/Blockchain_Developer_Foundation.png' },
+    ],
+  },
+  {
+    category: 'Cloud Infrastructure',
+    certs: [
+      { name: 'Oracle Cloud Infrastructure Foundations Associate', issuer: 'Oracle', year: 'Expired Jan 2022', badge: 'assets/img/gallery/03_Oracle_Cloud_Infrastructure_Foundations_Associate.png' },
+    ],
+  },
+  {
+    category: 'Governance & ITSM',
+    certs: [
+      { name: 'COBIT® 2019 Foundation Certificate', issuer: 'ISACA', year: 'Dec 2019', badge: 'assets/img/gallery/ISACA_COBIT.png' },
+      { name: 'ITIL v3 Foundation', issuer: 'AXELOS', year: '', badge: 'assets/img/gallery/itilv3.jpg' },
+    ],
+  },
+];
+
+const CertCard: React.FC<{ cert: Cert }> = ({ cert }) => (
+  <div className="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col items-center text-center hover:border-secondary hover:shadow-md transition-all">
+    <div className="w-20 h-20 mb-4 flex items-center justify-center">
+      {cert.badge ? (
+        <img
+          src={cert.badge}
+          alt={`${cert.name} badge`}
+          className="w-full h-full object-contain"
+          loading="lazy"
+        />
+      ) : (
+        <div className="w-20 h-20 rounded-full bg-secondary/10 flex items-center justify-center">
+          <Award className="w-10 h-10 text-secondary" />
+        </div>
+      )}
+    </div>
+    <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1 leading-tight">{cert.name}</h3>
+    <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{cert.issuer}</p>
+    {cert.year && <p className="text-xs text-slate-400 dark:text-slate-500 mb-3">{cert.year}</p>}
+    {cert.credlyUrl ? (
+      <a
+        href={cert.credlyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1 text-xs font-semibold text-secondary hover:text-secondary/80 transition-colors"
+      >
+        Verify on Credly <ExternalLink size={11} />
+      </a>
+    ) : (
+      <span className="text-xs text-slate-300 dark:text-slate-600 italic">Credly link coming</span>
+    )}
+  </div>
+);
 
 const Certifications: React.FC = () => {
   return (
-    <SimplePage 
-      title="Certifications & Roadmaps" 
-      subtitle="Guides on achieving key industry credentials."
-    >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            "Generative AI Leader (Google Cloud)",
-            "Cloud Digital Leader (Google Cloud)",
-            "Microsoft Certified: Azure AI Fundamentals",
-            "Microsoft Certified: Azure Data Fundamentals",
-            "Microsoft Certified: Azure Fundamentals",
-            "Microsoft Certified: Security, Compliance, and Identity",
-            "FOCP: FinOps Certified Practitioner",
-            "Professional Scrum Master™ I (PSM I)",
-            "Professional Scrum Product Owner™ I (PSPO I)",
-            "Certified Scrum@Scale Practitioner",
-            "Certified SAFe® 5 Agilist",
-            "IBM Blockchain Foundation Developer",
-            "Oracle Cloud Infrastructure Foundations 2020 Certified Associate",
-            "COBIT® 2019 Foundation Certificate"
-          ].map((cert, i) => (
-            <div key={i} className="flex items-center p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
-              <Award className="w-6 h-6 text-secondary mr-3" />
-              <span className="font-medium text-slate-700 dark:text-slate-200">{cert}</span>
+    <>
+      <SEO
+        title="Certifications | Naval Thakur"
+        description="Naval Thakur's professional certifications across Microsoft Azure, Google Cloud, FinOps, Scrum, SAFe, IBM Blockchain, Oracle, and ISACA COBIT."
+      />
+      <div className="bg-primary text-white py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Certifications</h1>
+          <p className="text-xl text-slate-100 max-w-2xl">
+            Verified credentials across cloud, FinOps, agile, security, and governance. Credly verification links will be added as badges are published.
+          </p>
+        </div>
+      </div>
+
+      <Section>
+        <div className="space-y-14">
+          {CERT_GROUPS.map((group) => (
+            <div key={group.category}>
+              <h2 className="text-lg font-bold text-primary dark:text-secondary uppercase tracking-widest mb-6 border-b border-slate-200 dark:border-slate-700 pb-3">
+                {group.category}
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {group.certs.map((cert) => (
+                  <CertCard key={cert.name} cert={cert} />
+                ))}
+              </div>
             </div>
           ))}
         </div>
-    </SimplePage>
+      </Section>
+    </>
   );
 };
 

@@ -118,31 +118,59 @@ Email: contact@nthakur.com
               </h2>
               <div className="space-y-3">
                 {SPEAKING_APPEARANCES.map((appearance, idx) => (
-                  <div key={idx} className="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded">
-                          {appearance.type}
-                        </span>
-                        <span className="text-xs text-slate-400 font-mono">{appearance.year}</span>
+                  <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    {/* Event photo — full width banner when present */}
+                    {appearance.photoUrl && (
+                      <div className="h-36 overflow-hidden">
+                        <img
+                          src={appearance.photoUrl}
+                          alt={`${appearance.event} — ${appearance.topic}`}
+                          className="w-full h-full object-cover object-center"
+                          loading="lazy"
+                        />
                       </div>
-                      <p className="font-bold text-slate-900 dark:text-white text-sm">{appearance.event}</p>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{appearance.topic}</p>
-                      <div className="flex items-center text-xs text-slate-400 mt-1">
-                        <MapPin size={11} className="mr-1 shrink-0" /> {appearance.location}
+                    )}
+                    <div className="p-5 flex items-start justify-between gap-4">
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <span className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded">
+                            {appearance.type}
+                          </span>
+                          <span className="text-xs text-slate-400 font-mono">{appearance.year}</span>
+                        </div>
+                        <p className="font-bold text-slate-900 dark:text-white text-sm">{appearance.event}</p>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{appearance.topic}</p>
+                        <div className="flex items-center text-xs text-slate-400 mt-1">
+                          <MapPin size={11} className="mr-1 shrink-0" /> {appearance.location}
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-2 shrink-0">
+                        {appearance.flyerUrl && (
+                          <a
+                            href={appearance.flyerUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-slate-400 hover:text-secondary transition-colors"
+                            aria-label="View event flier"
+                            title="View event flier"
+                          >
+                            <ExternalLink size={15} />
+                          </a>
+                        )}
+                        {appearance.recordingUrl && (
+                          <a
+                            href={appearance.recordingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-secondary hover:text-secondary/80"
+                            aria-label="Watch recording"
+                            title="Watch recording"
+                          >
+                            <ExternalLink size={15} />
+                          </a>
+                        )}
                       </div>
                     </div>
-                    {appearance.recordingUrl && (
-                      <a
-                        href={appearance.recordingUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-secondary hover:text-secondary/80 shrink-0"
-                        aria-label="Watch recording"
-                      >
-                        <ExternalLink size={16} />
-                      </a>
-                    )}
                   </div>
                 ))}
               </div>

@@ -117,15 +117,14 @@ export const FEATURED_ARTICLES: ArticleProps[] = [
   }
 ];
 
-// Add external conference, meetup, and webinar appearances here.
-// Each entry needs: event, topic, year, location, type, and optional recordingUrl.
 export const SPEAKING_APPEARANCES: SpeakingAppearance[] = [
   {
-    event: 'SLB Cloud Computing SIG',
-    topic: 'Cloud Cost Optimisation & FinOps Practices',
-    year: '2022–2023',
-    location: 'Pune, India (Internal Webinar Series)',
-    type: 'Webinar',
+    event: 'Software Engineering Bootcamp',
+    topic: 'Agile, DevOps, Architecture & Coding Practices',
+    year: '2024',
+    location: 'Pune, India',
+    type: 'Workshop',
+    photoUrl: 'assets/img/gallery/Software-Engineering-Bootcamp-Pune-1.jpeg',
   },
   {
     event: 'SLB Cloud Computing SIG',
@@ -135,9 +134,9 @@ export const SPEAKING_APPEARANCES: SpeakingAppearance[] = [
     type: 'Webinar',
   },
   {
-    event: 'SLB Open Source SIG',
-    topic: 'Open Source Standards & Community-Led Innovation',
-    year: '2021',
+    event: 'SLB Cloud Computing SIG',
+    topic: 'Cloud Cost Optimisation & FinOps Practices',
+    year: '2022–2023',
     location: 'Pune, India (Internal Webinar Series)',
     type: 'Webinar',
   },
@@ -148,26 +147,71 @@ export const SPEAKING_APPEARANCES: SpeakingAppearance[] = [
     location: 'Virtual (FinOps Foundation)',
     type: 'Webinar',
   },
-  // Add your external conference appearances below this line:
-  // {
-  //   event: 'Conference Name',
-  //   topic: 'Talk Title',
-  //   year: '2024',
-  //   location: 'City, Country',
-  //   type: 'Conference',
-  //   recordingUrl: 'https://youtu.be/...',
-  // },
+  {
+    event: 'SLB Open Source SIG',
+    topic: 'Open Source Standards & Community-Led Innovation',
+    year: '2021',
+    location: 'Pune, India (Internal Webinar Series)',
+    type: 'Webinar',
+  },
+  {
+    event: '7 Habits of Highly Effective DevOps Teams',
+    topic: '7 Habits of Highly Effective DevOps Teams',
+    year: '2020',
+    location: 'Pune, India',
+    type: 'Workshop',
+    photoUrl: 'assets/img/gallery/Session-7-habits-of-highly-effective-devops-teams.jpg',
+  },
+  {
+    event: 'Pune DevCon 2019',
+    topic: 'Automating Infrastructure (as Code) with Azure Pipelines — Terraform & SaltStack',
+    year: '2019',
+    location: 'MCCIA Trade Towers, Pune, India',
+    type: 'Conference',
+    photoUrl: 'assets/img/gallery/Session-DevCon-2019.jpg',
+    flyerUrl: 'assets/img/gallery/DevCon.jpg',
+  },
+  {
+    event: 'Global Azure Bootcamp 2019',
+    topic: 'Creating Trust Economies using Blockchain Apps on Azure',
+    year: '2019',
+    location: 'MCCIA Trade Tower, Pune, India (Pune User Group)',
+    type: 'Conference',
+    photoUrl: 'assets/img/gallery/Session-Global-Azure-Bootcamp-2019.jpg',
+    flyerUrl: 'assets/img/gallery/GAB2019.jpg',
+  },
+  {
+    event: 'APGI 2019 Conference',
+    topic: 'Achieving Enterprise-wide Agility using Technology Stack',
+    year: '2019',
+    location: 'Four Points by Sheraton, Pune, India',
+    type: 'Conference',
+    photoUrl: 'assets/img/gallery/Session-APGI-2019.jpg',
+    flyerUrl: 'assets/img/gallery/APGI-2019.jpg',
+  },
+  {
+    event: 'Microsoft DevCon Pune',
+    topic: 'DevOps @ Microsoft — Tools & Practices',
+    year: '2019',
+    location: 'Pune, India',
+    type: 'Conference',
+    photoUrl: 'assets/img/gallery/Microsoft-DevCon-Pune.jpg',
+  },
 ];
 
-// SAMPLE gallery entries — replace each src with a real photo file dropped into public/assets/img/gallery/
-// Title and location are also placeholders — update to match the real event.
 export const GALLERY_IMAGES: GalleryImage[] = [
-  { id: 1, title: '[ Replace: Event Name ]', location: 'Pune, India', src: 'assets/img/gallery/event-1.jpg' },
-  { id: 2, title: '[ Replace: Event Name ]', location: 'Mumbai, India', src: 'assets/img/gallery/event-2.jpg' },
-  { id: 3, title: '[ Replace: Event Name ]', location: 'Bangalore, India', src: 'assets/img/gallery/event-3.jpg' },
-  { id: 4, title: '[ Replace: Event Name ]', location: 'Virtual', src: 'assets/img/gallery/event-4.jpg' },
-  { id: 5, title: '[ Replace: Event Name ]', location: 'Virtual', src: 'assets/img/gallery/event-5.jpg' },
-  { id: 6, title: '[ Replace: Event Name ]', location: 'Virtual', src: 'assets/img/gallery/event-6.jpg' },
+  { id: 1,  title: 'Software Engineering Bootcamp',           location: 'Pune, India',                src: 'assets/img/gallery/Software-Engineering-Bootcamp-Pune-1.jpeg' },
+  { id: 2,  title: 'Software Engineering Bootcamp',           location: 'Pune, India',                src: 'assets/img/gallery/Software-Engineering-Bootcamp-Pune-2.jpeg' },
+  { id: 3,  title: 'Software Engineering Bootcamp',           location: 'Pune, India',                src: 'assets/img/gallery/Software-Engineering-Bootcamp-Pune-3.jpeg' },
+  { id: 4,  title: 'APGI 2019 Conference',                    location: 'Pune, India',                src: 'assets/img/gallery/Session-APGI-2019.jpg' },
+  { id: 5,  title: 'Global Azure Bootcamp 2019',              location: 'Pune, India',                src: 'assets/img/gallery/Session-Global-Azure-Bootcamp-2019.jpg' },
+  { id: 6,  title: 'Microsoft DevCon Pune',                   location: 'Pune, India',                src: 'assets/img/gallery/Microsoft-DevCon-Pune.jpg' },
+  { id: 7,  title: '7 Habits of Effective DevOps Teams',      location: 'Pune, India',                src: 'assets/img/gallery/Session-7-habits-of-highly-effective-devops-teams.jpg' },
+  { id: 8,  title: 'Pune DevCon 2019',                        location: 'Pune, India',                src: 'assets/img/gallery/Session-DevCon-2019.jpg' },
+  { id: 9,  title: 'MBA Convocation, MDI Gurgaon',            location: 'Gurgaon, India',             src: 'assets/img/gallery/naval-convocation.jpg' },
+  { id: 10, title: 'Software Engineering Bootcamp',           location: 'Pune, India',                src: 'assets/img/gallery/Software-Engineering-Bootcamp-Pune-4.jpeg' },
+  { id: 11, title: 'Software Engineering Bootcamp',           location: 'Pune, India',                src: 'assets/img/gallery/Software-Engineering-Bootcamp-Pune-5.jpeg' },
+  { id: 12, title: 'APGI 2019 Conference',                    location: 'Pune, India',                src: 'assets/img/gallery/Session-APGI-2019-2.jpg' },
 ];
 
 export const FINOPS_DATA: FinOpsChartData[] = [

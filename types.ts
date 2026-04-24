@@ -65,4 +65,6 @@ export interface SpeakingAppearance {
   location: string;
   type: 'Conference' | 'Webinar' | 'Workshop' | 'Panel' | 'Internal';
   recordingUrl?: string;
+  photoUrl?: string;   // real event/session photo
+  flyerUrl?: string;   // event promotional flier
 }

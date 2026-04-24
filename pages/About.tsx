@@ -64,6 +64,20 @@ const About: React.FC = () => {
     }
   ];
 
+  const companyLogos: Record<string, string> = {
+    'SLB': 'assets/img/gallery/slb.png',
+    'FinOps Foundation': 'assets/img/gallery/finops-logo-square-300x300-1.png',
+    'GENPACT': 'assets/img/gallery/genpact.png',
+    'Wipro': 'assets/img/gallery/wipro-primary-logo-color-rbg.png',
+    'Sapient UK': 'assets/img/gallery/Sapient_Logo.svg_.png',
+  };
+
+  const educationLogos: Record<string, string> = {
+    'Management Development Institute (MDI)': 'assets/img/gallery/mdi.jpeg',
+    'TERI University': 'assets/img/gallery/220px-TERI-school-logo.png',
+    'Maharshi Dayanand University': 'assets/img/gallery/mdu.png',
+  };
+
   const experience = [
     {
       company: "SLB",
@@ -387,13 +401,23 @@ const About: React.FC = () => {
                         <Building2 size={20} className="text-secondary" />
                       </span>
                       
-                      <div className="mb-8">
-                        <h4 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
-                          {companyData.company}
-                        </h4>
-                        <span className="inline-block px-3 py-1 mt-2 text-xs font-bold text-primary dark:text-white bg-secondary/20 rounded-full">
-                          {companyData.duration}
-                        </span>
+                      <div className="mb-8 flex items-center gap-4 flex-wrap">
+                        {companyLogos[companyData.company] && (
+                          <img
+                            src={companyLogos[companyData.company]}
+                            alt={`${companyData.company} logo`}
+                            className="h-8 w-auto object-contain"
+                            loading="lazy"
+                          />
+                        )}
+                        <div>
+                          <h4 className="text-2xl font-bold text-slate-900 dark:text-white">
+                            {companyData.company}
+                          </h4>
+                          <span className="inline-block px-3 py-1 mt-1 text-xs font-bold text-primary dark:text-white bg-secondary/20 rounded-full">
+                            {companyData.duration}
+                          </span>
+                        </div>
                       </div>
 
                       <div className="space-y-6">
@@ -460,11 +484,37 @@ const About: React.FC = () => {
                    {education.map((edu, idx) => (
                      <div key={idx} className="relative pl-6 border-l-2 border-slate-200 dark:border-slate-700">
                         <span className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-secondary"></span>
-                       <h4 className="font-bold text-slate-900 dark:text-white text-lg leading-tight mb-2">{edu.school}</h4>
+                       <div className="flex items-center gap-3 mb-2">
+                         {educationLogos[edu.school] && (
+                           <img
+                             src={educationLogos[edu.school]}
+                             alt={`${edu.school} logo`}
+                             className="h-7 w-auto object-contain"
+                             loading="lazy"
+                           />
+                         )}
+                         <h4 className="font-bold text-slate-900 dark:text-white text-lg leading-tight">{edu.school}</h4>
+                       </div>
                        <p className="text-base text-slate-600 dark:text-slate-400 mb-2">{edu.degree}</p>
                        <p className="text-sm font-mono text-slate-500 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 inline-block px-2 py-1 rounded">{edu.year}</p>
                      </div>
                    ))}
+                 </div>
+                 <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+                   <div className="flex flex-col sm:flex-row items-center gap-6">
+                     <img
+                       src="assets/img/gallery/naval-convocation.jpg"
+                       alt="Naval Thakur MBA Convocation, MDI Gurgaon"
+                       className="w-40 h-40 object-cover object-top rounded-xl shadow-md border border-slate-200 dark:border-slate-700 shrink-0"
+                       loading="lazy"
+                     />
+                     <div>
+                       <h4 className="font-bold text-slate-900 dark:text-white text-lg mb-1">MBA Convocation</h4>
+                       <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                         Management Development Institute (MDI), Gurgaon — one of India's premier business schools. Naval's MBA in Finance and Information Management laid the foundation for bridging technical delivery with business value.
+                       </p>
+                     </div>
+                   </div>
                  </div>
              </CollapsibleSection>
 
