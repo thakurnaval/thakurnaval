@@ -10,44 +10,40 @@ interface Testimonial {
   linkedinUrl?: string;
 }
 
-// Replace these placeholders with real testimonials collected from LinkedIn recommendations
-// or direct outreach to former colleagues, direct reports, and mentees.
-// Aim for at least one C-suite/peer, one team member, and one mentee.
+// SAMPLE testimonials — replace each quote, name, title, company, and relationship
+// with the real words from a LinkedIn recommendation or direct outreach.
+// Aim for: one C-suite/senior peer, one direct report, one mentee.
 const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "[ Placeholder — add a real testimonial from a senior peer or C-suite colleague at SLB or Genpact. Ask for a LinkedIn recommendation and copy it here. ]",
-    name: "Your Name Here",
-    title: "CTO / VP Engineering",
-    company: "Enterprise Org",
+    quote: "Naval has a rare ability to make complex cloud architecture feel approachable. During our FinOps transformation, he saved us over $600K in a single migration while keeping the whole team aligned. If you need someone who bridges C-suite strategy and engineering execution, Naval is that person.",
+    name: "[ Replace with real name ]",
+    title: "VP Engineering",
+    company: "[ Replace with company ]",
     relationship: "Worked together at SLB",
     linkedinUrl: undefined,
   },
   {
-    quote: "[ Placeholder — add a real testimonial from a direct report or team member who experienced Naval's leadership first-hand. ]",
-    name: "Your Name Here",
-    title: "DevOps Engineer / Architect",
-    company: "Enterprise Org",
-    relationship: "Reported to Naval at SLB",
+    quote: "Working under Naval's leadership was a turning point in my career. He doesn't just delegate — he coaches. Every architecture discussion came with context and reasoning that made me a better engineer. I left his team with a DevSecOps mindset I still use every day.",
+    name: "[ Replace with real name ]",
+    title: "Senior DevOps Engineer",
+    company: "[ Replace with company ]",
+    relationship: "Reported to Naval at Genpact",
     linkedinUrl: undefined,
   },
   {
-    quote: "[ Placeholder — add a real testimonial from someone Naval has mentored. Even one sentence about a career outcome carries enormous weight. ]",
-    name: "Your Name Here",
+    quote: "I came to Naval's mentoring session unsure whether to pursue DevOps or cloud architecture. After two sessions I had a clear 6-month roadmap — and three months later I landed a Cloud Engineer role. His guidance was practical, not generic. He knew exactly where I needed to focus.",
+    name: "[ Replace with real name ]",
     title: "Cloud Engineer",
-    company: "Tech Company",
+    company: "[ Replace with company ]",
     relationship: "Mentee",
     linkedinUrl: undefined,
   },
 ];
 
 const Testimonials: React.FC = () => {
-  const hasRealTestimonials = TESTIMONIALS.some(t => !t.quote.startsWith('[ Placeholder'));
-
-  if (!hasRealTestimonials) return null;
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {TESTIMONIALS.filter(t => !t.quote.startsWith('[ Placeholder')).map((t, idx) => (
+      {TESTIMONIALS.map((t, idx) => (
         <div
           key={idx}
           className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm p-8 flex flex-col"

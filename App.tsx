@@ -19,6 +19,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import CaseStudies from './pages/CaseStudies';
+import Community from './pages/Community';
 
 // DevOps Subpages
 import DevOpsFrameworks from './pages/devops/DevOpsFrameworks';
@@ -120,6 +121,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/cognitiveops" element={<CognitiveOps />} />
             <Route path="/work-with-me" element={<WorkWithMe />} />
+            <Route path="/community" element={<Community />} />
 
             {/* Main Pillars */}
             <Route path="/architecture" element={<Architecture />} />

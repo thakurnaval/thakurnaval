@@ -89,7 +89,7 @@ const NewsletterSignup: React.FC = () => {
           </form>
         )}
         <p className="text-xs text-slate-400 mt-4 italic">
-          Join 5,000+ engineers. No spam, just high-signal content.
+          No spam. Unsubscribe anytime.
         </p>
       </div>
     </div>

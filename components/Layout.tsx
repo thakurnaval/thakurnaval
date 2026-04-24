@@ -202,10 +202,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <img 
-                src={PROFILE_IMAGE_URL} 
-                alt="Naval Thakur - Professional Portfolio Logo" 
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:rotate-12 border border-slate-200 dark:border-slate-700"
+              <img
+                src={PROFILE_IMAGE_URL}
+                alt="Naval Thakur - Professional Portfolio Logo"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover object-top shadow-sm transition-transform duration-300 group-hover:rotate-12 border border-slate-200 dark:border-slate-700"
                 width="48"
                 height="48"
               />
@@ -377,10 +377,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                 <img 
-                   src={PROFILE_IMAGE_URL} 
-                   alt="Naval Thakur - Footer Logo" 
-                   className="w-8 h-8 rounded-full object-cover border border-slate-700" 
+                 <img
+                   src={PROFILE_IMAGE_URL}
+                   alt="Naval Thakur - Footer Logo"
+                   className="w-8 h-8 rounded-full object-cover object-top border border-slate-700" 
                    width="32"
                    height="32"
                    loading="lazy"

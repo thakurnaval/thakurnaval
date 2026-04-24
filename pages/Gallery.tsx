@@ -1,26 +1,50 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Camera, MapPin, ImagePlus, Linkedin } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 import { GALLERY_IMAGES } from '../constants';
 import { GalleryImage } from '../types';
 
+const GalleryCard: React.FC<{ img: GalleryImage }> = ({ img }) => {
+  const [failed, setFailed] = useState(false);
+  const src = img.src ?? (img.imgId ? `https://images.unsplash.com/photo-${img.imgId}?q=80&w=800&auto=format&fit=crop` : '');
+
+  return (
+    <div className="group relative overflow-hidden rounded-xl shadow-lg bg-slate-100 dark:bg-slate-800 aspect-[4/3]">
+      {failed || !src ? (
+        <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-slate-400 dark:text-slate-500">
+          <Camera size={32} />
+          <span className="text-xs font-medium text-center px-4">{img.title}</span>
+        </div>
+      ) : (
+        <img
+          src={src}
+          alt={`${img.title} — ${img.location}`}
+          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+          loading="lazy"
+          width="800"
+          height="600"
+          onError={() => setFailed(true)}
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 className="text-white font-bold text-lg mb-1 flex items-center">
+            <Camera size={16} className="mr-2 text-secondary" />
+            {img.title}
+          </h3>
+          <p className="text-slate-300 text-sm flex items-center">
+            <MapPin size={14} className="mr-1" />
+            {img.location}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Gallery: React.FC = () => {
-  const getImageUrl = (img: GalleryImage, size: number) => {
-    if (img.src) return img.src;
-    return `https://images.unsplash.com/photo-${img.imgId}?q=80&w=${size}&auto=format&fit=crop`;
-  };
-
-  const getSrcSet = (img: GalleryImage) => {
-    if (img.src) return undefined;
-    return `
-      https://images.unsplash.com/photo-${img.imgId}?q=80&w=400&auto=format&fit=crop 400w,
-      https://images.unsplash.com/photo-${img.imgId}?q=80&w=800&auto=format&fit=crop 800w,
-      https://images.unsplash.com/photo-${img.imgId}?q=80&w=1200&auto=format&fit=crop 1200w
-    `;
-  };
-
   const hasImages = GALLERY_IMAGES.length > 0;
 
   return (
@@ -41,31 +65,8 @@ const Gallery: React.FC = () => {
       <Section>
         {hasImages ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {GALLERY_IMAGES.map((img, idx) => (
-              <div key={idx} className="group relative overflow-hidden rounded-xl shadow-lg bg-slate-100 dark:bg-slate-800 aspect-[4/3]">
-                <img
-                  src={getImageUrl(img, 800)}
-                  srcSet={getSrcSet(img)}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  alt={`${img.title} — ${img.location}`}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                  width="800"
-                  height="600"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-white font-bold text-lg mb-1 flex items-center">
-                      <Camera size={16} className="mr-2 text-secondary" />
-                      {img.title}
-                    </h3>
-                    <p className="text-slate-300 text-sm flex items-center">
-                      <MapPin size={14} className="mr-1" />
-                      {img.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
+            {GALLERY_IMAGES.map((img) => (
+              <GalleryCard key={img.id} img={img} />
             ))}
           </div>
         ) : (

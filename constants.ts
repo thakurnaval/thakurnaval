@@ -38,7 +38,13 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Mental Models', path: '/explore/mental-models' },
     ]
   },
-  { label: 'Work With Me', path: '/work-with-me' },
+  {
+    label: 'Work With Me',
+    children: [
+      { label: 'Community & Mentoring', path: '/community' },
+      { label: 'Speaking & Consulting', path: '/work-with-me' },
+    ]
+  },
 ];
 
 export const RECENT_TALKS: TalkProps[] = [
@@ -153,9 +159,15 @@ export const SPEAKING_APPEARANCES: SpeakingAppearance[] = [
   // },
 ];
 
+// SAMPLE gallery entries — replace each src with a real photo file dropped into public/assets/img/gallery/
+// Title and location are also placeholders — update to match the real event.
 export const GALLERY_IMAGES: GalleryImage[] = [
-  // Add real event photos here — each entry needs: title (event name), location, and src (local asset path e.g. 'assets/img/gallery/event-name.jpg')
-  // Example: { id: 101, title: 'DevOps Community Meetup', location: 'Pune', src: 'assets/img/gallery/pune-meetup-2024.jpg' }
+  { id: 1, title: '[ Replace: Event Name ]', location: 'Pune, India', src: 'assets/img/gallery/event-1.jpg' },
+  { id: 2, title: '[ Replace: Event Name ]', location: 'Mumbai, India', src: 'assets/img/gallery/event-2.jpg' },
+  { id: 3, title: '[ Replace: Event Name ]', location: 'Bangalore, India', src: 'assets/img/gallery/event-3.jpg' },
+  { id: 4, title: '[ Replace: Event Name ]', location: 'Virtual', src: 'assets/img/gallery/event-4.jpg' },
+  { id: 5, title: '[ Replace: Event Name ]', location: 'Virtual', src: 'assets/img/gallery/event-5.jpg' },
+  { id: 6, title: '[ Replace: Event Name ]', location: 'Virtual', src: 'assets/img/gallery/event-6.jpg' },
 ];
 
 export const FINOPS_DATA: FinOpsChartData[] = [
