@@ -20,6 +20,7 @@
   <a href="https://www.linkedin.com/in/navalthakur"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   <a href="https://x.com/nthakur_dot_com"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X"></a>
   <a href="https://nthakur.com"><img src="https://img.shields.io/badge/Portfolio-271789?style=for-the-badge&logo=react&logoColor=00f1d4" alt="Website"></a>
+  <a href="https://sessionize.com/nthakur/"><img src="https://img.shields.io/badge/Sessionize-009688?style=for-the-badge&logo=sessionize&logoColor=white" alt="Sessionize Speaker Profile"></a>
 </p>
 
 ---

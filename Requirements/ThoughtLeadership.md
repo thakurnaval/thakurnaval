@@ -65,9 +65,9 @@
 ### Off-Site / Your Action Items
 
 **Immediate (this week):**
-- [ ] Update LinkedIn tagline to the merged version above
-- [ ] Update LinkedIn Featured section — link to `/cognitiveops`, best article, speaker kit
-- [ ] DM 5–8 former colleagues on LinkedIn for written testimonials
+- [x] Update LinkedIn tagline to the merged version above
+- [x] Update LinkedIn Featured section — link to `/cognitiveops`, best article, speaker kit
+- [x] DM 5–8 former colleagues on LinkedIn for written testimonials
 
 **Month 1:**
 - [ ] Publish first long-form article under your own voice (not framework documentation — a practitioner story: "Here's what I saw when I ran FinOps at a $50B energy company...")
