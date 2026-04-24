@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mic2, Download, ExternalLink, MapPin, Calendar } from 'lucide-react';
+import { Mic2, Download, ExternalLink, MapPin, Calendar, Users } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 import { RECENT_TALKS, SPEAKING_APPEARANCES, PROFILE_IMAGE_URL } from '../constants';
@@ -143,6 +143,11 @@ Email: contact@nthakur.com
                         <div className="flex items-center text-xs text-slate-400 mt-1">
                           <MapPin size={11} className="mr-1 shrink-0" /> {appearance.location}
                         </div>
+                        {appearance.audience && (
+                          <div className="flex items-center text-xs text-slate-400 mt-0.5">
+                            <Users size={11} className="mr-1 shrink-0" /> {appearance.audience}
+                          </div>
+                        )}
                       </div>
                       <div className="flex flex-col gap-2 shrink-0">
                         {appearance.flyerUrl && (
