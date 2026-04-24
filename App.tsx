@@ -83,6 +83,14 @@ import TOGAF from './pages/architecture/TOGAF';
 import ITGovernance from './pages/architecture/ITGovernance';
 import SoftwareEngineering from './pages/architecture/SoftwareEngineering';
 
+// Assessment Pages
+import AgileAssessment from './pages/agile/AgileAssessment';
+import FinOpsAssessment from './pages/finops/FinOpsAssessment';
+import SecOpsAssessment from './pages/secops/SecOpsAssessment';
+import GenAIAssessment from './pages/genai/GenAIAssessment';
+import WellArchitectedAssessment from './pages/architecture/WellArchitectedAssessment';
+import PMAssessment from './pages/pm/PMAssessment';
+
 // Explore Subpages
 import BookSummaries from './pages/explore/BookSummaries';
 import Certifications from './pages/explore/Certifications';
@@ -211,6 +219,14 @@ const App: React.FC = () => {
             <Route path="/talks/genai-new-team-member" element={<GenAINewTeamMemberArticle />} />
             <Route path="/talks/cultural-transformation-devops" element={<CulturalTransformationDevOpsArticle />} />
             <Route path="/talks/zero-trust-cloud-native" element={<ZeroTrustCloudNativeArticle />} />
+
+            {/* Assessment Pages */}
+            <Route path="/agile/assessment" element={<AgileAssessment />} />
+            <Route path="/finops/assessment" element={<FinOpsAssessment />} />
+            <Route path="/secops/assessment" element={<SecOpsAssessment />} />
+            <Route path="/genai/assessment" element={<GenAIAssessment />} />
+            <Route path="/architecture/assessment" element={<WellArchitectedAssessment />} />
+            <Route path="/pm/assessment" element={<PMAssessment />} />
 
             {/* Core Pages */}
             <Route path="/about" element={<About />} />
