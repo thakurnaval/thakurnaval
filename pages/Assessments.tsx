@@ -21,12 +21,23 @@ interface AssessmentCard {
 
 const ASSESSMENTS: AssessmentCard[] = [
   {
-    icon: Terminal,
-    domain: 'DevOps',
+    icon: BrainCircuit,
+    domain: 'CognitiveOps',
     title: 'CognitiveOps Maturity',
-    description: 'Measure where your organisation sits across DevOps, SecOps, FinOps, and GenAI on the CognitiveOps maturity model.',
+    description: 'Measure your organisation across all four domains — DevOps, SecOps, FinOps, and GenAI — on the CognitiveOps maturity model. The flagship combined assessment.',
     layers: 'Manual → Automated → Intelligent → Cognitive',
     questions: 13,
+    minutes: 4,
+    route: '/cognitiveops/assessment',
+    accent: 'cyan',
+  },
+  {
+    icon: Terminal,
+    domain: 'DevOps',
+    title: 'DevOps Maturity',
+    description: 'Assess your DevOps practice across Delivery Pipeline, Infrastructure & Platform, Observability & Reliability, and Culture & Collaboration.',
+    layers: 'Reactive → Repeatable → Accelerating → Elite',
+    questions: 16,
     minutes: 4,
     route: '/devops/assessment',
     accent: 'blue',
@@ -100,7 +111,8 @@ const ASSESSMENTS: AssessmentCard[] = [
 ];
 
 const accentMap: Record<string, { badge: string; border: string; bg: string; iconBg: string; }> = {
-  blue:   { badge: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',     border: 'border-blue-200 dark:border-blue-800/40',   bg: 'bg-blue-50/50 dark:bg-blue-900/10',   iconBg: 'bg-blue-100 dark:bg-blue-900/30' },
+  cyan:   { badge: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300',       border: 'border-cyan-200 dark:border-cyan-800/40',     bg: 'bg-cyan-50/50 dark:bg-cyan-900/10',     iconBg: 'bg-cyan-100 dark:bg-cyan-900/30' },
+  blue:   { badge: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',       border: 'border-blue-200 dark:border-blue-800/40',     bg: 'bg-blue-50/50 dark:bg-blue-900/10',     iconBg: 'bg-blue-100 dark:bg-blue-900/30' },
   indigo: { badge: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300', border: 'border-indigo-200 dark:border-indigo-800/40', bg: 'bg-indigo-50/50 dark:bg-indigo-900/10', iconBg: 'bg-indigo-100 dark:bg-indigo-900/30' },
   green:  { badge: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',   border: 'border-green-200 dark:border-green-800/40',   bg: 'bg-green-50/50 dark:bg-green-900/10',   iconBg: 'bg-green-100 dark:bg-green-900/30' },
   red:    { badge: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',           border: 'border-red-200 dark:border-red-800/40',       bg: 'bg-red-50/50 dark:bg-red-900/10',       iconBg: 'bg-red-100 dark:bg-red-900/30' },
@@ -125,7 +137,7 @@ const Assessments: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Maturity Assessments</h1>
           <p className="text-xl text-slate-200 max-w-2xl leading-relaxed">
-            Seven free self-assessment tools — one for each domain. Answer a set of practitioner-designed questions,
+            Eight free self-assessment tools — one for each domain. Answer a set of practitioner-designed questions,
             get an instant maturity layer, and download a personalised PDF report with prioritised next steps.
           </p>
         </div>

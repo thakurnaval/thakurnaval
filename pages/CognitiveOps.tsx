@@ -153,7 +153,7 @@ const CognitiveOps: React.FC = () => {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              to="/devops/assessment"
+              to="/cognitiveops/assessment"
               className="inline-flex items-center px-6 py-3 bg-secondary text-primary font-bold rounded-lg hover:bg-secondary-hover transition-colors"
             >
               Take the Maturity Assessment <ArrowRight size={16} className="ml-2" />
@@ -335,11 +335,11 @@ const CognitiveOps: React.FC = () => {
               <div className="text-white md:w-2/3">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">Which layer is your organization at?</h2>
                 <p className="text-slate-200 text-lg">
-                  Take the <Link to="/devops/assessment" className="text-secondary-dark dark:text-secondary font-bold hover:underline">DevOps Maturity Assessment</Link> to find out — and get a prioritized roadmap for your next layer.
+                  Take the <Link to="/cognitiveops/assessment" className="text-secondary-dark dark:text-secondary font-bold hover:underline">CognitiveOps Maturity Assessment</Link> to find out — and get a prioritized roadmap for your next layer.
                 </p>
               </div>
               <div className="md:w-1/3 flex justify-center md:justify-end gap-3 flex-wrap">
-                <Link to="/devops/assessment" className="inline-block px-6 py-3 bg-secondary hover:bg-secondary-hover text-primary font-bold rounded-lg transition-colors shadow-lg">
+                <Link to="/cognitiveops/assessment" className="inline-block px-6 py-3 bg-secondary hover:bg-secondary-hover text-primary font-bold rounded-lg transition-colors shadow-lg">
                   Take the Assessment
                 </Link>
                 <Link to="/contact?topic=Workshop / Training" className="inline-block px-6 py-3 border border-white/30 bg-white/10 text-white font-medium rounded-lg hover:bg-white/20 transition-colors">

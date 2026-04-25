@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, ArrowLeft, Download, Mail, Loader2, CheckCircle2,
-  GitBranch, Server, Activity, Users, AlertCircle, BarChart3,
+  BrainCircuit, ShieldCheck, TrendingUp, Terminal, AlertCircle, BarChart3,
 } from 'lucide-react';
 import Section from '../../components/Section';
 import SEO from '../../components/SEO';
@@ -21,8 +21,8 @@ type Answers = Record<string, number>;
 
 const PILLARS: PillarDef[] = [
   {
-    key: 'Delivery Pipeline',
-    icon: GitBranch,
+    key: 'DevOps',
+    icon: Terminal,
     colorClass: 'text-blue-600 dark:text-blue-400',
     bgClass: 'bg-blue-50 dark:bg-blue-900/20',
     borderClass: 'border-blue-300 dark:border-blue-700',
@@ -30,172 +30,145 @@ const PILLARS: PillarDef[] = [
       {
         q: 'How often does your team deploy to production?',
         options: [
-          { label: 'Monthly or less — deployments are planned events with change windows', value: 1 },
-          { label: 'Weekly — structured releases with manual approval gates', value: 2 },
-          { label: 'Daily or on-demand — automated CI/CD, any engineer can deploy', value: 3 },
-          { label: 'Multiple times per day — trunk-based development, deployment is routine', value: 4 },
+          { label: 'Monthly or less — it is a planned event with a change window', value: 1 },
+          { label: 'Weekly — releases with manual approval gates', value: 2 },
+          { label: 'Daily or on-demand — automated CI/CD pipeline', value: 3 },
+          { label: 'Continuously — AI-triggered deployments based on signals and policy', value: 4 },
         ],
       },
-      {
-        q: 'How automated is your build and test pipeline?',
-        options: [
-          { label: 'Manual — builds triggered and verified by hand', value: 1 },
-          { label: 'Partially automated — CI runs but tests are patchy or frequently flaky', value: 2 },
-          { label: 'Fully automated — build, test, and quality gates run on every commit', value: 3 },
-          { label: 'Optimised — parallel execution, incremental builds; feedback under 5 minutes', value: 4 },
-        ],
-      },
-      {
-        q: 'How is your change failure rate managed?',
-        options: [
-          { label: 'Unknown — we find out about failures from customers or downstream teams', value: 1 },
-          { label: 'Tracked — post-incident reviews happen but there is no systematic prevention', value: 2 },
-          { label: 'Gated — quality and security gates in the pipeline prevent high-risk merges', value: 3 },
-          { label: 'Predictive — historical patterns flag risky changes before they reach main', value: 4 },
-        ],
-      },
-      {
-        q: 'How long does it take to restore service after a deployment failure?',
-        options: [
-          { label: 'Hours to days — rollback is manual and requires tribal knowledge', value: 1 },
-          { label: 'Under an hour — an automated rollback or hotfix process exists', value: 2 },
-          { label: 'Under 15 minutes — automated rollback triggers on SLO breach', value: 3 },
-          { label: 'Near-instant — blue/green or canary deployments make rollback a traffic switch', value: 4 },
-        ],
-      },
-    ],
-  },
-  {
-    key: 'Infrastructure & Platform',
-    icon: Server,
-    colorClass: 'text-violet-600 dark:text-violet-400',
-    bgClass: 'bg-violet-50 dark:bg-violet-900/20',
-    borderClass: 'border-violet-300 dark:border-violet-700',
-    questions: [
       {
         q: 'How is your infrastructure managed?',
         options: [
-          { label: 'Manually — consoles, runbooks, and support tickets', value: 1 },
-          { label: 'Partially — scripts exist but configuration drift is common', value: 2 },
-          { label: 'Fully as code — Terraform/Pulumi/Bicep, drift detection in place', value: 3 },
-          { label: 'Policy-driven — desired state enforced automatically; humans define policy not resources', value: 4 },
-        ],
-      },
-      {
-        q: 'How self-service is your developer platform?',
-        options: [
-          { label: 'Ticket-based — developers raise requests to get environments and access', value: 1 },
-          { label: 'Partial — standard environments available; custom requests still need ops', value: 2 },
-          { label: 'Self-service — developers provision and configure their own environments via portal or CLI', value: 3 },
-          { label: 'Platform-as-a-product — an IDP team owns a catalogue that teams adopt and contribute to', value: 4 },
-        ],
-      },
-      {
-        q: 'How are configuration and secrets managed?',
-        options: [
-          { label: 'Hardcoded in code or stored in shared spreadsheets', value: 1 },
-          { label: 'Centralised config store — environment variables, some vault usage', value: 2 },
-          { label: 'Secrets manager in use — no secrets in code, rotation is automated', value: 3 },
-          { label: 'Zero-trust — short-lived credentials, just-in-time access, all access audited', value: 4 },
-        ],
-      },
-      {
-        q: 'How is environment parity maintained between dev, staging, and production?',
-        options: [
-          { label: 'Significant drift — "works on my machine" is a common phrase', value: 1 },
-          { label: 'Best-effort — teams try to keep environments aligned but drift occurs', value: 2 },
-          { label: 'IaC-driven — all environments built from the same code with per-env config', value: 3 },
-          { label: 'Ephemeral — every PR gets a disposable, production-equivalent environment', value: 4 },
-        ],
-      },
-    ],
-  },
-  {
-    key: 'Observability & Reliability',
-    icon: Activity,
-    colorClass: 'text-emerald-600 dark:text-emerald-400',
-    bgClass: 'bg-emerald-50 dark:bg-emerald-900/20',
-    borderClass: 'border-emerald-300 dark:border-emerald-700',
-    questions: [
-      {
-        q: 'How mature is your observability?',
-        options: [
-          { label: 'Basic logging — we find out about problems from users', value: 1 },
-          { label: 'Metrics and dashboards — SLOs defined, alerting is reactive', value: 2 },
-          { label: 'Distributed tracing — error budget burn rates tracked, automated escalation', value: 3 },
-          { label: 'Predictive — ML detects leading indicators of degradation before SLOs are breached', value: 4 },
+          { label: 'Manually — consoles, runbooks, and tickets', value: 1 },
+          { label: 'Partially automated — some scripts, some IaC', value: 2 },
+          { label: 'Fully as code — Terraform/Pulumi, drift detection in place', value: 3 },
+          { label: 'Policy-driven — AI maintains desired state within defined guardrails', value: 4 },
         ],
       },
       {
         q: 'How does your team respond to production incidents?',
         options: [
-          { label: 'Heroics — whoever knows the system is called, tribal knowledge required', value: 1 },
-          { label: 'Runbooks — documented response procedures, manually executed', value: 2 },
-          { label: 'Automated runbooks — known patterns trigger automated remediation steps', value: 3 },
-          { label: 'Autonomous — defined classes of incidents are resolved without human intervention', value: 4 },
+          { label: 'Heroics — whoever knows the system jumps on a call', value: 1 },
+          { label: 'Runbooks — documented steps, manually executed', value: 2 },
+          { label: 'AIOps-assisted — anomaly detection surfaces incidents early', value: 3 },
+          { label: 'Autonomous — known patterns remediated without human intervention', value: 4 },
         ],
       },
       {
-        q: 'How are SLOs defined and enforced?',
+        q: 'How mature is your observability?',
         options: [
-          { label: 'Not defined — uptime is monitored but no formal SLOs exist', value: 1 },
-          { label: 'Defined — SLOs exist but are rarely reviewed or actioned', value: 2 },
-          { label: 'Enforced — error budget burn rate drives prioritisation decisions in planning', value: 3 },
-          { label: 'Business-aligned — SLOs are tied to user journeys and business outcomes', value: 4 },
-        ],
-      },
-      {
-        q: 'How is on-call structured?',
-        options: [
-          { label: 'Ad hoc — whoever is available responds', value: 1 },
-          { label: 'Rostered — formal on-call rotation, runbooks are inconsistent', value: 2 },
-          { label: 'SRE practice — on-call paired with error budgets and blameless post-mortems', value: 3 },
-          { label: 'Continuous improvement — on-call burden metrics drive platform investment decisions', value: 4 },
+          { label: 'Basic logging — we find out about issues from users', value: 1 },
+          { label: 'Metrics and dashboards — SLOs defined, alerting reactive', value: 2 },
+          { label: 'SLO-driven — real-time error budget burn rate, automated escalation', value: 3 },
+          { label: 'Predictive — ML forecasts degradation before SLOs are breached', value: 4 },
         ],
       },
     ],
   },
   {
-    key: 'Culture & Collaboration',
-    icon: Users,
-    colorClass: 'text-amber-600 dark:text-amber-400',
-    bgClass: 'bg-amber-50 dark:bg-amber-900/20',
-    borderClass: 'border-amber-300 dark:border-amber-700',
+    key: 'SecOps',
+    icon: ShieldCheck,
+    colorClass: 'text-red-600 dark:text-red-400',
+    bgClass: 'bg-red-50 dark:bg-red-900/20',
+    borderClass: 'border-red-300 dark:border-red-700',
     questions: [
       {
-        q: 'How does your organisation handle post-incident reviews?',
+        q: 'When does security review happen in your development lifecycle?',
         options: [
-          { label: 'Blame — root cause is assigned to a person or team', value: 1 },
-          { label: 'Reviews happen — but inconsistently and vary in quality', value: 2 },
-          { label: 'Blameless — structured post-mortems, findings tracked, action items owned', value: 3 },
-          { label: 'Learning system — findings feed back into platform investment and prevention priorities', value: 4 },
+          { label: 'At the end — a security team manually gates releases', value: 1 },
+          { label: 'In the pipeline — SAST/DAST scans on every PR', value: 2 },
+          { label: 'Continuously — runtime monitoring and policy-as-code', value: 3 },
+          { label: 'Autonomously — AI agents triage and remediate known vulnerability patterns', value: 4 },
         ],
       },
       {
-        q: 'How are development and operations teams structured?',
+        q: 'How is cloud compliance managed?',
         options: [
-          { label: 'Siloed — Dev throws releases over the wall to Ops', value: 1 },
-          { label: 'Collaborative — Dev and Ops work together but are separate teams', value: 2 },
-          { label: 'Embedded SRE — SREs work within product teams, production ownership is shared', value: 3 },
-          { label: 'You-build-it-you-run-it — product teams own the full lifecycle from dev to production', value: 4 },
+          { label: 'Manual audits — periodic reviews, spreadsheet evidence', value: 1 },
+          { label: 'Automated checks — compliance gates in CI/CD', value: 2 },
+          { label: 'Continuous monitoring — drift from policy triggers real-time alerts', value: 3 },
+          { label: 'Policy-as-code agents — non-compliant resources are auto-remediated', value: 4 },
         ],
       },
       {
-        q: 'How is technical debt managed?',
+        q: 'How is security responsibility distributed across your teams?',
         options: [
-          { label: 'Ignored until it causes an incident', value: 1 },
-          { label: 'Tracked — a tech debt backlog exists but is rarely prioritised', value: 2 },
-          { label: 'Allocated — tech debt has a dedicated capacity allocation in sprint planning', value: 3 },
-          { label: 'Investment-driven — debt reduction is tracked as a business metric with measurable outcomes', value: 4 },
+          { label: 'Centralised — the security team owns it, developers hand off', value: 1 },
+          { label: 'Shared — developers know OWASP Top 10, reviews are collaborative', value: 2 },
+          { label: 'Embedded — security champions in every team, threat modelling in design', value: 3 },
+          { label: 'Intrinsic — security posture is a live metric, not a periodic gate', value: 4 },
+        ],
+      },
+    ],
+  },
+  {
+    key: 'FinOps',
+    icon: TrendingUp,
+    colorClass: 'text-green-600 dark:text-green-400',
+    bgClass: 'bg-green-50 dark:bg-green-900/20',
+    borderClass: 'border-green-300 dark:border-green-700',
+    questions: [
+      {
+        q: 'How visible are your cloud costs to engineering teams?',
+        options: [
+          { label: 'Not visible — only finance sees the monthly bill', value: 1 },
+          { label: 'Showback — teams can see spend tagged by service or team', value: 2 },
+          { label: 'Chargeback — teams own budgets and are accountable for variances', value: 3 },
+          { label: 'Real-time — cost is a live dashboard metric alongside latency and error rate', value: 4 },
         ],
       },
       {
-        q: 'How does engineering knowledge spread across your organisation?',
+        q: 'How does your organisation optimise cloud spend?',
         options: [
-          { label: 'Ad hoc — knowledge lives in individuals; no systematic sharing', value: 1 },
-          { label: 'Documented — wikis and runbooks exist but are inconsistently maintained', value: 2 },
-          { label: 'Active — communities of practice, brown bags, internal tech blog', value: 3 },
-          { label: 'Platform-encoded — best practices are golden paths and templates in the developer platform', value: 4 },
+          { label: 'Reactive — we look at costs after they spike', value: 1 },
+          { label: 'Periodic reviews — rightsizing recommendations on a schedule', value: 2 },
+          { label: 'Automated commitments — reserved instances purchased on policy', value: 3 },
+          { label: 'AI-driven — ML adjusts commitments and rightsizes in real time', value: 4 },
+        ],
+      },
+      {
+        q: 'How mature is your cloud cost forecasting?',
+        options: [
+          { label: "Last month's bill plus a buffer", value: 1 },
+          { label: 'Trend-based projections from historical data', value: 2 },
+          { label: 'Unit economics — cost per transaction, per user, per feature', value: 3 },
+          { label: 'Predictive ML — forecasts by workload and team before features are built', value: 4 },
+        ],
+      },
+    ],
+  },
+  {
+    key: 'GenAI',
+    icon: BrainCircuit,
+    colorClass: 'text-purple-600 dark:text-purple-400',
+    bgClass: 'bg-purple-50 dark:bg-purple-900/20',
+    borderClass: 'border-purple-300 dark:border-purple-700',
+    questions: [
+      {
+        q: 'Where is AI currently used in your engineering workflow?',
+        options: [
+          { label: 'Not yet — evaluating or running early pilots only', value: 1 },
+          { label: 'Developer tooling — Copilot or similar for code assistance', value: 2 },
+          { label: 'In the pipeline — AI-assisted code review, test generation, documentation', value: 3 },
+          { label: 'Operational — AI agents handle incident routing, deployment decisions, cost actions', value: 4 },
+        ],
+      },
+      {
+        q: 'How does your organisation govern AI use?',
+        options: [
+          { label: 'No formal policy — teams decide individually', value: 1 },
+          { label: 'Guidelines exist — approved tool list, basic data handling rules', value: 2 },
+          { label: 'Formal policy — LLM use cases reviewed, data classification enforced', value: 3 },
+          { label: 'Automated governance — AI outputs audited, cost limits and guardrails enforced by policy', value: 4 },
+        ],
+      },
+      {
+        q: 'How is AI return on investment measured?',
+        options: [
+          { label: 'It is not — we assume it saves time', value: 1 },
+          { label: 'Qualitative — developer satisfaction and perceived speed', value: 2 },
+          { label: 'Quantitative — DORA metrics before/after, velocity, test coverage delta', value: 3 },
+          { label: 'Full ROI model — AI spend vs. business outcome, optimised continuously', value: 4 },
         ],
       },
     ],
@@ -206,59 +179,59 @@ const NUM_PILLARS = PILLARS.length;
 const EMAIL_STEP = NUM_PILLARS + 1;
 const RESULTS_STEP = NUM_PILLARS + 2;
 
-const LAYER_NAMES: Record<number, string> = { 1: 'Reactive', 2: 'Repeatable', 3: 'Accelerating', 4: 'Elite' };
+const LAYER_NAMES: Record<number, string> = { 1: 'Manual', 2: 'Automated', 3: 'Intelligent', 4: 'Cognitive' };
 
 const LAYER_META: Record<number, { label: string; description: string; color: string; bg: string; }> = {
   1: {
-    label: 'Layer 1 — Reactive',
-    description: 'Deployments are manual events, incidents are resolved by heroics, and infrastructure is managed by hand. The highest-leverage move is establishing a CI/CD pipeline and treating infrastructure as code — these two foundations unlock everything above.',
+    label: 'Layer 1 — Manual',
+    description: 'Your operations are largely manual. The biggest opportunity is establishing CI/CD fundamentals, basic cloud hygiene, and security in the pipeline — these unlock every higher layer.',
     color: 'text-slate-700 dark:text-slate-200',
     bg: 'bg-slate-100 dark:bg-slate-700',
   },
   2: {
-    label: 'Layer 2 — Repeatable',
-    description: 'You have the automation foundation that most enterprises are still building. Pipelines run, runbooks exist, and infrastructure is partially codified. The next step is consistency: trunk-based development, self-service platforms, and SLO-driven operations.',
+    label: 'Layer 2 — Automated',
+    description: 'You have the automation foundation most enterprises are still working toward. The next step is adding intelligence to what you have already built — making your systems observe, reason, and suggest.',
     color: 'text-blue-700 dark:text-blue-300',
     bg: 'bg-blue-100 dark:bg-blue-900/40',
   },
   3: {
-    label: 'Layer 3 — Accelerating',
-    description: 'You are operating above industry average. Deployments are frequent, incidents are detected early, and engineers own production. The frontier is self-service platforms, ephemeral environments, and predictive observability.',
-    color: 'text-emerald-700 dark:text-emerald-300',
-    bg: 'bg-emerald-100 dark:bg-emerald-900/40',
+    label: 'Layer 3 — Intelligent',
+    description: 'You are in the top tier of enterprise engineering organisations. AI is actively augmenting your operations. The frontier is moving from AI-assisted decisions to AI-autonomous actions within guardrails.',
+    color: 'text-purple-700 dark:text-purple-300',
+    bg: 'bg-purple-100 dark:bg-purple-900/40',
   },
   4: {
-    label: 'Layer 4 — Elite',
-    description: 'You are in the top tier of engineering organisations. Deployments are invisible, incidents are often self-healing, and the developer experience is a product. The focus now is governance, continuous improvement of your platform, and sharing what you have learned.',
-    color: 'text-violet-700 dark:text-violet-300',
-    bg: 'bg-violet-100 dark:bg-violet-900/40',
+    label: 'Layer 4 — Cognitive',
+    description: 'You are operating at the frontier of enterprise engineering. AI agents act within guardrails you have defined. The focus now is governance, trust, and expanding the scope of autonomous operation responsibly.',
+    color: 'text-teal-700 dark:text-teal-300',
+    bg: 'bg-teal-100 dark:bg-teal-900/40',
   },
 };
 
 const RECOMMENDATIONS: Record<number, string[]> = {
   1: [
-    'Start with CI — get every code change running a build and a test suite automatically. Even a basic pipeline that runs tests on PR is a step-change from nothing.',
-    'Write your first IaC module this sprint. Pick one repeatable resource type (a VM, a storage account, a VPC) and codify it. The habit matters more than the scope.',
-    'Define one SLO for your most important service. It does not have to be correct yet — just having a number to look at changes how the team prioritises.',
-    'Run one blameless post-mortem on the next incident. Write up what happened, why, and what will prevent it. The format matters less than the habit.',
+    'Establish a CI/CD pipeline first — GitHub Actions or Azure Pipelines are the fastest starts. Even a single automated deployment per week is a transformation.',
+    'Tag all cloud resources by team and product immediately. You cannot govern what you cannot see, and untagged resources are the #1 reason FinOps fails.',
+    'Add SAST scanning to every pull request. SonarCloud is free for public repos; Semgrep has a generous free tier for private ones.',
+    'Write your first Terraform or Bicep module — even a small one. IaC discipline is the foundation every higher maturity level depends on.',
   ],
   2: [
-    'Move to trunk-based development with short-lived feature branches. Long-lived branches are the single biggest cause of integration pain at this maturity level.',
-    'Build a self-service mechanism for your most common ops request — environment provisioning, access requests, or config changes. Ticket elimination is the platform team\'s primary metric.',
-    'Adopt error budgets alongside your SLOs. When reliability work competes with feature work, error budget burn rate is the objective arbitrator.',
-    'Invest in on-call health — measure alert volume, false positive rate, and time-to-acknowledge. Toil that is not measured is not reduced.',
+    'Adopt AIOps-assisted incident detection. Datadog, Dynatrace, and New Relic all have AI tiers that surface anomalies humans reliably miss.',
+    'Move from cost showback to chargeback. When engineering teams own cloud budgets, spend optimisation becomes self-reinforcing.',
+    'Roll out GitHub Copilot or equivalent across engineering and measure DORA metrics before and after — the delta is compelling for leadership buy-in.',
+    'Build threat modelling into your architecture review process, not just your security reviews.',
   ],
   3: [
-    'Build ephemeral environments for every PR. The feedback loop from "code looks right" to "code behaves right in production-like conditions" is the single biggest quality accelerator.',
-    'Implement distributed tracing if you have not. Logs tell you what happened; traces tell you why — especially in service meshes.',
-    'Move toward platform-as-a-product. Survey your engineers on their biggest friction points; the top three items are your IDP roadmap.',
-    'Implement progressive delivery — canary or blue/green deployments. Deployment risk drops dramatically when traffic shifts are separable from code deploys.',
+    'Pilot AI agents for incident remediation on known, low-risk patterns first. A runbook that runs itself is the first step to autonomous operations.',
+    'Implement ML-based cost forecasting with unit economics — tie cloud spend to business outcomes: cost per transaction, per user, per feature.',
+    'Define your AI governance framework before it becomes urgent: approved use cases, data classification, output auditing, and cost guardrails.',
+    'Move your team from approving individual AI actions to setting guardrails for AI autonomy. This is the cultural shift that unlocks Layer 4.',
   ],
   4: [
-    'Audit your developer experience against your stated golden paths. At this layer, the gap between what the platform offers and what teams actually use is your primary bottleneck.',
-    'Measure and publish your DORA metrics externally or within your organisation. Benchmarking against industry state-of-DevOps data keeps elite teams from optimising the wrong things.',
-    'Build a formal knowledge-sharing programme. Communities of practice, internal talks, and engineering blogs create the org-wide learning loop that sustains elite performance.',
-    'Contribute back — open-source a tool, speak at a conference, write up your practices. The teams doing the most interesting work at this level are visible about it.',
+    'Audit your AI agent guardrails rigorously. At this layer the risk shifts from "AI not doing enough" to "AI doing the wrong thing at scale".',
+    'Build a feedback loop between AI spend and AI ROI. The most advanced organisations at this layer have AI that continuously optimises its own operational cost.',
+    'Document and share what you are doing. You are in the top 1% of enterprise engineering and the community benefits from your experience.',
+    'Consider formalising your practices into an internal playbook or framework that leadership can reference and other teams can adopt.',
   ],
 };
 
@@ -274,7 +247,7 @@ const generateReportHTML = (overallLayer: number, scores: PillarScore[], email: 
     const pct = Math.max(3, Math.round(((p.score - 1) / 3) * 100));
     return `
       <tr>
-        <td style="padding:10px 0;font-weight:600;color:#271789;width:160px;font-size:13px">${p.key}</td>
+        <td style="padding:10px 0;font-weight:600;color:#271789;width:100px;font-size:14px">${p.key}</td>
         <td style="padding:10px 12px 10px 0;">
           <div style="background:#e2e8f0;border-radius:6px;height:10px;overflow:hidden">
             <div style="width:${pct}%;background:#271789;height:100%;border-radius:6px"></div>
@@ -301,7 +274,7 @@ const generateReportHTML = (overallLayer: number, scores: PillarScore[], email: 
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<title>DevOps Maturity Report — nthakur.com</title>
+<title>CognitiveOps Maturity Report — nthakur.com</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Segoe UI',Arial,sans-serif;color:#1e293b;background:#fff;max-width:800px;margin:0 auto;padding:0}
@@ -313,7 +286,7 @@ const generateReportHTML = (overallLayer: number, scores: PillarScore[], email: 
   <div style="background:#271789;color:#fff;padding:32px 40px;border-radius:10px 10px 0 0">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px">
       <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00f1d4;margin-bottom:10px">DevOps Maturity Assessment</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00f1d4;margin-bottom:10px">CognitiveOps Maturity Assessment</div>
         <h1 style="font-size:26px;font-weight:800;line-height:1.2;margin-bottom:8px">Your Maturity Report</h1>
         <div style="font-size:13px;color:#cbd5e1">Generated ${date} &nbsp;·&nbsp; nthakur.com</div>
       </div>
@@ -346,8 +319,8 @@ const generateReportHTML = (overallLayer: number, scores: PillarScore[], email: 
     <ol style="list-style:none;padding:0">${recItems}</ol>
   </div>
   <div style="background:#271789;color:#fff;padding:28px 40px;border-radius:0 0 10px 10px">
-    <h2 style="font-size:17px;font-weight:700;margin-bottom:8px">Want a deeper DevOps assessment for your team?</h2>
-    <p style="font-size:13px;color:#e2e8f0;line-height:1.65;margin-bottom:12px">Naval runs structured DevOps advisory engagements — scored findings per pillar, a gap analysis, and a prioritised 90-day roadmap your team can act on immediately.</p>
+    <h2 style="font-size:17px;font-weight:700;margin-bottom:8px">Want a tailored roadmap for your organisation?</h2>
+    <p style="font-size:13px;color:#e2e8f0;line-height:1.65;margin-bottom:12px">Naval offers a 2-week CognitiveOps Assessment engagement — scored findings per pillar, a gap analysis, and a prioritised 90-day roadmap your team can act on immediately.</p>
     <div style="font-size:13px;color:#00f1d4;font-weight:700">Book at nthakur.com/work-with-me</div>
   </div>
   <div style="padding:18px 40px;text-align:center">
@@ -369,7 +342,7 @@ const computeScores = (answers: Answers): PillarScore[] =>
     return { key: p.key, score, layer };
   });
 
-const DevOpsAssessment: React.FC = () => {
+const CognitiveOpsAssessment: React.FC = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [email, setEmail] = useState('');
@@ -401,7 +374,7 @@ const DevOpsAssessment: React.FC = () => {
       const form = new FormData();
       form.append('email', email);
       form.append('name', name || 'Assessment Respondent');
-      form.append('topic', 'DevOps Maturity Assessment');
+      form.append('topic', 'CognitiveOps Maturity Assessment');
       form.append('message',
         `Assessment complete. Overall: Layer ${overallLayer} (${LAYER_NAMES[overallLayer]}). ` +
         pillarScores.map(p => `${p.key}=L${p.layer}`).join(', ')
@@ -430,18 +403,18 @@ const DevOpsAssessment: React.FC = () => {
   if (step === 0) return (
     <>
       <SEO
-        title="DevOps Maturity Assessment | Naval Thakur"
-        description="16 questions across Delivery Pipeline, Infrastructure & Platform, Observability, and Culture. Find your DevOps maturity layer and get a personalised PDF report."
+        title="CognitiveOps Maturity Assessment | Naval Thakur"
+        description="13 questions across DevOps, SecOps, FinOps, and GenAI. Find your CognitiveOps maturity layer (Manual → Cognitive) and download a personalised PDF report."
       />
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
           <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary-dark dark:text-secondary text-sm font-bold mb-6">
-            DevOps Maturity Assessment
+            CognitiveOps Maturity Assessment
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">How mature is your DevOps practice?</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Where does your organisation stand?</h1>
           <p className="text-xl text-slate-200 max-w-2xl leading-relaxed">
-            {TOTAL_QUESTIONS} questions across four pillars. About 4 minutes. You will receive your
-            maturity layer, a per-pillar breakdown, and a downloadable PDF report with prioritised next steps.
+            {TOTAL_QUESTIONS} questions across four pillars — DevOps, SecOps, FinOps, and GenAI. About 4 minutes.
+            You will receive your overall maturity layer, a per-pillar breakdown, and a downloadable PDF report.
           </p>
         </div>
       </div>
@@ -460,9 +433,9 @@ const DevOpsAssessment: React.FC = () => {
             <h3 className="font-bold text-slate-900 dark:text-white mb-3">What you will get</h3>
             <ul className="space-y-2">
               {[
-                'Your DevOps maturity layer (Reactive → Repeatable → Accelerating → Elite)',
-                'Per-pillar scores across Delivery, Infrastructure, Observability, and Culture',
-                'Personalised recommendations for your next layer',
+                'Your CognitiveOps maturity layer (Manual → Automated → Intelligent → Cognitive)',
+                'Per-pillar scores across DevOps, SecOps, FinOps, and GenAI',
+                'Personalised recommendations for reaching your next layer',
                 'A downloadable PDF report for your records',
               ].map(item => (
                 <li key={item} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
@@ -487,7 +460,7 @@ const DevOpsAssessment: React.FC = () => {
     const PIcon = currentPillar.icon;
     return (
       <>
-        <SEO title="DevOps Assessment | Naval Thakur" description="DevOps Maturity Assessment in progress." />
+        <SEO title="CognitiveOps Assessment | Naval Thakur" description="CognitiveOps Maturity Assessment in progress." />
         <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl py-3 flex items-center gap-4">
             <span className="text-xs font-bold text-slate-500 shrink-0">Pillar {step} of {NUM_PILLARS}</span>
@@ -544,8 +517,10 @@ const DevOpsAssessment: React.FC = () => {
               })}
             </div>
             <div className="flex justify-between mt-8 pt-4 border-t border-slate-200 dark:border-slate-700">
-              <button onClick={() => setStep(s => s - 1)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white font-medium text-sm transition-colors">
+              <button
+                onClick={() => setStep(s => s - 1)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white font-medium text-sm transition-colors"
+              >
                 <ArrowLeft size={16} /> Back
               </button>
               <button
@@ -564,7 +539,7 @@ const DevOpsAssessment: React.FC = () => {
 
   if (step === EMAIL_STEP) return (
     <>
-      <SEO title="DevOps Assessment | Naval Thakur" description="Assessment complete — unlock your results." />
+      <SEO title="CognitiveOps Assessment | Naval Thakur" description="Assessment complete — unlock your results." />
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
           <CheckCircle2 className="w-12 h-12 text-secondary mx-auto mb-4" />
@@ -576,8 +551,10 @@ const DevOpsAssessment: React.FC = () => {
       </div>
       <Section bg="white">
         <div className="max-w-md mx-auto">
-          <form onSubmit={handleEmailSubmit}
-            className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 shadow-lg space-y-4">
+          <form
+            onSubmit={handleEmailSubmit}
+            className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 shadow-lg space-y-4"
+          >
             <div>
               <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Name</label>
               <input type="text" placeholder="Your name" value={name} onChange={e => setName(e.target.value)}
@@ -613,8 +590,8 @@ const DevOpsAssessment: React.FC = () => {
   return (
     <>
       <SEO
-        title={`DevOps Results: ${LAYER_NAMES[overallLayer]} | Naval Thakur`}
-        description={`Your team is at DevOps Layer ${overallLayer}: ${LAYER_NAMES[overallLayer]}.`}
+        title={`CognitiveOps Results: Layer ${overallLayer} | Naval Thakur`}
+        description={`Your organisation is at CognitiveOps Layer ${overallLayer}: ${LAYER_NAMES[overallLayer]}.`}
       />
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
@@ -688,9 +665,9 @@ const DevOpsAssessment: React.FC = () => {
               className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-md">
               <Download size={18} /> Download PDF Report
             </button>
-            <Link to="/contact?topic=DevOps Advisory"
+            <Link to="/contact?topic=CognitiveOps Workshop"
               className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary dark:text-white dark:border-white font-bold rounded-xl hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-colors">
-              Book an Advisory <ArrowRight size={16} />
+              Book a Workshop <ArrowRight size={16} />
             </Link>
           </div>
           <div className="text-center pt-2">
@@ -704,4 +681,4 @@ const DevOpsAssessment: React.FC = () => {
   );
 };
 
-export default DevOpsAssessment;
+export default CognitiveOpsAssessment;

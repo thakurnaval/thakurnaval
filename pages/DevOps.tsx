@@ -66,9 +66,9 @@ const DevOps: React.FC = () => {
             </div>
 
             <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-6 rounded-r-lg mt-8">
-              <h2 className="text-xl font-bold text-blue-900 dark:text-blue-200 mb-2">CognitiveOps Maturity Assessment</h2>
+              <h2 className="text-xl font-bold text-blue-900 dark:text-blue-200 mb-2">DevOps Maturity Assessment</h2>
               <p className="text-blue-800 dark:text-blue-300 mb-4">
-                13 questions across DevOps, SecOps, FinOps, and GenAI. Find your maturity layer and download a personalised PDF report with prioritised next steps — free, instant, no account required.
+                16 questions across Delivery Pipeline, Infrastructure, Observability, and Culture. Find your maturity layer — Reactive, Repeatable, Accelerating, or Elite — and get a personalised PDF report with prioritised next steps.
               </p>
               <Link to="/devops/assessment" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm">
                 Take the Assessment <ArrowRight size={15} />
