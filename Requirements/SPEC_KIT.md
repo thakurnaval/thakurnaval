@@ -77,7 +77,7 @@ Dark mode: class-based (`dark:` prefix). Toggle managed in `Layout.tsx` via `loc
 nthakur.com
 ├── index.html              # Entry point, Tailwind CDN, GA4, font preconnect
 ├── index.tsx               # React 18 root mount, StrictMode
-├── App.tsx                 # BrowserRouter, all 111 routes, Layout wrapper
+├── App.tsx                 # BrowserRouter, all 112 routes, Layout wrapper
 ├── types.ts                # All shared TypeScript interfaces
 ├── constants.ts            # All site data arrays (NAV_ITEMS, PROJECTS, etc.)
 │
@@ -91,9 +91,9 @@ nthakur.com
 │   ├── NewsletterSignup.tsx # Email capture → Google Apps Script
 │   └── Testimonials.tsx    # 3-column testimonial grid
 │
-└── pages/                  # 18 top-level pages + 11 subdirectories
+└── pages/                  # 18 top-level pages + 12 subdirectories
     ├── [18 top-level pages]
-    ├── devops/             # 9 subpages
+    ├── devops/             # 9 subpages + DevOpsAssessment (standalone, 16 questions)
     ├── secops/             # 10 subpages + SecOpsAssessment
     ├── finops/             # 6 subpages + FinOpsAssessment
     ├── genai/              # 6 subpages + GenAIAssessment
@@ -103,14 +103,15 @@ nthakur.com
     ├── articles/           # 4 long-form articles
     ├── talks/              # 5 talk detail pages
     ├── agile/              # AgileAssessment
-    └── pm/                 # PMAssessment
+    ├── pm/                 # PMAssessment
+    └── cognitiveops/       # CognitiveOpsAssessment (flagship 4-domain, 13 questions)
 ```
 
 **Routing strategy:** `BrowserRouter` (all URLs are real, indexable). No hash routing. Netlify `_redirects` and Cloud Run serve the SPA shell for all routes.
 
 ---
 
-## 5. Route Map (111 routes)
+## 5. Route Map (112 routes)
 
 ### Core Pages
 | Path | Component | Notes |
@@ -124,7 +125,7 @@ nthakur.com
 | `/articles` | Articles | Article grid (4 published) |
 | `/gallery` | Gallery | Event photo gallery (24 photos) |
 | `/community` | Community | Mentorship and community involvement |
-| `/assessments` | Assessments | Hub page — all 7 assessments |
+| `/assessments` | Assessments | Hub page — all 8 assessments |
 | `/work-with-me` | WorkWithMe | Services, pricing tiers, Sessionize link |
 | `/contact` | Contact | Contact form → Google Apps Script |
 
@@ -138,16 +139,17 @@ nthakur.com
 | `/architecture` | Architecture |
 | `/ai-sdlc` | AIinSDLC |
 
-### Assessment Routes (7 total)
-| Path | Component | Questions | Pillars |
-|------|-----------|-----------|---------|
-| `/devops/assessment` | DevOpsAssessment | 13 | 4 (DevOps, SecOps, FinOps, GenAI) |
-| `/agile/assessment` | AgileAssessment | 16 | 4 |
-| `/finops/assessment` | FinOpsAssessment | 16 | 4 |
-| `/secops/assessment` | SecOpsAssessment | 16 | 4 |
-| `/genai/assessment` | GenAIAssessment | 16 | 4 |
-| `/architecture/assessment` | WellArchitectedAssessment | 15 | 5 |
-| `/pm/assessment` | PMAssessment | 16 | 4 |
+### Assessment Routes (8 total)
+| Path | Component | Questions | Pillars | Layers |
+|------|-----------|-----------|---------|--------|
+| `/cognitiveops/assessment` | CognitiveOpsAssessment | 13 | 4 (DevOps, SecOps, FinOps, GenAI) | Manual → Cognitive |
+| `/devops/assessment` | DevOpsAssessment | 16 | 4 (Delivery, Infra, Observability, Culture) | Reactive → Elite |
+| `/agile/assessment` | AgileAssessment | 16 | 4 | Ad Hoc → Optimising |
+| `/finops/assessment` | FinOpsAssessment | 16 | 4 | Crawl → Fly |
+| `/secops/assessment` | SecOpsAssessment | 16 | 4 | Reactive → Autonomous |
+| `/genai/assessment` | GenAIAssessment | 16 | 4 | Exploring → Leading |
+| `/architecture/assessment` | WellArchitectedAssessment | 15 | 5 | Foundational → Exemplary |
+| `/pm/assessment` | PMAssessment | 16 | 4 | Initial → Optimised |
 
 ### DevOps Subpages (9)
 `/devops/frameworks` · `/devops/maturity` · `/devops/practices` · `/devops/tools` · `/devops/sre` · `/devops/platform-engineering` · `/devops/chaos-engineering` · `/devops/roadmap`
@@ -285,7 +287,7 @@ No props. Inline data (3 testimonials). Renders a 3-column responsive grid.
 
 ## 8. Assessment Engine
 
-All 7 assessments share the same state machine pattern:
+All 8 assessments share the same state machine pattern:
 
 ```
 Step 0: Welcome screen
@@ -318,7 +320,7 @@ Used by:
 |--------|--------|
 | Contact form (`/contact`) | name, email, phone, topic, message |
 | Newsletter signup (`NewsletterSignup.tsx`) | email, source |
-| All 7 assessments | email, type, scores, layer |
+| All 8 assessments | email, type, scores, layer |
 
 **Mode:** `no-cors` — response is opaque; frontend always assumes success if no network error thrown. Backend failures are invisible to the user.
 
@@ -351,11 +353,13 @@ Inter font loaded via `<link rel="preconnect">` + stylesheet in `index.html`.
 |------|-------------|
 | Home (`/`) | WebSite, Person |
 | About (`/about`) | Person (with sameAs: LinkedIn, GitHub, Twitter, YouTube) |
+| CognitiveOps (`/cognitiveops`) | Article |
 | Case Studies | ItemList |
 | Projects (`/projects`) | CollectionPage, BreadcrumbList |
-| All 4 articles | Article, BreadcrumbList, FAQPage |
-| FinOps article | + HowTo (8-week study plan) |
-| Gamifying article | + HowTo (Deployment League) |
+| Cloud Computing Fundamentals | Article, BreadcrumbList, FAQPage (4 Q&As) |
+| Gamifying DevOps Pipeline | Article, BreadcrumbList, HowTo (Deployment League), FAQPage (3 Q&As) |
+| SecOps: Bridging the Gap | Article, BreadcrumbList, FAQPage (5 Q&As) |
+| Becoming FinOps Certified | Article, BreadcrumbList, HowTo (8-week study plan), FAQPage (5 Q&As) |
 
 ### Static SEO Files
 - `public/robots.txt` — crawl rules
@@ -435,7 +439,7 @@ Output: `dist/` — static files served by Nginx inside Docker container.
 |-------|--------|-------|
 | Tailwind via CDN | Build size, no purging | Runtime Tailwind includes all utilities. Switch to PostCSS build plugin to eliminate unused CSS. |
 | No-cors form submissions | Silent failures | If the Apps Script errors, users see success. Consider adding a server-side proxy or switching to a form backend (Formspree, Netlify Forms) that returns a real response. |
-| Google Apps Script URL hardcoded | 9 files | The same URL string appears in 9 components. Should be extracted to a single constant in `constants.ts`. |
+| Google Apps Script URL hardcoded | 10 files | The same URL string appears in 10 components. Should be extracted to a single constant in `constants.ts`. |
 | No ESLint config | Code quality | `npm run lint` runs `tsc --noEmit` only. No linting rules enforced. |
 | Sitemap.xml is static | Stale URLs | Must be manually updated when routes are added. No auto-generation. |
 | PDF reports are print-dialog-based | UX quality | Assessment PDF reports use `window.print()`. No formatting guarantees across browsers/OS. |
@@ -462,16 +466,17 @@ These are long-form write-ups linked from the `RECENT_TALKS` constant, not the s
 - Cultural Transformation through DevOps
 - Zero Trust in Cloud Native Environments
 
-### Assessments (7)
+### Assessments (8)
 | Assessment | Route | Layer Terminology |
 |-----------|-------|-------------------|
-| CognitiveOps Maturity | `/devops/assessment` | L1 Reactive → L4 Autonomous |
-| Agile Maturity | `/agile/assessment` | Initial → Optimising |
-| FinOps Maturity | `/finops/assessment` | Crawl → Run |
-| Cloud Security | `/secops/assessment` | Reactive → Proactive |
-| GenAI Readiness | `/genai/assessment` | Exploring → Leading |
-| Well-Architected | `/architecture/assessment` | Foundational → Exemplary |
-| Project Management | `/pm/assessment` | Initial → Optimised |
+| CognitiveOps Maturity (flagship, 4-domain) | `/cognitiveops/assessment` | Manual → Automated → Intelligent → Cognitive |
+| DevOps Maturity (standalone) | `/devops/assessment` | Reactive → Repeatable → Accelerating → Elite |
+| Agile Maturity | `/agile/assessment` | Ad Hoc → Defined → Performing → Optimising |
+| FinOps Maturity | `/finops/assessment` | Crawl → Walk → Run → Fly |
+| Cloud Security | `/secops/assessment` | Reactive → Proactive → Predictive → Autonomous |
+| GenAI Readiness | `/genai/assessment` | Exploring → Experimenting → Scaling → Leading |
+| Well-Architected | `/architecture/assessment` | Foundational → Structured → Advanced → Exemplary |
+| Project Management | `/pm/assessment` | Initial → Managed → Defined → Optimised |
 
 ---
 

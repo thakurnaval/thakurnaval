@@ -93,6 +93,8 @@ import GenAIAssessment from './pages/genai/GenAIAssessment';
 import WellArchitectedAssessment from './pages/architecture/WellArchitectedAssessment';
 import PMAssessment from './pages/pm/PMAssessment';
 import CognitiveOpsAssessment from './pages/cognitiveops/CognitiveOpsAssessment';
+import CognitiveOpsPlaybook from './pages/cognitiveops/CognitiveOpsPlaybook';
+import Newsletter from './pages/Newsletter';
 
 // Explore Subpages
 import BookSummaries from './pages/explore/BookSummaries';
@@ -234,6 +236,8 @@ const App: React.FC = () => {
             <Route path="/architecture/assessment" element={<WellArchitectedAssessment />} />
             <Route path="/pm/assessment" element={<PMAssessment />} />
             <Route path="/cognitiveops/assessment" element={<CognitiveOpsAssessment />} />
+            <Route path="/cognitiveops/playbook" element={<CognitiveOpsPlaybook />} />
+            <Route path="/newsletter" element={<Newsletter />} />
 
             {/* Core Pages */}
             <Route path="/about" element={<About />} />

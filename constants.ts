@@ -24,6 +24,7 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       { label: 'Articles & Blog', path: '/articles' },
       { label: 'Talks & Webinars', path: '/talks' },
+      { label: 'Newsletter', path: '/newsletter' },
     ]
   },
   { label: 'Speaking', path: '/talks' },
@@ -349,11 +350,13 @@ export const PROJECTS: ProjectProps[] = [
     title: "TrueNorth",
     description: "Enterprise-grade OKR management platform — the world's best OKR solution. Features full OKR hierarchy across all organisational levels, real-time progress analytics & forecasting, and cascading alignment with full dependency mapping. Built to move everyone in one direction.",
     technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST APIs", "Analytics"],
+    image: "/assets/img/gallery/TrueNorth.png",
   },
   {
     title: "BookEx",
     description: "A community-driven book exchange platform built for parents, by parents in Pune. Enables families to share, lend, and discover books for children — reducing waste, cutting costs, and building neighbourhood community around reading.",
     technologies: ["React", "Node.js", "MongoDB", "Firebase"],
+    image: "/assets/img/gallery/bookex.png",
   },
   {
     title: "Generative AI for Beginners",

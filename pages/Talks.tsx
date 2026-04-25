@@ -179,36 +179,42 @@ An honest assessment of where distributed ledger technology actually delivers en
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             <div className="mb-12">
-               <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center">
-                 <Mic2 className="mr-3 text-secondary-dark dark:text-secondary" /> Speaking Topics
-               </h2>
-                <div className="space-y-6">
-                  {RECENT_TALKS.map((talk, idx) => (
-                    <div key={idx} className="bg-white dark:bg-slate-800 p-6 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
-                      <div className="flex flex-wrap gap-2 mb-3">
-                         {talk.tags.map(tag => (
-                           <span key={tag} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded uppercase tracking-wider">{tag}</span>
-                         ))}
+              <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center">
+                <Mic2 className="mr-3 text-secondary-dark dark:text-secondary" /> Speaking Topics
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {RECENT_TALKS.map((talk, idx) => (
+                  <div key={idx} className="flex flex-col bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all overflow-hidden group">
+                    <div className="p-6 flex flex-col flex-grow">
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {talk.tags.map(tag => (
+                          <span key={tag} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded uppercase tracking-wider">{tag}</span>
+                        ))}
                       </div>
-                      <h3 className="text-xl font-bold text-primary dark:text-white mb-2">{talk.title}</h3>
-                      <p className="text-slate-600 dark:text-slate-300 mb-4">{talk.description}</p>
-                      <div className="flex flex-wrap items-center justify-between gap-4">
-                        <div className="flex flex-wrap text-sm text-slate-500 dark:text-slate-400 gap-4">
-                          <span><strong>Audience:</strong> {talk.audience}</span>
-                          <span><strong>Duration:</strong> {talk.duration}</span>
+                      <h3 className="text-lg font-bold text-primary dark:text-white mb-2 group-hover:text-secondary-dark dark:group-hover:text-secondary transition-colors leading-snug">
+                        {talk.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 flex-grow line-clamp-3">
+                        {talk.description}
+                      </p>
+                      <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+                        <div className="flex flex-wrap gap-3">
+                          {talk.audience && <span><strong className="text-slate-700 dark:text-slate-300">Audience:</strong> {talk.audience}</span>}
+                          {talk.duration && <span><strong className="text-slate-700 dark:text-slate-300">Duration:</strong> {talk.duration}</span>}
                         </div>
                         {talk.link && (
-                          <Link 
-                            to={talk.link} 
-                            className="text-secondary-dark dark:text-secondary font-bold text-sm hover:underline flex items-center"
+                          <Link
+                            to={talk.link}
+                            className="shrink-0 flex items-center gap-1 font-bold text-secondary-dark dark:text-secondary hover:underline"
                           >
-                            Read Article &rarr;
+                            Read more <ExternalLink size={12} />
                           </Link>
                         )}
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Past appearances */}
@@ -216,12 +222,11 @@ An honest assessment of where distributed ledger technology actually delivers en
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center">
                 <Calendar className="mr-3 text-secondary-dark dark:text-secondary" /> Past Appearances
               </h2>
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {SPEAKING_APPEARANCES.map((appearance, idx) => (
-                  <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
-                    {/* Event photo — full width banner when present */}
+                  <div key={idx} className="flex flex-col bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-all">
                     {appearance.photoUrl && (
-                      <div className="h-36 overflow-hidden">
+                      <div className="h-36 overflow-hidden shrink-0">
                         <img
                           src={appearance.photoUrl}
                           alt={`${appearance.event} — ${appearance.topic}`}
@@ -230,50 +235,52 @@ An honest assessment of where distributed ledger technology actually delivers en
                         />
                       </div>
                     )}
-                    <div className="p-5 flex items-start justify-between gap-4">
-                      <div className="min-w-0">
-                        <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <span className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded">
-                            {appearance.type}
-                          </span>
-                          <span className="text-xs text-slate-400 font-mono">{appearance.year}</span>
-                        </div>
-                        <p className="font-bold text-slate-900 dark:text-white text-sm">{appearance.event}</p>
-                        <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{appearance.topic}</p>
-                        <div className="flex items-center text-xs text-slate-400 mt-1">
-                          <MapPin size={11} className="mr-1 shrink-0" /> {appearance.location}
-                        </div>
-                        {appearance.audience && (
-                          <div className="flex items-center text-xs text-slate-400 mt-0.5">
-                            <Users size={11} className="mr-1 shrink-0" /> {appearance.audience}
-                          </div>
-                        )}
+                    <div className="p-5 flex flex-col flex-grow">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <span className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded">
+                          {appearance.type}
+                        </span>
+                        <span className="text-xs text-slate-400 font-mono">{appearance.year}</span>
                       </div>
-                      <div className="flex flex-col gap-2 shrink-0">
-                        {appearance.flyerUrl && (
-                          <a
-                            href={appearance.flyerUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-slate-400 hover:text-secondary transition-colors"
-                            aria-label="View event flier"
-                            title="View event flier"
-                          >
-                            <ExternalLink size={15} />
-                          </a>
-                        )}
-                        {appearance.recordingUrl && (
-                          <a
-                            href={appearance.recordingUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-secondary-dark dark:text-secondary hover:text-secondary/80"
-                            aria-label="Watch recording"
-                            title="Watch recording"
-                          >
-                            <ExternalLink size={15} />
-                          </a>
-                        )}
+                      <p className="font-bold text-slate-900 dark:text-white text-sm leading-snug">{appearance.event}</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 flex-grow">{appearance.topic}</p>
+                      <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between gap-2">
+                        <div className="space-y-0.5">
+                          <div className="flex items-center text-xs text-slate-400">
+                            <MapPin size={11} className="mr-1 shrink-0" /> {appearance.location}
+                          </div>
+                          {appearance.audience && (
+                            <div className="flex items-center text-xs text-slate-400">
+                              <Users size={11} className="mr-1 shrink-0" /> {appearance.audience}
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex gap-2 shrink-0">
+                          {appearance.flyerUrl && (
+                            <a
+                              href={appearance.flyerUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-slate-400 hover:text-secondary transition-colors"
+                              aria-label="View event flier"
+                              title="View event flier"
+                            >
+                              <ExternalLink size={15} />
+                            </a>
+                          )}
+                          {appearance.recordingUrl && (
+                            <a
+                              href={appearance.recordingUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-secondary-dark dark:text-secondary hover:text-secondary/80"
+                              aria-label="Watch recording"
+                              title="Watch recording"
+                            >
+                              <ExternalLink size={15} />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

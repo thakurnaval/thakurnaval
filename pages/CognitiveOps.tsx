@@ -159,10 +159,10 @@ const CognitiveOps: React.FC = () => {
               Take the Maturity Assessment <ArrowRight size={16} className="ml-2" />
             </Link>
             <Link
-              to="/contact?topic=Workshop / Training"
+              to="/cognitiveops/playbook"
               className="inline-flex items-center px-6 py-3 border border-white/30 bg-white/10 text-white font-medium rounded-lg hover:bg-white/20 transition-colors"
             >
-              Book a CognitiveOps Workshop
+              Download the Playbook
             </Link>
           </div>
         </div>

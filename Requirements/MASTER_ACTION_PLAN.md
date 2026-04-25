@@ -11,7 +11,9 @@ This is the single source of truth for all outstanding action items across the w
 |------|--------|
 | Website — core platform | ✅ Complete |
 | Website — social proof | ✅ Testimonials complete |
-| Website — assessments | ✅ All 7 built + hub page at `/assessments` |
+| Website — assessments | ✅ All 8 built + hub page at `/assessments` |
+| Website — assessment separation | ✅ DevOps standalone · CognitiveOps standalone at `/cognitiveops/assessment` |
+| Website — SEO/AEO | ✅ FAQPage + Article JSON-LD on all 4 articles · HowTo on 2 articles |
 | Website — nav & discoverability | ✅ Assessment CTAs on all section pages + nav dropdown |
 | Website — newsletter archive | 🔲 Not started |
 | Website — Sessionize integration | ✅ Added to Talks page + WorkWithMe page |
@@ -21,6 +23,7 @@ This is the single source of truth for all outstanding action items across the w
 | Newsletter issues | 🔲 6 draft topics identified — none written |
 | Conference CFP | 🔲 Not submitted |
 | Speaker profile (Sessionize) | ✅ Profile live + `SpeakerProfile.md` created |
+| SPEC_KIT.md | ✅ Created — full technical spec for the project |
 
 ---
 
@@ -45,18 +48,19 @@ This is the single source of truth for all outstanding action items across the w
 - [ ] Add route to `App.tsx` and navigation if appropriate
 
 ### P3 — Assessment Engine ✅ COMPLETE
-All 7 assessments built and live. Hub page at `/assessments` added to nav.
+All 8 assessments built and live. Hub page at `/assessments` added to nav. DevOps and CognitiveOps are now separate standalone assessments.
 
 | Assessment | Route | Status | Notes |
 |------------|-------|--------|-------|
-| CognitiveOps Maturity (DevOps+SecOps+FinOps+GenAI) | `/devops/assessment` | ✅ Built | Email gate, PDF, 13 questions, 4 pillars |
+| CognitiveOps Maturity (DevOps+SecOps+FinOps+GenAI) | `/cognitiveops/assessment` | ✅ Built | Flagship 4-domain assessment. Email gate, PDF, 13 questions, Manual→Cognitive layers |
+| DevOps Maturity Assessment | `/devops/assessment` | ✅ Built | DevOps-only. 4 pillars × 4 questions, 16 total, Reactive→Elite layers |
 | Agile Maturity Assessment | `/agile/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
 | FinOps Maturity Assessment | `/finops/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
 | Cloud Security / SecOps Assessment | `/secops/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
 | GenAI Readiness Assessment | `/genai/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
 | Well-Architected Framework Assessment | `/architecture/assessment` | ✅ Built | 5 pillars × 3 questions, 15 total |
 | Project Management Assessment | `/pm/assessment` | ✅ Built | 4 pillars × 4 questions, 16 total |
-| Assessments Hub | `/assessments` | ✅ Built | Card grid, nav link, section CTAs |
+| Assessments Hub | `/assessments` | ✅ Built | 8-card grid, nav link, section CTAs |
 
 ---
 
@@ -244,7 +248,14 @@ These items are done. Listed here for context only.
 | Hero headline — "Most enterprises have automated their pipelines..." | Apr 2026 |
 | Impact bar — $600K+, 18+ years, 35+ projects | Apr 2026 |
 | Newsletter rebrand to "The CognitiveOps Brief" | Apr 2026 |
-| CognitiveOps Maturity Assessment (email gate, PDF, 13 questions) | Apr 2026 |
+| CognitiveOps Maturity Assessment — moved to `/cognitiveops/assessment` (standalone) | Apr 2026 |
+| DevOps Maturity Assessment — rebuilt as standalone at `/devops/assessment` (16 questions, Reactive→Elite) | Apr 2026 |
+| Assessments hub updated to 8 cards; CognitiveOps flagged as flagship | Apr 2026 |
+| SEO/AEO — FAQPage + Article JSON-LD schemas on all 4 published articles | Apr 2026 |
+| SEO/AEO — HowTo schemas on FinOps cert article and Gamifying DevOps article | Apr 2026 |
+| SEO/AEO — SimplePage.tsx extended with `structuredData` and `type` props | Apr 2026 |
+| SEO/AEO — Projects.tsx SEO component added (was missing entirely) | Apr 2026 |
+| SPEC_KIT.md created — full 15-section technical specification | Apr 2026 |
 | Gallery — 24 real event photos, all stock removed | Apr 2026 |
 | Talks page — 20+ real appearances with venues and audiences | Apr 2026 |
 | Certifications page — 39+ certs with badges and Credly links | Apr 2026 |
