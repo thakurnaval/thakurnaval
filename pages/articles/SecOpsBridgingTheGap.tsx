@@ -3,11 +3,69 @@ import { Link } from 'react-router-dom';
 import SimplePage from '../../components/SimplePage';
 import { ShieldCheck, AlertTriangle, GitMerge, CheckCircle2, Clock, Users, Layers, ArrowRight } from 'lucide-react';
 
+const SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "SecOps: Bridging the Gap Between Security and Agile Delivery",
+      "description": "Practical steps to align your security team with your agile delivery cycle — without slowing either side down.",
+      "author": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com/about", "jobTitle": "Practice Manager, SLB" },
+      "publisher": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com" },
+      "datePublished": "2024-09-01",
+      "dateModified": "2025-01-01",
+      "url": "https://nthakur.com/articles/secops-bridging-the-gap",
+      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "keywords": "DevSecOps, SecOps, security as code, shift-left security, SAST, pipeline security, agile security",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nthakur.com/articles/secops-bridging-the-gap" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nthakur.com" },
+        { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://nthakur.com/articles" },
+        { "@type": "ListItem", "position": 3, "name": "SecOps: Bridging the Gap", "item": "https://nthakur.com/articles/secops-bridging-the-gap" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do security and development teams conflict in agile organisations?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Security teams and development teams operate on incompatible timelines. A typical dev team ships every two weeks; a typical security review cycle runs quarterly. When these rhythms collide, security either becomes a rubber stamp that adds no value, or a hard blocker that earns a reputation for killing delivery speed." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the timing gap in DevSecOps and how do you fix it?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The timing gap occurs when security reviews happen at the end of a release cycle, after all architectural decisions are locked in. The fix is to embed a Security Story into every sprint backlog — a 30-minute conversation at sprint start where a security champion reviews the sprint scope for threat surface changes, not a 3-week review cycle." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a Security Champion and what do they do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A Security Champion is an engineer embedded within a development squad who speaks both security and development languages. They translate the security team's policies into day-to-day development decisions. This is a role, not a certification — typically a senior developer with security interest who acts as the bridge between the security team and their squad." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you shift security scanning left into the CI/CD pipeline?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Embed SAST (Static Application Security Testing), dependency scanning, and secrets detection directly into the PR pipeline so every pull request triggers a scan. Results should appear as PR comments, not emailed reports — the developer sees the issue within minutes while the context is still fresh, rather than days later from a scheduled scan." }
+        },
+        {
+          "@type": "Question",
+          "name": "What metrics measure whether the DevSecOps gap is closing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Three key metrics: (1) Mean Time to Remediate security issues — target under 7 days for critical CVEs; (2) Security Coverage — percentage of CI pipelines with at least SAST and dependency scanning, target 100%; (3) Security Debt Ratio — open critical/high findings vs. total code surface, track the trend rather than the absolute number." }
+        }
+      ]
+    }
+  ]
+};
+
 const SecOpsBridgingTheGap: React.FC = () => {
   return (
     <SimplePage
       title="SecOps: Bridging the Gap"
       subtitle="Practical steps to align your security team with your agile delivery cycle — without slowing either side down."
+      structuredData={SCHEMA}
     >
       <div className="space-y-10">
 

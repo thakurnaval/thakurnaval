@@ -3,11 +3,81 @@ import { Link } from 'react-router-dom';
 import SimplePage from '../../components/SimplePage';
 import { DollarSign, BookOpen, CheckCircle2, Calendar, Target, Award, ArrowRight, TrendingDown, BarChart3, Users } from 'lucide-react';
 
+const SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Becoming a FinOps Certified Practitioner",
+      "description": "A practitioner's guide to the FOCP exam — what to study, what actually matters in the real world, and how to pass it in under 8 weeks.",
+      "author": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com/about", "jobTitle": "Practice Manager, SLB" },
+      "publisher": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com" },
+      "datePublished": "2024-03-01",
+      "dateModified": "2025-01-01",
+      "url": "https://nthakur.com/articles/finops-certified-practitioner",
+      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "keywords": "FinOps, FOCP, FinOps Certified Practitioner, cloud cost management, FinOps Foundation, cloud financial management",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nthakur.com/articles/finops-certified-practitioner" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nthakur.com" },
+        { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://nthakur.com/articles" },
+        { "@type": "ListItem", "position": 3, "name": "Becoming a FinOps Certified Practitioner", "item": "https://nthakur.com/articles/finops-certified-practitioner" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "8-Week FinOps Certified Practitioner Study Plan",
+      "description": "Pass the FOCP exam in under 8 weeks with 3–4 hours of study per week.",
+      "totalTime": "P8W",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Weeks 1–2: Framework Foundations", "text": "Read the FinOps Framework at finops.org cover-to-cover. Understand the Inform → Optimize → Operate lifecycle. Learn all FinOps team personas and memorise the glossary." },
+        { "@type": "HowToStep", "position": 2, "name": "Weeks 3–4: Cloud Pricing & Cost Models", "text": "Deep-dive AWS/Azure/GCP pricing. Understand On-Demand vs Reserved vs Spot. Practice RI savings scenarios. Study tagging strategies and cost allocation logic." },
+        { "@type": "HowToStep", "position": 3, "name": "Weeks 5–6: Unit Economics & KPIs", "text": "Study unit economics (cost per customer, transaction, API call). Understand showback vs chargeback. Learn the FOCUS standard. Practice scenario questions." },
+        { "@type": "HowToStep", "position": 4, "name": "Weeks 7–8: Practice Exams & Gap Closing", "text": "Take the Linux Foundation practice exam at least twice. Review every wrong answer on principle, not just the correct option. Focus on organizational and cultural questions." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does the Crawl, Walk, Run model mean in FinOps?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The FinOps Framework describes organisational maturity across three stages: Crawl, Walk, and Run. Crawl means basic visibility and tagging are in place. Walk means optimisation is active. Run means FinOps is embedded into engineering culture with real-time decision-making. FOCP exam questions frequently test which practices belong at each stage." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you allocate shared cloud costs in FinOps?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Shared resource costs (e.g., a shared Kubernetes cluster) can be allocated using proportional split (based on actual usage), fixed split (pre-agreed percentages), or even split (equal shares). The correct method depends on organisational context and agreement between teams." }
+        },
+        {
+          "@type": "Question",
+          "name": "Who owns cloud costs in a FinOps operating model?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Engineering teams own cloud costs in a FinOps model — not the FinOps team. The FinOps practitioner's role is to enable decision-making, provide visibility, and facilitate cross-functional collaboration between Engineering, Finance, and the business." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between anomaly detection and forecasting in FinOps?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Anomaly detection is reactive — it identifies unexpected spikes or drops in cloud spend in near-real-time. Forecasting is proactive — it predicts future spend based on historical trends and growth assumptions. Both require different tooling and processes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the FinOps Certified Practitioner exam open book?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, the FOCP exam is open book and allows external resources. However, the 50 questions must be completed in 90 minutes, and questions are scenario-based — requiring genuine conceptual understanding rather than simple lookup speed." }
+        }
+      ]
+    }
+  ]
+};
+
 const BecomingFinOpsCertifiedPractitioner: React.FC = () => {
   return (
     <SimplePage
       title="Becoming a FinOps Certified Practitioner"
       subtitle="A practitioner's guide to the FOCP exam — what to study, what actually matters in the real world, and how to pass it in under 8 weeks."
+      structuredData={SCHEMA}
     >
       <div className="space-y-10">
 

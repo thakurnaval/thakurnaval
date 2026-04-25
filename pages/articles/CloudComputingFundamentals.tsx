@@ -3,11 +3,64 @@ import React from 'react';
 import SimplePage from '../../components/SimplePage';
 import { Cloud, Server, Database, Shield, Zap, Layers, RefreshCw, DollarSign, Globe } from 'lucide-react';
 
+const SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Cloud Computing Fundamentals",
+      "description": "Understanding the model, service types, benefits, and challenges of modern cloud infrastructure — IaaS, PaaS, SaaS explained.",
+      "author": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com/about", "jobTitle": "Practice Manager, SLB" },
+      "publisher": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com" },
+      "datePublished": "2023-12-01",
+      "dateModified": "2025-01-01",
+      "url": "https://nthakur.com/articles/cloud-computing-fundamentals",
+      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "keywords": "cloud computing, IaaS, PaaS, SaaS, cloud infrastructure, cloud benefits, virtualization, cloud challenges",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nthakur.com/articles/cloud-computing-fundamentals" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nthakur.com" },
+        { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://nthakur.com/articles" },
+        { "@type": "ListItem", "position": 3, "name": "Cloud Computing Fundamentals", "item": "https://nthakur.com/articles/cloud-computing-fundamentals" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is cloud computing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Cloud computing is a model of providing on-demand access to shared computing resources — servers, storage, databases, software, and applications — over the internet on a pay-as-you-go basis. It is based on virtualization, where a physical server is divided into multiple virtual servers that can be rapidly provisioned and de-provisioned as needed." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between IaaS, PaaS, and SaaS?",
+          "acceptedAnswer": { "@type": "Answer", "text": "IaaS (Infrastructure as a Service) provides virtualized computing resources where customers control the OS and applications. PaaS (Platform as a Service) provides a development and deployment platform so developers focus only on code without managing infrastructure. SaaS (Software as a Service) provides ready-to-use applications accessed via browser, managed entirely by a third-party provider." }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the main benefits of cloud computing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The main benefits are: Scalability (scale resources up or down without hardware investment), Cost Savings (pay-as-you-go eliminates upfront CapEx), Flexibility (access from anywhere on any device), Reliability (high uptime and redundancy from cloud providers), and Security (cloud providers invest heavily in security capabilities that most organisations cannot match internally)." }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the main risks and challenges of cloud computing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Key challenges include: Shared Responsibility (providers secure the infrastructure, but customers are responsible for their own data and applications), Compliance (data residency and access requirements can be complex in multi-region deployments), Vendor Lock-in (migrating between providers is costly), and Integration (connecting cloud systems with legacy on-premises applications requires specialist skills)." }
+        }
+      ]
+    }
+  ]
+};
+
 const CloudComputingFundamentals: React.FC = () => {
   return (
-    <SimplePage 
-      title="Cloud Computing Fundamentals" 
+    <SimplePage
+      title="Cloud Computing Fundamentals"
       subtitle="Understanding the model, service types, benefits, and challenges of modern cloud infrastructure."
+      structuredData={SCHEMA}
     >
       <div className="space-y-10">
         <section>

@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { Code, Github, ExternalLink, Search, Filter } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import ProjectCard from '../components/ProjectCard';
+import SEO from '../components/SEO';
 
 const Projects: React.FC = () => {
   const [searchTerm, setSearchTerm] = React.useState('');
@@ -21,7 +22,33 @@ const Projects: React.FC = () => {
     return matchesSearch && matchesTech;
   });
 
+  const projectsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "name": "Engineering Projects — Naval Thakur",
+        "description": "Open-source contributions, educational curricula, and technical implementations in DevOps, SecOps, FinOps, and Generative AI by Naval Thakur.",
+        "url": "https://nthakur.com/projects",
+        "author": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com/about" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nthakur.com" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://nthakur.com/projects" }
+        ]
+      }
+    ]
+  };
+
   return (
+    <>
+      <SEO
+        title="Engineering Projects | DevOps, FinOps & GenAI | Naval Thakur"
+        description="Open-source tools, educational curricula, and technical implementations across DevOps, SecOps, FinOps, and GenAI — built and maintained by Naval Thakur."
+        structuredData={projectsSchema}
+      />
     <div className="min-h-screen pt-24 pb-20">
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
@@ -127,6 +154,7 @@ const Projects: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

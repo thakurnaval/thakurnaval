@@ -3,11 +3,70 @@ import { Link } from 'react-router-dom';
 import SimplePage from '../../components/SimplePage';
 import { Gamepad2, Trophy, Zap, TrendingUp, Users, BarChart3, Star, GitMerge } from 'lucide-react';
 
+const SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Fun with DevOps: Gamifying the Pipeline",
+      "description": "How to increase team engagement, reduce build failures, and make continuous delivery genuinely enjoyable — through the principles of game design.",
+      "author": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com/about", "jobTitle": "Practice Manager, SLB" },
+      "publisher": { "@type": "Person", "name": "Naval Thakur", "url": "https://nthakur.com" },
+      "datePublished": "2024-06-01",
+      "dateModified": "2025-01-01",
+      "url": "https://nthakur.com/articles/gamifying-devops-pipeline",
+      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "keywords": "DevOps gamification, CI/CD engagement, DORA metrics, deployment frequency, DevOps culture, pipeline quality",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nthakur.com/articles/gamifying-devops-pipeline" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nthakur.com" },
+        { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://nthakur.com/articles" },
+        { "@type": "ListItem", "position": 3, "name": "Fun with DevOps: Gamifying the Pipeline", "item": "https://nthakur.com/articles/gamifying-devops-pipeline" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Run a Deployment League with Your Engineering Team",
+      "description": "A 4-week sprint pattern that uses gamification to improve DORA metrics and pipeline culture across engineering squads.",
+      "totalTime": "P4W",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Week 1: Baseline", "text": "Capture current DORA metrics across all squads — deployment frequency, lead time for changes, MTTR, and change failure rate. Display them on a shared dashboard without judgment." },
+        { "@type": "HowToStep", "position": 2, "name": "Weeks 2–3: The Sprint", "text": "Teams compete to improve their own baseline over a 2-week sprint. Each team picks one metric to focus on and commits to a target. Daily bot updates in Slack show progress." },
+        { "@type": "HowToStep", "position": 3, "name": "Week 4: Show & Tell", "text": "Every team presents what they tried, what moved, what didn't, and why. The team with the most improved metric wins a genuinely valued prize — e.g., the team lead chooses the next tech spike topic." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What DevOps metrics should you track for gamification?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Track team-level metrics that reward quality behavior: deployment frequency, build success rate (consecutive green runs), time-to-first-green (how fast a PR gets a passing build), test coverage delta, and MTTR after an incident. Avoid individual metrics like lines of code or number of PRs, which invite gaming the system." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you avoid gamification creating perverse incentives in DevOps?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use team-based leaderboards rather than individual ones, rotate the metric of the sprint to avoid fixation on a single number, and never track metrics that a single engineer can manipulate alone (e.g., lines of code, number of commits). Tie rewards to improvement over baseline rather than absolute rankings." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Deployment League pattern in DevOps?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The Deployment League is a 4-week sprint pattern where engineering squads measure their current DORA metrics (Week 1 baseline), compete to improve their own baseline over a 2-week sprint with daily Slack updates, then present results in a Show & Tell session (Week 4). The goal is a language shift — teams start discussing pipeline metrics with the same engagement as sprint velocity." }
+        }
+      ]
+    }
+  ]
+};
+
 const GamifyingDevOpsPipeline: React.FC = () => {
   return (
     <SimplePage
       title="Fun with DevOps: Gamifying the Pipeline"
       subtitle="How to increase team engagement, reduce build failures, and make continuous delivery genuinely enjoyable — through the principles of game design."
+      structuredData={SCHEMA}
     >
       <div className="space-y-10">
 

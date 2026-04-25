@@ -10,14 +10,14 @@ This is the single source of truth for all outstanding action items across the w
 | Area | Status |
 |------|--------|
 | Website — core platform | ✅ Complete |
-| Website — social proof | 🔲 Testimonials outstanding |
+| Website — social proof | ✅ Testimonials complete |
 | Website — assessments | ✅ All 7 built + hub page at `/assessments` |
 | Website — nav & discoverability | ✅ Assessment CTAs on all section pages + nav dropdown |
 | Website — newsletter archive | 🔲 Not started |
 | Website — Sessionize integration | ✅ Added to Talks page + WorkWithMe page |
 | LinkedIn — tagline & About | ✅ Content ready — apply manually |
 | LinkedIn — Featured section | 🔲 Not updated |
-| Content publishing | 🔲 No articles published yet |
+| Content publishing | ✅ 4 articles live — cadence ongoing |
 | Newsletter issues | 🔲 6 draft topics identified — none written |
 | Conference CFP | 🔲 Not submitted |
 | Speaker profile (Sessionize) | ✅ Profile live + `SpeakerProfile.md` created |
@@ -26,11 +26,11 @@ This is the single source of truth for all outstanding action items across the w
 
 ## 1 — Website: Remaining Build Work
 
-### P0 — Real Testimonials
-- [ ] Collect 3–5 written quotes from colleagues, mentees, or C-suite peers
+### P0 — Real Testimonials ✅ COMPLETE
+- [x] Collect 3–5 written quotes from colleagues, mentees, or C-suite peers
   - Target: one senior peer (director/VP level), one team member, one mentee
   - Suggested ask: "3 sentences on working together and one specific result"
-- [ ] Replace placeholder entries in `pages/home/Testimonials.tsx`
+- [x] Replace placeholder entries in `pages/home/Testimonials.tsx`
 
 ### P2 — Project Logos (BookEx + TrueNorth)
 - [ ] Drop `BookEx` logo image into `public/assets/img/gallery/`
@@ -79,11 +79,14 @@ All 7 assessments built and live. Hub page at `/assessments` added to nav.
 
 ## 3 — Content Publishing
 
-### Month 1 Goal: First Practitioner Article
-- [ ] Write and publish one long-form article (1,500+ words) on nthakur.com
-  - Suggested angle: *"Here's what I saw when I ran FinOps at a $50B energy company"*
-  - Or: *"From DevOps to CognitiveOps: What the Next 5 Years Look Like"*
-  - Publish to `/articles`
+### Articles — 4 Published ✅
+- BecomingFinOpsCertifiedPractitioner
+- CloudComputingFundamentals
+- GamifyingDevOpsPipeline
+- SecOpsBridgingTheGap
+
+### Next Articles — Keep the Cadence
+- [ ] Article 5 — next piece to write and publish to `/articles`
 
 ### Ongoing Content Cadence
 
@@ -91,6 +94,7 @@ All 7 assessments built and live. Hub page at `/assessments` added to nav.
 |--------|-----------|----------|-------|
 | Long-form article | 2x / month | nthakur.com | Naval |
 | LinkedIn post | 3x / week | LinkedIn | Naval |
+| X (Twitter) post | 1x / day | X @nthakur_dot_com | Naval |
 | Newsletter issue | Bi-weekly | Email list | Naval |
 | YouTube (screen-record or whiteboard) | 1x / month | YouTube | Naval |
 
@@ -98,6 +102,12 @@ All 7 assessments built and live. Hub page at `/assessments` added to nav.
 - **Monday** — Practitioner insight ("Here's what I learned doing X at SLB...")
 - **Wednesday** — Framework or visual (repurpose site content as carousel)
 - **Friday** — Community/mentorship ("I reviewed 20 DevOps CVs this month. Here's what I keep seeing...")
+
+**X post rhythm:**
+- Short-form takes on DevOps, FinOps, GenAI, and CognitiveOps
+- Repurpose LinkedIn posts as threads (split into 3–5 tweets)
+- Engage with FinOps Foundation, CNCF, and DevOps community accounts
+- Pin thread: CognitiveOps Maturity Model overview → link to nthakur.com/cognitiveops
 
 ---
 
@@ -177,6 +187,54 @@ Ordered by effort-to-impact. Build Tier 1 first — these come directly from exi
 
 ---
 
+## 7 — Book: DevOpsism
+
+A practitioner-first book on DevOps culture, philosophy, and execution — written for engineering leaders who are tired of frameworks that work in theory but fail in production.
+
+### Working Title
+**DevOpsism** — *The Practitioner's Manifesto for Modern Engineering Organisations*
+
+### Core Premise
+DevOps is not a toolchain. It is not a job title. It is an operating philosophy — and most organisations have bought the tools without adopting the philosophy. DevOpsism is the honest practitioner's guide to what DevOps actually requires, what it actually looks like when it works, and how to get there without lying to yourself about your current state.
+
+### Target Audience
+- Engineering managers and directors making the transition from tactical to strategic leadership
+- Senior DevOps practitioners who want to lead transformation, not just implement pipelines
+- CTOs and VPs evaluating whether their organisation is genuinely agile or performing agility
+
+### Outline (Draft)
+
+| # | Chapter | Core Idea |
+|---|---------|-----------|
+| 1 | The Philosophy Before the Pipeline | DevOps is a culture first. Tools are the output, not the input. |
+| 2 | The 7 Cs in Practice | Continuous Integration through Continuous Feedback — what each C actually costs to do right |
+| 3 | The CognitiveOps Maturity Model | The four layers: Manual → Automated → Intelligent → Autonomous. Where you are and how to move. |
+| 4 | Why Enterprise Agile Transformations Fail | Structural and incentive mismatches that guarantee failure above the team level |
+| 5 | FinOps by Design | Cloud cost accountability built into engineering culture, not bolted on by finance |
+| 6 | Security as a First-Class Concern | DevSecOps without the security theatre |
+| 7 | GenAI in the Engineering Organisation | What actually changes, what stays the same, and how to avoid the hype traps |
+| 8 | Seven Habits of Highly Effective DevOps Teams | The behavioural patterns that separate high-performing teams from firefighting teams |
+| 9 | The Honest Debrief | What doesn't work, what I got wrong, and what I'd tell my earlier self |
+| 10 | The Practitioner's Manifesto | A closing statement of principles — written to be argued with, not followed blindly |
+
+### Action Items
+
+- [ ] Write a one-page book proposal (audience, premise, differentiation, why now)
+- [ ] Draft Chapter 1 — "The Philosophy Before the Pipeline" (3,000–5,000 words)
+- [ ] Draft Chapter 3 — CognitiveOps chapter (can pull from existing site content)
+- [ ] Draft Chapter 8 — Seven Habits (can pull from PUNKS-2019 session notes)
+- [ ] Decide: self-publish (Amazon KDP) vs. traditional publisher (Wiley, O'Reilly, Packt)
+- [ ] Research comparable titles (The Phoenix Project, Team Topologies, Accelerate) for positioning
+- [ ] Write sample chapter for O'Reilly or Packt submission if going traditional
+- [ ] Register nthakur.com/devopsism page once manuscript is underway
+
+### Notes
+- Draw heavily from the SpeakerProfile.md abstracts — each session abstract is essentially a chapter outline
+- The CognitiveOps Maturity Model is the intellectual centrepiece; the book should make it the canonical reference
+- Tone: practitioner-first, honest, no consulting-speak, willing to name failures
+
+---
+
 ## Completed — Do Not Revisit
 
 These items are done. Listed here for context only.
@@ -207,3 +265,4 @@ These items are done. Listed here for context only.
 | Assessment CTAs added to DevOps, FinOps, SecOps, GenAI, Architecture pages | Apr 2026 |
 | Sessionize URL added to Talks + WorkWithMe pages | Apr 2026 |
 | SpeakerProfile.md created with 8 session abstracts | Apr 2026 |
+| Real testimonials collected and wired into Testimonials.tsx | Apr 2026 |
