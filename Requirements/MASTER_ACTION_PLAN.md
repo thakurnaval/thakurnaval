@@ -15,7 +15,7 @@ This is the single source of truth for all outstanding action items across the w
 | Website — assessment separation | ✅ DevOps standalone · CognitiveOps standalone at `/cognitiveops/assessment` |
 | Website — SEO/AEO | ✅ FAQPage + Article JSON-LD on all 4 articles · HowTo on 2 articles |
 | Website — nav & discoverability | ✅ Assessment CTAs on all section pages + nav dropdown |
-| Website — newsletter archive | 🔲 Not started |
+| Website — newsletter archive | ✅ Newsletter page built at `/newsletter` · 6 upcoming issues listed |
 | Website — Sessionize integration | ✅ Added to Talks page + WorkWithMe page |
 | LinkedIn — tagline & About | ✅ Content ready — apply manually |
 | LinkedIn — Featured section | 🔲 Not updated |
@@ -100,7 +100,7 @@ All 8 assessments built and live. Hub page at `/assessments` added to nav. DevOp
 | LinkedIn post | 3x / week | LinkedIn | Naval |
 | X (Twitter) post | 1x / day | X @nthakur_dot_com | Naval |
 | Newsletter issue | Bi-weekly | Email list | Naval |
-| YouTube (screen-record or whiteboard) | 1x / month | YouTube | Naval |
+| YouTube video | 2x / month | YouTube @nthakur | Naval |
 
 **LinkedIn post rhythm:**
 - **Monday** — Practitioner insight ("Here's what I learned doing X at SLB...")
@@ -112,6 +112,14 @@ All 8 assessments built and live. Hub page at `/assessments` added to nav. DevOp
 - Repurpose LinkedIn posts as threads (split into 3–5 tweets)
 - Engage with FinOps Foundation, CNCF, and DevOps community accounts
 - Pin thread: CognitiveOps Maturity Model overview → link to nthakur.com/cognitiveops
+
+**YouTube rhythm (2x / month):**
+- **Format A — Screen-record explainer** (8–12 min): Walk through a topic with slides or the website open. E.g., "How to use the CognitiveOps Maturity Model in your org"
+- **Format B — Whiteboard / talking head** (5–8 min): One concept, no slides. E.g., "Why FinOps fails after the first savings win"
+- **Repurpose cadence**: Each newsletter issue → YouTube explainer → LinkedIn clip → X thread
+- **SEO hook**: Title cards as "[Topic] Explained for Engineering Leaders" — targets the same AEO/SEO keywords as nthakur.com pages
+- **Playlist structure**: CognitiveOps Series · DevOps Maturity · FinOps Practitioner · GenAI in the Enterprise
+- **CTA in every video**: Subscribe + link to free assessment at nthakur.com/assessments
 
 ---
 
@@ -277,3 +285,11 @@ These items are done. Listed here for context only.
 | Sessionize URL added to Talks + WorkWithMe pages | Apr 2026 |
 | SpeakerProfile.md created with 8 session abstracts | Apr 2026 |
 | Real testimonials collected and wired into Testimonials.tsx | Apr 2026 |
+| Project logos (bookex.png + TrueNorth.png) wired into constants.ts | Apr 2026 |
+| Newsletter page built at `/newsletter` — hero, 6 issue cards, "every issue includes" grid, CTAs | Apr 2026 |
+| CognitiveOps Playbook lead magnet page built at `/cognitiveops/playbook` — email gate + client-side PDF | Apr 2026 |
+| Talks page — Speaking Topics + Past Appearances converted to 2-column grid layout | Apr 2026 |
+| Book Summaries — converted to 3-column vertical card grid | Apr 2026 |
+| Mental Models — converted to 3-column grid | Apr 2026 |
+| Speaking removed from main nav (covered under Insights > Talks & Webinars) | Apr 2026 |
+| sitemap.xml auto-generation — Vite plugin in vite.config.ts regenerates on every build/dev start | Apr 2026 |

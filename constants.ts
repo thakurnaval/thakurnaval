@@ -27,7 +27,6 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Newsletter', path: '/newsletter' },
     ]
   },
-  { label: 'Speaking', path: '/talks' },
   {
     label: 'About',
     children: [

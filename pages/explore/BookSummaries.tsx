@@ -8,7 +8,7 @@ const BookSummaries: React.FC = () => {
       title="Book Summaries & Reading List" 
       subtitle="Curated notes from influential books in tech, leadership, and business."
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
          {[
            {
              title: "The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win",
@@ -89,12 +89,12 @@ const BookSummaries: React.FC = () => {
              cover: "/assets/img/gallery/chaos-engineering.jpg"
            }
          ].map((book, i) => (
-           <div key={i} className="flex flex-col md:flex-row gap-6 p-6 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-secondary transition-all bg-white dark:bg-slate-800 shadow-sm hover:shadow-md">
-              <div className="flex-shrink-0 w-full md:w-32 h-48 bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden shadow-inner flex items-center justify-center">
+           <div key={i} className="flex flex-col border border-slate-200 dark:border-slate-700 rounded-xl hover:border-secondary transition-all bg-white dark:bg-slate-800 shadow-sm hover:shadow-md overflow-hidden">
+              <div className="w-full h-52 bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
                 {book.cover ? (
-                  <img 
-                    src={book.cover} 
-                    alt={`Cover of ${book.title}`} 
+                  <img
+                    src={book.cover}
+                    alt={`Cover of ${book.title}`}
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />
@@ -102,9 +102,9 @@ const BookSummaries: React.FC = () => {
                   <BookOpen className="w-12 h-12 text-slate-300" />
                 )}
               </div>
-              <div className="flex-grow">
-                <h3 className="text-xl font-bold text-primary dark:text-white mb-1 leading-tight">{book.title}</h3>
-                <p className="text-sm font-medium text-secondary-dark dark:text-secondary mb-3">by {book.author}</p>
+              <div className="flex-grow p-5">
+                <h3 className="text-base font-bold text-primary dark:text-white mb-1 leading-snug">{book.title}</h3>
+                <p className="text-xs font-medium text-secondary-dark dark:text-secondary mb-3">by {book.author}</p>
                 <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{book.desc}</p>
               </div>
            </div>
