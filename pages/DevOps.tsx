@@ -95,6 +95,13 @@ const DevOps: React.FC = () => {
                  Book a Consultation
                </Link>
                <div className="border-t border-slate-100 dark:border-slate-700 pt-4 mt-4">
+                 <h4 className="font-semibold text-sm text-slate-500 dark:text-slate-400 mb-3">Free Guides</h4>
+                 <ul className="space-y-2 text-sm">
+                   <li><Link to="/devops/roadmap-guide" className="flex items-center gap-2 text-primary dark:text-slate-300 hover:text-secondary dark:hover:text-secondary"><span>📄</span> DevOps Maturity Roadmap</Link></li>
+                   <li><Link to="/devops/7cs" className="flex items-center gap-2 text-primary dark:text-slate-300 hover:text-secondary dark:hover:text-secondary"><span>📄</span> The 7 Cs of DevOps</Link></li>
+                 </ul>
+               </div>
+               <div className="border-t border-slate-100 dark:border-slate-700 pt-4 mt-4">
                  <h4 className="font-semibold text-sm text-slate-500 dark:text-slate-400 mb-2">Related Services</h4>
                  <ul className="space-y-2 text-sm">
                    <li><Link to="/secops" className="text-primary dark:text-slate-300 hover:text-primary/80 dark:hover:text-secondary">SecOps Implementation</Link></li>

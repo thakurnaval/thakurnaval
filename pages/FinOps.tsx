@@ -159,6 +159,11 @@ const FinOps: React.FC = () => {
                  </Link>
                </div>
                <div className="mt-6 pt-6 border-t border-secondary/20">
+                 <h4 className="font-semibold text-sm text-slate-500 dark:text-slate-400 mb-3">Free Guides</h4>
+                 <ul className="space-y-2 text-sm mb-4">
+                   <li><Link to="/finops/30-day-guide" className="flex items-center gap-2 text-primary dark:text-slate-300 hover:text-secondary dark:hover:text-secondary"><span>📄</span> 30 Days of FinOps</Link></li>
+                   <li><Link to="/finops/cert-prep" className="flex items-center gap-2 text-primary dark:text-slate-300 hover:text-secondary dark:hover:text-secondary"><span>📄</span> FinOps Cert Prep Pack</Link></li>
+                 </ul>
                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">Not sure where to start?</p>
                  <Link to="/finops/assessment" className="flex items-center justify-between text-sm font-semibold text-primary dark:text-secondary hover:underline">
                    Take the FinOps Maturity Assessment <ArrowRight size={14} />
