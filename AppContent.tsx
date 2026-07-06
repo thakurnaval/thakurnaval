@@ -43,6 +43,14 @@ import CloudSecurity from './pages/secops/CloudSecurity';
 import SastDast from './pages/secops/SastDast';
 import ContainerSecurity from './pages/secops/ContainerSecurity';
 
+// Digital Products — DevOps
+import DevOpsRoadmapGuide from './pages/devops/DevOpsRoadmapGuide';
+import SevenCsDevOps from './pages/devops/SevenCsDevOps';
+
+// Digital Products — FinOps
+import FinOps30DayGuide from './pages/finops/FinOps30DayGuide';
+import FinOpsCertPrep from './pages/finops/FinOpsCertPrep';
+
 // FinOps Subpages
 import FinOpsFramework from './pages/finops/FinOpsFramework';
 import CostVisibility from './pages/finops/CostVisibility';
@@ -134,6 +142,10 @@ const AppContent: React.FC = () => (
         <Route path="/genai" element={<GenAI />} />
         <Route path="/ai-sdlc" element={<AIinSDLC />} />
 
+        {/* DevOps Digital Products */}
+        <Route path="/devops/roadmap-guide" element={<DevOpsRoadmapGuide />} />
+        <Route path="/devops/7cs" element={<SevenCsDevOps />} />
+
         {/* DevOps Subpages */}
         <Route path="/devops/frameworks" element={<DevOpsFrameworks />} />
         <Route path="/devops/assessment" element={<DevOpsAssessment />} />
@@ -156,6 +168,10 @@ const AppContent: React.FC = () => (
         <Route path="/secops/cloud-security" element={<CloudSecurity />} />
         <Route path="/secops/sast-dast" element={<SastDast />} />
         <Route path="/secops/container-security" element={<ContainerSecurity />} />
+
+        {/* FinOps Digital Products */}
+        <Route path="/finops/30-day-guide" element={<FinOps30DayGuide />} />
+        <Route path="/finops/cert-prep" element={<FinOpsCertPrep />} />
 
         {/* FinOps Subpages */}
         <Route path="/finops/framework" element={<FinOpsFramework />} />

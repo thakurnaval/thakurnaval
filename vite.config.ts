@@ -34,6 +34,9 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/cognitiveops/assessment', priority: 0.9, changefreq: 'weekly'  },
   { path: '/cognitiveops/playbook',   priority: 0.8, changefreq: 'monthly' },
   // DevOps Subpages
+  // DevOps Digital Products
+  { path: '/devops/roadmap-guide',         priority: 0.85, changefreq: 'monthly' },
+  { path: '/devops/7cs',                   priority: 0.85, changefreq: 'monthly' },
   { path: '/devops/frameworks',            priority: 0.8, changefreq: 'monthly' },
   { path: '/devops/assessment',            priority: 0.8, changefreq: 'monthly' },
   { path: '/devops/maturity',              priority: 0.8, changefreq: 'monthly' },
@@ -56,6 +59,9 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/secops/container-security',    priority: 0.8, changefreq: 'monthly' },
   { path: '/secops/assessment',            priority: 0.8, changefreq: 'monthly' },
   // FinOps Subpages
+  // FinOps Digital Products
+  { path: '/finops/30-day-guide',          priority: 0.85, changefreq: 'monthly' },
+  { path: '/finops/cert-prep',             priority: 0.85, changefreq: 'monthly' },
   { path: '/finops/framework',             priority: 0.8, changefreq: 'monthly' },
   { path: '/finops/cost-visibility',       priority: 0.8, changefreq: 'monthly' },
   { path: '/finops/optimization',          priority: 0.8, changefreq: 'monthly' },
