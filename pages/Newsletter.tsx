@@ -237,7 +237,7 @@ const Newsletter: React.FC = () => {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">More free resources</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-6">
-            Take a free maturity assessment or download the CognitiveOps Playbook — no email gate on the assessments.
+            Take a maturity assessment to find your layer, or download the CognitiveOps Playbook — both are free.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mic2, Download, ExternalLink, MapPin, Calendar, Users } from 'lucide-react';
+import { Mic2, Download, ExternalLink, MapPin, Calendar, Users, Mail, Loader2, CheckCircle2 } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 import { RECENT_TALKS, SPEAKING_APPEARANCES, PROFILE_IMAGE_URL } from '../constants';
 
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx03K6mwLMtq6X5q8JIAHKQ4qSxCk9LEavNeO0IWo1jg9IxhzFoxvZM0DwKtgMegKDz1Q/exec';
+
 const Talks: React.FC = () => {
-  const handleDownloadKit = () => {
+  const [showKitForm, setShowKitForm] = useState(false);
+  const [kitEmail, setKitEmail] = useState('');
+  const [kitStatus, setKitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const triggerKitDownload = (email: string) => {
     const content = `# Naval Thakur — Speaker Kit
 *Updated April 2026 · nthakur.com · contact@nthakur.com*
 
@@ -160,6 +166,23 @@ An honest assessment of where distributed ledger technology actually delivers en
     URL.revokeObjectURL(url);
   };
 
+  const handleKitEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setKitStatus('submitting');
+    try {
+      const form = new FormData();
+      form.append('email', kitEmail);
+      form.append('name', 'Speaker Kit Download');
+      form.append('topic', 'Speaker Kit Download');
+      form.append('message', 'User requested Speaker Kit download.');
+      await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      setKitStatus('success');
+      triggerKitDownload(kitEmail);
+    } catch {
+      setKitStatus('error');
+    }
+  };
+
   return (
     <>
       <SEO 
@@ -305,12 +328,52 @@ An honest assessment of where distributed ledger technology actually delivers en
                  Naval is an engaging speaker who translates complex technical concepts into actionable business strategies.
                </p>
                
-               <button
-                onClick={handleDownloadKit}
-                className="w-full flex items-center justify-center py-2 border border-slate-300 dark:border-slate-600 rounded text-slate-700 dark:text-slate-300 font-medium hover:bg-white dark:hover:bg-slate-700 hover:text-primary dark:hover:text-white transition-colors mb-3"
-               >
-                 <Download size={16} className="mr-2" /> Download Speaker Kit
-               </button>
+               {!showKitForm && (
+                 <button
+                   onClick={() => setShowKitForm(true)}
+                   className="w-full flex items-center justify-center py-2 border border-slate-300 dark:border-slate-600 rounded text-slate-700 dark:text-slate-300 font-medium hover:bg-white dark:hover:bg-slate-700 hover:text-primary dark:hover:text-white transition-colors mb-3"
+                 >
+                   <Download size={16} className="mr-2" /> Download Speaker Kit
+                 </button>
+               )}
+
+               {showKitForm && kitStatus !== 'success' && (
+                 <form onSubmit={handleKitEmailSubmit} className="mb-3">
+                   <p className="text-xs text-slate-500 dark:text-slate-400 mb-2 text-center">Enter your email to download the kit</p>
+                   <div className="flex flex-col gap-2">
+                     <div className="relative">
+                       <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                       <input
+                         type="email"
+                         required
+                         placeholder="you@company.com"
+                         value={kitEmail}
+                         onChange={e => setKitEmail(e.target.value)}
+                         className="w-full pl-8 pr-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/50"
+                       />
+                     </div>
+                     {kitStatus === 'error' && (
+                       <p className="text-xs text-red-500 text-center">Something went wrong — try again.</p>
+                     )}
+                     <button
+                       type="submit"
+                       disabled={kitStatus === 'submitting'}
+                       className="w-full flex items-center justify-center gap-2 py-2 bg-primary text-white text-sm font-bold rounded hover:bg-primary/90 transition-colors disabled:opacity-60"
+                     >
+                       {kitStatus === 'submitting'
+                         ? <><Loader2 size={14} className="animate-spin" /> Sending…</>
+                         : <><Download size={14} /> Get Speaker Kit</>}
+                     </button>
+                   </div>
+                 </form>
+               )}
+
+               {showKitForm && kitStatus === 'success' && (
+                 <div className="mb-3 text-center">
+                   <CheckCircle2 size={20} className="mx-auto mb-1 text-secondary-dark dark:text-secondary" />
+                   <p className="text-xs text-slate-600 dark:text-slate-400">Your kit downloaded. Check your downloads folder.</p>
+                 </div>
+               )}
 
                <a
                  href="https://sessionize.com/nthakur/"
