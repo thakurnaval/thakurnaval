@@ -134,4 +134,10 @@ function sitemapPlugin(): Plugin {
 export default defineConfig({
   plugins: [react(), sitemapPlugin()],
   base: '/',
+  ssr: {
+    // Bundle react-helmet-async so Vite's commonjs plugin converts its CJS
+    // transitive deps (invariant, react-fast-compare) to ESM-compatible code.
+    // Without this the raw ESM bundle fails Node.js 22's strict ESM linker.
+    noExternal: ['react-helmet-async'],
+  },
 })

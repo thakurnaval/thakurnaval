@@ -1,7 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { render } from './entry-server';
+// Import the Vite SSR bundle (pre-compiled) — not the TypeScript source —
+// so Vite's commonjs plugin has already resolved CJS/ESM interop issues
+// that would fail Node.js 22's strict ESM static linker.
+import { render } from './dist/server/entry-server.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, 'dist');
