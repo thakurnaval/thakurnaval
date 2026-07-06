@@ -1,5 +1,5 @@
 # Naval Thakur — Master Action Plan
-*Last updated: April 2026*
+*Last updated: July 2026*
 
 This is the single source of truth for all outstanding action items across the website, LinkedIn, content, assessments, and newsletter. Check items off as they're completed.
 
@@ -24,6 +24,8 @@ This is the single source of truth for all outstanding action items across the w
 | Conference CFP | 🔲 Not submitted |
 | Speaker profile (Sessionize) | ✅ Profile live + `SpeakerProfile.md` created |
 | SPEC_KIT.md | ✅ Created — full technical spec for the project |
+| CI/CD pipeline | ✅ Pipeline verified · Actions bumped to Node.js 24-compatible versions · `id: deploy` fix applied |
+| AUTHORITY_PLAN.md | ✅ Created — full authority building strategy across all 5 channels |
 
 ---
 
@@ -41,11 +43,11 @@ This is the single source of truth for all outstanding action items across the w
 - [ ] Wire filenames into `PROJECTS` array in `constants.ts` with `image` field
   - Estimated effort: 10 minutes once files are available
 
-### P3 — Newsletter Archive Page
-- [ ] Create `/newsletter` route and page (`pages/Newsletter.tsx`)
-- [ ] Add 6 published issue entries (see Section 4 for topics)
-- [ ] Define repeatable issue layout for site display
-- [ ] Add route to `App.tsx` and navigation if appropriate
+### P3 — Newsletter Archive Page ✅ COMPLETE
+- [x] Create `/newsletter` route and page (`pages/Newsletter.tsx`)
+- [x] Add 6 published issue entries (see Section 4 for topics)
+- [x] Define repeatable issue layout for site display
+- [x] Add route to `App.tsx` and navigation if appropriate
 
 ### P3 — Assessment Engine ✅ COMPLETE
 All 8 assessments built and live. Hub page at `/assessments` added to nav. DevOps and CognitiveOps are now separate standalone assessments.
@@ -145,7 +147,7 @@ Six draft topics are ready. The goal is one issue every 2 weeks, under 5 minutes
 **Build tasks:**
 - [ ] Write all 6 issues as drafts (Word/Notion/anywhere)
 - [ ] Publish to email list via existing Google Apps Script setup
-- [ ] Add newsletter archive page to site (see Section 1 P3)
+- [x] Add newsletter archive page to site (see Section 1 P3)
 
 ---
 
@@ -172,7 +174,7 @@ This positions Naval as ahead of the industry conversation rather than reporting
 Ordered by effort-to-impact. Build Tier 1 first — these come directly from existing site content.
 
 ### Tier 1 — Build from existing content (low effort)
-- [ ] **CognitiveOps Playbook** — Compile `/cognitiveops` + assessment content into a 20-page PDF. Gate with email. Free lead magnet.
+- [x] **CognitiveOps Playbook** — Compile `/cognitiveops` + assessment content into a 20-page PDF. Gate with email. Free lead magnet.
 - [ ] **30 Days of FinOps Guide** — Compile FinOps pages into daily challenge PDF. Email gate.
 - [ ] **DevOps Roadmap PDF** — Visual one-page version of the DevOps maturity content. Email gate.
 - [ ] **FinOps Cert Prep Pack** — Compile FinOps exam-relevant content into study pack. Email gate.
@@ -293,3 +295,7 @@ These items are done. Listed here for context only.
 | Mental Models — converted to 3-column grid | Apr 2026 |
 | Speaking removed from main nav (covered under Insights > Talks & Webinars) | Apr 2026 |
 | sitemap.xml auto-generation — Vite plugin in vite.config.ts regenerates on every build/dev start | Apr 2026 |
+| CI/CD — GitHub Actions bumped to Node.js 24-compatible versions: checkout v7, auth v3, setup-gcloud v3, setup-buildx v4, build-push v7, deploy-cloudrun v3 | Jul 2026 |
+| CI/CD — Added missing `id: deploy` to Deploy to Cloud Run step; Print deployed URL now resolves correctly | Jul 2026 |
+| CI/CD — Pipeline end-to-end verified; build passes in ~1m30s on push to main | Jul 2026 |
+| AUTHORITY_PLAN.md — Full authority building strategy created: positioning, domain statements, per-channel playbooks (Website, LinkedIn, Sessionize, X, Topmate), content pillars, repurposing matrix, quarterly milestones Q3 2026–Q2 2027, metrics dashboard | Jul 2026 |
