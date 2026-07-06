@@ -26,6 +26,7 @@ This is the single source of truth for all outstanding action items across the w
 | SPEC_KIT.md | ✅ Created — full technical spec for the project |
 | CI/CD pipeline | ✅ Pipeline verified · Actions bumped to Node.js 24-compatible versions · `id: deploy` fix applied |
 | AUTHORITY_PLAN.md | ✅ Created — full authority building strategy across all 5 channels |
+| Website — digital products (Tier 1) | ✅ All 5 Tier 1 products live — CognitiveOps Playbook, 30 Days of FinOps, DevOps Roadmap, FinOps Cert Prep, 7 Cs of DevOps |
 
 ---
 
@@ -175,10 +176,10 @@ Ordered by effort-to-impact. Build Tier 1 first — these come directly from exi
 
 ### Tier 1 — Build from existing content (low effort)
 - [x] **CognitiveOps Playbook** — Compile `/cognitiveops` + assessment content into a 20-page PDF. Gate with email. Free lead magnet.
-- [ ] **30 Days of FinOps Guide** — Compile FinOps pages into daily challenge PDF. Email gate.
-- [ ] **DevOps Roadmap PDF** — Visual one-page version of the DevOps maturity content. Email gate.
-- [ ] **FinOps Cert Prep Pack** — Compile FinOps exam-relevant content into study pack. Email gate.
-- [ ] **7 Cs of DevOps Mini-Guide** — Based on the 2018 internal session. Short, shareable PDF.
+- [x] **30 Days of FinOps Guide** — Compile FinOps pages into daily challenge PDF. Email gate. Live at `/finops/30-day-guide`.
+- [x] **DevOps Roadmap PDF** — Visual one-page version of the DevOps maturity content. Email gate. Live at `/devops/roadmap-guide`.
+- [x] **FinOps Cert Prep Pack** — Compile FinOps exam-relevant content into study pack. Email gate. Live at `/finops/cert-prep`.
+- [x] **7 Cs of DevOps Mini-Guide** — Based on the 2018 internal session. Short, shareable PDF. Live at `/devops/7cs`.
 
 ### Tier 2 — Medium effort
 - [ ] **Premium CognitiveOps Assessment Report** — Enhanced version of the existing assessment with team scoring, benchmarking, and a detailed PDF. Priced at $199–$499 per report.
