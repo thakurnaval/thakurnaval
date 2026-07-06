@@ -538,93 +538,110 @@ Track these numbers monthly. Review quarterly against milestones.
 
 ## 10. Industry Recognition & Credential Targets
 
-These are third-party endorsements that validate authority in the eyes of employers, conference organisers, and the community. They compound — each one makes the next easier to obtain.
+Third-party endorsements that validate authority in the eyes of employers, conference organisers, and the broader community. They compound — each one makes the next easier to obtain.
 
-### Fit Assessment of Proposed Targets
-
-| Target | Category | Fit | Rationale |
-|--------|----------|-----|-----------|
-| **Microsoft MVP** | Community recognition | ✅ Strong | AZ-400, AI/Data/Security certs, Microsoft DevCon speaking history. DevOps or Developer Technologies category. Requires 6–12 months sustained community contribution. |
-| **Google Developer Experts (GDE)** | Community recognition | ✅ Strong | GCP ACE, GenAI Leader, Cloud Digital Leader + active content creation. Cloud or AI/ML category. Directly reinforces the GenAI + CognitiveOps direction. |
-| **NASSCOM Community Contributor** | Industry body | ✅ Good | India-based, enterprise tech, 18+ years, established speaker. Strong for India market credibility and enterprise network access. |
-| **Gartner Peer Insights Reviewer** | Analyst ecosystem | ⚠️ Moderate | Valuable primarily as the entry point to the Gartner relationship. Low standalone prestige but a stepping stone to Invited Contributor. Start here first. |
-| **Gartner Invited Contributor** | Analyst ecosystem | ✅ High value | Informs Magic Quadrants and research notes. Cannot be directly applied for — Gartner reaches out based on reputation. Become visible enough that they find you. |
-| **Kaggle Grandmaster** | Data science competitions | ❌ Drop | Kaggle requires sustained ML modelling or dataset creation work that is not in your domain. Pursuing it would be a multi-year distraction from where your real authority lives. Replace with CNCF Ambassador or FinOps Foundation Fellow. |
+**Key principle:** These recognitions are lagging indicators of community contribution. Microsoft MVP, GDE, and FinOps Foundation Fellow are not awarded for applying — they are awarded for the body of public work that already exists. The content cadence, speaking plan, and Topmate activity in this document are the prerequisites. The recognitions follow once the track record is there.
 
 ---
 
-### Recommended Full Target List
+### The Seven Targets
 
-Grouped by effort and timeline. Pursue in order within each tier.
+| # | Target | Domain | Why it fits |
+|---|--------|--------|------------|
+| 1 | **LinkedIn Top Voice** | All domains | Algorithmic recognition driven by sustained posting cadence and engagement — the work is already planned. The badge amplifies reach and signals credibility to inbound visitors. |
+| 2 | **NASSCOM Community Contributor** | Enterprise tech | India-based, 18+ years enterprise tech, established conference speaker. Highest-value India-market credibility signal. Opens access to NASSCOM events, enterprise CXO network, and publication opportunities. |
+| 3 | **Gartner Peer Insights Reviewer** | All tools used in production | Entry point to the Gartner analyst relationship. Write verified, detailed reviews of enterprise tools used at SLB (Terraform, Azure DevOps, K8s, GCP, Harness, etc.). Builds Gartner profile visibility ahead of any Invited Contributor conversation. |
+| 4 | **Microsoft MVP** | DevOps / Developer Technologies | AZ-400, AI/Data/Security/Identity fundamentals, Microsoft DevCon Pune speaking history. DevOps or Developer Technologies category. Nomination-based — requires a community referee plus 6–12 months of documented contributions (blog posts, forum answers, speaking, GitHub). |
+| 5 | **FinOps Foundation Fellow** | FinOps | Recognised sustained contribution to the FinOps community. FinOps Certified Practitioner is the baseline credential. Fellowship requires speaking at FinOps Foundation events, contributing to Special Interest Groups (SIGs), and authoring community content. Nominated by foundation staff. |
+| 6 | **Google Developer Expert (GDE)** | Cloud / AI-ML | GCP ACE, Cloud Digital Leader, GenAI Leader certs + active content. Cloud or AI/ML category directly reinforces the GenAI + CognitiveOps direction. Requires referral from an existing GDE or self-nomination with documented GCP community contributions: talks, published articles, open-source projects. |
+| 7 | **Forbes Technology Council** | Executive tech leadership | Application-based membership for senior technology executives. Annual membership fee (~$2,500–$3,500 USD). Unlocks Forbes contributor columns — articles published under the Forbes brand with your byline. Strongest ROI when practice leadership or consulting footprint has grown. Apply when title and portfolio are at VP/Director/Practice Head level. |
 
-#### Tier 1 — Near-term (within 12 months)
+---
 
-These are achievable with consistent content + community engagement already planned in this document.
+### What Each Unlocks
 
-| Target | Programme | Domain | Primary requirement | Link |
-|--------|-----------|--------|-------------------|------|
-| **LinkedIn Top Voice** | LinkedIn | All domains | Sustained posting cadence + community engagement on LinkedIn. Algorithm-selected. | linkedin.com |
-| **Microsoft MVP** | Microsoft | DevOps / Developer Technologies | 6+ speaking/blogging/forum contributions in the Microsoft ecosystem. Nomination via community. | mvp.microsoft.com |
-| **NASSCOM Community Contributor** | NASSCOM India | Enterprise tech | Active participation in NASSCOM events, content, or community programmes. | nasscom.in |
-| **Gartner Peer Insights Reviewer** | Gartner | All tools used in production | Write detailed, verified reviews of enterprise tools on Gartner Peer Insights. | gartner.com/reviews |
-| **DZone MVB (Most Valuable Blogger)** | DZone | DevOps / Cloud / AI | Submit articles to DZone; top contributors are nominated as MVBs. High-traffic developer audience. | dzone.com |
-
-#### Tier 2 — Medium-term (12–24 months)
-
-Require deeper community track record and sustained output.
-
-| Target | Programme | Domain | Primary requirement |
-|--------|-----------|--------|-------------------|
-| **Google Developer Expert (GDE)** | Google | Cloud / AI-ML | Active GCP community contributions: talks, articles, open source. Referral or self-nomination. Aligns with GenAI + CognitiveOps focus. |
-| **AWS Community Builder** | Amazon Web Services | Cloud / DevOps | Apply per cohort. Requires AWS content creation and community engagement. Good complement to GCP-side authority. |
-| **CNCF Ambassador** | Cloud Native Computing Foundation | DevOps / Platform Engineering / K8s | Nominated by the CNCF based on community contribution. Speaking at KubeCon, writing CNCF blog posts, or open-source project contributions. |
-| **FinOps Foundation Fellow** | FinOps Foundation | FinOps | Recognized sustained contribution to the FinOps community: speaking, writing, SIG participation. Nominated by foundation staff. |
-| **HashiCorp Ambassador** | HashiCorp | IaC / Terraform | Community-nominated for sustained Terraform content, speaking, or forum contributions. Direct fit for IaC expertise. |
-| **Gartner Invited Contributor** | Gartner | DevOps / FinOps / GenAI | Gartner invites practitioners for research interviews and Magic Quadrant input. Requires prior Peer Insights presence + sufficient industry profile. |
-
-#### Tier 3 — Long-term / Stretch (24–36 months)
-
-Require significant established reputation as a prerequisite.
-
-| Target | Programme | Domain | Primary requirement |
-|--------|-----------|--------|-------------------|
-| **GitHub Stars** | GitHub | Open source / DevOps | GitHub recognition programme for notable contributors and community builders. Requires a meaningful open-source presence. |
-| **Forbes Technology Council** | Forbes | Executive tech leadership | Application-based for senior technology executives. $2,500–$3,500/year membership. Unlocks Forbes contributor columns. |
-| **InfoQ Editor / Lead Contributor** | InfoQ | Enterprise DevOps / Architecture | Publish consistently on InfoQ; high-performing authors are invited as editors. Prestigious, well-read by senior engineers. |
-| **Docker Captain** | Docker | Containers / DevOps | Highly selective programme for Docker community leaders. Requires significant Docker content, speaking, and community involvement. |
-| **AWS Hero** | Amazon Web Services | Cloud / DevOps | Top tier above Community Builder. AWS-nominated based on exceptional community impact. A multi-year programme. |
-| **IEEE Senior Member** | IEEE | Engineering | Requires 10+ years of engineering practice and sustained professional contributions. Signals long-term professional credibility. |
-| **ISACA Distinguished Speaker** | ISACA | IT Governance / SecOps | ISACA recognizes speakers in IT governance, risk, and security. Direct fit given COBIT Foundation certification. |
+| Target | Primary unlock |
+|--------|---------------|
+| LinkedIn Top Voice | Increased algorithmic reach; badge visible on profile to all visitors |
+| NASSCOM Community Contributor | India enterprise CXO network; NASSCOM event speaking invitations; publication in NASSCOM channels |
+| Gartner Peer Insights Reviewer | Gartner profile; relationship with Gartner analysts; stepping stone to research participation |
+| Microsoft MVP | Microsoft community network; Azure/DevOps conference speaking invitations; co-marketing opportunities with Microsoft India |
+| FinOps Foundation Fellow | FinOps Foundation speaking platform; recognition among FinOps Certified practitioners globally; SIG leadership roles |
+| Google Developer Expert (GDE) | Google Developer community network; GDE-only events and resources; Google co-marketing; elevated credibility with GCP-adopting enterprises |
+| Forbes Technology Council | Forbes contributor column; brand association with Forbes; credibility signal to C-suite and enterprise buyers |
 
 ---
 
 ### Pursuit Roadmap
 
 ```
-Q3 2026 — Activate
-  ├── Apply: Gartner Peer Insights Reviewer (write 5+ reviews of tools used at SLB)
-  ├── Apply: NASSCOM Community Contributor
-  ├── Begin: DZone MVB (submit 2 articles; track acceptance)
-  └── Track: LinkedIn Top Voice signals (post cadence drives this automatically)
+Q3 2026 (Jul – Sep)
+  ├── LinkedIn Top Voice
+  │     Action: Lock in 4x/week posting cadence (this happens automatically with the content plan)
+  │     Signal: Watch for "Top Voice" badge notification on LinkedIn
+  │
+  ├── NASSCOM Community Contributor
+  │     Action: Register at nasscom.in/community · Submit application with profile + speaking record
+  │     Action: Attend 1 NASSCOM event (virtual or in-person) this quarter
+  │
+  └── Gartner Peer Insights Reviewer
+        Action: Create account at gartner.com/reviews
+        Action: Write 5+ detailed reviews of enterprise tools used at SLB:
+                - Terraform (IaC), Azure DevOps (CI/CD), Kubernetes (orchestration),
+                  Google Cloud (cloud platform), GitHub Actions (automation)
+        Goal: Verified Reviewer badge + Gartner profile established
 
-Q4 2026 — Build track record
-  ├── Apply: Microsoft MVP nomination (need 3+ Microsoft ecosystem community contributions by this point)
-  ├── Apply: AWS Community Builder (cohort opens periodically)
-  └── Begin: CNCF Ambassador preparation (contribute to CNCF blog or SIG)
+Q4 2026 (Oct – Dec)
+  └── Microsoft MVP
+        Action: Identify a current MVP in DevOps/Developer Technologies (India) to request nomination
+        Action: Document community contributions for the MVP nomination form:
+                - Speaking appearances (Pune DevCon, GAB, APGI, Microsoft DevCon)
+                - Published articles on nthakur.com
+                - LinkedIn content reaching Microsoft-ecosystem audience
+                - GitHub contributions or open-source tooling
+        Action: Submit nomination by November 2026 (MVP award cycle typically Jan/Jul)
+        Milestone: Nomination submitted; first award cycle Q1 2027
 
-Q1 2027 — Nominate for flagship programmes
-  ├── Apply: Google Developer Expert (GDE) — Cloud or AI/ML
-  ├── Apply: FinOps Foundation Fellow (via FinOps Foundation SIG participation)
-  └── Apply: HashiCorp Ambassador
+Q1 2027 (Jan – Mar)
+  └── Google Developer Expert (GDE)
+        Action: Identify a current GDE in Cloud or AI/ML (India/APAC) for referral
+        Action: Build GCP-specific community evidence:
+                - 2+ talks mentioning GCP/GenAI at public events
+                - 3+ articles on nthakur.com citing GCP tooling (LLMOps, Cloud Run, Vertex AI)
+                - Engagement with Google Cloud community channels
+        Action: Submit self-nomination at developers.google.com/community/experts/nominate
+        Milestone: Application submitted; review cycle is rolling
 
-Q2 2027 — Leverage established reputation
-  ├── Gartner Invited Contributor (should happen organically if Peer Insights + profile are strong)
-  ├── Evaluate: Forbes Technology Council (if practice leadership has grown)
-  └── Begin: InfoQ contributor track (submit 1 article for editorial review)
+Q2 2027 (Apr – Jun)
+  ├── FinOps Foundation Fellow
+  │     Action: Join 2 FinOps Foundation SIGs (Special Interest Groups) — Cloud Unit Economics and
+  │             Engineering SIG are strongest fits
+  │     Action: Submit a talk to FinOps X or a FinOps Foundation community event
+  │     Action: Publish 1 article in the FinOps Foundation community blog or FinOps.org
+  │     Action: Request nomination conversation with FinOps Foundation community team
+  │     Milestone: SIG participation established; nomination submitted
+  │
+  └── Forbes Technology Council
+        Action: Assess eligibility — requires VP/Director/Practice Head level title or equivalent
+        Action: Request application at forbestechcouncil.com
+        Action: Prepare executive profile: headline achievements ($600K savings, CognitiveOps Model,
+                18+ years, 39+ certs, SLB Practice Manager)
+        Milestone: Application submitted; decision within 4–6 weeks of application
 ```
 
-### Key Principle
-**Community recognition is a lagging indicator of community contribution.** Microsoft MVP, GDE, and CNCF Ambassador are not awarded for applying — they are awarded for the body of public work that already exists. The content cadence, speaking plan, and Topmate activity in this document are the prerequisites. The recognitions follow automatically once the track record is there.
+---
+
+### Progress Tracker
+
+| Target | Status | Next action | Target date |
+|--------|--------|------------|-------------|
+| LinkedIn Top Voice | 🔲 Not started | Begin 4x/week posting cadence | Jul 2026 |
+| NASSCOM Community Contributor | 🔲 Not started | Submit application | Aug 2026 |
+| Gartner Peer Insights Reviewer | 🔲 Not started | Create account + write 5 reviews | Aug 2026 |
+| Microsoft MVP | 🔲 Not started | Identify nominator; document contributions | Oct 2026 |
+| Google Developer Expert (GDE) | 🔲 Not started | Identify GDE referral; build GCP evidence | Jan 2027 |
+| FinOps Foundation Fellow | 🔲 Not started | Join 2 SIGs; submit community talk | Apr 2027 |
+| Forbes Technology Council | 🔲 Not started | Assess eligibility; prepare executive profile | Apr 2027 |
 
 ---
 
@@ -641,4 +658,4 @@ Q2 2027 — Leverage established reputation
 
 ---
 
-*Last updated: July 2026 (added Section 10: Industry Recognition & Credential Targets) · Review quarterly · Do not publish on website*
+*Last updated: July 2026 · Review quarterly · Do not publish on website*
