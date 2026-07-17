@@ -13,11 +13,11 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, technologies,
       className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all group"
     >
       {image ? (
-        <div className="h-48 overflow-hidden">
+        <div className="h-48 overflow-hidden flex items-center justify-center bg-slate-50 dark:bg-slate-800 p-6">
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
             referrerPolicy="no-referrer"
           />
         </div>
