@@ -346,29 +346,25 @@ export const FINOPS_DATA: FinOpsChartData[] = [
 
 export const PROJECTS: ProjectProps[] = [
   {
-    title: "TrueNorth",
-    description: "Enterprise-grade OKR management platform — the world's best OKR solution. Features full OKR hierarchy across all organisational levels, real-time progress analytics & forecasting, and cascading alignment with full dependency mapping. Built to move everyone in one direction.",
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST APIs", "Analytics"],
-    image: "/assets/img/gallery/TrueNorth.png",
+    title: "Tackl",
+    description: "Smarter task management, built for focus. Matrix-style prioritization, Google Calendar & Tasks sync, and Firebase-backed multi-device sync — deployed on Google Cloud Run.",
+    technologies: ["Firebase", "Firestore", "Node.js", "Express", "Google Cloud Run"],
+    image: "/assets/img/gallery/Tackl.png",
+    liveUrl: "https://tackl.nthakur.com",
   },
   {
     title: "BookEx",
     description: "A community-driven book exchange platform built for parents, by parents in Pune. Enables families to share, lend, and discover books for children — reducing waste, cutting costs, and building neighbourhood community around reading.",
     technologies: ["React", "Node.js", "MongoDB", "Firebase"],
     image: "/assets/img/gallery/bookex.png",
+    liveUrl: "https://bookex.nthakur.com",
   },
   {
-    title: "Generative AI for Beginners",
-    description: "A comprehensive 21-lesson course to get started building with Generative AI. Covers fundamentals to advanced topics like RAG and AI Agents.",
-    technologies: ["Python", "OpenAI", "Azure AI", "LangChain"],
-    githubUrl: "https://github.com/thakurnaval/NT-generative-ai-for-beginners",
-    liveUrl: "https://microsoft.github.io/generative-ai-for-beginners/"
-  },
-  {
-    title: "AI Agents for Beginners",
-    description: "11 Lessons to get started building AI Agents. Learn how to create autonomous agents that can perform complex tasks.",
-    technologies: ["Python", "Semantic Kernel", "AutoGen", "LLMs"],
-    githubUrl: "https://github.com/thakurnaval/NT-ai-agents-for-beginners"
+    title: "TrueNorth",
+    description: "Enterprise-grade OKR management platform — the world's best OKR solution. Features full OKR hierarchy across all organisational levels, real-time progress analytics & forecasting, and cascading alignment with full dependency mapping. Built to move everyone in one direction.",
+    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST APIs", "Analytics"],
+    image: "/assets/img/gallery/TrueNorth.png",
+    liveUrl: "https://truenorth.nthakur.com",
   },
   {
     title: "90 Days Of DevOps",
@@ -381,17 +377,5 @@ export const PROJECTS: ProjectProps[] = [
     description: "A deep dive into Cloud Financial Management (FinOps). Documenting strategies for cloud cost optimization and visibility.",
     technologies: ["Azure", "AWS", "GCP", "FinOps Framework"],
     githubUrl: "https://github.com/thakurnaval/NT-30DaysOfFinOps"
-  },
-  {
-    title: "Azure Orphan Resources",
-    description: "A toolset to identify and centralize orphan resources in Azure environments, helping organizations reduce waste and improve security.",
-    technologies: ["Azure", "PowerShell", "KQL", "Azure Resource Graph"],
-    githubUrl: "https://github.com/thakurnaval/SoDi-azure-orphan-resources"
-  },
-  {
-    title: "ML For Beginners",
-    description: "A 12-week, 26-lesson curriculum focused on classic Machine Learning. Includes hands-on labs and quizzes.",
-    technologies: ["Python", "Scikit-Learn", "Jupyter", "Data Science"],
-    githubUrl: "https://github.com/thakurnaval/NT-ML-For-Beginners"
   }
 ];

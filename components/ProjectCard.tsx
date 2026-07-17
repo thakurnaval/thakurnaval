@@ -12,14 +12,18 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, technologies,
       viewport={{ once: true }}
       className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all group"
     >
-      {image && (
+      {image ? (
         <div className="h-48 overflow-hidden">
-          <img 
-            src={image} 
-            alt={title} 
+          <img
+            src={image}
+            alt={title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             referrerPolicy="no-referrer"
           />
+        </div>
+      ) : (
+        <div className="h-48 flex items-center justify-center bg-slate-100 dark:bg-slate-800">
+          <Github size={48} className="text-slate-300 dark:text-slate-600" />
         </div>
       )}
       <div className="p-6">
