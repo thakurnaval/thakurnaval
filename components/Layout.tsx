@@ -375,19 +375,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <footer className="bg-primary text-slate-200 py-12 border-t border-slate-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div className="col-span-1 md:col-span-2">
+            <div className="col-span-1">
               <div className="flex items-center gap-2 mb-4">
                  <img
                    src={PROFILE_IMAGE_URL}
                    alt="Naval Thakur - Footer Logo"
-                   className="w-8 h-8 rounded-full object-cover object-top border border-slate-700" 
+                   className="w-8 h-8 rounded-full object-cover object-top border border-slate-700"
                    width="32"
                    height="32"
                    loading="lazy"
                  />
                  <h3 className="text-white text-lg font-bold">Naval Thakur</h3>
               </div>
-              <p className="text-sm leading-relaxed max-w-xs mb-6 text-slate-200">
+              <p className="text-sm leading-relaxed mb-6 text-slate-200">
                 Helping organizations build resilient, secure, and cost-effective cloud ecosystems through DevOps, SecOps, FinOps, and GenAI coaching.
               </p>
               <div className="flex space-x-4">
@@ -428,6 +428,16 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <li><Link to="/finops" className="hover:text-secondary transition-colors">FinOps & Cost Opt.</Link></li>
                 <li><Link to="/genai" className="hover:text-secondary transition-colors">GenAI Operations</Link></li>
                 <li><Link to="/architecture" className="hover:text-secondary transition-colors">System Architecture</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2 text-sm text-slate-200">
+                <li><Link to="/assessments" className="hover:text-secondary transition-colors">Maturity Assessments</Link></li>
+                <li><Link to="/newsletter" className="hover:text-secondary transition-colors">Newsletter</Link></li>
+                <li><Link to="/about" className="hover:text-secondary transition-colors">About Naval</Link></li>
+                <li><Link to="/projects" className="hover:text-secondary transition-colors">Projects</Link></li>
               </ul>
             </div>
 
