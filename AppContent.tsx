@@ -118,6 +118,13 @@ import FinancialImpactCloudNativeArticle from './pages/talks/FinancialImpactClou
 import GenAINewTeamMemberArticle from './pages/talks/GenAINewTeamMember';
 import CulturalTransformationDevOpsArticle from './pages/talks/CulturalTransformationDevOps';
 import ZeroTrustCloudNativeArticle from './pages/talks/ZeroTrustCloudNative';
+import GenAIEnterpriseOperationsPatterns from './pages/talks/GenAIEnterpriseOperationsPatterns';
+import CloudFinancialIntelligence from './pages/talks/CloudFinancialIntelligence';
+import EnterpriseWideAgility from './pages/talks/EnterpriseWideAgility';
+import IacAzurePipelinesTerraformSaltStack from './pages/talks/IacAzurePipelinesTerraformSaltStack';
+import DevOpsToCognitiveOps from './pages/talks/DevOpsToCognitiveOps';
+import SevenCsOfDevOps from './pages/talks/SevenCsOfDevOps';
+import SevenHabitsDevOpsTeams from './pages/talks/SevenHabitsDevOpsTeams';
 
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-[60vh]">
@@ -230,6 +237,13 @@ const AppContent: React.FC = () => (
         <Route path="/talks/genai-new-team-member" element={<GenAINewTeamMemberArticle />} />
         <Route path="/talks/cultural-transformation-devops" element={<CulturalTransformationDevOpsArticle />} />
         <Route path="/talks/zero-trust-cloud-native" element={<ZeroTrustCloudNativeArticle />} />
+        <Route path="/talks/genai-enterprise-operations-patterns" element={<GenAIEnterpriseOperationsPatterns />} />
+        <Route path="/talks/cloud-financial-intelligence" element={<CloudFinancialIntelligence />} />
+        <Route path="/talks/enterprise-wide-agility" element={<EnterpriseWideAgility />} />
+        <Route path="/talks/iac-azure-pipelines-terraform-saltstack" element={<IacAzurePipelinesTerraformSaltStack />} />
+        <Route path="/talks/devops-to-cognitiveops" element={<DevOpsToCognitiveOps />} />
+        <Route path="/talks/7cs-of-devops" element={<SevenCsOfDevOps />} />
+        <Route path="/talks/seven-habits-devops-teams" element={<SevenHabitsDevOpsTeams />} />
 
         {/* Assessments Hub */}
         <Route path="/assessments" element={<Assessments />} />

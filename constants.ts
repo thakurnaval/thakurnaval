@@ -88,6 +88,69 @@ export const RECENT_TALKS: TalkProps[] = [
     audience: "Security Engineers",
     duration: "50 min",
     link: "/talks/zero-trust-cloud-native"
+  },
+  {
+    title: "GenAI in Enterprise Operations: Patterns That Actually Work",
+    description: "Five GenAI operational patterns proven at enterprise scale — with architecture, failure modes, and real cost-per-call estimates.",
+    tags: ["GenAI", "AIOps", "LLM", "Platform Engineering", "SecOps"],
+    audience: "Engineering Managers, SREs, Platform Engineers",
+    duration: "45 min",
+    level: "Intermediate–Advanced",
+    link: "/talks/genai-enterprise-operations-patterns"
+  },
+  {
+    title: "Cloud Financial Intelligence: What FinOps Practitioners Get Wrong",
+    description: "An honest post-mortem of the five FinOps failure modes that kill momentum after the first savings win.",
+    tags: ["FinOps", "Cloud Cost Optimisation", "Cloud Governance", "FinOps Foundation", "Azure", "GCP"],
+    audience: "FinOps Practitioners, Engineering Managers, Finance Leads",
+    duration: "40 min",
+    level: "Intermediate",
+    link: "/talks/cloud-financial-intelligence"
+  },
+  {
+    title: "Achieving Enterprise-wide Agility: Beyond the Technology Stack",
+    description: "What actually drives enterprise agility adoption — the technical, process, and cultural layers that must align.",
+    tags: ["Enterprise Agility", "Transformation", "DevOps", "Organisational Design", "Leadership"],
+    audience: "Engineering Directors, Transformation Leads",
+    duration: "45 min",
+    level: "Intermediate",
+    link: "/talks/enterprise-wide-agility"
+  },
+  {
+    title: "Infrastructure as Code with Azure Pipelines: Terraform + SaltStack in Production",
+    description: "A hands-on workshop on the exact Terraform + SaltStack stack delivered in production at Pune DevCon 2019.",
+    tags: ["IaC", "Terraform", "Azure DevOps", "Azure Pipelines", "SaltStack", "DevOps"],
+    audience: "DevOps Engineers, Platform Engineers, Cloud Architects",
+    duration: "75 min",
+    level: "Intermediate–Advanced",
+    link: "/talks/iac-azure-pipelines-terraform-saltstack"
+  },
+  {
+    title: "From DevOps to CognitiveOps: The Next Five Years",
+    description: "The CognitiveOps Model — a four-layer maturity framework from manual operations to AI-autonomous engineering.",
+    tags: ["DevOps", "GenAI", "AIOps", "Platform Engineering", "Transformation"],
+    audience: "Engineering Leaders, Architects, CTOs",
+    duration: "40 min",
+    level: "Intermediate–Advanced",
+    link: "/talks/devops-to-cognitiveops"
+  },
+  {
+    title: "The 7 Cs of DevOps: A Framework That Actually Sticks",
+    description: "A 7-part DevOps framework that maps directly to daily engineering work — with real pipeline examples and honest benchmarks.",
+    tags: ["DevOps", "CI/CD", "Engineering Practices", "Platform Engineering"],
+    audience: "DevOps Practitioners, Engineering Managers",
+    duration: "50 min",
+    level: "Intermediate",
+    link: "/talks/7cs-of-devops"
+  },
+  {
+    title: "Seven Habits of Highly Effective DevOps Teams",
+    description: "The seven behavioural habits that consistently separate teams that ship reliably from those perpetually firefighting.",
+    tags: ["DevOps", "Engineering Culture", "Team Effectiveness", "Leadership"],
+    audience: "Engineering Managers, Team Leads",
+    duration: "40 min",
+    level: "All levels",
+    link: "/talks/seven-habits-devops-teams"
   }
 ];
 

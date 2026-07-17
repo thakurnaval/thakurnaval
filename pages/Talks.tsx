@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mic2, Download, ExternalLink, MapPin, Calendar, Users, Mail, Loader2, CheckCircle2 } from 'lucide-react';
+import { Mic2, Download, ExternalLink, Mail, Loader2, CheckCircle2 } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
-import { RECENT_TALKS, SPEAKING_APPEARANCES, PROFILE_IMAGE_URL } from '../constants';
+import { RECENT_TALKS, PROFILE_IMAGE_URL } from '../constants';
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx03K6mwLMtq6X5q8JIAHKQ4qSxCk9LEavNeO0IWo1jg9IxhzFoxvZM0DwKtgMegKDz1Q/exec';
 
@@ -201,7 +201,7 @@ An honest assessment of where distributed ledger technology actually delivers en
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <div className="mb-12">
+            <div>
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center">
                 <Mic2 className="mr-3 text-secondary-dark dark:text-secondary" /> Speaking Topics
               </h2>
@@ -224,6 +224,7 @@ An honest assessment of where distributed ledger technology actually delivers en
                         <div className="flex flex-wrap gap-3">
                           {talk.audience && <span><strong className="text-slate-700 dark:text-slate-300">Audience:</strong> {talk.audience}</span>}
                           {talk.duration && <span><strong className="text-slate-700 dark:text-slate-300">Duration:</strong> {talk.duration}</span>}
+                          {talk.level && <span><strong className="text-slate-700 dark:text-slate-300">Level:</strong> {talk.level}</span>}
                         </div>
                         {talk.link && (
                           <Link
@@ -233,77 +234,6 @@ An honest assessment of where distributed ledger technology actually delivers en
                             Read more <ExternalLink size={12} />
                           </Link>
                         )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Past appearances */}
-            <div>
-              <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center">
-                <Calendar className="mr-3 text-secondary-dark dark:text-secondary" /> Past Appearances
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {SPEAKING_APPEARANCES.map((appearance, idx) => (
-                  <div key={idx} className="flex flex-col bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-all">
-                    {appearance.photoUrl && (
-                      <div className="h-36 overflow-hidden shrink-0">
-                        <img
-                          src={appearance.photoUrl}
-                          alt={`${appearance.event} — ${appearance.topic}`}
-                          className="w-full h-full object-cover object-center"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-                    <div className="p-5 flex flex-col flex-grow">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded">
-                          {appearance.type}
-                        </span>
-                        <span className="text-xs text-slate-400 font-mono">{appearance.year}</span>
-                      </div>
-                      <p className="font-bold text-slate-900 dark:text-white text-sm leading-snug">{appearance.event}</p>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 flex-grow">{appearance.topic}</p>
-                      <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between gap-2">
-                        <div className="space-y-0.5">
-                          <div className="flex items-center text-xs text-slate-400">
-                            <MapPin size={11} className="mr-1 shrink-0" /> {appearance.location}
-                          </div>
-                          {appearance.audience && (
-                            <div className="flex items-center text-xs text-slate-400">
-                              <Users size={11} className="mr-1 shrink-0" /> {appearance.audience}
-                            </div>
-                          )}
-                        </div>
-                        <div className="flex gap-2 shrink-0">
-                          {appearance.flyerUrl && (
-                            <a
-                              href={appearance.flyerUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-slate-400 hover:text-secondary transition-colors"
-                              aria-label="View event flier"
-                              title="View event flier"
-                            >
-                              <ExternalLink size={15} />
-                            </a>
-                          )}
-                          {appearance.recordingUrl && (
-                            <a
-                              href={appearance.recordingUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-secondary-dark dark:text-secondary hover:text-secondary/80"
-                              aria-label="Watch recording"
-                              title="Watch recording"
-                            >
-                              <ExternalLink size={15} />
-                            </a>
-                          )}
-                        </div>
                       </div>
                     </div>
                   </div>

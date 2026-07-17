@@ -120,6 +120,13 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/talks/genai-new-team-member',            priority: 0.7, changefreq: 'monthly' },
   { path: '/talks/cultural-transformation-devops',   priority: 0.7, changefreq: 'monthly' },
   { path: '/talks/zero-trust-cloud-native',          priority: 0.7, changefreq: 'monthly' },
+  { path: '/talks/genai-enterprise-operations-patterns',       priority: 0.7, changefreq: 'monthly' },
+  { path: '/talks/cloud-financial-intelligence',                priority: 0.7, changefreq: 'monthly' },
+  { path: '/talks/enterprise-wide-agility',                     priority: 0.7, changefreq: 'monthly' },
+  { path: '/talks/iac-azure-pipelines-terraform-saltstack',     priority: 0.7, changefreq: 'monthly' },
+  { path: '/talks/devops-to-cognitiveops',                      priority: 0.7, changefreq: 'monthly' },
+  { path: '/talks/7cs-of-devops',                               priority: 0.7, changefreq: 'monthly' },
+  { path: '/talks/seven-habits-devops-teams',                   priority: 0.7, changefreq: 'monthly' },
 ]
 
 function sitemapPlugin(): Plugin {

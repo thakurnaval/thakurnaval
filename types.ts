@@ -20,6 +20,7 @@ export interface TalkProps {
   tags: string[];
   audience?: string;
   duration?: string;
+  level?: string;
   link?: string;
 }
 
