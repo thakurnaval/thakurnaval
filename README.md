@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/img/profile.jpg" width="120" style="border-radius: 50%; border: 3px solid #00f1d4;" alt="Naval Thakur">
+  <img src="[assets/img/profile.jpg](https://github.com/thakurnaval/thakurnaval/blob/main/assets/img/profile.jpg)" width="120" style="border-radius: 50%; border: 3px solid #00f1d4;" alt="Naval Thakur">
 </p>
 
 <h1 align="center">Naval Thakur</h1>
