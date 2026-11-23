@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, ArrowLeft, Download, Mail, Loader2, CheckCircle2,
@@ -409,6 +410,7 @@ const FinOpsAssessment: React.FC = () => {
             <button type="submit" disabled={emailStatus === 'submitting'} className="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-60 shadow-md">{emailStatus === 'submitting' ? <Loader2 className="animate-spin" size={18} /> : <><Mail size={18} /> View My Results</>}</button>
             <p className="text-xs text-slate-400 text-center">No spam. Unsubscribe anytime.</p>
           </form>
+<PrivacyNote />
         </div>
       </Section>
     </>

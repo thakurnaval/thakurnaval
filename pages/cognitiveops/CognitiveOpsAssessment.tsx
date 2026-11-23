@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, ArrowLeft, Download, Mail, Loader2, CheckCircle2,
@@ -586,6 +587,7 @@ const CognitiveOpsAssessment: React.FC = () => {
             </button>
             <p className="text-xs text-slate-400 text-center">No spam. Unsubscribe anytime.</p>
           </form>
+<PrivacyNote />
         </div>
       </Section>
     </>

@@ -25,6 +25,7 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/projects',            priority: 0.7,  changefreq: 'monthly' },
   { path: '/case-studies',        priority: 0.7,  changefreq: 'monthly' },
   { path: '/contact',             priority: 0.6,  changefreq: 'monthly' },
+  { path: '/privacy',             priority: 0.3,  changefreq: 'yearly'  },
   // Main Pillars
   { path: '/devops',              priority: 0.9,  changefreq: 'weekly'  },
   { path: '/secops',              priority: 0.9,  changefreq: 'weekly'  },

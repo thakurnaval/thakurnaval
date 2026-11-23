@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
   Download, Mail, CheckCircle2, Loader2, AlertCircle,
@@ -444,6 +445,7 @@ const SevenCsDevOps: React.FC = () => {
                       {status === 'submitting' ? <><Loader2 className="animate-spin" size={16} /> Unlocking…</> : <><Download size={16} /> Download Free Guide</>}
                     </button>
                   </form>
+<PrivacyNote />
                   <p className="text-xs text-slate-400 dark:text-slate-500 mt-4 text-center">
                     No spam. Unsubscribe from The CognitiveOps Brief anytime.
                   </p>

@@ -4,6 +4,7 @@ import { Menu, X, Linkedin, Github, Moon, Sun, ChevronDown, Twitter, Youtube, Se
 import { NAV_ITEMS, FEATURED_ARTICLES, PROFILE_IMAGE_URL } from '../constants';
 import { NavItem } from '../types';
 import { trackPageView, trackEvent } from '../src/services/analytics';
+import ConsentBanner, { OPEN_CONSENT_EVENT } from './ConsentBanner';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -371,6 +372,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <main className="flex-grow">
         {children}
       </main>
+      <ConsentBanner />
 
       <footer className="bg-primary text-slate-200 py-12 border-t border-slate-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -437,6 +439,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <li><Link to="/assessments" className="hover:text-secondary transition-colors">Maturity Assessments</Link></li>
                 <li><Link to="/newsletter" className="hover:text-secondary transition-colors">Newsletter</Link></li>
                 <li><Link to="/devopsism" className="hover:text-secondary transition-colors">DevOpsism (book)</Link></li>
+                <li><Link to="/privacy" className="hover:text-secondary transition-colors">Privacy Policy</Link></li>
+                <li><button type="button" onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))} className="hover:text-secondary transition-colors">Cookie settings</button></li>
                 <li><Link to="/about" className="hover:text-secondary transition-colors">About Naval</Link></li>
                 <li><Link to="/projects" className="hover:text-secondary transition-colors">Projects</Link></li>
               </ul>

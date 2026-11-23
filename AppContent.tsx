@@ -81,6 +81,7 @@ import IacTemplates from './pages/architecture/IacTemplates';
 import DevOpsism from './pages/DevOpsism';
 import PremiumReport from './pages/cognitiveops/PremiumReport';
 import Resources from './pages/Resources';
+import Privacy from './pages/Privacy';
 import { ToolkitsIndex, ToolkitPage } from './pages/explore/Toolkits';
 
 // Architecture Subpages
@@ -217,6 +218,7 @@ const AppContent: React.FC = () => (
         <Route path="/architecture/iac-templates" element={<IacTemplates />} />
         <Route path="/devopsism" element={<DevOpsism />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/cognitiveops/premium-report" element={<PremiumReport />} />
 
         {/* Architecture Subpages */}

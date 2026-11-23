@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import PrivacyNote from './PrivacyNote';
 import { Mail, ArrowRight, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 
 const NewsletterSignup: React.FC = () => {
@@ -58,7 +59,7 @@ const NewsletterSignup: React.FC = () => {
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+          <><form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
              <div className="flex-grow">
                 <input
                   type="email"
@@ -87,6 +88,7 @@ const NewsletterSignup: React.FC = () => {
               )}
             </button>
           </form>
+<PrivacyNote /></>
         )}
         <p className="text-xs text-slate-400 mt-4 italic">
           No spam. Unsubscribe anytime.

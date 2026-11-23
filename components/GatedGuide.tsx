@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PrivacyNote from './PrivacyNote';
 import { CheckCircle2, Download, Lock, Mail, Unlock, Loader2, AlertCircle } from 'lucide-react';
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx03K6mwLMtq6X5q8JIAHKQ4qSxCk9LEavNeO0IWo1jg9IxhzFoxvZM0DwKtgMegKDz1Q/exec';
@@ -137,6 +138,7 @@ export const GatedGuideHero: React.FC<Props> = (p) => {
                     {status === 'submitting' ? <><Loader2 className="animate-spin" size={16} /> Unlocking…</> : <><Download size={16} /> {p.cta}</>}
                   </button>
                 </form>
+<PrivacyNote />
                 <p className="text-xs text-slate-400 dark:text-slate-500 mt-4 text-center">No spam. Unsubscribe from The CognitiveOps Brief anytime.</p>
               </>
             )}

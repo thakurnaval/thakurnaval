@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import PrivacyNote from '../components/PrivacyNote';
 import { useLocation } from 'react-router-dom';
 import { Mail, MapPin, Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 import Section from '../components/Section';
@@ -159,7 +160,7 @@ const Contact: React.FC = () => {
                   </button>
                 </div>
              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <><form onSubmit={handleSubmit} className="space-y-6">
                   {status === 'error' && (
                     <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 rounded-lg flex items-start animate-in slide-in-from-top-2">
                       <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 mr-2 mt-0.5" />
@@ -265,6 +266,7 @@ const Contact: React.FC = () => {
                     )}
                   </button>
                 </form>
+<PrivacyNote /></>
              )}
           </div>
         </div>

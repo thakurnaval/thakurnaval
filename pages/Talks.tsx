@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PrivacyNote from '../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import { Mic2, Download, ExternalLink, Mail, Loader2, CheckCircle2 } from 'lucide-react';
 import Section from '../components/Section';
@@ -268,7 +269,7 @@ An honest assessment of where distributed ledger technology actually delivers en
                )}
 
                {showKitForm && kitStatus !== 'success' && (
-                 <form onSubmit={handleKitEmailSubmit} className="mb-3">
+                 <><form onSubmit={handleKitEmailSubmit} className="mb-3">
                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-2 text-center">Enter your email to download the kit</p>
                    <div className="flex flex-col gap-2">
                      <div className="relative">
@@ -296,6 +297,7 @@ An honest assessment of where distributed ledger technology actually delivers en
                      </button>
                    </div>
                  </form>
+<PrivacyNote /></>
                )}
 
                {showKitForm && kitStatus === 'success' && (

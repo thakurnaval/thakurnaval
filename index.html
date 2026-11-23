@@ -37,14 +37,28 @@
     <style>
       body { font-family: 'Inter', sans-serif; }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2T36Y7QSN6"></script>
+    <!-- Google tag with Consent Mode: analytics is denied by default and gtag.js
+         loads only after the visitor accepts (components/ConsentBanner.tsx). -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
       gtag('js', new Date());
-
       gtag('config', 'G-2T36Y7QSN6');
+      window.__loadGA = function () {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2T36Y7QSN6';
+        document.head.appendChild(s);
+      };
+      try {
+        if (localStorage.getItem('nthakur.consent') === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+          window.__loadGA();
+        }
+      } catch (e) {}
     </script>
 </head>
   <body>
