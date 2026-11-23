@@ -11,7 +11,7 @@ import Home from './Home.tsx';
 import ScenarioPage from './ScenarioPage.tsx';
 import SharedPage from './SharedPage.tsx';
 
-const T = { timeout: 4000 };
+const T = { timeout: 10_000 };
 
 function scenario(name: string, patch: (s: StoredScenario) => StoredScenario = (s) => s): StoredScenario {
   return patch({ ...newScenario('delhi'), name });

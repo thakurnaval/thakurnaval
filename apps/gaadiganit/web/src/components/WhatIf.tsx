@@ -117,9 +117,9 @@ export function WhatIf({ scenario, base, onSaveAsNew }: {
           <table className="w-full text-sm">
             <thead>
               <tr className="text-left text-slate-500 dark:text-slate-400">
-                <th className="py-1 font-medium" />
-                <th className="py-1 text-right font-medium">{t('whatif.minus20')}</th>
-                <th className="py-1 text-right font-medium">{t('whatif.plus20')}</th>
+                <th scope="col" className="py-1 font-medium">{t('whatif.factor')}</th>
+                <th scope="col" className="py-1 text-right font-medium">{t('whatif.minus20')}</th>
+                <th scope="col" className="py-1 text-right font-medium">{t('whatif.plus20')}</th>
               </tr>
             </thead>
             <tbody>
@@ -128,7 +128,7 @@ export function WhatIf({ scenario, base, onSaveAsNew }: {
                 const fmt = (v: number) => `${v - row.base >= 0 ? '+' : '−'}${formatCompactINR(Math.abs(v - row.base), lang)}`;
                 return (
                   <tr key={key} className="border-t border-slate-100 dark:border-slate-800">
-                    <td className="py-1.5">{t(label)}</td>
+                    <th scope="row" className="py-1.5 text-left font-normal">{t(label)}</th>
                     <td className="py-1.5 text-right tabular-nums">{fmt(row.minus20)}</td>
                     <td className="py-1.5 text-right tabular-nums">{fmt(row.plus20)}</td>
                   </tr>

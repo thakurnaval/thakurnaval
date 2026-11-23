@@ -260,6 +260,7 @@ export const en = {
   'whatif.fuelPrice': "Fuel price",
   'whatif.kmPerMonth': "Distance",
   'whatif.resaleValue': "Resale value",
+  'whatif.factor': "If this changes",
   'whatif.minus20': "20% lower",
   'whatif.plus20': "20% higher",
   'share.title': "Share and export",

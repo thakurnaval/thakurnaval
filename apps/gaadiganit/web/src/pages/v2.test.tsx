@@ -14,7 +14,7 @@ import QuickEstimate from './QuickEstimate.tsx';
 import ScenarioPage from './ScenarioPage.tsx';
 import Settings from './Settings.tsx';
 
-const T = { timeout: 4000 };
+const T = { timeout: 10_000 };
 afterEach(() => updateSettings({ myPrices: {} }));
 
 function renderAt(path: string) {

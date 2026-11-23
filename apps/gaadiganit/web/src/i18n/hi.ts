@@ -265,6 +265,7 @@ export const hi: Record<MessageKey, string> = {
   'whatif.fuelPrice': "ईंधन की कीमत",
   'whatif.kmPerMonth': "दूरी",
   'whatif.resaleValue': "रीसेल वैल्यू",
+  'whatif.factor': "अगर यह बदले",
   'whatif.minus20': "20% कम",
   'whatif.plus20': "20% ज़्यादा",
   'share.title': "शेयर और एक्सपोर्ट",

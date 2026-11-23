@@ -41,7 +41,7 @@ Merge order: 1 → 3 → (4, 5, 6 in parallel) → 7. Workstream 2 runs alongsid
 
 - Owner review of the Hindi strings in `web/src/i18n/hi.ts` (D3). Engine validation messages are English-only for now.
 - Verify the placeholder defaults (SPEC §6) and hand-check W1/W2 in a spreadsheet, then pin them as fixtures.
-- Lighthouse and accessibility pass on a real phone (NFR-02, NFR-03).
+- Lighthouse (performance, contrast) on a real phone (NFR-02, NFR-03). Automated axe checks are in place.
 
 ## v1.1 and v1.2 (built 2026-11-23)
 
@@ -74,6 +74,7 @@ Dropped from v2 by the owner (ADR-006): Android app, login and sync, live fuel-p
 | 20 | Defaults pack 2026.11.2: fuel prices for the four cities, road tax for DL/MH/KA, loan rate checked against news and bank sources | Done; insurance, service, tyres and depreciation still placeholders |
 | 21 | W1–W4 pinned as engine fixtures against a frozen pack (`packages/engine/test/fixtures/`) | Done |
 | 22 | Independent Python implementation of SPEC §4 (`tools/verify/reference_tco.py`) matches the engine to the paisa for W1–W3, every month and every bucket | Done |
+| 23 | Accessibility: axe-core on every screen in English and Hindi (`web/src/pages/a11y.test.tsx`); fixed an unlabelled header in the sensitivity table | Done; colour contrast and Lighthouse need a real browser |
 
 ## Still open
 

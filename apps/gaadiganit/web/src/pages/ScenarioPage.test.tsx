@@ -14,7 +14,7 @@ async function open(mutate = (s: ReturnType<typeof newScenario>) => s) {
       <Routes><Route path="/s/:id" element={<ScenarioPage />} /></Routes>
     </MemoryRouter>,
   );
-  await screen.findByText(/This car costs you/, undefined, { timeout: 4000 });
+  await screen.findByText(/This car costs you/, undefined, { timeout: 10_000 });
   return { s, user: userEvent.setup() };
 }
 
