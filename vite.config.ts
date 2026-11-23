@@ -106,6 +106,7 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/genai/adoption-framework',   priority: 0.85, changefreq: 'monthly' },
   { path: '/architecture/iac-templates', priority: 0.85, changefreq: 'monthly' },
   { path: '/devopsism',                  priority: 0.7,  changefreq: 'monthly' },
+  { path: '/cognitiveops/premium-report', priority: 0.7, changefreq: 'monthly' },
   // Assessment Pages
   { path: '/agile/assessment', priority: 0.8, changefreq: 'monthly' },
   { path: '/pm/assessment',    priority: 0.8, changefreq: 'monthly' },

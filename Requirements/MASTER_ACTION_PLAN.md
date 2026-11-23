@@ -182,7 +182,7 @@ Ordered by effort-to-impact. Build Tier 1 first — these come directly from exi
 - [x] **7 Cs of DevOps Mini-Guide** — Based on the 2018 internal session. Short, shareable PDF. Live at `/devops/7cs`.
 
 ### Tier 2 — Medium effort
-- [ ] **Premium CognitiveOps Assessment Report** — Enhanced version of the existing assessment with team scoring, benchmarking, and a detailed PDF. Priced at $199–$499 per report.
+- [ ] **Premium CognitiveOps Assessment Report** — Enhanced version of the existing assessment with team scoring, benchmarking, and a detailed PDF. Priced at $199–$499 per report. *Interest capture live at `/cognitiveops/premium-report` (Nov 2026); build the product when the first customer asks. Open decisions: payment provider, price tiers, team-scoring storage, benchmark data.*
 - [ ] **DevSecOps Playbook** — Combine DevOps + SecOps content into a practitioner-focused guide.
 - [ ] **GenAI Adoption Framework for Enterprise Teams** — Based on existing GenAI content + CognitiveOps model.
 - [ ] **IaC Starter Templates** — Terraform/Bicep templates for the most common architectures in the portfolio.

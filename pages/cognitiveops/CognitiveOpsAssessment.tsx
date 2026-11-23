@@ -8,6 +8,7 @@ import Section from '../../components/Section';
 import SEO from '../../components/SEO';
 import { PillarPlans, pillarPlansHTML } from '../../components/PillarPlans';
 import { COGNITIVEOPS_PLANS } from './cognitiveopsPlans';
+import { PremiumReportTeaser } from './PremiumReport';
 
 interface Option { label: string; value: number; }
 interface Question { q: string; options: Option[]; }
@@ -664,6 +665,7 @@ const CognitiveOpsAssessment: React.FC = () => {
             </ol>
           </div>
           <PillarPlans scores={pillarScores} plans={COGNITIVEOPS_PLANS} layerNames={LAYER_NAMES} />
+          <PremiumReportTeaser />
           <div className="flex flex-col sm:flex-row gap-4">
             <button onClick={handleDownloadPDF}
               className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-md">
