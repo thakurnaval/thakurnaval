@@ -1069,4 +1069,507 @@ export const MODEL_DETAILS: Record<string, ModelDetail> = {
     watchOut: 'Changing several things at once makes it impossible to know what worked. Be patient and isolate variables.',
     related: ['falsification-confirmation-bias', 'pdca', 'regression-to-the-mean'],
   },
+  // ── Wave 4 (part 1): probability, strategy and economics ────────────────
+  'bayesian-updating': {
+    whenToUse: 'Incident diagnosis, capacity forecasting, evaluating AI models, and any belief that should change as evidence arrives.',
+    howTo: [
+      'Start with a prior: your best estimate based on what you know ("the last deploy is the likeliest cause").',
+      'Gather evidence and ask how much more likely it is if your belief is true than if it is false.',
+      'Update in proportion to the strength of the evidence, then repeat as new data arrives.',
+    ],
+    watchOut: 'Strong priors can make you dismiss real evidence; weak priors can make you overreact to noise. Write both down so the update is visible.',
+    related: ['scientific-method', 'falsification-confirmation-bias', 'expected-value'],
+  },
+  'power-laws': {
+    whenToUse: 'Analysing incidents, cloud spend, traffic, bugs or customer usage, where a few items dominate the total.',
+    howTo: [
+      'Plot the data sorted by size; a power law shows a few huge items and a long tail.',
+      'Focus effort on the head: the biggest services, customers or failure causes.',
+      'Design for the extremes, such as the largest tenant or the busiest hour, not the average.',
+    ],
+    watchOut: 'Averages are misleading under power laws. "Average request size" can hide the requests that break your system.',
+    related: ['pareto-principle', 'fat-tailed-processes', 'black-swan'],
+  },
+  'fat-tailed-processes': {
+    whenToUse: 'Capacity planning, latency targets, budget forecasting and risk, where extreme values are far more common than a bell curve suggests.',
+    howTo: [
+      'Look at the tail, not the mean: p99 and p99.9 latency, the worst month of spend, the largest outage.',
+      'Plan headroom and limits for the tail.',
+      'Cap exposure: rate limits, budgets, circuit breakers, blast-radius limits.',
+    ],
+    watchOut: 'Models that assume normal distributions underestimate rare events. Many operational metrics are fat-tailed.',
+    related: ['power-laws', 'black-swan', 'margin-of-safety'],
+  },
+  'law-of-large-numbers': {
+    whenToUse: 'Judging experiments, A/B tests, AI evaluations and early metrics, where small samples can mislead.',
+    howTo: [
+      'Check the sample size before trusting a result.',
+      'Run evaluations on enough cases for the result to stabilise, often hundreds rather than tens.',
+      'Watch how a metric moves as data accumulates; early swings usually settle.',
+    ],
+    watchOut: 'A great result from ten test prompts or one pilot team is an anecdote. Scale up the sample before scaling up the rollout.',
+    related: ['regression-to-the-mean', 'scientific-method', 'selection-bias'],
+  },
+  'leverage': {
+    whenToUse: 'Deciding where a leader, platform team or AI investment can have the most impact per hour or per pound spent.',
+    howTo: [
+      'Look for work that multiplies others\' output: shared tooling, templates, automation, coaching.',
+      'Estimate how many people or changes benefit from each hour invested.',
+      'Prioritise high-leverage work, and protect time for it.',
+    ],
+    watchOut: 'Leverage amplifies mistakes too. A bad template or a flawed automation spreads just as fast as a good one.',
+    related: ['flywheel-effect', 'compounding', 'theory-of-constraints'],
+  },
+  'critical-mass': {
+    whenToUse: 'Launching a platform, community of practice, inner-source project or AI champions network.',
+    howTo: [
+      'Estimate how many users or contributors are needed before the thing sustains itself.',
+      'Concentrate early effort on reaching that point in one area, rather than spreading thinly.',
+      'Track progress towards it and celebrate when it\'s reached.',
+    ],
+    watchOut: 'Below critical mass, effort can feel wasted and leaders give up just before the tipping point.',
+    related: ['network-effects', 'flywheel-effect', 'activation-energy'],
+  },
+  'activation-energy': {
+    whenToUse: 'When a better practice exists but nobody starts: adopting tests, a new platform, an AI assistant, or documentation.',
+    howTo: [
+      'Find the first-step friction: setup time, access requests, unclear instructions.',
+      'Lower it with templates, one-command setup, defaults and pairing sessions.',
+      'Measure time to first success, and keep reducing it.',
+    ],
+    watchOut: 'Lowering activation energy gets people started; it doesn\'t keep them. Pair it with ongoing value.',
+    related: ['catalysts', 'default-status', 'forcing-function'],
+  },
+  'inertia': {
+    whenToUse: 'Planning change in organisations and systems that resist it: legacy platforms, long-standing processes, established habits.',
+    howTo: [
+      'Expect resistance proportional to how long and widely something has been used.',
+      'Apply steady, consistent force rather than one big push.',
+      'Use inertia in your favour once change starts: make the new way the default.',
+    ],
+    watchOut: 'Inertia also protects what works. Not every old process is wrong; check before forcing change.',
+    related: ['default-status', 'loss-aversion', 'activation-energy'],
+  },
+  'game-theory': {
+    whenToUse: 'Negotiations with vendors, cross-team agreements, shared budgets and on-call arrangements, where everyone\'s best move depends on others.',
+    howTo: [
+      'Map the players, their options and what each gains or loses.',
+      'Ask what each player will do if they act in their own interest.',
+      'Change the rules or incentives so the individually best move is also good for the whole.',
+    ],
+    watchOut: 'Real people value fairness, reputation and relationships, not just payoffs. Use game theory to understand, not to manipulate.',
+    related: ['prisoners-dilemma', 'zero-sum-vs-non-zero-sum', 'incentives'],
+  },
+  'prisoners-dilemma': {
+    whenToUse: 'Shared resources and cross-team cooperation: cloud quotas, shared clusters, code ownership, incident response across teams.',
+    howTo: [
+      'Notice when each team gains by acting selfishly but everyone loses if all do.',
+      'Make cooperation visible and rewarded, and defection visible and costly.',
+      'Build repeated interactions and trust; cooperation grows when teams expect to work together again.',
+    ],
+    watchOut: 'Blaming teams for "selfish" behaviour misses the point. Fix the structure that makes it rational.',
+    related: ['game-theory', 'tragedy-of-the-commons', 'trust'],
+  },
+  'zero-sum-vs-non-zero-sum': {
+    whenToUse: 'Budget discussions, platform-versus-product debates, vendor negotiations and team boundaries.',
+    howTo: [
+      'Ask whether one side\'s gain really is the other\'s loss.',
+      'Look for ways to grow the pie: shared tooling, reuse, automation, better outcomes for both.',
+      'Frame proposals in terms of the shared outcome, not who wins.',
+    ],
+    watchOut: 'Some situations are genuinely zero-sum, such as a fixed headcount. Be honest about those rather than pretending otherwise.',
+    related: ['win-win-game', 'game-theory', 'comparative-advantage'],
+  },
+  'core-competency': {
+    whenToUse: 'Build-versus-buy decisions, outsourcing, and deciding where your best engineers should spend their time.',
+    howTo: [
+      'Identify what you do better than anyone else and what customers value you for.',
+      'Invest deeply in those capabilities.',
+      'Buy, rent or outsource the rest, even if you could build it.',
+    ],
+    watchOut: 'Core competencies change. What differentiated you five years ago, such as running your own data centre, may now be a commodity.',
+    related: ['wardley-mapping', 'comparative-advantage', 'opportunity-costs'],
+  },
+  'comparative-advantage': {
+    whenToUse: 'Splitting work between teams, between people and AI, or between your organisation and vendors.',
+    howTo: [
+      'For each party, compare their relative strength, not absolute skill.',
+      'Assign work to whoever gives up the least by doing it.',
+      'Let your strongest people focus on the work only they can do.',
+    ],
+    watchOut: 'Specialising too narrowly creates single points of failure. Balance specialisation with redundancy.',
+    related: ['core-competency', 'opportunity-costs', 'generalist-vs-specialist'],
+  },
+  'strategy-vs-tactics': {
+    whenToUse: 'Planning sessions where the team jumps straight to tools and tasks, or when lots of activity isn\'t adding up.',
+    howTo: [
+      'State the strategy first: where you will play, how you will win, what you will not do.',
+      'Check every initiative against it.',
+      'Let tactics change freely as long as they serve the strategy.',
+    ],
+    watchOut: 'A tool adoption ("we\'ll use Kubernetes", "we\'ll use AI agents") is a tactic, not a strategy. Ask what outcome it serves.',
+    related: ['okrs', 'wardley-mapping', 'velocity-vs-speed'],
+  },
+  'first-mover-advantage': {
+    whenToUse: 'Deciding whether to adopt new technology early, such as a new AI capability, or wait for it to mature.',
+    howTo: [
+      'Ask what you actually gain by being first: learning, talent, market position.',
+      'Weigh it against the cost of early adoption: immature tools, rework, risk.',
+      'Move early on small, reversible experiments; commit heavily only once value is proven.',
+    ],
+    watchOut: 'Being first is often less valuable than being best. Many fast followers learn from the pioneers\' mistakes.',
+    related: ['second-mover-advantage', 'preserving-optionality', 'minimum-viable-product'],
+  },
+  'information-asymmetry': {
+    whenToUse: 'Vendor negotiations, estimating, hiring, and any situation where one side knows much more than the other.',
+    howTo: [
+      'Identify what the other side knows that you don\'t, and the reverse.',
+      'Reduce the gap: references, proofs of concept, trial periods, independent benchmarks.',
+      'Inside the organisation, share information openly to avoid decisions made in the dark.',
+    ],
+    watchOut: 'Leaders often have less information than the engineers closest to the work. Ask before deciding.',
+    related: ['radical-transparency', 'circle-of-competence', 'trust'],
+  },
+  'externalities': {
+    whenToUse: 'Spotting costs that one team creates but others pay: noisy alerts, shared-cluster load, technical debt, cloud waste.',
+    howTo: [
+      'Trace who bears the cost of each decision.',
+      'Make externalities visible: showback, shared dashboards, impact reports.',
+      'Bring the cost back to whoever creates it, through ownership or chargeback.',
+    ],
+    watchOut: 'Charging back every cost can create bureaucracy. Start with visibility; often that alone changes behaviour.',
+    related: ['tragedy-of-the-commons', 'incentives', 'own-your-outcomes'],
+  },
+  'return-on-investment': {
+    whenToUse: 'Prioritising platform, reliability and AI initiatives, and reporting their value to leadership.',
+    howTo: [
+      'Estimate the gain (time saved, incidents avoided, revenue enabled) and the full cost (build, run, people).',
+      'Calculate ROI over a realistic horizon, with conservative assumptions.',
+      'Measure the actual return after delivery and learn from the gap.',
+    ],
+    watchOut: 'ROI favours easily measured benefits. Risk reduction and developer experience are real returns even when hard to quantify.',
+    related: ['cost-benefit-analysis', 'opportunity-costs', 'expected-value'],
+  },
+  'sensitivity-analysis': {
+    whenToUse: 'Business cases, cost forecasts, capacity plans and decision matrices that depend on uncertain assumptions.',
+    howTo: [
+      'List the key assumptions behind the result.',
+      'Change each one up and down by a realistic amount and see how the result moves.',
+      'Focus validation effort on the assumptions that change the answer most.',
+    ],
+    watchOut: 'If small changes flip the decision, the decision is fragile. Seek more data or choose the more robust option.',
+    related: ['scenario-analysis', 'weighted-decision-matrix', 'margin-of-safety'],
+  },
+  'false-positives-and-false-negatives': {
+    whenToUse: 'Tuning alerts, security scanners, AI guardrails and classifiers, where every threshold trades one error for the other.',
+    howTo: [
+      'Decide which error is more costly: a missed incident or a false page; a blocked good request or an allowed bad one.',
+      'Measure both rates, not just one.',
+      'Set thresholds based on that cost, and review them as the system changes.',
+    ],
+    watchOut: 'Too many false positives train people to ignore alerts, which turns them into false negatives. Alert fatigue is a reliability risk.',
+    related: ['proxy', 'feedback-loops', 'confidence-interval'],
+  },
+  'proxy': {
+    whenToUse: 'Choosing metrics for things that are hard to measure directly: developer productivity, quality, AI usefulness, customer happiness.',
+    howTo: [
+      'Name the real outcome and the proxy you will measure instead.',
+      'Check that the proxy moves when the outcome moves.',
+      'Use several proxies together, and revisit them when they stop tracking reality.',
+    ],
+    watchOut: 'Once a proxy becomes a target, people optimise the proxy. This is Goodhart\'s Law in action.',
+    related: ['goodharts-law', 'the-map-is-not-the-territory', 'okrs'],
+  },
+  'selection-bias': {
+    whenToUse: 'Reading surveys, pilot results, AI evaluations or incident data, where the sample may not represent the whole.',
+    howTo: [
+      'Ask how the data was selected and who is missing.',
+      'Compare the sample with the full population on key traits.',
+      'Use random or representative samples for evaluations that drive big decisions.',
+    ],
+    watchOut: 'Pilots run by enthusiastic volunteers almost always look better than the eventual rollout.',
+    related: ['survivorship-bias', 'law-of-large-numbers', 'response-bias'],
+  },
+  'ikigai': {
+    whenToUse: 'Career conversations, mentoring, and choosing what to focus on as a leader or engineer.',
+    howTo: [
+      'List what you love, what you\'re good at, what the world needs, and what you can be paid for.',
+      'Look for the overlap, and notice which circle is weakest today.',
+      'Choose one step that strengthens the weakest circle, such as a new skill, a project or a mentor.',
+    ],
+    watchOut: 'Ikigai is a direction, not a destination. It shifts over a career, so revisit it every year or two.',
+    related: ['regret-minimization-framework', 'deliberate-practice', 'circle-of-competence'],
+  },
+  'complex-adaptive-systems': {
+    whenToUse: 'Leading organisations, markets, platforms with many users, and multi-agent AI systems, where agents adapt to each other.',
+    howTo: [
+      'Accept that you cannot fully predict or control the system.',
+      'Set simple rules and boundaries, then observe how behaviour emerges.',
+      'Run small experiments, amplify what works and dampen what doesn\'t.',
+    ],
+    watchOut: 'Detailed top-down plans tend to fail in complex adaptive systems. Steer with feedback rather than blueprints.',
+    related: ['emergence', 'cynefin-framework', 'feedback-loops'],
+  },
+  'dunbars-number': {
+    whenToUse: 'Designing team and organisation size, communities of practice, and on-call rotations.',
+    howTo: [
+      'Keep close working teams small (often 5–9 people) and groups that need personal trust under about 150.',
+      'When a group grows past these limits, split it along natural boundaries.',
+      'Add explicit communication structures between groups as they split.',
+    ],
+    watchOut: 'The numbers are rough guides, not rules. What matters is noticing when people no longer know who to ask.',
+    related: ['conways-law', 'trust', 'high-context-vs-low-context-culture'],
+  },
+
+  // ── Wave 4 (part 2): ideas, problem solving, agile at scale, people ─────
+  'scamper': {
+    whenToUse: 'Improving an existing process, product or platform when the team is stuck for new ideas.',
+    howTo: [
+      'Take one thing to improve, such as the release process.',
+      'Run through each prompt: Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, Reverse.',
+      'Capture every idea, then pick two or three to try.',
+    ],
+    watchOut: 'SCAMPER produces many ideas, most of them weak. Its value is in widening the options before you choose.',
+    related: ['lateral-thinking', 'divergent-vs-convergent-thinking', 'via-negativa'],
+  },
+  'lateral-thinking': {
+    whenToUse: 'When logical, step-by-step thinking keeps producing the same solutions to a stubborn problem.',
+    howTo: [
+      'Challenge an assumption deliberately ("what if we didn\'t need this service at all?").',
+      'Borrow an idea from an unrelated field, such as aviation checklists or manufacturing flow.',
+      'Use random prompts or reversals to break the usual pattern, then evaluate ideas logically.',
+    ],
+    watchOut: 'Lateral ideas still need testing. Keep creativity and critique as separate steps.',
+    related: ['scamper', 'six-thinking-hats', 'arguing-from-first-principles'],
+  },
+  'mind-mapping': {
+    whenToUse: 'Exploring a new domain, planning a programme, preparing a talk, or mapping a system\'s dependencies.',
+    howTo: [
+      'Put the central topic in the middle.',
+      'Branch out into main themes, then sub-ideas, without editing as you go.',
+      'Look for gaps, overlaps and links, then turn the map into a plan.',
+    ],
+    watchOut: 'A mind map is a thinking tool, not a deliverable. Don\'t spend time making it pretty.',
+    related: ['divide-and-conquer', 'systems-thinking', 'divergent-vs-convergent-thinking'],
+  },
+  'divergent-vs-convergent-thinking': {
+    whenToUse: 'Design sessions, retrospectives, planning and problem solving, where generating ideas and choosing between them get mixed up.',
+    howTo: [
+      'Diverge first: generate many options without judging them.',
+      'Then converge: group, evaluate and choose against agreed criteria.',
+      'Make the switch explicit so people know which mode they are in.',
+    ],
+    watchOut: 'Criticising ideas during the divergent phase shuts down creativity. Converging too late leaves the meeting without a decision.',
+    related: ['six-thinking-hats', 'scamper', 'weighted-decision-matrix'],
+  },
+  'binary-search': {
+    whenToUse: 'Finding which change, commit, config or dependency caused a regression.',
+    howTo: [
+      'Identify a known good point and a known bad point.',
+      'Test the midpoint, and keep halving the range towards the bad side.',
+      'Automate it where possible, for example with git bisect and a test script.',
+    ],
+    watchOut: 'Binary search assumes one change caused the problem. If several changes interact, isolate them carefully.',
+    related: ['divide-and-conquer', 'scientific-method', 'root-cause-analysis'],
+  },
+  'divide-and-conquer': {
+    whenToUse: 'Large migrations, complex debugging, big programmes and anything too large to tackle in one piece.',
+    howTo: [
+      'Break the problem into smaller parts that can be solved independently.',
+      'Solve, test and deliver each part separately.',
+      'Plan how the parts fit back together, and test the integration.',
+    ],
+    watchOut: 'The integration is where divided work most often fails. Integrate early and often.',
+    related: ['binary-search', 'minimum-viable-product', 'conways-law'],
+  },
+  'rubber-duck-debugging': {
+    whenToUse: 'When you are stuck on a bug, a design or a failing pipeline and going round in circles.',
+    howTo: [
+      'Explain the problem out loud, line by line, to someone or something that knows nothing about it.',
+      'State every assumption explicitly as you go.',
+      'Notice where your explanation hesitates; that is often where the bug is.',
+    ],
+    watchOut: 'An AI assistant can be a good rubber duck, but ask it to question your assumptions, not just agree with you.',
+    related: ['the-map-is-not-the-territory', 'scientific-method', 'binary-search'],
+  },
+  'six-sigma': {
+    whenToUse: 'Stable, repeatable processes where reducing variation matters: build pipelines, deployments, support workflows, data quality.',
+    howTo: [
+      'Define the defect and measure how often it happens.',
+      'Find the sources of variation with data.',
+      'Reduce them and put controls in place to keep the process stable.',
+    ],
+    watchOut: 'Six Sigma suits stable processes, not creative or exploratory work. Don\'t apply it to product discovery.',
+    related: ['dmaic', 'pdca', 'kaizen'],
+  },
+  'dmaic': {
+    whenToUse: 'A measurable process problem that needs a disciplined fix, such as a high change-failure rate or slow ticket resolution.',
+    howTo: [
+      'Define the problem and the goal; Measure the current state.',
+      'Analyse the root causes with data.',
+      'Improve the process and Control it with monitoring so gains last.',
+    ],
+    watchOut: 'Skipping Measure and jumping to Improve is common, and it leads to fixing the wrong thing.',
+    related: ['six-sigma', 'pdca', 'root-cause-analysis'],
+  },
+  'lean-software-development': {
+    whenToUse: 'Improving how software teams deliver, especially when there is a lot of waiting, rework or unused features.',
+    howTo: [
+      'Eliminate waste: partially done work, handoffs, extra features, task switching.',
+      'Build quality in with tests and CI, and deliver in small batches.',
+      'Defer irreversible decisions, respect people, and optimise the whole value stream.',
+    ],
+    watchOut: 'Lean is not about doing more with fewer people. Used as a cost-cutting slogan, it destroys the trust it depends on.',
+    related: ['muda', 'value-stream-mapping', 'kanban'],
+  },
+  'scrumban': {
+    whenToUse: 'Teams mixing planned features with interrupt-driven work, such as platform, SRE or data teams.',
+    howTo: [
+      'Keep Scrum\'s rhythm: planning, review and retrospective.',
+      'Replace fixed sprint commitments with a pull-based board and WIP limits.',
+      'Reserve explicit capacity for interrupts and measure lead time.',
+    ],
+    watchOut: 'Scrumban can become "no rules". Keep WIP limits and regular reviews, or it drifts into chaos.',
+    related: ['kanban', 'scrum', 'theory-of-constraints'],
+  },
+  'less': {
+    whenToUse: 'Several teams working on one product who want to scale Scrum without adding layers of roles.',
+    howTo: [
+      'Keep one Product Backlog and one Product Owner for the whole product.',
+      'Organise feature teams that can deliver end to end.',
+      'Run one shared sprint with joint planning and review.',
+    ],
+    watchOut: 'LeSS asks for real organisational change: fewer roles, feature teams. Adopting the name without the change rarely works.',
+    related: ['scrum', 'safe', 'conways-law'],
+  },
+  'disciplined-agile': {
+    whenToUse: 'Large organisations with very different teams, where one framework won\'t fit everyone.',
+    howTo: [
+      'Start from each team\'s context: size, regulation, product type.',
+      'Choose a lifecycle and practices that fit, from the toolkit\'s options.',
+      'Revisit the way of working as the context changes.',
+    ],
+    watchOut: 'Flexibility can become inconsistency. Agree a few organisation-wide guardrails, such as security and release standards.',
+    related: ['cynefin-framework', 'scrum', 'kanban'],
+  },
+  'prioritize-by-value-of-information': {
+    whenToUse: 'Choosing which spike, experiment, prototype or research question to do first.',
+    howTo: [
+      'List the uncertainties that could change your decision.',
+      'Estimate how much each would change the outcome if resolved.',
+      'Investigate the high-value, cheap-to-answer questions first.',
+    ],
+    watchOut: 'Research that wouldn\'t change the decision is waste, however interesting.',
+    related: ['expected-value', 'unknown-unknowns', 'sensitivity-analysis'],
+  },
+  'default-status': {
+    whenToUse: 'Designing platforms, policies and tools, where most people will accept the default setting.',
+    howTo: [
+      'Identify the decisions people make by not deciding.',
+      'Make the safest, most efficient choice the default: secure configs, cost tags, auto-shutdown for dev environments.',
+      'Make changing the default possible but deliberate.',
+    ],
+    watchOut: 'Defaults shape behaviour powerfully. Review them as needs change, or yesterday\'s good default becomes today\'s waste.',
+    related: ['forcing-function', 'activation-energy', 'inertia'],
+  },
+  'regret-minimization-framework': {
+    whenToUse: 'Big personal and career decisions, and major organisational bets where analysis alone can\'t decide.',
+    howTo: [
+      'Imagine yourself years from now looking back.',
+      'Ask which choice you would regret more: trying and failing, or never trying.',
+      'Use that alongside the analysis, not instead of it.',
+    ],
+    watchOut: 'It favours bold choices. Combine it with a check on whether you can afford the downside.',
+    related: ['ikigai', 'reversible-vs-irreversible-decisions', 'expected-value'],
+  },
+  'authority-bias': {
+    whenToUse: 'Design reviews, incident calls and planning, where the most senior person\'s view may carry too much weight.',
+    howTo: [
+      'Let the most senior people speak last.',
+      'Collect views independently before discussion, for example in writing.',
+      'Judge ideas on evidence, not on who proposed them.',
+    ],
+    watchOut: 'Leaders often don\'t realise how much their opinions anchor the room. Ask for disagreement explicitly.',
+    related: ['idea-meritocracy', 'six-thinking-hats', 'social-proof'],
+  },
+  'commitment-consistency-bias': {
+    whenToUse: 'Reviewing long-running projects, public commitments, or architectural choices you once championed.',
+    howTo: [
+      'Notice when you defend a choice because you made it, not because it still works.',
+      'Ask what you would decide if you were new to the situation.',
+      'Make it safe, for yourself and others, to change your mind publicly.',
+    ],
+    watchOut: 'Changing your mind on evidence is a strength. Leaders who model it make it easier for everyone.',
+    related: ['sunk-cost-fallacy', 'falsification-confirmation-bias', 'loss-aversion'],
+  },
+  'idea-meritocracy': {
+    whenToUse: 'Building a team culture where the best ideas win, regardless of seniority.',
+    howTo: [
+      'Encourage everyone to share views openly, including disagreement.',
+      'Evaluate ideas on evidence and reasoning.',
+      'Explain decisions, especially when a popular idea is not chosen.',
+    ],
+    watchOut: 'A meritocracy of ideas needs psychological safety. Without it, only the confident speak.',
+    related: ['believability-weighting', 'authority-bias', 'radical-transparency'],
+  },
+  'evaluate-accurately-not-kindly': {
+    whenToUse: 'Performance conversations, design reviews and project assessments.',
+    howTo: [
+      'Give specific, evidence-based feedback, delivered with care.',
+      'Separate the work from the person.',
+      'Follow up with support to improve.',
+    ],
+    watchOut: 'Accurate does not mean harsh. Kindness in delivery and honesty in content work together.',
+    related: ['radical-transparency', 'trust', 'growth-mindset'],
+  },
+  'think-like-an-owner': {
+    whenToUse: 'Setting expectations for engineers and leaders, especially on cost, reliability and long-term maintenance.',
+    howTo: [
+      'Ask: if this were my money, my service, my customers, what would I do?',
+      'Consider the long-term cost of decisions, not just the short-term win.',
+      'Act on problems you see, even if they are not strictly yours.',
+    ],
+    watchOut: 'Owner thinking needs owner information and authority. Share cost and business context with the team.',
+    related: ['own-your-outcomes', 'second-order-thinking', 'incentives'],
+  },
+  'appreciate-the-art-of-thoughtful-disagreement': {
+    whenToUse: 'Architecture debates, planning disagreements and cross-team conflicts.',
+    howTo: [
+      'Aim to understand the other view well enough to explain it back.',
+      'Disagree with the idea, not the person, using evidence.',
+      'Agree how the decision will be made, then commit even if you disagreed.',
+    ],
+    watchOut: 'Disagreement without a way to decide becomes endless debate. Set the decision rule first.',
+    related: ['six-thinking-hats', 'idea-meritocracy', 'trust'],
+  },
+  'generalist-vs-specialist': {
+    whenToUse: 'Hiring, team design, career development, and deciding who should work on cross-cutting problems.',
+    howTo: [
+      'Use specialists for deep, high-risk areas such as security, databases and ML.',
+      'Use generalists to connect areas and move work across boundaries.',
+      'Build T-shaped people: depth in one area, breadth across several.',
+    ],
+    watchOut: 'Teams of pure specialists create handoffs; teams of pure generalists struggle with depth. Most teams need a mix.',
+    related: ['comparative-advantage', 'circle-of-competence', 'conways-law'],
+  },
+  'high-context-vs-low-context-culture': {
+    whenToUse: 'Leading global and distributed teams, writing for mixed audiences, and onboarding.',
+    howTo: [
+      'Notice whether your team relies on shared, unspoken context or on explicit communication.',
+      'For distributed and diverse teams, lean towards low-context: write things down explicitly.',
+      'Make implicit norms visible in team agreements and documentation.',
+    ],
+    watchOut: 'What feels obvious to long-standing team members is invisible to newcomers. Write it down.',
+    related: ['dunbars-number', 'trust', 'radical-transparency'],
+  },
+  'imposter-syndrome': {
+    whenToUse: 'Mentoring, onboarding and supporting people stepping into new roles or technologies such as AI.',
+    howTo: [
+      'Normalise it: share that most capable people feel it at times.',
+      'Point to evidence of the person\'s real contributions.',
+      'Encourage asking questions as a sign of strength.',
+    ],
+    watchOut: 'Imposter feelings can make people stay quiet in reviews and incidents. Create space for them to speak.',
+    related: ['growth-mindset', 'dunning-kruger-effect', 'trust'],
+  },
 };
