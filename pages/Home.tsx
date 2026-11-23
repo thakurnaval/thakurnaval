@@ -9,10 +9,12 @@ import { FEATURED_ARTICLES, RECENT_TALKS, PROFILE_IMAGE_URL, PROJECTS } from '..
 import ProjectCard from '../components/ProjectCard';
 
 const Home: React.FC = () => {
+  // Fallback covers for articles without their own image (all checked to load).
   const ARTICLE_IMAGES = [
-    "1607799276041-8054e2dc6981", 
-    "1555949963-ff9fe0c870eb", 
-    "1551288049-bebda4e38f71", 
+    "1550751827-4bd374c3f58b",
+    "1555949963-ff9fe0c870eb",
+    "1551288049-bebda4e38f71",
+    "1554224155-6726b3ff858f",
   ];
 
   const homeSchema = {
@@ -31,7 +33,7 @@ const Home: React.FC = () => {
     <>
       <SEO 
         title="Naval Thakur | DevOps, FinOps & GenAI Transformation Consultant"
-        description="Naval Thakur provides enterprise-grade coaching in DevSecOps, FinOps, GenAI strategy, and System Architecture. Explore 18+ years of engineering leadership expertise."
+        description="Naval Thakur provides enterprise-grade coaching in DevSecOps, FinOps, GenAI strategy, and System Architecture. Explore 20+ years of engineering leadership expertise."
         structuredData={homeSchema}
       />
       
@@ -53,7 +55,7 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row items-start justify-between gap-12">
             <div className="md:w-1/2 space-y-6">
               <div className="inline-block px-4 py-1.5 rounded-full border border-slate-500 bg-slate-800/50 backdrop-blur-sm text-sm font-medium text-highlight">
-                Practice Manager, SLB &nbsp;·&nbsp; 18+ Years in Enterprise Cloud
+                Practice Manager, SLB &nbsp;·&nbsp; 20+ Years in Enterprise Cloud
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white shadow-sm">
                 Naval Thakur
@@ -94,7 +96,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
             {[
               { value: '$600K+', label: 'Cost Savings Delivered', sub: 'Single migration, Genpact' },
-              { value: '18+', label: 'Years of Experience', sub: 'Enterprise cloud & DevOps' },
+              { value: '20+', label: 'Years of Experience', sub: 'Enterprise cloud & DevOps' },
               { value: '35+', label: 'Projects Delivered', sub: 'Across 3 cloud platforms' },
               { value: '30%', label: 'Avg. Cloud Cost Reduction', sub: 'Via FinOps practices' },
               { value: '5', label: 'Expertise Pillars', sub: 'DevOps · SecOps · FinOps · GenAI · Architecture' },
@@ -203,7 +205,7 @@ const Home: React.FC = () => {
           </div>
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Trusted by Engineers & Leaders</h2>
           <p className="text-slate-600 dark:text-slate-400">
-            Feedback from the teams, peers, and mentees Naval has worked with across 18+ years.
+            Feedback from the teams, peers, and mentees Naval has worked with across 20+ years.
           </p>
         </div>
         <Testimonials />
@@ -220,8 +222,8 @@ const Home: React.FC = () => {
             View all talks <ArrowRight size={16} className="ml-1" />
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {RECENT_TALKS.map((talk, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {RECENT_TALKS.slice(0, 8).map((talk, idx) => (
             <div key={idx} className="bg-white dark:bg-slate-800 p-6 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
               <div className="flex flex-wrap gap-2 mb-4">
                 {talk.tags.map(tag => (
@@ -272,14 +274,15 @@ const Home: React.FC = () => {
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Latest Insights</h2>
           <p className="text-slate-600 dark:text-slate-400">Deep dives into tools, culture, and methodology. Explore our <Link to="/articles" className="text-secondary-dark dark:text-secondary hover:underline">article archives</Link>.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {FEATURED_ARTICLES.map((article, idx) => (
             <Link key={idx} to={article.link} className="group block">
                <div className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700">
                  <div className="h-48 bg-slate-200 dark:bg-slate-700 w-full object-cover relative">
                     <img 
-                      src={`https://images.unsplash.com/photo-${ARTICLE_IMAGES[idx % ARTICLE_IMAGES.length]}?q=80&w=600&auto=format&fit=crop`}
-                      alt={`Article cover for: ${article.title}`} 
+                      src={`https://images.unsplash.com/photo-${article.image ?? ARTICLE_IMAGES[idx % ARTICLE_IMAGES.length]}?q=80&w=600&auto=format&fit=crop`}
+                      alt=""
+                      onError={e => { e.currentTarget.style.visibility = 'hidden'; }}
                       className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity"
                       loading="lazy"
                     />

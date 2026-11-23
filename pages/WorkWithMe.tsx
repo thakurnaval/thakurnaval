@@ -121,7 +121,7 @@ const WorkWithMe: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Work With Naval</h1>
           <p className="text-xl text-slate-200 max-w-2xl leading-relaxed">
-            Three ways to bring Naval's 18+ years of enterprise cloud experience into your organisation — from a single keynote to a six-month transformation engagement.
+            Three ways to bring Naval's 20+ years of enterprise cloud experience into your organisation — from a single keynote to a six-month transformation engagement.
           </p>
         </div>
       </div>

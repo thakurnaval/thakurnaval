@@ -20,13 +20,13 @@
 
 ## Short Bio (under 100 words — for conference programmes)
 
-Naval Thakur is a Practice Manager at SLB with 18+ years of enterprise cloud transformation experience across DevSecOps, FinOps, and Generative AI. He created the CognitiveOps Maturity Model — a four-layer framework helping organisations move from manual operations to AI-autonomous engineering. Naval holds 39+ professional certifications including FinOps Certified Practitioner, Google Cloud GenAI Leader, CKA, and AWS Solutions Architect. MBA Gold Medalist from MDI Gurgaon. Practitioner-first speaker — every session is built on real transformation lessons, not vendor narratives.
+Naval Thakur is a Practice Manager at SLB with 20+ years of enterprise cloud transformation experience across DevSecOps, FinOps, and Generative AI. He created the CognitiveOps Maturity Model — a four-layer framework helping organisations move from manual operations to AI-autonomous engineering. Naval holds 39+ professional certifications including FinOps Certified Practitioner, Google Cloud GenAI Leader, CKA, and AWS Solutions Architect. MBA Gold Medalist from MDI Gurgaon. Practitioner-first speaker — every session is built on real transformation lessons, not vendor narratives.
 
 ---
 
 ## Full Bio (for website, LinkedIn, and speaker kit)
 
-Naval Thakur is an enterprise cloud and DevOps leader with 18+ years of hands-on experience transforming engineering organisations at scale. As Practice Manager at SLB, one of the world's largest energy technology companies, he has led DevSecOps, FinOps, and GenAI adoption programmes spanning global delivery teams, saving over $600K in cloud costs and accelerating delivery cycles across dozens of projects.
+Naval Thakur is an enterprise cloud and DevOps leader with 20+ years of hands-on experience transforming engineering organisations at scale. As Practice Manager at SLB, one of the world's largest energy technology companies, he has led DevSecOps, FinOps, and GenAI adoption programmes spanning global delivery teams, saving over $600K in cloud costs and accelerating delivery cycles across dozens of projects.
 
 Naval is the creator of the **CognitiveOps Maturity Model** — a four-layer framework that maps an organisation's journey from manual, reactive operations (Layer 1) through automation and intelligent tooling, to AI-autonomous engineering at scale (Layer 4). The model is freely available at nthakur.com and has been used to assess and guide dozens of engineering teams.
 
@@ -55,7 +55,7 @@ Eight sessions available on Sessionize. Abstracts below are the canonical versio
 **Audience:** Engineering leaders, architects, CTOs, DevOps practitioners
 
 **Abstract:**  
-Most organisations are still celebrating the fact that they have a CI/CD pipeline. But the frontier has already moved. In this talk, Naval maps the next five years of enterprise engineering — from the automation we have now to the AI-orchestrated, self-healing, policy-driven systems that forward-thinking organisations are already piloting. Drawing on the CognitiveOps Maturity Model — a four-layer framework developed from 18+ years of enterprise transformation — Naval shows audiences exactly where they sit today, what Layer 4 looks like in practice, and the specific decisions that separate organisations that will lead this transition from those that will follow. Practitioner-first, no vendor slides, and genuinely actionable.
+Most organisations are still celebrating the fact that they have a CI/CD pipeline. But the frontier has already moved. In this talk, Naval maps the next five years of enterprise engineering — from the automation we have now to the AI-orchestrated, self-healing, policy-driven systems that forward-thinking organisations are already piloting. Drawing on the CognitiveOps Maturity Model — a four-layer framework developed from 20+ years of enterprise transformation — Naval shows audiences exactly where they sit today, what Layer 4 looks like in practice, and the specific decisions that separate organisations that will lead this transition from those that will follow. Practitioner-first, no vendor slides, and genuinely actionable.
 
 **Key takeaways:**
 - The four CognitiveOps maturity layers and how to self-assess your organisation in under 10 minutes

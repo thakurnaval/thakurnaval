@@ -105,7 +105,7 @@ const Newsletter: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">The CognitiveOps Brief</h1>
           <p className="text-xl text-slate-200 max-w-2xl leading-relaxed mb-8">
-            Every two weeks: one real-world CloudOps lesson, one tool worth knowing, one GenAI pattern to try. From 18 years in the field. Under 5 minutes.
+            Every two weeks: one real-world CloudOps lesson, one tool worth knowing, one GenAI pattern to try. From 20+ years in the field. Under 5 minutes.
           </p>
           <div className="flex flex-wrap gap-6 text-sm text-slate-300">
             {[
@@ -201,7 +201,7 @@ const Newsletter: React.FC = () => {
               {
                 icon: BookOpen,
                 title: 'One real-world lesson',
-                desc: 'A pattern, failure mode, or hard-won insight from 18 years running DevOps and cloud transformations in enterprise organisations.',
+                desc: 'A pattern, failure mode, or hard-won insight from 20+ years running DevOps and cloud transformations in enterprise organisations.',
                 color: 'text-blue-600 dark:text-blue-400',
                 bg: 'bg-blue-50 dark:bg-blue-900/20',
               },

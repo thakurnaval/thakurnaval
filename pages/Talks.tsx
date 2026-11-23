@@ -24,7 +24,7 @@ const Talks: React.FC = () => {
 |---|---|
 | **Role** | Practice Manager, SLB |
 | **Location** | Pune, India |
-| **Experience** | 18+ years enterprise cloud transformation |
+| **Experience** | 20+ years enterprise cloud transformation |
 | **Website** | https://nthakur.com |
 | **Sessionize** | https://sessionize.com/nthakur/ |
 | **LinkedIn** | https://linkedin.com/in/navalthakur |
@@ -35,13 +35,13 @@ const Talks: React.FC = () => {
 
 ## Short Bio (under 100 words)
 
-Naval Thakur is a Practice Manager at SLB with 18+ years of enterprise cloud transformation experience across DevSecOps, FinOps, and Generative AI. He created the CognitiveOps Maturity Model — a four-layer framework helping organisations move from manual operations to AI-autonomous engineering. Naval holds 39+ professional certifications including FinOps Certified Practitioner, Google Cloud GenAI Leader, CKA, and AWS Solutions Architect. MBA Gold Medalist from MDI Gurgaon. Practitioner-first speaker — every session is built on real transformation lessons, not vendor narratives.
+Naval Thakur is a Practice Manager at SLB with 20+ years of enterprise cloud transformation experience across DevSecOps, FinOps, and Generative AI. He created the CognitiveOps Maturity Model — a four-layer framework helping organisations move from manual operations to AI-autonomous engineering. Naval holds 39+ professional certifications including FinOps Certified Practitioner, Google Cloud GenAI Leader, CKA, and AWS Solutions Architect. MBA Gold Medalist from MDI Gurgaon. Practitioner-first speaker — every session is built on real transformation lessons, not vendor narratives.
 
 ---
 
 ## Full Bio
 
-Naval Thakur is an enterprise cloud and DevOps leader with 18+ years of hands-on experience transforming engineering organisations at scale. As Practice Manager at SLB, one of the world's largest energy technology companies, he has led DevSecOps, FinOps, and GenAI adoption programmes spanning global delivery teams, saving over $600K in cloud costs and accelerating delivery cycles across dozens of projects.
+Naval Thakur is an enterprise cloud and DevOps leader with 20+ years of hands-on experience transforming engineering organisations at scale. As Practice Manager at SLB, one of the world's largest energy technology companies, he has led DevSecOps, FinOps, and GenAI adoption programmes spanning global delivery teams, saving over $600K in cloud costs and accelerating delivery cycles across dozens of projects.
 
 Naval is the creator of the CognitiveOps Maturity Model — a four-layer framework that maps an organisation's journey from manual, reactive operations through automation and intelligent tooling, to AI-autonomous engineering at scale. The model is freely available at nthakur.com and used to assess and guide engineering teams worldwide.
 

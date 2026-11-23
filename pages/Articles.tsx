@@ -7,7 +7,7 @@ import SEO from '../components/SEO';
 import { FEATURED_ARTICLES } from '../constants';
 
 const TECH_IMAGES = [
-  "1607799276041-8054e2dc6981",
+  "1555949963-ff9fe0c870eb",
   "1550751827-4bd374c3f58b",
   "1551288049-bebda4e38f71",
   "1518770660439-4636190af475",
@@ -88,8 +88,9 @@ const Articles: React.FC = () => {
                 >
                   <div className="h-48 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
                     <img
-                      src={`https://images.unsplash.com/photo-${TECH_IMAGES[idx % TECH_IMAGES.length]}?q=80&w=600&auto=format&fit=crop`}
-                      alt={article.title}
+                      src={`https://images.unsplash.com/photo-${article.image ?? TECH_IMAGES[idx % TECH_IMAGES.length]}?q=80&w=600&auto=format&fit=crop`}
+                      alt=""
+                      onError={e => { e.currentTarget.style.visibility = 'hidden'; }}
                       className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                       width="600"

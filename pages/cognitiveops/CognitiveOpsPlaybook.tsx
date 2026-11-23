@@ -98,7 +98,7 @@ const generatePlaybookPDF = (email: string) => {
 <div class="page">
   <div class="tag">Introduction</div>
   <h1>Why This Playbook Exists</h1>
-  <p>After 18 years of leading DevOps and cloud transformations across energy, technology, and global delivery — one pattern repeats with almost clockwork regularity:</p>
+  <p>After 20+ years of leading DevOps and cloud transformations across energy, technology, and global delivery — one pattern repeats with almost clockwork regularity:</p>
   <p style="font-style:italic; color:#271789; font-size:14px; padding:16px; border-left:4px solid #00f1d4; background:#f0fdf4; margin:16px 0">
     "Organisations that automate everything still aren't operating intelligently."
   </p>

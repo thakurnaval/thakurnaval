@@ -300,7 +300,7 @@ const About: React.FC = () => {
       "@type": "Organization",
       "name": "SLB"
     },
-    "description": "Technologist & Transformation Coach specializing in DevSecOps, FinOps, and GenAI with 18+ years of experience."
+    "description": "Technologist & Transformation Coach specializing in DevSecOps, FinOps, and GenAI with 20+ years of experience."
   };
 
   const getRoleIcon = (title: string) => {
@@ -316,14 +316,14 @@ const About: React.FC = () => {
     <>
       <SEO 
         title="About Naval Thakur | Technology Transformation Leader"
-        description="Discover Naval Thakur's 18+ year journey in DevSecOps leadership, cloud architecture, and FinOps at global firms like SLB and Genpact."
+        description="Discover Naval Thakur's 20+ year journey in DevSecOps leadership, cloud architecture, and FinOps at global firms like SLB and Genpact."
         structuredData={personSchema}
       />
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Naval</h1>
           <p className="text-xl text-slate-100 max-w-2xl">
-             18+ Years in DevSecOps, CloudOps, and FinOps Leadership.
+             20+ Years in DevSecOps, CloudOps, and FinOps Leadership.
           </p>
         </div>
       </div>
@@ -362,7 +362,7 @@ const About: React.FC = () => {
                <div className="grid grid-cols-2 gap-4">
                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-slate-100 dark:border-slate-700">
                     <Globe className="w-6 h-6 mx-auto text-secondary-dark dark:text-secondary mb-2" />
-                    <span className="block text-2xl font-bold text-primary dark:text-white">18+</span>
+                    <span className="block text-2xl font-bold text-primary dark:text-white">20+</span>
                     <span className="text-xs text-slate-500">Years Exp</span>
                  </div>
                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-slate-100 dark:border-slate-700">
@@ -381,13 +381,13 @@ const About: React.FC = () => {
              <div className="mb-12">
                <h2 className="text-3xl font-bold text-primary dark:text-white mb-6">Professional Bio</h2>
                <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                 Naval Thakur is a seasoned technologist and transformation leader with over 18 years of experience helping enterprises scale their software delivery and operations. He has successfully led large-scale DevSecOps initiatives, cloud migrations, and FinOps implementations in complex, regulated environments across Energy, Technology, and Global Delivery sectors.
+                 Naval Thakur is a seasoned technologist and transformation leader with 20+ years of experience helping enterprises scale their software delivery and operations. He has successfully led large-scale DevSecOps initiatives, cloud migrations, and FinOps implementations in complex, regulated environments across Energy, Technology, and Global Delivery sectors.
                </p>
                
                <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-xl border-l-4 border-secondary shadow-sm">
                  <h3 className="text-lg font-bold text-primary dark:text-white mb-3">Value Proposition</h3>
                  <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
-                   "Empowering enterprises with over 18 years of experience leading DevSecOps, FinOps, System Architecture, SRE, and AIOps initiatives across complex, cloud-native environments. Having guided multi-disciplinary teams and multi-million-dollar cloud portfolios, the focus is on aligning technical delivery with measurable business value. Through secure-by-design architectures, cost-optimized cloud operations, and resilient delivery pipelines, this work has helped organizations reduce risk, improve reliability, and significantly lower operational and cloud spend."
+                   "Empowering enterprises with 20+ years of experience leading DevSecOps, FinOps, System Architecture, SRE, and AIOps initiatives across complex, cloud-native environments. Having guided multi-disciplinary teams and multi-million-dollar cloud portfolios, the focus is on aligning technical delivery with measurable business value. Through secure-by-design architectures, cost-optimized cloud operations, and resilient delivery pipelines, this work has helped organizations reduce risk, improve reliability, and significantly lower operational and cloud spend."
                  </p>
                </div>
              </div>

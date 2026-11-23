@@ -159,25 +159,29 @@ export const FEATURED_ARTICLES: ArticleProps[] = [
     title: "Cognitive DevSecOps: The Next Frontier",
     summary: "How Generative AI is transforming traditional DevSecOps into an intelligent, self-healing ecosystem.",
     tag: "GenAI",
-    link: "/secops/cognitive-devsecops"
+    link: "/secops/cognitive-devsecops",
+    image: "1550751827-4bd374c3f58b"
   },
   {
     title: "Fun with DevOps: Gamifying the Pipeline",
     summary: "How to increase team engagement and reduce build failures using the principles of game design — leaderboards, streaks, and fast feedback loops.",
     tag: "DevOps",
-    link: "/articles/gamifying-devops-pipeline"
+    link: "/articles/gamifying-devops-pipeline",
+    image: "1555949963-ff9fe0c870eb"
   },
   {
     title: "SecOps: Bridging the Gap",
     summary: "Practical steps to align your security team with your agile delivery cycle — closing the timing, language, and tooling gaps that create risk.",
     tag: "SecOps",
-    link: "/articles/secops-bridging-the-gap"
+    link: "/articles/secops-bridging-the-gap",
+    image: "1551288049-bebda4e38f71"
   },
   {
     title: "Becoming a FinOps Certified Practitioner",
     summary: "A practitioner's 8-week study guide and real-world advice for passing the FOCP exam — from someone who has done it.",
     tag: "FinOps",
-    link: "/articles/finops-certified-practitioner"
+    link: "/articles/finops-certified-practitioner",
+    image: "1554224155-6726b3ff858f"
   }
 ];
 

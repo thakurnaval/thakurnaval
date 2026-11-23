@@ -5,7 +5,7 @@
 <h1 align="center">Naval Thakur</h1>
 <p align="center">
   <strong>DevOps • SecOps • FinOps • GenAI • Architecture</strong><br>
-  <em>Technologist & Transformation Coach | 18+ Years of Engineering Excellence</em>
+  <em>Technologist & Transformation Coach | 20+ Years of Engineering Excellence</em>
 </p>
 
 <p align="center">
@@ -26,7 +26,7 @@
 ---
 
 ### 🚀 Professional Bio
-I help enterprises build resilient, secure, and cost-effective cloud ecosystems. With over 18 years of experience, I've led large-scale **DevSecOps** transformations, established **FinOps** frameworks at global firms like SLB, and am currently operationalizing **GenAI** for intelligent CloudOps.
+I help enterprises build resilient, secure, and cost-effective cloud ecosystems. With 20+ years of experience, I've led large-scale **DevSecOps** transformations, established **FinOps** frameworks at global firms like SLB, and am currently operationalizing **GenAI** for intelligent CloudOps.
 
 ### 🛠️ Expertise Pillars
 <table width="100%">

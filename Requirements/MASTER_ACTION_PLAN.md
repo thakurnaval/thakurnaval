@@ -257,7 +257,7 @@ These items are done. Listed here for context only.
 | Item | Completed |
 |------|-----------|
 | Hero headline — "Most enterprises have automated their pipelines..." | Apr 2026 |
-| Impact bar — $600K+, 18+ years, 35+ projects | Apr 2026 |
+| Impact bar — $600K+, 20+ years, 35+ projects | Apr 2026 |
 | Newsletter rebrand to "The CognitiveOps Brief" | Apr 2026 |
 | CognitiveOps Maturity Assessment — moved to `/cognitiveops/assessment` (standalone) | Apr 2026 |
 | DevOps Maturity Assessment — rebuilt as standalone at `/devops/assessment` (16 questions, Reactive→Elite) | Apr 2026 |

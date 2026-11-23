@@ -6,7 +6,7 @@ title: About Naval Thakur
 <div class="bg-primary text-white py-20">
     <div class="container mx-auto px-4">
         <h1 class="text-4xl font-bold">About Naval</h1>
-        <p class="text-xl opacity-80">18+ Years leading technology transformations.</p>
+        <p class="text-xl opacity-80">20+ Years leading technology transformations.</p>
     </div>
 </div>
 

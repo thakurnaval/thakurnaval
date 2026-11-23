@@ -190,7 +190,7 @@ const CaseStudies: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Case Studies</h1>
           <p className="text-xl text-slate-200 max-w-2xl leading-relaxed">
-            Real transformations. Real numbers. Drawn from 18+ years of enterprise cloud, DevOps, and FinOps engagements.
+            Real transformations. Real numbers. Drawn from 20+ years of enterprise cloud, DevOps, and FinOps engagements.
           </p>
         </div>
       </div>

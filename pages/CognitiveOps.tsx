@@ -175,7 +175,7 @@ const CognitiveOps: React.FC = () => {
             <div>
               <h2 className="text-3xl font-bold text-primary dark:text-white mb-6">The Insight Behind the Model</h2>
               <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                After 18 years of leading DevOps transformations across energy, technology, and global delivery — one pattern repeats: <strong>organizations that automate everything still aren't operating intelligently.</strong>
+                After 20+ years of leading DevOps transformations across energy, technology, and global delivery — one pattern repeats: <strong>organizations that automate everything still aren't operating intelligently.</strong>
               </p>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
                 They have pipelines that deploy automatically. Security scans that run on every PR. Dashboards showing cloud spend by team. And yet — incidents still surprise them. Cloud costs still spike unexpectedly. Security vulnerabilities still hide in plain sight until an audit finds them.

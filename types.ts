@@ -29,6 +29,8 @@ export interface ArticleProps {
   summary: string;
   tag: string;
   link: string;
+  /** Unsplash photo ID (the part after "photo-") used as the card image. */
+  image?: string;
 }
 
 export interface GalleryImage {

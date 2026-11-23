@@ -9,7 +9,7 @@
 > **Naval Thakur is the practitioner who shows enterprise engineering teams how to move from automated pipelines to AI-native operations — and proves it with a framework, a body of work, and real transformation results.**
 
 ### Why This Positioning Wins
-Every domain (DevOps, FinOps, SecOps, GenAI) has theorists, vendors, and consultants. Few have 18+ years of hands-on enterprise transformation *across all five domains simultaneously*. The CognitiveOps Model is the proof that this breadth is not dilution — it is the unique vantage point.
+Every domain (DevOps, FinOps, SecOps, GenAI) has theorists, vendors, and consultants. Few have 20+ years of hands-on enterprise transformation *across all five domains simultaneously*. The CognitiveOps Model is the proof that this breadth is not dilution — it is the unique vantage point.
 
 ### The Signature Framework: CognitiveOps
 The CognitiveOps Model is the intellectual anchor for all authority building. Every piece of content across every channel should have a gravitational pull back toward it. It is the differentiator that no other practitioner owns.
@@ -23,7 +23,7 @@ The CognitiveOps Model is the intellectual anchor for all authority building. Ev
 
 | Domain | The Claim | The Proof |
 |--------|-----------|-----------|
-| **DevOps** | "I've run CI/CD, SRE, and platform engineering transformations at global scale across energy, tech, and delivery organisations" | 18+ years, SLB, Genpact, Wipro; 7 Cs framework; CognitiveOps Layer 2 |
+| **DevOps** | "I've run CI/CD, SRE, and platform engineering transformations at global scale across energy, tech, and delivery organisations" | 20+ years, SLB, Genpact, Wipro; 7 Cs framework; CognitiveOps Layer 2 |
 | **SecOps** | "Security embedded at every layer — from shifting left in PRs to autonomous policy enforcement" | Cognitive DevSecOps model; STRIDE threat modelling practice; 5 SecOps certifications |
 | **FinOps** | "I built the FinOps practice at SLB, saving $600K+ in cloud spend while creating cross-functional accountability" | FinOps Certified Practitioner (Linux Foundation); frameworks at scale; conference speaker |
 | **AI / GenAI** | "I operationalise AI for engineering organisations — LLMOps, RAG, AI Agents — not demos, production systems" | Google Cloud GenAI Leader; CognitiveOps Layers 3–4; AI in SDLC framework |
@@ -307,7 +307,7 @@ The signature angle is the self-assessment hook. Most organisations believe they
 | Ask Me Anything (async) | Written | ₹999 | $12 | Anyone | Written response to a specific technical or career question within 48 hours |
 
 **Positioning copy for Topmate bio:**
-> Practice Manager at SLB · Creator of the CognitiveOps Maturity Model · FinOps Certified Practitioner · Google Cloud GenAI Leader · 18+ years of enterprise cloud transformation · 39+ certifications. I work 1:1 with engineering leaders and practitioners on DevOps maturity, FinOps implementation, GenAI adoption, and cloud career acceleration. Every session is practitioner-first — no generic advice, no slides you've seen before.
+> Practice Manager at SLB · Creator of the CognitiveOps Maturity Model · FinOps Certified Practitioner · Google Cloud GenAI Leader · 20+ years of enterprise cloud transformation · 39+ certifications. I work 1:1 with engineering leaders and practitioners on DevOps maturity, FinOps implementation, GenAI adoption, and cloud career acceleration. Every session is practitioner-first — no generic advice, no slides you've seen before.
 
 **Topmate → authority flywheel:**
 1. Client takes Topmate session
@@ -549,7 +549,7 @@ Third-party endorsements that validate authority in the eyes of employers, confe
 | # | Target | Domain | Why it fits |
 |---|--------|--------|------------|
 | 1 | **LinkedIn Top Voice** | All domains | Algorithmic recognition driven by sustained posting cadence and engagement — the work is already planned. The badge amplifies reach and signals credibility to inbound visitors. |
-| 2 | **NASSCOM Community Contributor** | Enterprise tech | India-based, 18+ years enterprise tech, established conference speaker. Highest-value India-market credibility signal. Opens access to NASSCOM events, enterprise CXO network, and publication opportunities. |
+| 2 | **NASSCOM Community Contributor** | Enterprise tech | India-based, 20+ years enterprise tech, established conference speaker. Highest-value India-market credibility signal. Opens access to NASSCOM events, enterprise CXO network, and publication opportunities. |
 | 3 | **Gartner Peer Insights Reviewer** | All tools used in production | Entry point to the Gartner analyst relationship. Write verified, detailed reviews of enterprise tools used at SLB (Terraform, Azure DevOps, K8s, GCP, Harness, etc.). Builds Gartner profile visibility ahead of any Invited Contributor conversation. |
 | 4 | **Microsoft MVP** | DevOps / Developer Technologies | AZ-400, AI/Data/Security/Identity fundamentals, Microsoft DevCon Pune speaking history. DevOps or Developer Technologies category. Nomination-based — requires a community referee plus 6–12 months of documented contributions (blog posts, forum answers, speaking, GitHub). |
 | 5 | **FinOps Foundation Fellow** | FinOps | Recognised sustained contribution to the FinOps community. FinOps Certified Practitioner is the baseline credential. Fellowship requires speaking at FinOps Foundation events, contributing to Special Interest Groups (SIGs), and authoring community content. Nominated by foundation staff. |
@@ -625,7 +625,7 @@ Q2 2027 (Apr – Jun)
         Action: Assess eligibility — requires VP/Director/Practice Head level title or equivalent
         Action: Request application at forbestechcouncil.com
         Action: Prepare executive profile: headline achievements ($600K savings, CognitiveOps Model,
-                18+ years, 39+ certs, SLB Practice Manager)
+                20+ years, 39+ certs, SLB Practice Manager)
         Milestone: Application submitted; decision within 4–6 weeks of application
 ```
 

@@ -55,7 +55,7 @@ const DevOpsism: React.FC = () => (
           DevOps is not a toolchain. It is not a job title. It is an operating philosophy, and most organisations have bought the tools without adopting the philosophy. <em>DevOpsism</em> is about what DevOps actually requires, what it looks like when it works, and how to get there without lying to yourself about where you are today.
         </p>
         <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-          It draws on two decades of building and leading engineering teams, the talks on <Link to="/talks" className="text-primary dark:text-secondary underline">this site</Link>, and the <Link to="/cognitiveops" className="text-primary dark:text-secondary underline">CognitiveOps Model</Link>.
+          It draws on 20+ years of building and leading engineering teams, the talks on <Link to="/talks" className="text-primary dark:text-secondary underline">this site</Link>, and the <Link to="/cognitiveops" className="text-primary dark:text-secondary underline">CognitiveOps Model</Link>.
         </p>
         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">Written for</h3>
         <ul className="space-y-2 mb-4">

@@ -12,7 +12,7 @@ title: Home | Naval Thakur
             <div class="md:w-1/2 space-y-6">
                 <span class="inline-block px-4 py-1 rounded-full bg-slate-800 text-secondary text-sm font-bold uppercase tracking-wider">Technologist & Coach</span>
                 <h1 class="text-5xl md:text-7xl font-bold">Naval Thakur</h1>
-                <p class="text-xl text-slate-200">18+ Years of Expertise in DevOps, FinOps, and GenAI Strategy.</p>
+                <p class="text-xl text-slate-200">20+ Years of Expertise in DevOps, FinOps, and GenAI Strategy.</p>
                 <div class="flex gap-4">
                     <a href="/contact/" class="bg-secondary text-primary px-8 py-3 rounded-lg font-bold hover:bg-white transition-all">Book a Workshop</a>
                     <a href="/devops/" class="border border-white/30 px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition-all">Explore Pillars</a>

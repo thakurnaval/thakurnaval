@@ -82,7 +82,7 @@ const Community: React.FC = () => {
     <>
       <SEO
         title="Community & Free Mentoring | Naval Thakur"
-        description="Free 1-on-1 mentoring, resume reviews, mock interviews, and monthly office hours from Naval Thakur — 18+ years of DevOps, FinOps, and cloud leadership."
+        description="Free 1-on-1 mentoring, resume reviews, mock interviews, and monthly office hours from Naval Thakur — 20+ years of DevOps, FinOps, and cloud leadership."
       />
 
       {/* Hero */}
