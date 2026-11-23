@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import SimplePage from '../../components/SimplePage';
 import { ShieldCheck, AlertTriangle, GitMerge, CheckCircle2, Clock, Users, Layers, ArrowRight } from 'lucide-react';
 
+// Full class names so the compiled Tailwind build includes them.
+const GAP_COLORS = {
+  blue: { box: 'bg-blue-100 dark:bg-blue-900/20', icon: 'text-blue-600 dark:text-blue-400' },
+  amber: { box: 'bg-amber-100 dark:bg-amber-900/20', icon: 'text-amber-600 dark:text-amber-400' },
+  green: { box: 'bg-green-100 dark:bg-green-900/20', icon: 'text-green-600 dark:text-green-400' },
+} as const;
+
 const SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
@@ -114,8 +121,8 @@ const SecOpsBridgingTheGap: React.FC = () => {
             ].map(({ icon: Icon, color, title, problem, fix }) => (
               <div key={title} className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`p-2 rounded-lg bg-${color}-100 dark:bg-${color}-900/20 shrink-0`}>
-                    <Icon className={`w-6 h-6 text-${color}-600 dark:text-${color}-400`} />
+                  <div className={`p-2 rounded-lg shrink-0 ${GAP_COLORS[color as keyof typeof GAP_COLORS].box}`}>
+                    <Icon className={`w-6 h-6 ${GAP_COLORS[color as keyof typeof GAP_COLORS].icon}`} />
                   </div>
                   <h3 className="text-lg font-bold text-primary dark:text-white mt-1">{title}</h3>
                 </div>

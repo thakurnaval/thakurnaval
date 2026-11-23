@@ -349,9 +349,11 @@ function generateFieldGuidePDF(email: string) {
   ${footer(7)}
 </div>
 
-<script>setTimeout(() => window.print(), 400);</script>
 </body></html>`);
   win.document.close();
+  // Print from this page: the new window inherits the site CSP, which blocks inline scripts.
+  win.focus();
+  setTimeout(() => win.print(), 400);
 }
 
 // â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€

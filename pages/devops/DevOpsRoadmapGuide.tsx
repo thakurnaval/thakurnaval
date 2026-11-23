@@ -279,9 +279,11 @@ const generateDevOpsRoadmapPDF = (email: string) => {
   <div class="footer"><span>DevOps Maturity Roadmap · nthakur.com · © Naval Thakur 2026 · All rights reserved</span><span>Page 4</span></div>
 </div>
 
-<script>setTimeout(() => window.print(), 400);</script>
 </body></html>`);
   win.document.close();
+  // Print from this page: the new window inherits the site CSP, which blocks inline scripts.
+  win.focus();
+  setTimeout(() => win.print(), 400);
 };
 
 const SCHEMA = {

@@ -10,6 +10,8 @@ RUN npm ci
 # Copy source and build
 COPY . .
 RUN npm run build
+# Fail the image (and so the deploy) on broken internal links or missing CSS classes
+RUN npm run check
 
 # ── Stage 2: Serve ───────────────────────────────────────────────────────────
 FROM nginx:alpine AS runner

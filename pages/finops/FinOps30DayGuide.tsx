@@ -323,9 +323,11 @@ const generateFinOps30DayPDF = (email: string) => {
   <div class="footer"><span>30 Days of FinOps · nthakur.com · © Naval Thakur 2026 · All rights reserved</span><span>Page 5</span></div>
 </div>
 
-<script>setTimeout(() => window.print(), 400);</script>
 </body></html>`);
   win.document.close();
+  // Print from this page: the new window inherits the site CSP, which blocks inline scripts.
+  win.focus();
+  setTimeout(() => win.print(), 400);
 };
 
 const SCHEMA = {

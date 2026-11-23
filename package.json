@@ -8,7 +8,8 @@
     "build": "vite build",
     "postbuild": "vite build --ssr entry-server.tsx --outDir dist/server && tsx prerender.ts",
     "lint": "tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "node scripts/check-css-classes.mjs && node scripts/check-links.mjs && node scripts/check-csp.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
@@ -24,6 +25,9 @@
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.7.0",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^3.4.19",
     "tsx": "^4.23.0",
     "typescript": "^5.2.2",
     "vite": "^7.3.8"

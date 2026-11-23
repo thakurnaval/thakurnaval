@@ -11,8 +11,11 @@ export const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 export function openPrintable(html: string) {
   const win = window.open('', '_blank');
   if (!win) return;
-  win.document.write(html.replace('</body>', '<script>setTimeout(() => window.print(), 400);</script></body>'));
+  win.document.write(html);
   win.document.close();
+  // Print from this page: the new window inherits the site CSP, which blocks inline scripts.
+  win.focus();
+  setTimeout(() => win.print(), 400);
 }
 
 interface Props {
