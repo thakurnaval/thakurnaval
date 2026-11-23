@@ -74,6 +74,10 @@ on:
   push:
     branches:
       - main
+    # Standalone apps under apps/ have their own deploy workflows
+    paths-ignore:
+      - 'apps/**'
+      - '.github/workflows/deploy-*.yml'
   workflow_dispatch:
 
 env:
