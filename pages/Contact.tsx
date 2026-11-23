@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { trackLead } from '../src/services/analytics';
 import PrivacyNote from '../components/PrivacyNote';
 import { useLocation } from 'react-router-dom';
 import { Mail, MapPin, Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
@@ -56,6 +57,7 @@ const Contact: React.FC = () => {
         body: form,
         mode: 'no-cors' 
       });
+      trackLead('contact-form');
 
       // Since 'no-cors' doesn't return a readable response body, 
       // we assume success if the fetch doesn't throw.

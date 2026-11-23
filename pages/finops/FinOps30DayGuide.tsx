@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackLead, trackDownload } from '../../src/services/analytics';
 import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
@@ -29,6 +30,7 @@ const INCLUDES = [
 
 const generateFinOps30DayPDF = (email: string) => {
   const win = window.open('', '_blank');
+  trackDownload('30 Days of FinOps');
   if (!win) return;
   win.document.write(`<!DOCTYPE html>
 <html lang="en">
@@ -365,6 +367,7 @@ const FinOps30DayGuide: React.FC = () => {
       form.append('topic', '30 Days of FinOps Guide Download');
       form.append('message', 'User requested 30 Days of FinOps Guide.');
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead('finops-30-day');
       setStatus('success');
     } catch {
       setStatus('error');

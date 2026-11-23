@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackLead } from '../src/services/analytics';
 import PrivacyNote from '../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import { Mic2, Download, ExternalLink, Mail, Loader2, CheckCircle2 } from 'lucide-react';
@@ -177,6 +178,7 @@ An honest assessment of where distributed ledger technology actually delivers en
       form.append('topic', 'Speaker Kit Download');
       form.append('message', 'User requested Speaker Kit download.');
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead('speaker-kit');
       setKitStatus('success');
       triggerKitDownload(kitEmail);
     } catch {

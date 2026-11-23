@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackLead, trackDownload } from '../../src/services/analytics';
 import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
@@ -29,6 +30,7 @@ const DOMAINS = [
 
 const generateDevOpsRoadmapPDF = (email: string) => {
   const win = window.open('', '_blank');
+  trackDownload('DevOps Maturity Roadmap');
   if (!win) return;
   win.document.write(`<!DOCTYPE html>
 <html lang="en">
@@ -321,6 +323,7 @@ const DevOpsRoadmapGuide: React.FC = () => {
       form.append('topic', 'DevOps Maturity Roadmap PDF Download');
       form.append('message', 'User requested DevOps Maturity Roadmap PDF.');
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead('devops-roadmap');
       setStatus('success');
     } catch {
       setStatus('error');

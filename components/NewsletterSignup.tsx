@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { trackLead } from '../src/services/analytics';
 import PrivacyNote from './PrivacyNote';
 import { Mail, ArrowRight, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 
@@ -26,6 +27,7 @@ const NewsletterSignup: React.FC = () => {
         body: form,
         mode: 'no-cors'
       });
+      trackLead('newsletter');
 
       setStatus('success');
       setEmail('');

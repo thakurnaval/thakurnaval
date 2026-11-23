@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackLead, trackDownload } from '../../src/services/analytics';
 import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
@@ -386,6 +387,7 @@ const AgileAssessment: React.FC = () => {
         pillarScores.map(p => `${p.key}=L${p.layer}`).join(', ')
       );
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead('agile-assessment');
       setStep(RESULTS_STEP);
     } catch {
       setEmailStatus('error');
@@ -395,6 +397,7 @@ const AgileAssessment: React.FC = () => {
   const handleDownloadPDF = () => {
     const html = generateReportHTML(overallLayer, pillarScores, email);
     const win = window.open('', '_blank');
+    trackDownload('Agile assessment report');
     if (!win) return;
     win.document.write(html);
     win.document.close();

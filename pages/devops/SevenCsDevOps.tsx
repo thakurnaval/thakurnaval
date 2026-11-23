@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackLead, trackDownload } from '../../src/services/analytics';
 import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
@@ -22,6 +23,7 @@ const SEVEN_CS = [
 
 const generateSevenCsPDF = (email: string) => {
   const win = window.open('', '_blank');
+  trackDownload('7 Cs of DevOps');
   if (!win) return;
   win.document.write(`<!DOCTYPE html>
 <html lang="en">
@@ -355,6 +357,7 @@ const SevenCsDevOps: React.FC = () => {
       form.append('topic', '7 Cs of DevOps Mini-Guide Download');
       form.append('message', 'User requested 7 Cs of DevOps Mini-Guide.');
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead('7cs-devops');
       setStatus('success');
     } catch {
       setStatus('error');

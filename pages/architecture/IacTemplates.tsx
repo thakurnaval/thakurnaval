@@ -4,6 +4,7 @@ import { Boxes, Copy, Check, Download, Lock, ArrowRight } from 'lucide-react';
 import Section from '../../components/Section';
 import SEO from '../../components/SEO';
 import { GatedGuideHero } from '../../components/GatedGuide';
+import { trackDownload } from '../../src/services/analytics';
 import { IAC_TEMPLATES, type IacTemplate } from './iacTemplateData';
 
 const PAGE_URL = 'https://nthakur.com/architecture/iac-templates';
@@ -23,6 +24,7 @@ const readUnlocked = () => {
 };
 
 function downloadFile(t: IacTemplate) {
+  trackDownload(`IaC template: ${t.id}`);
   const blob = new Blob([t.code], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');

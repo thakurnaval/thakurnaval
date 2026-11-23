@@ -1,4 +1,5 @@
 ﻿import React, { useMemo, useState } from 'react';
+import { trackLead, trackDownload } from '../../src/services/analytics';
 import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
@@ -223,6 +224,7 @@ const footer = (n: number) => `<div class="footer"><span>The AI-Native SDLC Fiel
 
 function generateFieldGuidePDF(email: string) {
   const win = window.open('', '_blank');
+  trackDownload('AI-Native SDLC Field Guide');
   if (!win) return;
   const ladderRows = STAGES.map(s => `<tr><td class="ladder-stage">${esc(s.name)}</td>${s.ladder.map((c, i) => `<td class="lv${i + 1}">${esc(c)}</td>`).join('')}</tr>`).join('');
   win.document.write(`<!DOCTYPE html>
@@ -376,6 +378,7 @@ const AINativeSDLCGuide: React.FC = () => {
       form.append('topic', 'AI-Native SDLC Field Guide PDF Download');
       form.append('message', `User requested the AI-Native SDLC Field Guide.${answered === READINESS.length ? ` Readiness score: ${score}/24 (${band.level}).` : ''}`);
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead('field-guide');
       setStatus('success');
     } catch {
       setStatus('error');

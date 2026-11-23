@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackLead, trackDownload } from '../../src/services/analytics';
 import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
@@ -33,6 +34,7 @@ const INCLUDES = [
 
 const generatePlaybookPDF = (email: string) => {
   const win = window.open('', '_blank');
+  trackDownload('CognitiveOps Playbook');
   if (!win) return;
 
   win.document.write(`<!DOCTYPE html>
@@ -447,6 +449,7 @@ const CognitiveOpsPlaybook: React.FC = () => {
       form.append('topic', 'CognitiveOps Playbook Download');
       form.append('message', 'User requested CognitiveOps Playbook download.');
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead('cognitiveops-playbook');
       setStatus('success');
     } catch {
       setStatus('error');

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackLead, trackDownload } from '../../src/services/analytics';
 import PrivacyNote from '../../components/PrivacyNote';
 import { Link } from 'react-router-dom';
 import {
@@ -28,6 +29,7 @@ const EXAM_TIPS = [
 
 const generateFinOpsCertPrepPDF = (email: string) => {
   const win = window.open('', '_blank');
+  trackDownload('FinOps Cert Prep');
   if (!win) return;
   win.document.write(`<!DOCTYPE html>
 <html lang="en">
@@ -361,6 +363,7 @@ const FinOpsCertPrep: React.FC = () => {
       form.append('topic', 'FinOps Certified Practitioner Exam Prep Pack Download');
       form.append('message', 'User requested FinOps Cert Prep Pack.');
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead('finops-cert-prep');
       setStatus('success');
     } catch {
       setStatus('error');

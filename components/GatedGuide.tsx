@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackLead, trackDownload } from '../src/services/analytics';
 import PrivacyNote from './PrivacyNote';
 import { CheckCircle2, Download, Lock, Mail, Unlock, Loader2, AlertCircle } from 'lucide-react';
 
@@ -10,6 +11,7 @@ export const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 /** Open a printable HTML document in a new window and trigger the print dialog. */
 export function openPrintable(html: string) {
   const win = window.open('', '_blank');
+  trackDownload(/<title>([^<]*)<\/title>/.exec(html)?.[1] ?? 'guide');
   if (!win) return;
   win.document.write(html);
   win.document.close();
@@ -69,6 +71,7 @@ export const GatedGuideHero: React.FC<Props> = (p) => {
       form.append('topic', p.topic);
       form.append('message', `User requested: ${p.title}.`);
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: form, mode: 'no-cors' });
+      trackLead(p.topic);
       setStatus('success');
       p.onUnlocked?.(email);
     } catch {
