@@ -5,7 +5,7 @@ export const defaults: DefaultsPack = parseDefaults(raw);
 
 /** Deep clone of the raw pack, for tests that mutate defaults. */
 export function rawPack(): Record<string, unknown> {
-  return structuredClone(raw) as Record<string, unknown>;
+  return JSON.parse(JSON.stringify(raw)) as Record<string, unknown>;
 }
 
 type Overrides = {

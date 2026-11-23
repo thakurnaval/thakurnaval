@@ -141,7 +141,7 @@ describe('calculate — energy (ENG-06)', () => {
   });
 
   it('falls back to CNG mileage when the pack has no dual-fuel CNG figure', () => {
-    const pack = structuredClone(defaults);
+    const pack = JSON.parse(JSON.stringify(defaults)) as typeof defaults;
     delete pack.typicalMileage.value.dual_petrol_cng.secondary;
     const r = calculate(input({ vehicle: { fuelType: 'dual_petrol_cng' } }), pack);
     expect(r.assumptions.find((a) => a.path === 'usage.mileage.secondary')!.value).toBe(pack.typicalMileage.value.cng.primary);
