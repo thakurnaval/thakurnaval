@@ -22,12 +22,12 @@ apps/gaadiganit/                 npm workspace root (self-contained, extractable
 | # | Workstream | Depends on | Status |
 | --- | --- | --- | --- |
 | 1 | Engine: schemas, resolve, loan, calculate, tests | — | Done: 54 tests, 100% coverage |
-| 2 | Defaults pack: schema validation in CI, verify placeholder values | 1 (schema) | Schema validated in tests; values still placeholders |
+| 2 | Defaults pack: schema validation in CI, verify placeholder values | 1 (schema) | Fuel prices, road tax and loan rate checked (pack 2026.11.2); the other groups are still placeholders |
 | 3 | Web shell: Vite, Tailwind, routing, i18n (en + hi), Indian formatting, PWA | 1 (types) | Done |
 | 4 | Quick estimate + detailed editor, Zod validation | 1, 3 | Done |
 | 5 | Result screen: headline, breakdown, cumulative chart, assumptions | 1, 3 | Done |
 | 6 | Persistence (IndexedDB, autosave, schema migrations) | 1, 3 | Done |
-| 7 | Deploy: Dockerfile, nginx, `deploy-gaadiganit.yml`, gg.nthakur.com mapping | 3 | Next; needs GCP secrets and DNS |
+| 7 | Deploy: Dockerfile, nginx, `deploy-gaadiganit.yml`, gg.nthakur.com mapping | 3 | Done: live at https://gg.nthakur.com; nthakur.com/gg and /gaadiganit redirect (301) |
 
 Merge order: 1 → 3 → (4, 5, 6 in parallel) → 7. Workstream 2 runs alongside.
 
@@ -67,8 +67,17 @@ Merge order: 1 → 3 → (4, 5, 6 in parallel) → 7. Workstream 2 runs alongsid
 
 Dropped from v2 by the owner (ADR-006): Android app, login and sync, live fuel-price feed.
 
+## Verification (2026-11-23)
+
+| # | Workstream | Status |
+| --- | --- | --- |
+| 20 | Defaults pack 2026.11.2: fuel prices for the four cities, road tax for DL/MH/KA, loan rate checked against news and bank sources | Done; insurance, service, tyres and depreciation still placeholders |
+| 21 | W1–W4 pinned as engine fixtures against a frozen pack (`packages/engine/test/fixtures/`) | Done |
+| 22 | Independent Python implementation of SPEC §4 (`tools/verify/reference_tco.py`) matches the engine to the paisa for W1–W3, every month and every bucket | Done |
+
 ## Still open
 
 - Verify catalogue prices and mileage against maker sites, then set `verified: true` per entry.
-- Verify the placeholder defaults pack; hand-check W1–W4 in a spreadsheet and pin them as fixtures.
+- Verify the remaining placeholder groups: insurance rates, service costs, tyres, depreciation curves, commercial permits.
+- Fuel prices change daily; refresh the pack monthly (bump `version`, add a changelog line).
 - Owner review of Hindi strings.

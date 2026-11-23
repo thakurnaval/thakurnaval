@@ -22,7 +22,7 @@ describe('money', () => {
 
 describe('defaults pack', () => {
   it('validates the shipped pack (NFR-07)', () => {
-    expect(defaults.version).toBe('2026.11.1');
+    expect(defaults.version).toBe('2026.11.2');
     expect(Object.keys(defaults.cities)).toEqual(['delhi', 'mumbai', 'pune', 'bengaluru']);
   });
   it('strips comment keys', () => {

@@ -1,15 +1,16 @@
 {
-  "version": "2026.11.1",
+  "version": "2026.11.2",
   "asOf": "2026-11-23",
   "currency": "INR",
   "_notes": [
     "All money values are integer paise (Rs 1 = 100 paise). All rates are decimal fractions (0.09 = 9%).",
     "Road tax uses the same % of ex-showroom for every category. Many states tax commercial vehicles by weight, quarterly; override road tax in the editor for trucks and buses.",
-    "Every group marked source=PLACEHOLDER holds approximate figures from general knowledge. Verify against the sources listed in docs/SPEC.md section 6 before launch."
+    "Groups marked source=PLACEHOLDER hold approximate figures from general knowledge; other groups name where the figure was checked. Verify against the sources listed in docs/SPEC.md section 6."
   ],
   "changelog": [
     { "version": "2026.11.0", "date": "2026-11-23", "change": "Initial placeholder pack: DL, MH, KA; Delhi, Mumbai, Pune, Bengaluru." },
-    { "version": "2026.11.1", "date": "2026-11-23", "change": "Commercial categories (light, medium, heavy truck; minibus) and typical mileage by category." }
+    { "version": "2026.11.1", "date": "2026-11-23", "change": "Commercial categories (light, medium, heavy truck; minibus) and typical mileage by category." },
+    { "version": "2026.11.2", "date": "2026-11-23", "change": "Checked fuel prices for all four cities (petrol and diesel up Rs 7-8/litre, CNG up Rs 9-14/kg). Road tax: Maharashtra CNG +1 point (2025 amendment); Karnataka rates now include the 11% cess, and EVs pay 5/8/10% from April 2026 with a new Rs 25 lakh band. Loan rate checked against bank rates." }
   ],
 
   "fallbackStateCode": "DL",
@@ -19,7 +20,7 @@
     "DL": {
       "name": "Delhi",
       "roadTax": {
-        "source": "PLACEHOLDER", "asOf": "2026-11-23",
+        "source": "State road tax schedules as reported in news and RTO guides (Nov 2026); check with the state transport department", "asOf": "2026-11-23",
         "value": [
           { "maxExShowroom": 60000000,  "rateByFuel": { "default": 0.04, "diesel": 0.05,   "ev": 0 } },
           { "maxExShowroom": 100000000, "rateByFuel": { "default": 0.07, "diesel": 0.0875, "ev": 0 } },
@@ -30,23 +31,24 @@
     "MH": {
       "name": "Maharashtra",
       "roadTax": {
-        "source": "PLACEHOLDER", "asOf": "2026-11-23",
+        "source": "State road tax schedules as reported in news and RTO guides (Nov 2026); check with the state transport department. Maharashtra: 2025 amendment raised CNG/LPG by 1 point", "asOf": "2026-11-23",
         "value": [
-          { "maxExShowroom": 100000000, "rateByFuel": { "default": 0.11, "diesel": 0.13, "cng": 0.07, "ev": 0 } },
-          { "maxExShowroom": 200000000, "rateByFuel": { "default": 0.12, "diesel": 0.14, "cng": 0.08, "ev": 0 } },
-          { "maxExShowroom": null,      "rateByFuel": { "default": 0.13, "diesel": 0.15, "cng": 0.09, "ev": 0 } }
+          { "maxExShowroom": 100000000, "rateByFuel": { "default": 0.11, "diesel": 0.13, "cng": 0.08, "ev": 0 } },
+          { "maxExShowroom": 200000000, "rateByFuel": { "default": 0.12, "diesel": 0.14, "cng": 0.09, "ev": 0 } },
+          { "maxExShowroom": null,      "rateByFuel": { "default": 0.13, "diesel": 0.15, "cng": 0.10, "ev": 0 } }
         ]
       }
     },
     "KA": {
       "name": "Karnataka",
       "roadTax": {
-        "source": "PLACEHOLDER", "asOf": "2026-11-23",
+        "source": "State road tax schedules as reported in news and RTO guides (Nov 2026); check with the state transport department. Karnataka: rates include the 11% cess on the tax; EV lifetime tax from April 2026", "asOf": "2026-11-23",
         "value": [
-          { "maxExShowroom": 50000000,  "rateByFuel": { "default": 0.13, "ev": 0 } },
-          { "maxExShowroom": 100000000, "rateByFuel": { "default": 0.14, "ev": 0 } },
-          { "maxExShowroom": 200000000, "rateByFuel": { "default": 0.17, "ev": 0 } },
-          { "maxExShowroom": null,      "rateByFuel": { "default": 0.18, "ev": 0 } }
+          { "maxExShowroom": 50000000,  "rateByFuel": { "default": 0.1443, "ev": 0.0555 } },
+          { "maxExShowroom": 100000000, "rateByFuel": { "default": 0.1554, "ev": 0.0555 } },
+          { "maxExShowroom": 200000000, "rateByFuel": { "default": 0.1887, "ev": 0.0888 } },
+          { "maxExShowroom": 250000000, "rateByFuel": { "default": 0.1998, "ev": 0.0888 } },
+          { "maxExShowroom": null,      "rateByFuel": { "default": 0.1998, "ev": 0.111 } }
         ]
       }
     }
@@ -55,28 +57,28 @@
   "cities": {
     "delhi": {
       "name": "Delhi", "stateCode": "DL",
-      "fuelPrices": { "source": "PLACEHOLDER", "asOf": "2026-11-23",
-        "value": { "petrolPerLitre": 9472, "dieselPerLitre": 8762, "cngPerKg": 7609, "electricityHomePerKwh": 800, "electricityPublicPerKwh": 2000 } }
+      "fuelPrices": { "source": "Pump and city-gas prices as reported in the news (23 Nov 2026); electricity is a typical tariff", "asOf": "2026-11-23",
+        "value": { "petrolPerLitre": 10212, "dieselPerLitre": 9520, "cngPerKg": 8698, "electricityHomePerKwh": 800, "electricityPublicPerKwh": 2000 } }
     },
     "mumbai": {
       "name": "Mumbai", "stateCode": "MH",
-      "fuelPrices": { "source": "PLACEHOLDER", "asOf": "2026-11-23",
-        "value": { "petrolPerLitre": 10350, "dieselPerLitre": 9003, "cngPerKg": 7750, "electricityHomePerKwh": 1100, "electricityPublicPerKwh": 2200 } }
+      "fuelPrices": { "source": "Pump and city-gas prices as reported in the news (23 Nov 2026); electricity is a typical tariff", "asOf": "2026-11-23",
+        "value": { "petrolPerLitre": 11121, "dieselPerLitre": 9783, "cngPerKg": 9150, "electricityHomePerKwh": 1100, "electricityPublicPerKwh": 2200 } }
     },
     "pune": {
       "name": "Pune", "stateCode": "MH",
-      "fuelPrices": { "source": "PLACEHOLDER", "asOf": "2026-11-23",
-        "value": { "petrolPerLitre": 10400, "dieselPerLitre": 9055, "cngPerKg": 9000, "electricityHomePerKwh": 1050, "electricityPublicPerKwh": 2200 } }
+      "fuelPrices": { "source": "Pump and city-gas prices as reported in the news (23 Nov 2026); electricity is a typical tariff", "asOf": "2026-11-23",
+        "value": { "petrolPerLitre": 11190, "dieselPerLitre": 9855, "cngPerKg": 9900, "electricityHomePerKwh": 1050, "electricityPublicPerKwh": 2200 } }
     },
     "bengaluru": {
       "name": "Bengaluru", "stateCode": "KA",
-      "fuelPrices": { "source": "PLACEHOLDER", "asOf": "2026-11-23",
-        "value": { "petrolPerLitre": 10292, "dieselPerLitre": 9099, "cngPerKg": 8900, "electricityHomePerKwh": 800, "electricityPublicPerKwh": 2100 } }
+      "fuelPrices": { "source": "Pump and city-gas prices as reported in the news (23 Nov 2026); electricity is a typical tariff", "asOf": "2026-11-23",
+        "value": { "petrolPerLitre": 11044, "dieselPerLitre": 9956, "cngPerKg": 9900, "electricityHomePerKwh": 800, "electricityPublicPerKwh": 2100 } }
     }
   },
 
   "finance": {
-    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "source": "Published new-car loan rates of large banks (SBI 8.70-9.85%, 2026)", "asOf": "2026-11-23",
     "value": { "downPaymentRate": 0.20, "annualRate": 0.09, "tenureMonths": 60, "processingFee": 0 }
   },
 

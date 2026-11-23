@@ -43,7 +43,7 @@ describe('calculate — cash purchase (W1 shape)', () => {
   it('records provenance for every default it used (ENG-02)', () => {
     const price = r.assumptions.find((a) => a.path === 'usage.fuelPrice.primary')!;
     expect(price.value).toBe(defaults.cities.delhi!.fuelPrices.value.petrolPerLitre);
-    expect(price.provenance).toEqual({ kind: 'default', source: 'PLACEHOLDER', asOf: '2026-11-23' });
+    expect(price.provenance).toEqual({ kind: 'default', source: defaults.cities.delhi!.fuelPrices.source, asOf: '2026-11-23' });
     expect(r.assumptions.find((a) => a.path === 'location.cityId')!.provenance).toEqual({ kind: 'user' });
   });
 

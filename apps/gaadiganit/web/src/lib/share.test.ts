@@ -46,6 +46,6 @@ describe('CSV export (SHR-04)', () => {
   });
 
   it('lists assumptions with sources', () => {
-    expect(csv).toMatch(/usage\.fuelPrice\.primary,\d+\.\d{2},Rs\/litre,PLACEHOLDER,2026-11-23/);
+    expect(csv).toMatch(/usage\.fuelPrice\.primary,\d+\.\d{2},Rs\/litre,[^,\n]+,2026-11-23/);
   });
 });

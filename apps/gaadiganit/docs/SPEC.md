@@ -483,7 +483,7 @@ export interface ComparisonResult {   // v1.1
 
 ## 6. Defaults
 
-All defaults are in [../defaults/india.json](../defaults/india.json), validated against `DefaultsPack`. **Every value in pack `2026.11.0` is a placeholder** (`source: "PLACEHOLDER"`). The figures are approximate, from general knowledge, and must be checked against official sources before launch. Seeded so far: states DL, MH, KA; cities Delhi, Mumbai, Pune, Bengaluru. This is the v1 launch set (D2).
+All defaults are in [../defaults/india.json](../defaults/india.json), validated against `DefaultsPack`. In pack `2026.11.2`, fuel prices, road tax and the loan rate were checked against news reports and bank rates; each group's `source` says where. Every other group is still a placeholder (`source: "PLACEHOLDER"`): approximate figures from general knowledge that must be checked against official sources. Seeded so far: states DL, MH, KA; cities Delhi, Mumbai, Pune, Bengaluru. This is the v1 launch set (D2).
 
 Sources to verify against before launch:
 
@@ -511,7 +511,7 @@ Pack updates are a data release: bump `version`, update `asOf` on each changed g
 
 ## 8. Worked examples (acceptance fixtures)
 
-These three scenarios get hand-calculated in a spreadsheet during the Verify step. They are then committed as engine test fixtures with expected totals to the paisa. The inputs are fixed now so the engine is built against them.
+These scenarios were checked against an independent Python implementation of §4 (`tools/verify/reference_tco.py`) instead of a spreadsheet. They are then committed as engine test fixtures with expected totals to the paisa. The inputs are fixed now so the engine is built against them.
 
 | # | Scenario | Key inputs |
 | --- | --- | --- |

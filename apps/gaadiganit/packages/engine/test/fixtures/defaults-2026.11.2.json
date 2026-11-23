@@ -1,0 +1,244 @@
+{
+  "version": "2026.11.2",
+  "asOf": "2026-11-23",
+  "currency": "INR",
+  "_notes": [
+    "All money values are integer paise (Rs 1 = 100 paise). All rates are decimal fractions (0.09 = 9%).",
+    "Road tax uses the same % of ex-showroom for every category. Many states tax commercial vehicles by weight, quarterly; override road tax in the editor for trucks and buses.",
+    "Groups marked source=PLACEHOLDER hold approximate figures from general knowledge; other groups name where the figure was checked. Verify against the sources listed in docs/SPEC.md section 6."
+  ],
+  "changelog": [
+    { "version": "2026.11.0", "date": "2026-11-23", "change": "Initial placeholder pack: DL, MH, KA; Delhi, Mumbai, Pune, Bengaluru." },
+    { "version": "2026.11.1", "date": "2026-11-23", "change": "Commercial categories (light, medium, heavy truck; minibus) and typical mileage by category." },
+    { "version": "2026.11.2", "date": "2026-11-23", "change": "Checked fuel prices for all four cities (petrol and diesel up Rs 7-8/litre, CNG up Rs 9-14/kg). Road tax: Maharashtra CNG +1 point (2025 amendment); Karnataka rates now include the 11% cess, and EVs pay 5/8/10% from April 2026 with a new Rs 25 lakh band. Loan rate checked against bank rates." }
+  ],
+
+  "fallbackStateCode": "DL",
+  "fallbackCityId": "delhi",
+
+  "states": {
+    "DL": {
+      "name": "Delhi",
+      "roadTax": {
+        "source": "State road tax schedules as reported in news and RTO guides (Nov 2026); check with the state transport department", "asOf": "2026-11-23",
+        "value": [
+          { "maxExShowroom": 60000000,  "rateByFuel": { "default": 0.04, "diesel": 0.05,   "ev": 0 } },
+          { "maxExShowroom": 100000000, "rateByFuel": { "default": 0.07, "diesel": 0.0875, "ev": 0 } },
+          { "maxExShowroom": null,      "rateByFuel": { "default": 0.10, "diesel": 0.125,  "ev": 0 } }
+        ]
+      }
+    },
+    "MH": {
+      "name": "Maharashtra",
+      "roadTax": {
+        "source": "State road tax schedules as reported in news and RTO guides (Nov 2026); check with the state transport department. Maharashtra: 2025 amendment raised CNG/LPG by 1 point", "asOf": "2026-11-23",
+        "value": [
+          { "maxExShowroom": 100000000, "rateByFuel": { "default": 0.11, "diesel": 0.13, "cng": 0.08, "ev": 0 } },
+          { "maxExShowroom": 200000000, "rateByFuel": { "default": 0.12, "diesel": 0.14, "cng": 0.09, "ev": 0 } },
+          { "maxExShowroom": null,      "rateByFuel": { "default": 0.13, "diesel": 0.15, "cng": 0.10, "ev": 0 } }
+        ]
+      }
+    },
+    "KA": {
+      "name": "Karnataka",
+      "roadTax": {
+        "source": "State road tax schedules as reported in news and RTO guides (Nov 2026); check with the state transport department. Karnataka: rates include the 11% cess on the tax; EV lifetime tax from April 2026", "asOf": "2026-11-23",
+        "value": [
+          { "maxExShowroom": 50000000,  "rateByFuel": { "default": 0.1443, "ev": 0.0555 } },
+          { "maxExShowroom": 100000000, "rateByFuel": { "default": 0.1554, "ev": 0.0555 } },
+          { "maxExShowroom": 200000000, "rateByFuel": { "default": 0.1887, "ev": 0.0888 } },
+          { "maxExShowroom": 250000000, "rateByFuel": { "default": 0.1998, "ev": 0.0888 } },
+          { "maxExShowroom": null,      "rateByFuel": { "default": 0.1998, "ev": 0.111 } }
+        ]
+      }
+    }
+  },
+
+  "cities": {
+    "delhi": {
+      "name": "Delhi", "stateCode": "DL",
+      "fuelPrices": { "source": "Pump and city-gas prices as reported in the news (23 Nov 2026); electricity is a typical tariff", "asOf": "2026-11-23",
+        "value": { "petrolPerLitre": 10212, "dieselPerLitre": 9520, "cngPerKg": 8698, "electricityHomePerKwh": 800, "electricityPublicPerKwh": 2000 } }
+    },
+    "mumbai": {
+      "name": "Mumbai", "stateCode": "MH",
+      "fuelPrices": { "source": "Pump and city-gas prices as reported in the news (23 Nov 2026); electricity is a typical tariff", "asOf": "2026-11-23",
+        "value": { "petrolPerLitre": 11121, "dieselPerLitre": 9783, "cngPerKg": 9150, "electricityHomePerKwh": 1100, "electricityPublicPerKwh": 2200 } }
+    },
+    "pune": {
+      "name": "Pune", "stateCode": "MH",
+      "fuelPrices": { "source": "Pump and city-gas prices as reported in the news (23 Nov 2026); electricity is a typical tariff", "asOf": "2026-11-23",
+        "value": { "petrolPerLitre": 11190, "dieselPerLitre": 9855, "cngPerKg": 9900, "electricityHomePerKwh": 1050, "electricityPublicPerKwh": 2200 } }
+    },
+    "bengaluru": {
+      "name": "Bengaluru", "stateCode": "KA",
+      "fuelPrices": { "source": "Pump and city-gas prices as reported in the news (23 Nov 2026); electricity is a typical tariff", "asOf": "2026-11-23",
+        "value": { "petrolPerLitre": 11044, "dieselPerLitre": 9956, "cngPerKg": 9900, "electricityHomePerKwh": 800, "electricityPublicPerKwh": 2100 } }
+    }
+  },
+
+  "finance": {
+    "source": "Published new-car loan rates of large banks (SBI 8.70-9.85%, 2026)", "asOf": "2026-11-23",
+    "value": { "downPaymentRate": 0.20, "annualRate": 0.09, "tenureMonths": 60, "processingFee": 0 }
+  },
+
+  "usage": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": { "ownershipMonths": 60, "kmPerMonth": 1000, "fuelInflation": 0.03, "cngShare": 0.80, "evHomeShare": 0.80 }
+  },
+
+  "realWorldFactor": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": { "petrol": 0.75, "diesel": 0.75, "cng": 0.75, "dual_petrol_cng": 0.75, "strong_hybrid": 0.80, "ev": 0.80 }
+  },
+
+  "typicalMileage": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "_note": "Claimed (ARAI-style) mileage used when the quick estimate has no mileage. km/l for petrol, diesel, hybrid; km/kg for CNG; km/kWh for EV; dual = petrol km/l + CNG km/kg.",
+    "value": {
+      "petrol":          { "primary": 18 },
+      "diesel":          { "primary": 20 },
+      "cng":             { "primary": 26 },
+      "strong_hybrid":   { "primary": 25 },
+      "ev":              { "primary": 7 },
+      "dual_petrol_cng": { "primary": 18, "secondary": 26 }
+    }
+  },
+
+  "typicalMileageByCategory": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "_note": "Typical loaded real-use figures for commercial categories, used when no mileage is given. km/l diesel/petrol, km/kg CNG, km/kWh EV.",
+    "value": {
+      "pickup":      { "diesel": 14, "cng": 18 },
+      "van":         { "petrol": 16, "diesel": 14, "cng": 22 },
+      "mini_truck":  { "petrol": 18, "diesel": 20, "cng": 22, "ev": 7 },
+      "light_truck": { "diesel": 11, "cng": 9 },
+      "truck":       { "diesel": 6.5, "cng": 5 },
+      "heavy_truck": { "diesel": 3.8 },
+      "minibus":     { "diesel": 10 },
+      "bus":         { "diesel": 4.5, "cng": 3.2, "ev": 1.0 }
+    }
+  },
+
+  "insurance": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": {
+      "year1RateByCategory": {
+        "hatchback": 0.035, "sedan": 0.033, "compact_suv": 0.032, "suv": 0.030, "mpv": 0.031,
+        "pickup": 0.030, "van": 0.030, "mini_truck": 0.030, "light_truck": 0.030, "truck": 0.030,
+        "heavy_truck": 0.030, "minibus": 0.032, "bus": 0.030
+      },
+      "renewalDecline": 0.10
+    }
+  },
+
+  "service": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": {
+      "hatchback":   { "default": { "cost": 450000,  "intervalKm": 10000, "intervalMonths": 12 },
+                       "diesel":  { "cost": 550000,  "intervalKm": 10000, "intervalMonths": 12 },
+                       "ev":      { "cost": 250000,  "intervalKm": 15000, "intervalMonths": 12 } },
+      "sedan":       { "default": { "cost": 600000,  "intervalKm": 10000, "intervalMonths": 12 },
+                       "diesel":  { "cost": 700000,  "intervalKm": 10000, "intervalMonths": 12 },
+                       "ev":      { "cost": 300000,  "intervalKm": 15000, "intervalMonths": 12 } },
+      "compact_suv": { "default": { "cost": 650000,  "intervalKm": 10000, "intervalMonths": 12 },
+                       "diesel":  { "cost": 750000,  "intervalKm": 10000, "intervalMonths": 12 },
+                       "ev":      { "cost": 350000,  "intervalKm": 15000, "intervalMonths": 12 } },
+      "suv":         { "default": { "cost": 900000,  "intervalKm": 10000, "intervalMonths": 12 },
+                       "diesel":  { "cost": 1000000, "intervalKm": 10000, "intervalMonths": 12 },
+                       "ev":      { "cost": 450000,  "intervalKm": 15000, "intervalMonths": 12 } },
+      "mpv":         { "default": { "cost": 800000,  "intervalKm": 10000, "intervalMonths": 12 },
+                       "diesel":  { "cost": 900000,  "intervalKm": 10000, "intervalMonths": 12 } },
+      "pickup":      { "default": { "cost": 800000,  "intervalKm": 10000, "intervalMonths": 6 } },
+      "van":         { "default": { "cost": 700000,  "intervalKm": 10000, "intervalMonths": 6 } },
+      "mini_truck":  { "default": { "cost": 600000,  "intervalKm": 10000, "intervalMonths": 6 },
+                       "ev":      { "cost": 300000,  "intervalKm": 15000, "intervalMonths": 12 } },
+      "light_truck": { "default": { "cost": 1200000, "intervalKm": 20000, "intervalMonths": 6 } },
+      "truck":       { "default": { "cost": 2500000, "intervalKm": 25000, "intervalMonths": 6 } },
+      "heavy_truck": { "default": { "cost": 4000000, "intervalKm": 30000, "intervalMonths": 6 } },
+      "minibus":     { "default": { "cost": 1000000, "intervalKm": 15000, "intervalMonths": 6 } },
+      "bus":         { "default": { "cost": 1500000, "intervalKm": 15000, "intervalMonths": 6 },
+                       "ev":      { "cost": 800000,  "intervalKm": 20000, "intervalMonths": 6 } }
+    }
+  },
+
+  "tyres": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": {
+      "hatchback":   { "costPerSet": 1600000,  "lifeKm": 40000 },
+      "sedan":       { "costPerSet": 2200000,  "lifeKm": 40000 },
+      "compact_suv": { "costPerSet": 2800000,  "lifeKm": 45000 },
+      "suv":         { "costPerSet": 4000000,  "lifeKm": 50000 },
+      "mpv":         { "costPerSet": 3200000,  "lifeKm": 45000 },
+      "pickup":      { "costPerSet": 3000000,  "lifeKm": 50000 },
+      "van":         { "costPerSet": 2800000,  "lifeKm": 50000 },
+      "mini_truck":  { "costPerSet": 2400000,  "lifeKm": 50000 },
+      "light_truck": { "costPerSet": 6000000,  "lifeKm": 60000 },
+      "truck":       { "costPerSet": 12000000, "lifeKm": 80000 },
+      "heavy_truck": { "costPerSet": 35000000, "lifeKm": 100000 },
+      "minibus":     { "costPerSet": 6000000,  "lifeKm": 60000 },
+      "bus":         { "costPerSet": 12000000, "lifeKm": 60000 }
+    }
+  },
+
+  "battery12v": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": { "cost": 600000, "intervalMonths": 36 }
+  },
+
+  "other": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": {
+      "repairsBufferPerYearByCategory": {
+        "hatchback": 300000, "sedan": 400000, "compact_suv": 500000, "suv": 700000, "mpv": 600000,
+        "pickup": 600000, "van": 600000, "mini_truck": 600000, "light_truck": 1500000, "truck": 3000000,
+        "heavy_truck": 6000000, "minibus": 1500000, "bus": 1500000
+      },
+      "parkingTollsCleaningPerMonth": 0
+    }
+  },
+
+  "depreciation": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "_note": "Retained fraction of ex-showroom at the end of year 1, 2, ... 10. Diesel falls faster after year 8 because of the 10-year diesel limit in Delhi-NCR.",
+    "value": {
+      "petrol":          [0.82, 0.72, 0.64, 0.57, 0.50, 0.44, 0.39, 0.34, 0.30, 0.26],
+      "diesel":          [0.82, 0.72, 0.63, 0.55, 0.48, 0.42, 0.36, 0.30, 0.25, 0.18],
+      "cng":             [0.80, 0.70, 0.61, 0.54, 0.47, 0.41, 0.36, 0.31, 0.27, 0.23],
+      "dual_petrol_cng": [0.80, 0.70, 0.61, 0.54, 0.47, 0.41, 0.36, 0.31, 0.27, 0.23],
+      "strong_hybrid":   [0.84, 0.75, 0.67, 0.60, 0.53, 0.47, 0.42, 0.37, 0.32, 0.28],
+      "ev":              [0.75, 0.63, 0.53, 0.45, 0.38, 0.32, 0.27, 0.23, 0.19, 0.16]
+    }
+  },
+
+  "opportunityCost": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": { "fdRate": 0.07 }
+  },
+
+  "gstInfo": {
+    "source": "https://razorpay.com/learn/gst-on-cars/ ; https://www.business-standard.com/economy/news/gst-rationalisation-to-boost-auto-demand-small-cars-suvs-tyres-125090400227_1.html",
+    "asOf": "2025-09-22",
+    "value": {
+      "rule": "GST on cars since 22 Sept 2025: 5% on EVs, 18% on small cars, 40% on other cars. Already included in ex-showroom; shown for information only.",
+      "ev": 0.05, "small": 0.18, "large": 0.40
+    }
+  },
+
+  "commercial": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "value": {
+      "idleDaysPerMonth": 4,
+      "permitsPerYearByCategory": {
+        "hatchback": 1200000, "sedan": 1200000, "compact_suv": 1500000, "suv": 1500000, "mpv": 1500000,
+        "pickup": 1500000, "van": 1500000, "mini_truck": 2000000, "light_truck": 2500000, "truck": 4000000,
+        "heavy_truck": 7500000, "minibus": 3000000, "bus": 6000000
+      }
+    }
+  },
+
+  "categoryInference": {
+    "source": "derived (GaadiGanit rule, SPEC IN-02)", "asOf": "2026-11-23",
+    "value": { "hatchbackMax": 80000000, "compactSuvMax": 150000000 }
+  }
+}
