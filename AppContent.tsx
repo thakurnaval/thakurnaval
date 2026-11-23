@@ -81,6 +81,7 @@ import IacTemplates from './pages/architecture/IacTemplates';
 import DevOpsism from './pages/DevOpsism';
 import PremiumReport from './pages/cognitiveops/PremiumReport';
 import Resources from './pages/Resources';
+import { ToolkitsIndex, ToolkitPage } from './pages/explore/Toolkits';
 
 // Architecture Subpages
 import DesignPatterns from './pages/architecture/DesignPatterns';
@@ -240,6 +241,8 @@ const AppContent: React.FC = () => (
         <Route path="/explore/books" element={<BookSummaries />} />
         <Route path="/explore/certifications" element={<Certifications />} />
         <Route path="/explore/mental-models" element={<MentalModels />} />
+        <Route path="/explore/toolkits" element={<ToolkitsIndex />} />
+        <Route path="/explore/toolkits/:slug" element={<ToolkitPage />} />
 
         {/* Article Pages */}
         <Route path="/articles/cloud-computing-fundamentals" element={<CloudComputingFundamentals />} />

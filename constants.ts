@@ -27,6 +27,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Newsletter', path: '/newsletter' },
       { label: 'Free Resources', path: '/resources' },
       { label: 'Mental Models', path: '/explore/mental-models' },
+      { label: 'Toolkits', path: '/explore/toolkits' },
       { label: 'Book Summaries', path: '/explore/books' },
     ]
   },

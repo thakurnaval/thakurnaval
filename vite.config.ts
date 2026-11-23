@@ -117,7 +117,12 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/gallery',                    priority: 0.7, changefreq: 'monthly' },
   { path: '/explore/books',              priority: 0.7, changefreq: 'monthly' },
   { path: '/explore/certifications',     priority: 0.7, changefreq: 'monthly' },
-  { path: '/explore/mental-models',      priority: 0.7, changefreq: 'monthly' },
+  { path: '/explore/mental-models',      priority: 0.75, changefreq: 'monthly' },
+  { path: '/explore/toolkits',           priority: 0.75, changefreq: 'monthly' },
+  { path: '/explore/toolkits/incident-review',        priority: 0.75, changefreq: 'monthly' },
+  { path: '/explore/toolkits/architecture-decisions', priority: 0.75, changefreq: 'monthly' },
+  { path: '/explore/toolkits/platform-strategy',      priority: 0.75, changefreq: 'monthly' },
+  { path: '/explore/toolkits/reviews-and-meetings',   priority: 0.75, changefreq: 'monthly' },
   // Article Pages
   { path: '/articles/cloud-computing-fundamentals',   priority: 0.8, changefreq: 'monthly' },
   { path: '/articles/gamifying-devops-pipeline',      priority: 0.8, changefreq: 'monthly' },

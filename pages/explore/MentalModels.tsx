@@ -3,6 +3,8 @@ import SimplePage from '../../components/SimplePage';
 import { Search, Brain, Zap, Target, Layers, Shield, Users, BarChart, Workflow, Compass, Wrench, Lightbulb, Star } from 'lucide-react';
 import { PRACTITIONERS_25 } from './practitioners25';
 import { MODEL_DETAILS } from './modelDetails';
+import { Link } from 'react-router-dom';
+import { TOOLKITS } from './toolkitData';
 
 interface MentalModel {
   name: string;
@@ -522,6 +524,22 @@ const MentalModels: React.FC = () => {
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* Toolkits: models combined into methods */}
+      <section aria-labelledby="toolkits-title" className="mb-12">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+          <h2 id="toolkits-title" className="text-lg font-bold text-primary dark:text-white">Put them to work: toolkits</h2>
+          <Link to="/explore/toolkits" className="text-sm font-semibold text-primary dark:text-secondary hover:underline">All toolkits →</Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {TOOLKITS.map(t => (
+            <Link key={t.slug} to={`/explore/toolkits/${t.slug}`} className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-primary dark:hover:border-secondary transition-colors">
+              <span className="block font-semibold text-slate-900 dark:text-white">{t.title.replace(' Toolkit', '')}</span>
+              <span className="block text-xs text-slate-500 dark:text-slate-400 mt-1">{t.tagline}</span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <div className="mb-12 space-y-6">

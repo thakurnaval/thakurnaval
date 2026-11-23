@@ -49,6 +49,7 @@ const GROUPS: { title: string; intro: string; icon: React.ElementType; items: Re
     icon: Library,
     items: [
       { title: 'Mental Models', to: '/explore/mental-models', format: 'Library', desc: 'Over 230 thinking tools, organised by the situation you are in.' },
+      { title: 'Toolkits', to: '/explore/toolkits', format: '4 toolkits', desc: 'Step-by-step methods with templates: incident review, architecture decisions, platform strategy, better meetings.' },
       { title: 'Book Summaries', to: '/explore/books', format: 'Library', desc: 'Key ideas from the books that shaped how I lead and build.' },
       { title: 'The CognitiveOps Brief', to: '/newsletter', format: 'Newsletter', desc: 'One practical lesson every two weeks.' },
     ],
