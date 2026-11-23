@@ -9,7 +9,7 @@ import { resolveInputs } from './resolve.ts';
 import type { CalculationResult, MonthRow } from './result.ts';
 import { CalculationInputSchema, type CalculationInput, type DefaultsPack, type Paise } from './schemas.ts';
 
-export const ENGINE_VERSION = '0.1.0';
+export const ENGINE_VERSION = '0.2.0';
 
 /** Thrown when inputs fail validation. `issues` follows Zod's issue shape. */
 export class EngineInputError extends Error {
@@ -66,7 +66,10 @@ export function calculate(input: CalculationInput, defaults: DefaultsPack): Calc
   let kmSinceService = 0;
   let monthsSinceService = 0;
   let renewals = 0;
-  const sums = { energy: 0, service: 0, tyres: 0, other: 0, interest: 0, principal: 0 };
+  let cumulativeProfit = 0;
+  let paybackMonth: number | null = null;
+  const sums = { energy: 0, service: 0, tyres: 0, other: 0, operating: 0, interest: 0, principal: 0, earnings: 0, commission: 0 };
+  const com = r.commercial;
 
   for (let m = 1; m <= N; m++) {
     const km = r.kmPerMonth;
@@ -120,15 +123,37 @@ export function calculate(input: CalculationInput, defaults: DefaultsPack): Calc
       }
     }
 
+    // Commercial (§4.8): driver monthly, permits yearly in months 1, 13, …
+    let operating = 0;
+    let earnings = 0;
+    let commission = 0;
+    if (com) {
+      operating = com.driverSalaryPerMonth + ((m - 1) % 12 === 0 ? com.permitsPerYear : 0);
+      const workingDays = 30 - com.idleDaysPerMonth;
+      const e = com.earnings;
+      earnings = e.kind === 'per_km'
+        ? roundPaise(e.value * km)
+        : e.kind === 'per_trip'
+          ? roundPaise(e.value * e.tripsPerWorkingDay * workingDays)
+          : e.value;
+      commission = roundPaise(earnings * com.platformCommission);
+    }
+
     const lm = loanMonths[m - 1];
     const emiPaid = lm?.payment ?? 0;
-    const total = emiPaid + energy + service + tyres + insurance + other;
+    const total = emiPaid + energy + service + tyres + insurance + other + operating;
     cumulative += total;
+    const netProfit = earnings - commission - total;
+    cumulativeProfit += netProfit;
+    if (com && paybackMonth === null && cumulativeProfit >= cashUpfront) paybackMonth = m;
 
     sums.energy += energy;
     sums.service += service;
     sums.tyres += tyres;
     sums.other += other;
+    sums.operating += operating;
+    sums.earnings += earnings;
+    sums.commission += commission;
     sums.interest += lm?.interest ?? 0;
     sums.principal += lm?.principal ?? 0;
 
@@ -138,8 +163,10 @@ export function calculate(input: CalculationInput, defaults: DefaultsPack): Calc
       interest: lm?.interest ?? 0,
       principal: lm?.principal ?? 0,
       loanBalance: lm?.balance ?? 0,
-      energy, service, tyres, insurance, other,
+      energy, service, tyres, insurance, other, operating,
       total, cumulative,
+      earnings, commission, netProfit,
+      cumulativeProfit: com ? cumulativeProfit : 0,
     });
   }
 
@@ -159,8 +186,29 @@ export function calculate(input: CalculationInput, defaults: DefaultsPack): Calc
     tyres: sums.tyres,
     insurance: r.insuranceYear1 + renewals,
     other: sums.other,
+    operating: sums.operating,
     opportunityCost,
   };
+
+  let commercial: CalculationResult['commercial'] = null;
+  if (com) {
+    const upfrontInvestment = cashUpfront;
+    const netProfitTotal = cumulativeProfit;
+    const n = com.fleetSize;
+    commercial = {
+      earningsTotal: sums.earnings,
+      commissionTotal: sums.commission,
+      netProfitTotal,
+      netProfitPerMonth: roundPaise(netProfitTotal / N),
+      upfrontInvestment,
+      roiPercent: upfrontInvestment > 0
+        ? ((netProfitTotal + r.resale - loanOutstanding - upfrontInvestment) / upfrontInvestment) * 100
+        : null,
+      paybackMonth,
+      fleetSize: n,
+      fleet: { tco: tco * n, netProfitTotal: netProfitTotal * n, upfrontInvestment: upfrontInvestment * n },
+    };
+  }
 
   const totalKm = cumKm;
   return {
@@ -190,6 +238,7 @@ export function calculate(input: CalculationInput, defaults: DefaultsPack): Calc
     depreciation: onRoad - r.resale,
     interestPaid: sums.interest,
     location: { stateCode: r.stateCode, cityId: r.cityId },
+    commercial,
     assumptions: r.assumptions,
     warnings: r.warnings,
   };
@@ -197,5 +246,5 @@ export function calculate(input: CalculationInput, defaults: DefaultsPack): Calc
 
 /** Sum of breakdown buckets; equals `tco` by construction (ENG-16). */
 export function breakdownTotal(b: CalculationResult['breakdown']): Paise {
-  return b.vehicle + b.interest + b.energy + b.service + b.tyres + b.insurance + b.other + b.opportunityCost;
+  return b.vehicle + b.interest + b.energy + b.service + b.tyres + b.insurance + b.other + b.operating + b.opportunityCost;
 }

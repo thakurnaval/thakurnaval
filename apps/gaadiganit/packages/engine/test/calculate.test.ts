@@ -296,12 +296,15 @@ describe('calculate — location and warnings', () => {
     expect(r.warnings.map((w) => w.code)).toEqual(['UNKNOWN_CITY', 'UNKNOWN_STATE']);
   });
 
-  it('warns about the Delhi-NCR diesel limit and unsupported commercial mode', () => {
-    const r = calculate(input({
-      vehicle: { fuelType: 'diesel' },
-      inputs: { usage: { ownershipMonths: 121, kmPerMonth: 500 }, commercial: { earnings: { kind: 'per_km', value: 1400 } } },
-    }), defaults);
-    expect(r.warnings.map((w) => w.code)).toEqual(expect.arrayContaining(['DIESEL_NCR_10Y', 'COMMERCIAL_NOT_SUPPORTED']));
+  it('warns about the Delhi-NCR diesel limit', () => {
+    const r = calculate(input({ vehicle: { fuelType: 'diesel' }, inputs: { usage: { ownershipMonths: 121, kmPerMonth: 500 } } }), defaults);
+    expect(r.warnings.map((w) => w.code)).toContain('DIESEL_NCR_10Y');
+  });
+
+  it('ignores commercial inputs for personal use', () => {
+    const r = calculate(input({ inputs: { usage: { ownershipMonths: 12, kmPerMonth: 500 }, commercial: { earnings: { kind: 'per_km', value: 1400 } } } }), defaults);
+    expect(r.commercial).toBeNull();
+    expect(r.breakdown.operating).toBe(0);
   });
 });
 

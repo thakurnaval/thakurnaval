@@ -7,6 +7,10 @@ export {
   type ResolvedInputs, type EnergyPart, type EnergyLabel,
 } from './resolve.ts';
 export { calculate, validateInput, breakdownTotal, EngineInputError, ENGINE_VERSION } from './calculate.ts';
+export {
+  compare, breakEvenKm, breakEvenMonth, sensitivity, winners, withKm,
+  type ComparisonResult, type BreakEvenKm, type BreakEvenMonth, type Sensitivity, type Metric,
+} from './compare.ts';
 
 import { DefaultsPackSchema, type DefaultsPack } from './schemas.ts';
 

@@ -47,6 +47,18 @@ export interface ResolvedInputs {
   custom: { name: string; amount: Paise; frequency: 'once' | 'monthly' | 'yearly' }[];
   resale: Paise;
   opportunityCost: null | { fdRate: Rate };
+  /** v1.2 commercial mode; null for personal use. */
+  commercial: null | {
+    earnings:
+      | { kind: 'per_km'; value: Paise }
+      | { kind: 'per_trip'; value: Paise; tripsPerWorkingDay: number }
+      | { kind: 'per_month'; value: Paise };
+    driverSalaryPerMonth: Paise;
+    permitsPerYear: Paise;
+    platformCommission: Rate;
+    idleDaysPerMonth: number;
+    fleetSize: number;
+  };
   assumptions: Assumption[];
   warnings: EngineWarning[];
 }
@@ -291,8 +303,24 @@ export function resolveInputs(vehicle: Vehicle, inputs: ParsedInputs, defaults: 
   if (fuel === 'diesel' && stateCode === 'DL' && ownershipMonths > 120) {
     warnings.push({ code: 'DIESEL_NCR_10Y', message: 'Diesel vehicles older than 10 years cannot be driven in Delhi-NCR.' });
   }
-  if (inputs.commercial) {
-    warnings.push({ code: 'COMMERCIAL_NOT_SUPPORTED', message: 'Commercial ROI arrives in v1.2; costs are calculated as for personal use.' });
+  // ── Commercial (SPEC §4.8) ────────────────────────────────────────────────
+  let commercial: ResolvedInputs['commercial'] = null;
+  if (vehicle.useType === 'commercial') {
+    const c = inputs.commercial;
+    if (!c) {
+      warnings.push({ code: 'COMMERCIAL_NO_EARNINGS', message: 'Add earnings to see profit and payback; only costs are shown.' });
+    } else {
+      const cs = defaults.commercial;
+      note(`commercial.earnings.${c.earnings.kind}`, c.earnings.value, { kind: 'user' }, 'paise');
+      commercial = {
+        earnings: c.earnings,
+        driverSalaryPerMonth: take('commercial.driverSalaryPerMonth', c.driverSalaryPerMonth, 0, packSrc, 'paise'),
+        permitsPerYear: take('commercial.permitsPerYear', c.permitsPerYear, cs.value.permitsPerYearByCategory[category] ?? 0, cs, 'paise'),
+        platformCommission: take('commercial.platformCommission', c.platformCommission, 0, packSrc, 'rate'),
+        idleDaysPerMonth: take('commercial.idleDaysPerMonth', c.idleDaysPerMonth, cs.value.idleDaysPerMonth, cs, 'days'),
+        fleetSize: c.fleetSize ?? 1,
+      };
+    }
   }
 
   return {
@@ -302,7 +330,7 @@ export function resolveInputs(vehicle: Vehicle, inputs: ParsedInputs, defaults: 
     ownershipMonths, kmPerMonth, energyParts, fuelInflation,
     service, tyres, battery12v, insuranceRenewal,
     parkingTollsCleaningPerMonth, repairsBufferPerYear, custom,
-    resale, opportunityCost,
+    resale, opportunityCost, commercial,
     assumptions, warnings,
   };
 }
