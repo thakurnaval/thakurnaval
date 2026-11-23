@@ -39,6 +39,6 @@ Kanban · Scrum · Lean Portfolio Management · Fishbone (Ishikawa) Diagram · C
 
 ## Next steps
 
-1. ~~Fuller detail for these 25~~ Done, plus 25 more models (50 in total) in `pages/explore/modelDetails.ts`. Add an entry there to give any other model a "More detail" section.
+1. ~~Fuller detail for these 25~~ Done, plus 75 more models (100 in total) in `pages/explore/modelDetails.ts`. Add an entry there to give any other model a "More detail" section.
 2. ~~Toolkit pages~~ Done: incident review, architecture decisions, platform strategy, and better reviews and meetings, at `/explore/toolkits` (content in `pages/explore/toolkitData.ts`).
 3. Ideas: more toolkits (FinOps cost review, AI use-case selection, team health check), and turning each toolkit into a newsletter issue.

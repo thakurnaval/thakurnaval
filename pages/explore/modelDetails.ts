@@ -566,4 +566,507 @@ export const MODEL_DETAILS: Record<string, ModelDetail> = {
     watchOut: 'Weights can be tuned to justify a favourite. Agree them first, ideally with someone who doesn\'t have a preferred option.',
     related: ['kepner-tregoe-decision-analysis', 'opportunity-costs', 'sensitivity-analysis'],
   },
+  // ── Wave 3 (part 1): thinking, bias, systems and risk ───────────────────
+  'the-map-is-not-the-territory': {
+    whenToUse: 'When decisions are being made from dashboards, architecture diagrams, plans or AI-generated summaries rather than from the running system.',
+    howTo: [
+      'Ask what the map leaves out: what does this dashboard, diagram or summary not show?',
+      'Check it against the territory: logs, real traffic, a walk through the actual pipeline.',
+      'Update the map when reality differs, rather than explaining reality away.',
+    ],
+    watchOut: 'Every useful map simplifies. The aim is not a perfect map but knowing where yours is likely to be wrong.',
+    related: ['gemba', 'proxy', 'abstraction'],
+  },
+  'occams-razor': {
+    whenToUse: 'Debugging, incident triage, and choosing between designs, when complicated explanations or solutions are competing with simple ones.',
+    howTo: [
+      'List the possible explanations or designs.',
+      'Start with the one that needs the fewest assumptions: the recent deploy, the expired certificate, the config change.',
+      'Test it quickly; move to more complex explanations only when the simple one is ruled out.',
+    ],
+    watchOut: 'Simple is the best first guess, not proof. Distributed systems do fail in complex ways; follow the evidence.',
+    related: ['kiss-principle', 'hanlons-razor', 'root-cause-analysis'],
+  },
+  'falsification-confirmation-bias': {
+    whenToUse: 'Reviewing your own design, a vendor evaluation, an incident hypothesis, or results from an AI pilot you championed.',
+    howTo: [
+      'Write down what you believe and what evidence would prove it wrong.',
+      'Look actively for that evidence, or ask someone sceptical to look for it.',
+      'Run the test that could fail, not the demo that is sure to succeed.',
+    ],
+    watchOut: 'Teams naturally share evidence that supports the plan. Invite and reward people who bring disconfirming data.',
+    related: ['scientific-method', 'survivorship-bias', 'pre-mortem'],
+  },
+  'expected-value': {
+    whenToUse: 'Deciding whether to invest in reliability work, a migration, or an experiment where outcomes are uncertain.',
+    howTo: [
+      'List the possible outcomes, each with a rough probability and value or cost.',
+      'Multiply and add them up for each option.',
+      'Compare options, and also look at the worst case: some downsides are unacceptable whatever the average.',
+    ],
+    watchOut: 'Averages hide ruin. A small chance of losing customer data can outweigh a large expected saving.',
+    related: ['cost-benefit-analysis', 'black-swan', 'scenario-analysis'],
+  },
+  'compounding': {
+    whenToUse: 'Making the case for small, steady improvements: build time, test reliability, documentation, learning, or paying down debt.',
+    howTo: [
+      'Estimate the small gain or loss per week or per change.',
+      'Project it over a year across everyone affected.',
+      'Invest in improvements that compound early; they repay many times over.',
+    ],
+    watchOut: 'Compounding works against you too: flaky tests, tech debt and alert fatigue grow quietly in the same way.',
+    related: ['kaizen', 'technical-debt', 'flywheel-effect'],
+  },
+  'incentives': {
+    whenToUse: 'Designing goals, metrics, on-call arrangements or reward schemes, or when people behave in ways that seem irrational.',
+    howTo: [
+      'Ask what behaviour the current setup actually rewards, not what it intends to reward.',
+      'Look for conflicts, such as feature teams rewarded for speed while ops teams carry the outages.',
+      'Align incentives with outcomes: shared ownership, paired metrics, recognition for prevention.',
+    ],
+    watchOut: 'People respond to incentives you didn\'t intend. Review metrics and rewards whenever behaviour drifts.',
+    related: ['goodharts-law', 'okrs', 'own-your-outcomes'],
+  },
+  'social-proof': {
+    whenToUse: 'Driving adoption of a platform, practice or AI tool, or when evaluating a technology because "everyone is using it".',
+    howTo: [
+      'For adoption: show real teams succeeding with the practice, with their own words and numbers.',
+      'For evaluation: ask whether others\' context matches yours before following them.',
+      'Separate popularity from fit with a small trial against your own criteria.',
+    ],
+    watchOut: 'Hype cycles are social proof at scale. "Big tech uses it" is a reason to look, not a reason to adopt.',
+    related: ['availability-bias', 'flywheel-effect', 'authority-bias'],
+  },
+  'availability-bias': {
+    whenToUse: 'Prioritising risks, incidents or investments, especially just after a memorable outage or a widely discussed AI failure.',
+    howTo: [
+      'Notice when a recent or vivid event dominates the discussion.',
+      'Bring the data: incident frequency, impact and trends over a longer period.',
+      'Prioritise by evidence, not by how easily examples come to mind.',
+    ],
+    watchOut: 'The last incident is rarely the next one. Avoid building elaborate defences for a one-off while chronic issues continue.',
+    related: ['pareto-principle', 'survivorship-bias', 'representativeness-heuristic'],
+  },
+  'survivorship-bias': {
+    whenToUse: 'Learning from success stories, case studies, conference talks or the tools that "worked for us".',
+    howTo: [
+      'Ask who tried the same approach and failed, and why you don\'t hear about them.',
+      'Look for the complete data set, including abandoned projects and churned users.',
+      'Weigh lessons from failures as heavily as lessons from successes.',
+    ],
+    watchOut: 'Post-mortems of successes are rare and rosy. A practice that worked for one famous company may have failed quietly at many others.',
+    related: ['selection-bias', 'falsification-confirmation-bias', 'social-proof'],
+  },
+  'hindsight-bias': {
+    whenToUse: 'Incident reviews and project retrospectives, where the outcome is known and the decisions now look obviously wrong.',
+    howTo: [
+      'Reconstruct what people knew at the time, using the timeline rather than memory.',
+      'Ask whether the decision was reasonable given that information.',
+      'Focus improvements on what would have made the risk visible earlier.',
+    ],
+    watchOut: '"It was obvious" is almost always hindsight. Saying so in a review shuts down honesty.',
+    related: ['blameless-post-mortem', 'narrative-instinct', 'hanlons-razor'],
+  },
+  'dunning-kruger-effect': {
+    whenToUse: 'Assessing skills, estimating work in an unfamiliar area, or evaluating confident claims about new technology such as AI.',
+    howTo: [
+      'Treat early confidence in a new domain as a signal to check, not to trust.',
+      'Ask experts what they find hard; the difficult parts are often invisible to beginners.',
+      'Build feedback into learning so people can see their real level.',
+    ],
+    watchOut: 'Use it to check yourself, not to label others. Everyone is a beginner in something.',
+    related: ['circle-of-competence', 'growth-mindset', 'deliberate-practice'],
+  },
+  'loss-aversion': {
+    whenToUse: 'Change management: decommissioning tools, changing processes, or moving teams to a new platform.',
+    howTo: [
+      'Recognise that people feel losses about twice as strongly as equivalent gains.',
+      'Name what people will lose, and what you will do to soften it.',
+      'Frame change in terms of risks avoided as well as benefits gained, and offer a trial or a way back.',
+    ],
+    watchOut: 'Loss aversion also keeps leaders in failing projects. Pair it with a sunk-cost check.',
+    related: ['sunk-cost-fallacy', 'default-status', 'reversible-vs-irreversible-decisions'],
+  },
+  'local-vs-global-optimum': {
+    whenToUse: 'When a team optimises its own metric at the expense of the whole system, or when incremental tuning has stopped producing gains.',
+    howTo: [
+      'Look at the end-to-end outcome, not just your step.',
+      'Check whether local improvements are moving the bottleneck or creating queues elsewhere.',
+      'When tuning stalls, consider a different design rather than more of the same tweaks.',
+    ],
+    watchOut: 'A global redesign is expensive and risky. Make sure the local optimum really is limiting you before starting one.',
+    related: ['theory-of-constraints', 'systems-thinking', 'value-stream-mapping'],
+  },
+  'unintended-consequences': {
+    whenToUse: 'Introducing policies, controls, metrics or automation that change how people and systems behave.',
+    howTo: [
+      'Ask how people might work around the change, and what it makes harder.',
+      'Pilot it with a small group and watch for side effects.',
+      'Set a review date to check the effects you didn\'t plan for.',
+    ],
+    watchOut: 'Strict controls often push work into the shadows, such as personal AI accounts or unofficial scripts. Make the approved path the easy path.',
+    related: ['second-order-thinking', 'goodharts-law', 'incentives'],
+  },
+  'emergence': {
+    whenToUse: 'Understanding behaviour that no single component explains: cascading failures, team culture, traffic patterns, multi-agent AI systems.',
+    howTo: [
+      'Look at interactions between parts, not just the parts themselves.',
+      'Test the system as a whole: load tests, chaos experiments, end-to-end evaluations.',
+      'Expect surprises and build the observability to see them.',
+    ],
+    watchOut: 'Testing every component in isolation can still miss emergent failures. Leave room for whole-system tests.',
+    related: ['complex-adaptive-systems', 'systems-thinking', 'chaos-dynamics'],
+  },
+  'black-swan': {
+    whenToUse: 'Risk planning, disaster recovery and capacity planning, where rare, high-impact events matter more than averages.',
+    howTo: [
+      'Accept that you cannot predict the specific event.',
+      'Reduce exposure: limit blast radius, avoid single points of failure, keep rollbacks and backups tested.',
+      'Build the ability to respond quickly rather than trying to forecast everything.',
+    ],
+    watchOut: 'After a black swan, people build defences against that exact event. The next one will be different; invest in general resilience.',
+    related: ['antifragility', 'fat-tailed-processes', 'unknown-unknowns'],
+  },
+  'unknown-unknowns': {
+    whenToUse: 'Starting work in a new domain, adopting new technology, or planning large migrations.',
+    howTo: [
+      'Spend early time exploring: spikes, prototypes, conversations with people who have done it.',
+      'Ask "what are we not asking?" in planning sessions.',
+      'Keep a buffer in plans and revisit the risk list as you learn.',
+    ],
+    watchOut: 'Exploration feels unproductive, so teams skip it. A few days of spikes can save months of rework.',
+    related: ['black-swan', 'margin-of-safety', 'minimum-viable-product'],
+  },
+  'murphys-law': {
+    whenToUse: 'Designing deployments, migrations, runbooks and automation that will be used under pressure.',
+    howTo: [
+      'Assume anything that can go wrong eventually will, at the worst time.',
+      'Design for failure: timeouts, retries with limits, idempotent operations, safe defaults.',
+      'Test the unhappy paths, including rollback, restore and failover.',
+    ],
+    watchOut: 'Murphy\'s Law is a design principle, not pessimism. Use it to prepare, not to avoid change.',
+    related: ['redundancy', 'fmea', 'inversion'],
+  },
+  'redundancy': {
+    whenToUse: 'Critical services, data and people: anywhere a single failure would cause unacceptable impact.',
+    howTo: [
+      'Identify single points of failure in systems, data and knowledge.',
+      'Add redundancy where the impact justifies the cost: replicas, backups, multi-zone, a second person who knows the system.',
+      'Test that the redundant path actually works.',
+    ],
+    watchOut: 'Untested redundancy is false comfort. Backups that have never been restored and failovers never exercised often fail when needed.',
+    related: ['margin-of-safety', 'fault-tree-analysis', 'swiss-cheese-model'],
+  },
+  'abstraction': {
+    whenToUse: 'Designing platforms, APIs, internal tools and AI agent tools, where you want to hide complexity without hiding control.',
+    howTo: [
+      'Decide what users need to control and what they never want to see.',
+      'Expose a simple interface for the common path, with an escape hatch for advanced cases.',
+      'Keep the abstraction honest: surface errors and costs clearly.',
+    ],
+    watchOut: 'All abstractions leak. When the hidden layer fails, users need enough visibility to debug it.',
+    related: ['kiss-principle', 'the-map-is-not-the-territory', 'jobs-to-be-done'],
+  },
+  'kiss-principle': {
+    whenToUse: 'Design reviews, pipeline design, runbooks, and AI solutions where a simpler approach might work.',
+    howTo: [
+      'Ask what the simplest thing that could work would be.',
+      'Add complexity only when a real requirement demands it.',
+      'Prefer boring, proven technology for things that are not your differentiator.',
+    ],
+    watchOut: 'Simple is not the same as simplistic. Don\'t remove the complexity the problem genuinely needs, such as security or recovery.',
+    related: ['occams-razor', 'abstraction', 'via-negativa'],
+  },
+  'use-checklists': {
+    whenToUse: 'High-stakes, repeatable tasks: production changes, releases, incident response, onboarding, access reviews.',
+    howTo: [
+      'List the steps that are easy to forget and costly to miss.',
+      'Keep the checklist short and in the tool where the work happens.',
+      'Automate items over time, and update the list after every incident it could have prevented.',
+    ],
+    watchOut: 'A long checklist gets skimmed. Keep only the items that matter, and automate the rest.',
+    related: ['forcing-function', 'murphys-law', 'kaizen'],
+  },
+  'forcing-function': {
+    whenToUse: 'When a good practice keeps getting skipped: tests, reviews, documentation, cost tags, security scans.',
+    howTo: [
+      'Identify the step people skip and why.',
+      'Make the right behaviour the only path, or the easiest one: a required check, a template, a policy.',
+      'Explain why it exists, and give a clear route for exceptions.',
+    ],
+    watchOut: 'Forcing functions without explanation breed workarounds. Pair the constraint with the reason.',
+    related: ['use-checklists', 'incentives', 'unintended-consequences'],
+  },
+  'parkinsons-law': {
+    whenToUse: 'Planning, estimating and running meetings, when work expands to fill the time available.',
+    howTo: [
+      'Set time-boxes for meetings, spikes and design phases.',
+      'Agree the smallest valuable outcome for the time-box.',
+      'Review at the end of the box: decide, extend deliberately, or stop.',
+    ],
+    watchOut: 'Time-boxes that are too tight produce rushed, risky work. Use them for exploration and decisions, not for safety-critical steps.',
+    related: ['eisenhower-matrix', 'makers-vs-managers-schedule', 'time-value-of-shipping'],
+  },
+  'peter-principle': {
+    whenToUse: 'Promotion decisions and career paths, especially when moving great engineers into management.',
+    howTo: [
+      'Promote on evidence of the next role\'s skills, not just success in the current one.',
+      'Offer parallel tracks for technical and people leadership.',
+      'Support new managers with coaching and an easy way back if the role isn\'t right.',
+    ],
+    watchOut: 'Losing a great engineer to become an unhappy manager is a double loss. Make the technical path equally respected.',
+    related: ['generalist-vs-specialist', 'growth-mindset', 'evaluate-accurately-not-kindly'],
+  },
+
+  // ── Wave 3 (part 2): leadership, product, strategy and decisions ────────
+  'working-backwards': {
+    whenToUse: 'Starting a new product, platform capability or AI feature, before any design or code.',
+    howTo: [
+      'Write the announcement or a short FAQ as if the feature has launched.',
+      'Describe the customer, their problem and why this solution is better, in plain words.',
+      'Test it with real users and stakeholders; only then plan the work.',
+    ],
+    watchOut: 'If the announcement is hard to write or unconvincing, the idea needs more work. That is a cheap and useful result.',
+    related: ['jobs-to-be-done', 'minimum-viable-product', 'okrs'],
+  },
+  'smart-formula': {
+    whenToUse: 'Writing goals, action items from reviews, and team commitments.',
+    howTo: [
+      'Make each goal Specific, Measurable, Achievable, Relevant and Time-bound.',
+      'Check that someone outside the team could tell whether it was met.',
+      'Pair it with an owner.',
+    ],
+    watchOut: 'SMART goals can become small and safe. Use OKRs for ambitious objectives and SMART for concrete actions.',
+    related: ['okrs', 'directly-responsible-individual', 'goodharts-law'],
+  },
+  'organizational-debt': {
+    whenToUse: 'When processes, roles and structures that made sense earlier are now slowing the organisation down.',
+    howTo: [
+      'List the approvals, meetings, reports and roles people work around.',
+      'Ask what each was created for and whether that need remains.',
+      'Remove, simplify or automate, with the people affected.',
+    ],
+    watchOut: 'Like technical debt, organisational debt accumulates silently. Review it every year, not only during re-orgs.',
+    related: ['technical-debt', 'via-negativa', 'arguing-from-first-principles'],
+  },
+  'growth-mindset': {
+    whenToUse: 'Coaching, learning new technology such as AI, and building a culture where mistakes become learning.',
+    howTo: [
+      'Praise effort, strategy and learning, not only results.',
+      'Frame skills as learnable: "not yet" rather than "can\'t".',
+      'Share your own learning and mistakes as a leader.',
+    ],
+    watchOut: 'Growth mindset is not just positive talk. It needs real time, support and safety to learn.',
+    related: ['deliberate-practice', 'culture-of-lifelong-learning', 'making-mistakes'],
+  },
+  'deliberate-practice': {
+    whenToUse: 'Building real skill: incident command, system design, prompt and agent design, public speaking.',
+    howTo: [
+      'Pick a specific skill just beyond your current level.',
+      'Practise it in focused sessions with immediate feedback, such as game days or design katas.',
+      'Reflect on each session and adjust the next one.',
+    ],
+    watchOut: 'Years of experience are not the same as deliberate practice. Repeating what you already know doesn\'t build new skill.',
+    related: ['growth-mindset', 'feedback-loops', 'dunning-kruger-effect'],
+  },
+  'radical-transparency': {
+    whenToUse: 'Building trust in a team, sharing incidents and decisions openly, or making the reasoning behind priorities visible.',
+    howTo: [
+      'Default to sharing: decision records, incident write-ups, metrics, roadmaps.',
+      'Explain the reasoning, not just the outcome.',
+      'Be clear about what cannot be shared, such as personal or legally sensitive matters, and why.',
+    ],
+    watchOut: 'Transparency without psychological safety feels like exposure. Build safety first, then open up.',
+    related: ['trust', 'blameless-post-mortem', 'idea-meritocracy'],
+  },
+  'trust': {
+    whenToUse: 'Leading teams through change, working across teams, and deciding how much autonomy to give people and agents.',
+    howTo: [
+      'Build trust through consistency: do what you said, explain when you can\'t.',
+      'Extend trust in small, reversible steps and increase it with evidence.',
+      'Repair quickly and openly when trust is broken.',
+    ],
+    watchOut: 'Trust is slow to build and quick to lose. One blame-filled review can undo months of work.',
+    related: ['radical-transparency', 'hanlons-razor', 'reversible-vs-irreversible-decisions'],
+  },
+  'own-your-outcomes': {
+    whenToUse: 'Setting expectations for teams and leaders, especially for services that are built by one team and run by another.',
+    howTo: [
+      'Make ownership explicit: who owns the outcome, not just the task.',
+      'Give owners the authority and information to act.',
+      'Review outcomes, not just activity, and celebrate prevention as well as rescue.',
+    ],
+    watchOut: 'Ownership without authority is just blame. Make sure owners can actually change what they own.',
+    related: ['directly-responsible-individual', 'incentives', 'think-like-an-owner'],
+  },
+  'network-effects': {
+    whenToUse: 'Internal platforms, developer communities, shared libraries and data products, where value grows with each user.',
+    howTo: [
+      'Identify how each new user makes the platform more valuable for others: shared templates, answers, integrations.',
+      'Seed early value so the first users succeed.',
+      'Make contributing easy so users add value, not just consume it.',
+    ],
+    watchOut: 'Network effects take time to start. Early adopters need support before the network carries itself.',
+    related: ['flywheel-effect', 'metcalfes-law', 'critical-mass'],
+  },
+  'economies-of-scale': {
+    whenToUse: 'Deciding what to centralise (platform, security tooling, cloud commitments) and what to leave to teams.',
+    howTo: [
+      'Identify costs that fall per unit as volume grows: commitments, shared tooling, expertise.',
+      'Centralise where scale clearly reduces cost or risk.',
+      'Keep decisions local where speed and context matter more than scale.',
+    ],
+    watchOut: 'Centralisation can create bottlenecks and distance from users. Scale helps cost but can hurt flow.',
+    related: ['wardley-mapping', 'theory-of-constraints', 'core-competency'],
+  },
+  'switching-costs': {
+    whenToUse: 'Choosing vendors, cloud services, AI models and frameworks, and planning exits.',
+    howTo: [
+      'Estimate the cost of leaving: data migration, retraining, rewrites, contracts.',
+      'Reduce lock-in where it matters with open standards, abstractions and data export.',
+      'Revisit switching costs as usage grows; they rise quietly.',
+    ],
+    watchOut: 'Avoiding all lock-in is expensive too. Accept it where the value is high, and keep an exit plan.',
+    related: ['reversible-vs-irreversible-decisions', 'preserving-optionality', 'exit-strategy'],
+  },
+  'preserving-optionality': {
+    whenToUse: 'Uncertain futures: fast-moving AI technology, new markets, or early-stage platform choices.',
+    howTo: [
+      'Prefer choices that keep future options open, such as standard interfaces and modular designs.',
+      'Delay irreversible commitments until you know more, as long as delay is cheap.',
+      'Pay a small premium for flexibility where uncertainty is high.',
+    ],
+    watchOut: 'Keeping every option open forever means never committing. Decide when the information you need has arrived.',
+    related: ['reversible-vs-irreversible-decisions', 'switching-costs', 'unknown-unknowns'],
+  },
+  'via-negativa': {
+    whenToUse: 'Improving systems, processes and products by removing rather than adding.',
+    howTo: [
+      'List what could be removed: alerts, meetings, features, dependencies, approval steps.',
+      'Remove the items with the least value and most cost first.',
+      'Measure the effect; often quality and speed both improve.',
+    ],
+    watchOut: 'Some things look useless but protect against rare events. Check why something exists before deleting it.',
+    related: ['kiss-principle', 'organizational-debt', '5s'],
+  },
+  'the-lindy-effect': {
+    whenToUse: 'Choosing technologies, practices and dependencies for systems that need to last.',
+    howTo: [
+      'Prefer tools and ideas that have survived a long time for long-lived, critical systems.',
+      'Use newer technology where the benefit is clear and the blast radius is small.',
+      'Revisit choices as new technology proves itself over time.',
+    ],
+    watchOut: 'Lindy favours the old, but it isn\'t a reason to ignore genuine shifts like cloud and AI. Adopt new things deliberately, not reflexively.',
+    related: ['kiss-principle', 'preserving-optionality', 'social-proof'],
+  },
+  'product-market-fit': {
+    whenToUse: 'Internal platforms and AI products: deciding whether to scale, iterate or stop.',
+    howTo: [
+      'Define what fit looks like: voluntary adoption, retention, users who would be upset if it disappeared.',
+      'Measure it regularly with real usage data and user conversations.',
+      'Scale only once fit is clear; until then, iterate quickly.',
+    ],
+    watchOut: 'Mandated adoption of an internal tool can fake fit. Look for teams choosing it freely.',
+    related: ['minimum-viable-product', 'jobs-to-be-done', 'flywheel-effect'],
+  },
+  'time-value-of-shipping': {
+    whenToUse: 'Deciding whether to ship now or polish further, and prioritising small releases over big ones.',
+    howTo: [
+      'Estimate the value delivered per week once the change is live.',
+      'Compare it with the risk and cost of shipping a smaller version now.',
+      'Ship the smallest safe slice, and improve it with real feedback.',
+    ],
+    watchOut: 'Shipping fast is not shipping carelessly. Keep the quality bar for security, reliability and data.',
+    related: ['minimum-viable-product', 'velocity-vs-speed', 'parkinsons-law'],
+  },
+  'version-two-is-a-lie': {
+    whenToUse: 'When a team plans to ship a rough version 1 and "fix it in version 2".',
+    howTo: [
+      'Assume version 2 may never be funded.',
+      'Decide what version 1 must get right: security, data model, operability.',
+      'Cut scope rather than quality on the parts that are hard to change later.',
+    ],
+    watchOut: 'This is not an argument against MVPs. Keep v1 small, but solid where it counts.',
+    related: ['technical-debt', 'minimum-viable-product', 'reversible-vs-irreversible-decisions'],
+  },
+  'velocity-vs-speed': {
+    whenToUse: 'When a team is busy and moving fast but not getting closer to its goal.',
+    howTo: [
+      'Check direction: does the work map to the outcome you care about?',
+      'Measure outcomes delivered, not tickets closed or story points.',
+      'Cut work that adds speed but not direction.',
+    ],
+    watchOut: 'AI tools can raise output dramatically without changing outcomes. Watch direction as well as volume.',
+    related: ['okrs', 'goodharts-law', 'theory-of-constraints'],
+  },
+  'tragedy-of-the-commons': {
+    whenToUse: 'Shared resources: cloud accounts, shared clusters, CI capacity, shared budgets, on-call rotas.',
+    howTo: [
+      'Make usage visible per team through tagging, quotas and dashboards.',
+      'Give each team ownership of its share, and a cost when it overuses.',
+      'Agree community rules for the shared parts and review them together.',
+    ],
+    watchOut: 'Heavy-handed quotas can block legitimate work. Combine visibility and ownership before adding hard limits.',
+    related: ['incentives', 'externalities', 'own-your-outcomes'],
+  },
+  'swot-analysis': {
+    whenToUse: 'Annual planning for a team or platform, or assessing a strategic option such as adopting AI agents.',
+    howTo: [
+      'List internal Strengths and Weaknesses, and external Opportunities and Threats.',
+      'Back each item with evidence, not opinion.',
+      'Turn it into actions: use strengths for opportunities, fix weaknesses that expose you to threats.',
+    ],
+    watchOut: 'A SWOT that ends as a list is wasted. The value is in the actions you take from it.',
+    related: ['wardley-mapping', 'scenario-analysis', 'core-competency'],
+  },
+  'kepner-tregoe-decision-analysis': {
+    whenToUse: 'High-stakes choices with several options and stakeholders: vendor selection, platform choice, AI model choice.',
+    howTo: [
+      'Write the decision statement and split criteria into MUSTs and weighted WANTs.',
+      'Drop any option that fails a MUST.',
+      'Score the rest against the WANTs, then assess the risks of the leading option before deciding.',
+    ],
+    watchOut: 'It can feel heavy for small decisions. Save it for one-way doors.',
+    related: ['weighted-decision-matrix', 'reversible-vs-irreversible-decisions', 'pre-mortem'],
+  },
+  'scenario-analysis': {
+    whenToUse: 'Planning under uncertainty: capacity, budgets, AI adoption, vendor risk, or regulatory change.',
+    howTo: [
+      'Pick the two or three uncertainties that matter most.',
+      'Describe a few plausible scenarios: optimistic, expected, pessimistic, or distinctly different futures.',
+      'Check how your plan holds up in each and prepare actions for the triggers.',
+    ],
+    watchOut: 'Scenarios are not predictions. Their job is to make your plan robust, not to pick the right future.',
+    related: ['expected-value', 'sensitivity-analysis', 'preserving-optionality'],
+  },
+  'cost-benefit-analysis': {
+    whenToUse: 'Justifying investments in tooling, reliability, platform work or AI initiatives.',
+    howTo: [
+      'List costs: build, run, people\'s time, licences, risk.',
+      'List benefits: time saved, incidents avoided, revenue enabled, risk reduced.',
+      'Compare over a realistic time horizon, with conservative assumptions.',
+    ],
+    watchOut: 'Benefits are usually overestimated and costs underestimated, especially running costs. Use conservative numbers.',
+    related: ['expected-value', 'opportunity-costs', 'margin-of-safety-in-investing'],
+  },
+  'regression-to-the-mean': {
+    whenToUse: 'Interpreting metrics after an unusually good or bad period, or judging whether an intervention worked.',
+    howTo: [
+      'Expect extreme results to be followed by more average ones, whatever you do.',
+      'Compare with a baseline or control group before crediting your change.',
+      'Look at trends over several periods, not one.',
+    ],
+    watchOut: 'A new process introduced right after a terrible month will often look like it worked. Check before celebrating.',
+    related: ['scientific-method', 'falsification-confirmation-bias', 'law-of-large-numbers'],
+  },
+  'scientific-method': {
+    whenToUse: 'Debugging, performance tuning, evaluating AI prompts and models, and testing process changes.',
+    howTo: [
+      'Form a clear hypothesis you could prove wrong.',
+      'Change one thing at a time and measure the result against a baseline.',
+      'Keep notes, and accept the result even when it disappoints.',
+    ],
+    watchOut: 'Changing several things at once makes it impossible to know what worked. Be patient and isolate variables.',
+    related: ['falsification-confirmation-bias', 'pdca', 'regression-to-the-mean'],
+  },
 };
