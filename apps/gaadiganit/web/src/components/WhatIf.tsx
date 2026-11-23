@@ -5,7 +5,7 @@
 import { useId, useMemo, useState } from 'react';
 import { calculate, sensitivity, type CalculationResult, type ScenarioInputs } from '@gaadiganit/engine';
 import { useT } from '../i18n/index.ts';
-import { defaults } from '../lib/defaults.ts';
+import { useDefaults } from '../lib/effectiveDefaults.ts';
 import { formatCompactINR, formatINR, formatNumber } from '../lib/format.ts';
 import { displayName, newId, toCalculationInput, type StoredScenario } from '../lib/scenario.ts';
 import { headlineParts } from './ResultView.tsx';
@@ -59,6 +59,7 @@ export function WhatIf({ scenario, base, onSaveAsNew }: {
   onSaveAsNew: (s: StoredScenario) => void;
 }) {
   const { t, lang } = useT();
+  const defaults = useDefaults();
   const initial: Knobs = {
     km: scenario.inputs.usage.kmPerMonth,
     fuel: 1,
@@ -72,10 +73,10 @@ export function WhatIf({ scenario, base, onSaveAsNew }: {
   const tried = useMemo(() => applyKnobs(scenario, base, k), [scenario, base, k]);
   const result = useMemo(() => {
     try { return calculate(toCalculationInput(tried), defaults); } catch { return null; }
-  }, [tried]);
+  }, [tried, defaults]);
   const sens = useMemo(() => {
     try { return sensitivity(toCalculationInput(scenario), defaults, base); } catch { return null; }
-  }, [scenario, base]);
+  }, [scenario, base, defaults]);
 
   const delta = result ? headlineParts(result).perMonth - headlineParts(base).perMonth : 0;
   const deltaText = delta === 0 ? t('whatif.same') : t(delta > 0 ? 'whatif.more' : 'whatif.less', { delta: formatINR(Math.abs(delta), lang) });

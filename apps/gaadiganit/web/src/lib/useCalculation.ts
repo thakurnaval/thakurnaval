@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react';
 import { calculate, EngineInputError, type CalculationResult } from '@gaadiganit/engine';
-import { defaults } from './defaults.ts';
+import { useDefaults } from './effectiveDefaults.ts';
 import { toCalculationInput, type StoredScenario } from './scenario.ts';
 
 export interface CalcState {
@@ -14,6 +14,7 @@ export interface CalcState {
 /** Recalculates on every change; keeps the last valid result while inputs are invalid. */
 export function useCalculation(scenario: StoredScenario | null): CalcState {
   const lastGood = useRef<CalculationResult | null>(null);
+  const defaults = useDefaults();
   return useMemo(() => {
     if (!scenario) return { result: null, errors: {}, stale: false };
     try {
@@ -30,5 +31,5 @@ export function useCalculation(scenario: StoredScenario | null): CalcState {
       }
       return { result: lastGood.current, errors, stale: lastGood.current !== null };
     }
-  }, [scenario]);
+  }, [scenario, defaults]);
 }

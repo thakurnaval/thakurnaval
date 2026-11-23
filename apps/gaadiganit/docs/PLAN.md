@@ -55,9 +55,19 @@ Merge order: 1 → 3 → (4, 5, 6 in parallel) → 7. Workstream 2 runs alongsid
 | 13 | Commercial section in the editor; profit, ROI and payback in the result | Done |
 | 14 | "Change" links from assumptions to their field (UI-05); editable real-world mileage factor | Done |
 
-## Next: v2 (needs decisions)
+## v2 (built 2026-11-23)
 
-- **Model catalogue** with prefilled prices and mileage: the data source is open (SPEC intent: manual curation, licensed feed or user contributions).
-- **Live fuel prices by city**: needs a source and a small server-side fetcher, because the app has no backend today.
-- **Android app**: wrap the PWA (Capacitor or a Trusted Web Activity).
-- **Optional login and sync**: needs a backend (e.g. Firebase, as Tackl uses).
+| # | Workstream | Status |
+| --- | --- | --- |
+| 15 | Curated model catalogue (`defaults/catalogue.json`, 43 models) with schema and search in the engine | Done; data unverified |
+| 16 | Model picker (combobox) in the quick estimate and editor; fills make, body type, fuel, price, mileage | Done |
+| 17 | "My models": save a calculation's vehicle, shown first in search, managed in Settings | Done |
+| 18 | "My fuel prices" in Settings, applied to every calculation through the defaults | Done |
+
+Dropped from v2 by the owner (ADR-006): Android app, login and sync, live fuel-price feed.
+
+## Still open
+
+- Verify catalogue prices and mileage against maker sites, then set `verified: true` per entry.
+- Verify the placeholder defaults pack; hand-check W1–W4 in a spreadsheet and pin them as fixtures.
+- Owner review of Hindi strings.

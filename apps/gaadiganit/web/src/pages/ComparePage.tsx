@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import { compare, type ComparisonResult, type Metric } from '@gaadiganit/engine';
 import { useT } from '../i18n/index.ts';
-import { defaults } from '../lib/defaults.ts';
+import { useDefaults } from '../lib/effectiveDefaults.ts';
 import { formatCompactINR, formatINR, formatNumber } from '../lib/format.ts';
 import { displayName, toCalculationInput, type StoredScenario } from '../lib/scenario.ts';
 import { getScenario } from '../lib/storage.ts';
@@ -18,6 +18,7 @@ export default function ComparePage() {
   const ids = (params.get('ids') ?? '').split(',').filter(Boolean).slice(0, 4);
   const [items, setItems] = useState<StoredScenario[] | null>(null);
   const [missing, setMissing] = useState(false);
+  const defaults = useDefaults();
 
   useEffect(() => {
     let alive = true;
@@ -32,7 +33,7 @@ export default function ComparePage() {
   const cmp: ComparisonResult | null = useMemo(() => {
     if (!items || items.length < 2) return null;
     try { return compare(items.map(toCalculationInput), defaults); } catch { return null; }
-  }, [items]);
+  }, [items, defaults]);
 
   if (items === null) return <div className="h-64 animate-pulse rounded-2xl bg-slate-100 dark:bg-slate-900" />;
   if (!cmp) {

@@ -52,3 +52,15 @@ Short records of significant technical decisions. Newest at the bottom.
   - **"Save as PDF" uses the browser's print dialog** with a print stylesheet, instead of bundling a PDF library. It's smaller and works offline; the trade-off is that the user picks "Save as PDF" in the dialog.
   - **The WhatsApp card is drawn on a canvas** (1080 × 1080 PNG) and shared with the Web Share API, falling back to a download.
   - **Commercial driver and permit costs count towards TCO** (an `operating` bucket), so cost per km is the full operating cost. Net profit = earnings − commission − all monthly costs, including EMI.
+
+## ADR-006 — v2 scope: curated catalogue, my models, my prices
+
+- **Date:** 2026-11-23
+- **Status:** Accepted (owner)
+- **Context:** Two users to begin with. The intent's v2 listed a model catalogue, live fuel prices, an Android app, and login and sync.
+- **Decision:**
+  - **No Android app, no login or sync.** The PWA installs on Android from the browser, and data stays on each device.
+  - **Model catalogue = a curated JSON file in the repo** (`defaults/catalogue.json`), validated by `CatalogueSchema` in CI. Each entry has a price range in lakh, claimed mileage per fuel, a source and `verified`. The app prefills the lowest variant's price, and the user corrects it to their variant.
+  - **"My models"** are saved on the device (IndexedDB store `models`, DB version 2) and searched first.
+  - **No live fuel-price feed.** Instead, users set **"My fuel prices"** once in Settings (stored with the other settings). They are laid over every city's prices in an effective defaults pack, so every calculation, comparison and what-if uses them. A price set inside a calculation still wins. The source shows as "your prices in Settings".
+- **Consequences:** No backend and no running cost. The catalogue and defaults need a manual refresh every few months (bump `version`, update `asOf`).

@@ -282,4 +282,23 @@ export const hi: Record<MessageKey, string> = {
   'share.perMonth': "प्रति माह",
   'share.perKm': "प्रति किमी",
   'share.over': "{{period}} में",
+
+  // -- v2 --
+  'result.myPrices': "सेटिंग्स में आपकी कीमतें (जहाँ ख़ाली छोड़ा, वहाँ शहर की कीमत)",
+  'picker.label': "मॉडल",
+  'picker.placeholder': "खोजें, जैसे Swift, Nexon EV, Creta",
+  'picker.hint': "कीमत, बॉडी टाइप और माइलेज भरने के लिए सूची से चुनें, या ख़ुद लिखें।",
+  'picker.mine': "मेरा मॉडल",
+  'picker.applied': "{{name}} से भरा गया। कीमत सबसे सस्ते वेरिएंट की है ({{range}}); अपने वेरिएंट की कीमत लिखें।",
+  'picker.appliedMine': "आपके सेव किए मॉडल {{name}} से भरा गया।",
+  'picker.approx': "कीमतें और दावा किया गया माइलेज अनुमानित हैं ({{date}} तक)।",
+  'mymodels.save': "मेरे मॉडल में सेव करें",
+  'mymodels.saved': "मेरे मॉडल में सेव हो गया। अब यह मॉडल खोज में दिखेगा।",
+  'mymodels.title': "मेरे मॉडल",
+  'mymodels.empty': "किसी गणना से सेव किए मॉडल यहाँ और मॉडल खोज में सबसे ऊपर दिखेंगे।",
+  'mymodels.delete': "हटाएँ",
+  'mymodels.deleteConfirm': "“{{name}}” को मेरे मॉडल से हटाना है?",
+  'myprices.title': "मेरी ईंधन कीमतें",
+  'myprices.intro': "जो कीमत आप असल में देते हैं, वह लिखें। यह हर गणना पर लागू होगी, जब तक कोई गणना अपनी कीमत न रखे। शहर की कीमत के लिए ख़ाली छोड़ें।",
+  'myprices.clear': "मेरी कीमतें हटाएँ",
 };

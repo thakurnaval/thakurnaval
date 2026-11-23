@@ -12,6 +12,11 @@ export {
   type ComparisonResult, type BreakEvenKm, type BreakEvenMonth, type Sensitivity, type Metric,
 } from './compare.ts';
 
+export {
+  CatalogueSchema, CatalogueModelSchema, CatalogueOptionSchema, parseCatalogue, searchCatalogue, lakhToPaise,
+  type Catalogue, type CatalogueModel, type CatalogueOption,
+} from './catalogue.ts';
+
 import { DefaultsPackSchema, type DefaultsPack } from './schemas.ts';
 
 /** Validate a raw defaults pack (e.g. imported JSON). Throws on invalid data (NFR-07). */

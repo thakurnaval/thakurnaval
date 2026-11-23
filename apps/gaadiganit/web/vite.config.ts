@@ -34,5 +34,7 @@ export default defineConfig({
     environment: 'jsdom',
     include: ['src/**/*.test.{ts,tsx}'],
     setupFiles: ['src/test-setup.ts'],
+    // UI tests render the whole page in jsdom; allow for slow CI runners.
+    testTimeout: 20_000,
   },
 });

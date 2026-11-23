@@ -1,6 +1,6 @@
 # GaadiGanit
 
-> Status: **v1, v1.1 and v1.2 built and deployed.** Product intent: [docs/INTENT.md](docs/INTENT.md). Detailed spec: [docs/SPEC.md](docs/SPEC.md). Placeholder defaults: [defaults/india.json](defaults/india.json). Engine ([packages/engine](packages/engine)) and web app ([web](web)) built; live on Cloud Run.
+> Status: **v1 to v2 built and deployed.** Product intent: [docs/INTENT.md](docs/INTENT.md). Detailed spec: [docs/SPEC.md](docs/SPEC.md). Placeholder defaults: [defaults/india.json](defaults/india.json). Engine ([packages/engine](packages/engine)) and web app ([web](web)) built; live on Cloud Run.
 
 GaadiGanit ("vehicle maths") is a vehicle cost-of-ownership and ROI calculator for Indian buyers. It turns "is this car worth it?" into one number per month and per km.
 
@@ -60,6 +60,12 @@ apps/gaadiganit/
 ```
 
 The deploy workflow is at [`/.github/workflows/deploy-gaadiganit.yml`](../../.github/workflows/deploy-gaadiganit.yml) at the repo root, because GitHub only runs workflows from there. [docs/EXTRACTION.md](docs/EXTRACTION.md) covers moving it when the app gets its own repo.
+
+## Updating data
+
+- **Defaults** (`defaults/india.json`): road tax, fuel prices, insurance, service, tyres, depreciation. Bump `version`, update `asOf` on each changed group, and add a `changelog` line.
+- **Model catalogue** (`defaults/catalogue.json`): price ranges in lakh, claimed mileage per fuel. Set `verified: true` once an entry is checked against the maker's site, and update `asOf` and `source`.
+- Both files are validated by the engine tests, so a bad edit fails CI before it deploys.
 
 ## Running locally
 

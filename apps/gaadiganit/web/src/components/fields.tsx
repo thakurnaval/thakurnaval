@@ -6,6 +6,7 @@ import { useEffect, useId, useState, type ReactNode } from 'react';
 import type { AmountOrRate, Assumption } from '@gaadiganit/engine';
 import { useT } from '../i18n/index.ts';
 import { formatINR, formatNumber, moneyInputText, parseMoney, parseNumber, type Lang } from '../lib/format.ts';
+import { MY_PRICES_SOURCE } from '../lib/effectiveDefaults.ts';
 
 interface Common {
   label: string;
@@ -42,7 +43,7 @@ export function SourceNote({ assumption }: { assumption: Assumption }) {
   const p = assumption.provenance;
   if (p.kind === 'derived') return <>{t('result.derived', { from: p.from })}</>;
   if (p.kind !== 'default') return null;
-  const source = p.source === 'PLACEHOLDER' ? t('result.placeholderSource') : p.source;
+  const source = p.source === 'PLACEHOLDER' ? t('result.placeholderSource') : p.source === MY_PRICES_SOURCE ? t('result.myPrices') : p.source;
   const date = new Date(`${p.asOf}T00:00:00`).toLocaleDateString(lang === 'hi' ? 'hi-IN' : 'en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
   return <>{source} · {t('result.asOf', { date })}</>;
 }

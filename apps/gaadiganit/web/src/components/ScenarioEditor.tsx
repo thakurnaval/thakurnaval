@@ -15,6 +15,8 @@ import { getIn, setIn, type StoredScenario } from '../lib/scenario.ts';
 import {
   AmountOrRateField, MoneyField, NumberField, PercentField, SelectField, TextField, Toggle,
 } from './fields.tsx';
+import { ModelPicker } from './ModelPicker.tsx';
+import { applyModel, saveScenarioAsModel, useMyModels } from '../lib/catalogue.ts';
 
 type Update = (fn: (s: StoredScenario) => StoredScenario) => void;
 
@@ -117,6 +119,9 @@ export function ScenarioEditor({ scenario, result, errors, onChange, focus = nul
   const claimed = inp.usage.mileage?.isClaimed ?? true;
   const com = inp.commercial;
 
+  const { models: myModels, reload: reloadModels } = useMyModels();
+  const [savedNote, setSavedNote] = useState('');
+
   // km per day × days (IN-07) is a view over kmPerMonth.
   const [perDay, setPerDay] = useState(false);
   const [days, setDays] = useState(30);
@@ -128,8 +133,15 @@ export function ScenarioEditor({ scenario, result, errors, onChange, focus = nul
       <Section title={t('section.vehicle')} subtotal={formatCompactINR(v.exShowroom, lang)} defaultOpen paths={['location.', 'vehicle.']} {...sectionProps}>
         <TextField label={t('editor.name')} value={scenario.name} onChange={(name) => onChange((s) => ({ ...s, name }))} />
         <TextField label={t('fields.vehicle.nickname')} value={v.nickname ?? ''} onChange={(x) => setVehicle('nickname', x || undefined)} />
+        <ModelPicker
+          value={v.model}
+          fuel={fuel}
+          myModels={myModels}
+          error={err('vehicle.model')}
+          onTextChange={(x) => setVehicle('model', x)}
+          onPick={({ model, option }) => onChange((s) => applyModel(s, model, option))}
+        />
         <TextField label={t('fields.vehicle.make')} value={v.make} onChange={(x) => setVehicle('make', x)} />
-        <TextField label={t('fields.vehicle.model')} value={v.model} onChange={(x) => setVehicle('model', x)} error={err('vehicle.model')} />
         <TextField label={t('fields.vehicle.variant')} value={v.variant ?? ''} onChange={(x) => setVehicle('variant', x || undefined)} />
         <MoneyField label={t('fields.vehicle.exShowroom')} value={v.exShowroom} onChange={(p) => p !== undefined && setVehicle('exShowroom', p)} error={err('vehicle.exShowroom')} required />
         <SelectField<FuelType>
@@ -169,6 +181,20 @@ export function ScenarioEditor({ scenario, result, errors, onChange, focus = nul
           }))}
           options={[{ value: 'personal', label: t('use.personal') }, { value: 'commercial', label: t('use.commercial') }]}
         />
+        <div className="sm:col-span-2">
+          <button
+            type="button"
+            className="btn-secondary"
+            disabled={!result || !(v.model.trim() || v.nickname?.trim())}
+            onClick={() => {
+              if (!result) return;
+              void saveScenarioAsModel(scenario, result).then(() => { void reloadModels(); setSavedNote(t('mymodels.saved')); });
+            }}
+          >
+            {t('mymodels.save')}
+          </button>
+          <p className="mt-1 min-h-4 text-xs text-brand-700 dark:text-brand-500" aria-live="polite">{savedNote}</p>
+        </div>
       </Section>
 
       {v.useType === 'commercial' && com ? (

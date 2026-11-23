@@ -277,6 +277,25 @@ export const en = {
   'share.perMonth': "a month",
   'share.perKm': "per km",
   'share.over': "over {{period}}",
+
+  // -- v2 --
+  'result.myPrices': "your prices in Settings (city price where you left one blank)",
+  'picker.label': "Model",
+  'picker.placeholder': "Search, e.g. Swift, Nexon EV, Creta",
+  'picker.hint': "Pick from the list to fill in the price, body type and mileage, or just type your own.",
+  'picker.mine': "My model",
+  'picker.applied': "Filled in from {{name}}. The price is the lowest variant ({{range}}); change it to your variant’s price.",
+  'picker.appliedMine': "Filled in from your saved model {{name}}.",
+  'picker.approx': "Prices and claimed mileage are approximate (as of {{date}}).",
+  'mymodels.save': "Save to my models",
+  'mymodels.saved': "Saved to my models. It now appears in the model search.",
+  'mymodels.title': "My models",
+  'mymodels.empty': "Models you save from a calculation appear here and at the top of the model search.",
+  'mymodels.delete': "Delete",
+  'mymodels.deleteConfirm': "Delete “{{name}}” from my models?",
+  'myprices.title': "My fuel prices",
+  'myprices.intro': "Set the prices you actually pay. They apply to every calculation unless a calculation sets its own price. Leave a box blank to use the city price.",
+  'myprices.clear': "Clear my prices",
 } as const;
 
 export type MessageKey = keyof typeof en;

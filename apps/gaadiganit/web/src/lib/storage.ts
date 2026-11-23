@@ -3,10 +3,12 @@
  */
 import { openDB, type IDBPDatabase } from 'idb';
 import type { StoredScenario } from './scenario.ts';
+import type { StoredModel } from './catalogue.ts';
 
 const DB_NAME = 'gaadiganit';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 const STORE = 'scenarios';
+const MODELS = 'models';
 export const CURRENT_SCHEMA = 1;
 
 let dbPromise: Promise<IDBPDatabase> | null = null;
@@ -17,6 +19,8 @@ function db() {
       if (!d.objectStoreNames.contains(STORE)) {
         d.createObjectStore(STORE, { keyPath: 'id' }).createIndex('updatedAt', 'updatedAt');
       }
+      // v2: models the user saved ("my models")
+      if (!d.objectStoreNames.contains(MODELS)) d.createObjectStore(MODELS, { keyPath: 'id' });
     },
   });
   return dbPromise;
@@ -57,4 +61,19 @@ export async function deleteScenario(id: string): Promise<void> {
 /** For tests: drop the cached connection. */
 export function _resetDbForTests() {
   dbPromise = null;
+}
+
+// -- My models (v2) ----------------------------------------------------------
+
+export async function listModels(): Promise<StoredModel[]> {
+  const all = (await (await db()).getAll(MODELS)) as StoredModel[];
+  return all.sort((a, b) => (a.make + ' ' + a.model).localeCompare(b.make + ' ' + b.model));
+}
+
+export async function saveModel(m: StoredModel): Promise<void> {
+  await (await db()).put(MODELS, m);
+}
+
+export async function deleteModel(id: string): Promise<void> {
+  await (await db()).delete(MODELS, id);
 }

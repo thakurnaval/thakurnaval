@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { FUEL_TYPES, inferCategory, type FuelType } from '@gaadiganit/engine';
-import { MoneyField, NumberField, SelectField, TextField } from '../components/fields.tsx';
+import { MoneyField, NumberField, SelectField } from '../components/fields.tsx';
+import { ModelPicker } from '../components/ModelPicker.tsx';
+import { applyModel, useMyModels } from '../lib/catalogue.ts';
 import { ResultView } from '../components/ResultView.tsx';
 import { useT } from '../i18n/index.ts';
 import { defaults } from '../lib/defaults.ts';
@@ -17,6 +19,7 @@ export default function QuickEstimate() {
   const [s, setS] = useState<StoredScenario>(() => newScenario(getSettings().cityId));
   const { result, errors, stale } = useCalculation(s);
   const [saving, setSaving] = useState(false);
+  const { models: myModels } = useMyModels();
 
   const setUsage = (key: 'kmPerMonth' | 'ownershipMonths', value: number | undefined) =>
     setS((p) => ({ ...p, inputs: { ...p.inputs, usage: { ...p.inputs.usage, [key]: value ?? 0 } } }));
@@ -36,16 +39,22 @@ export default function QuickEstimate() {
           <h1 id="quick-title" className="text-2xl font-bold">{t('quick.title')}</h1>
           <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{t('quick.intro')}</p>
         </div>
-        <TextField
-          label={t('fields.vehicle.model')}
-          placeholder={t('quick.modelPlaceholder')}
+        <ModelPicker
           value={s.vehicle.model}
-          onChange={(model) => setS((p) => ({ ...p, vehicle: { ...p.vehicle, model } }))}
+          fuel={s.vehicle.fuelType}
+          myModels={myModels}
+          onTextChange={(model) => setS((p) => ({ ...p, vehicle: { ...p.vehicle, model } }))}
+          onPick={({ model, option }) => setS((p) => applyModel(p, model, option))}
         />
         <SelectField<FuelType>
           label={t('fields.vehicle.fuelType')}
           value={s.vehicle.fuelType}
-          onChange={(fuelType) => setS((p) => ({ ...p, vehicle: { ...p.vehicle, fuelType } }))}
+          onChange={(fuelType) => setS((p) => ({
+            ...p,
+            vehicle: { ...p.vehicle, fuelType },
+            // Mileage and prices are per litre / kg / kWh, so they don't carry across fuels.
+            inputs: { ...p.inputs, usage: { ownershipMonths: p.inputs.usage.ownershipMonths, kmPerMonth: p.inputs.usage.kmPerMonth } },
+          }))}
           options={FUEL_TYPES.map((f) => ({ value: f, label: t(`fuel.${f}`) }))}
         />
         <MoneyField
@@ -55,7 +64,7 @@ export default function QuickEstimate() {
           error={errors['vehicle.exShowroom']}
           onChange={(p) => p !== undefined && setS((prev) => ({
             ...prev,
-            vehicle: { ...prev.vehicle, exShowroom: p, category: inferCategory(p, defaults) },
+            vehicle: { ...prev.vehicle, exShowroom: p, category: prev.categoryAuto ? inferCategory(p, defaults) : prev.vehicle.category },
           }))}
         />
         <NumberField label={t('fields.usage.kmPerMonth')} value={s.inputs.usage.kmPerMonth} error={errors['usage.kmPerMonth']} onChange={(n) => setUsage('kmPerMonth', n)} />
