@@ -1,6 +1,6 @@
 # GaadiGanit
 
-> Status: **spec v0.2, build started.** Product intent: [docs/INTENT.md](docs/INTENT.md). Detailed spec: [docs/SPEC.md](docs/SPEC.md). Placeholder defaults: [defaults/india.json](defaults/india.json). Engine built ([packages/engine](packages/engine)); web app next.
+> Status: **v1 MVP in progress.** Product intent: [docs/INTENT.md](docs/INTENT.md). Detailed spec: [docs/SPEC.md](docs/SPEC.md). Placeholder defaults: [defaults/india.json](defaults/india.json). Engine ([packages/engine](packages/engine)) and web app ([web](web)) built; deployment next.
 
 GaadiGanit ("vehicle maths") is a vehicle cost-of-ownership and ROI calculator for Indian buyers. It turns "is this car worth it?" into one number per month and per km.
 
@@ -50,7 +50,9 @@ apps/gaadiganit/
 │   └── EXTRACTION.md    ← how to split this into its own repo
 ├── defaults/
 │   └── india.json       ← versioned default values (data, not code)
-└── (app source, package.json, Dockerfile, … added once the stack is chosen)
+├── package.json         ← npm workspace root
+├── packages/engine/     ← @gaadiganit/engine: pure TS cost calculation, 100% tested
+└── web/                 ← @gaadiganit/web: React PWA (screens, i18n, storage)
 ```
 
 The deploy workflow will be at `/.github/workflows/deploy-gaadiganit.yml` at the repo root, because GitHub only runs workflows from there. [docs/EXTRACTION.md](docs/EXTRACTION.md) covers moving it when the app gets its own repo.
@@ -62,9 +64,9 @@ All commands run from this folder:
 ```bash
 cd apps/gaadiganit
 npm install
-npm test            # engine unit tests
-npm run coverage    # engine tests with the 100% coverage gate
+npm run dev -w @gaadiganit/web     # app at http://localhost:3100
+npm test                           # engine + web tests
+npm run coverage                   # engine tests with the 100% coverage gate
 npm run typecheck
+npm run build -w @gaadiganit/web   # production build in web/dist
 ```
-
-The web app (`web/`) will add `npm run dev`.

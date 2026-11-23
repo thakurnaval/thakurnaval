@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "description": "GaadiGanit: vehicle cost-of-ownership and ROI calculator for India",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "web"
   ],
   "scripts": {
     "test": "npm run test --workspaces --if-present",

@@ -23,11 +23,11 @@ apps/gaadiganit/                 npm workspace root (self-contained, extractable
 | --- | --- | --- | --- |
 | 1 | Engine: schemas, resolve, loan, calculate, tests | — | Done: 54 tests, 100% coverage |
 | 2 | Defaults pack: schema validation in CI, verify placeholder values | 1 (schema) | Schema validated in tests; values still placeholders |
-| 3 | Web shell: Vite, Tailwind, routing, i18n (en + hi), Indian formatting, PWA | 1 (types) | Next |
-| 4 | Quick estimate + detailed editor, Zod validation | 1, 3 | |
-| 5 | Result screen: headline, breakdown, cumulative chart, assumptions | 1, 3 | |
-| 6 | Persistence (IndexedDB, autosave, schema migrations) | 1, 3 | |
-| 7 | Deploy: Dockerfile, nginx, `deploy-gaadiganit.yml`, gg.nthakur.com mapping | 3 | |
+| 3 | Web shell: Vite, Tailwind, routing, i18n (en + hi), Indian formatting, PWA | 1 (types) | Done |
+| 4 | Quick estimate + detailed editor, Zod validation | 1, 3 | Done |
+| 5 | Result screen: headline, breakdown, cumulative chart, assumptions | 1, 3 | Done |
+| 6 | Persistence (IndexedDB, autosave, schema migrations) | 1, 3 | Done |
+| 7 | Deploy: Dockerfile, nginx, `deploy-gaadiganit.yml`, gg.nthakur.com mapping | 3 | Next; needs GCP secrets and DNS |
 
 Merge order: 1 → 3 → (4, 5, 6 in parallel) → 7. Workstream 2 runs alongside.
 
@@ -36,3 +36,9 @@ Merge order: 1 → 3 → (4, 5, 6 in parallel) → 7. Workstream 2 runs alongsid
 - Engine invariants are tested on every run: buckets sum to TCO, the monthly schedule matches the totals, and principal sums to the loan.
 - Worked examples W1 and W2 (SPEC §8) are hand-checked in a spreadsheet, then pinned as fixtures.
 - The owner reviews the Hindi catalogue (`hi`) before release (SPEC D3).
+
+## Still open for v1
+
+- Owner review of the Hindi strings in `web/src/i18n/hi.ts` (D3). Engine validation messages are English-only for now.
+- Verify the placeholder defaults (SPEC §6) and hand-check W1/W2 in a spreadsheet, then pin them as fixtures.
+- Lighthouse and accessibility pass on a real phone (NFR-02, NFR-03).

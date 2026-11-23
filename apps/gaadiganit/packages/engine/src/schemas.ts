@@ -36,7 +36,8 @@ export const VehicleSchema = z.object({
   id: z.string().min(1),
   nickname: z.string().max(80).optional(),
   make: z.string().max(60),
-  model: z.string().min(1).max(80),
+  /** Labels only; the maths never reads them, so an empty model is allowed. */
+  model: z.string().max(80),
   variant: z.string().max(60).optional(),
   category: CategorySchema,
   fuelType: FuelTypeSchema,
