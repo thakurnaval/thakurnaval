@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import SimplePage from '../../components/SimplePage';
-import { Search, Brain, Zap, Target, Layers, Shield, Users, BarChart, Workflow, Compass, Wrench, Lightbulb } from 'lucide-react';
+import { Search, Brain, Zap, Target, Layers, Shield, Users, BarChart, Workflow, Compass, Wrench, Lightbulb, Star } from 'lucide-react';
+import { PRACTITIONERS_25 } from './practitioners25';
 
 interface MentalModel {
   name: string;
@@ -434,11 +435,23 @@ const situationIcon = (s: Situation) => {
   }
 };
 
-const MODELS = MENTAL_MODELS.map(m => ({ ...m, situation: situationOf(m), slug: slugOf(m.name) }));
+const TOP_RANK = new Map(PRACTITIONERS_25.map((p, i) => [p.slug, { rank: i + 1, howIUse: p.howIUse }]));
+
+const MODELS = MENTAL_MODELS.map(m => {
+  const slug = slugOf(m.name);
+  return { ...m, situation: situationOf(m), slug, top: TOP_RANK.get(slug) };
+});
+
+/** The pinned shortlist, in the order Naval chose. */
+const TOP_MODELS = PRACTITIONERS_25
+  .map(p => MODELS.find(m => m.slug === p.slug))
+  .filter((m): m is typeof MODELS[number] => !!m);
+
+const TOP_FILTER = "Practitioner's 25";
 
 const MentalModels: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selected, setSelected] = useState<'All' | Situation>('All');
+  const [selected, setSelected] = useState<'All' | typeof TOP_FILTER | Situation>('All');
   const [highlight, setHighlight] = useState<string | null>(null);
 
   // Opening /explore/mental-models#six-thinking-hats scrolls to and highlights that card.
@@ -463,9 +476,10 @@ const MentalModels: React.FC = () => {
   }, []);
 
   const q = searchTerm.toLowerCase();
-  const filteredModels = MODELS.filter(model =>
-    (selected === 'All' || model.situation === selected) &&
-    (!q || model.name.toLowerCase().includes(q) || model.description.toLowerCase().includes(q) || model.category.toLowerCase().includes(q)));
+  const filteredModels = (selected === TOP_FILTER ? TOP_MODELS : MODELS).filter(model =>
+    (selected === 'All' || selected === TOP_FILTER || model.situation === selected) &&
+    (!q || model.name.toLowerCase().includes(q) || model.description.toLowerCase().includes(q) || model.category.toLowerCase().includes(q)
+      || (model.top?.howIUse.toLowerCase().includes(q) ?? false)));
 
   const chip = (label: string, active: boolean, onClick: () => void, count: number) => (
     <button key={label} type="button" onClick={onClick} aria-pressed={active}
@@ -481,6 +495,32 @@ const MentalModels: React.FC = () => {
       title="Mental Models for Engineering Leaders"
       subtitle="A library of frameworks for thinking, deciding and solving problems, organised by the situation you are in."
     >
+      {/* The Practitioner's 25: pinned shortlist */}
+      <section aria-labelledby="top25-title" className="mb-12 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 p-6 md:p-8">
+        <div className="flex flex-wrap items-end justify-between gap-4 mb-5">
+          <div className="max-w-2xl">
+            <h2 id="top25-title" className="text-2xl font-bold text-primary dark:text-white flex items-center gap-2">
+              <Star className="w-6 h-6 text-secondary-dark dark:text-secondary" /> The Practitioner's 25
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mt-1">
+              The models I reach for most in DevOps, SRE and AI work, each with a note on how I use it. A good place to start.
+            </p>
+          </div>
+          <button type="button" onClick={() => { setSelected(TOP_FILTER); setSearchTerm(''); document.getElementById('model-search')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
+            className="px-4 py-2 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 dark:bg-secondary dark:text-primary">
+            Show these 25 with notes
+          </button>
+        </div>
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-6 gap-y-2">
+          {TOP_MODELS.map(m => (
+            <li key={m.slug} className="flex gap-2 text-sm min-w-0">
+              <span className="w-6 shrink-0 text-right font-mono text-slate-400 tabular-nums">{m.top!.rank}.</span>
+              <a href={`#${m.slug}`} className="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-secondary hover:underline">{m.name}</a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <div className="mb-12 space-y-6">
         {/* Search and situation filter */}
         <div className="relative">
@@ -499,6 +539,7 @@ const MentalModels: React.FC = () => {
           <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">What are you trying to do?</p>
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by situation">
             {chip('All', selected === 'All', () => setSelected('All'), MODELS.length)}
+            {chip(TOP_FILTER, selected === TOP_FILTER, () => setSelected(TOP_FILTER), TOP_MODELS.length)}
             {SITUATIONS.map(s => chip(s, selected === s, () => setSelected(s), counts.get(s) ?? 0))}
           </div>
         </div>
@@ -525,6 +566,7 @@ const MentalModels: React.FC = () => {
                     <a href={`#${model.slug}`} className="hover:underline focus-visible:underline">{model.name}</a>
                   </h3>
                   <div className="flex flex-wrap gap-x-2 text-xs font-semibold mt-1">
+                    {model.top ? <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-300"><Star className="w-3 h-3 fill-current" /> #{model.top.rank} of 25</span> : null}
                     <span className="text-secondary-dark dark:text-secondary">{model.situation}</span>
                     <span className="text-slate-400 uppercase tracking-wider">· {model.category}</span>
                   </div>
@@ -538,6 +580,14 @@ const MentalModels: React.FC = () => {
                   <p className="text-xs italic text-slate-500 dark:text-slate-400">
                     <span className="font-bold not-italic text-secondary-dark dark:text-secondary mr-1">Example:</span>
                     {model.example}
+                  </p>
+                </div>
+              )}
+              {model.top && (
+                <div className="mt-3 p-3 rounded-lg bg-primary/5 dark:bg-secondary/10 border border-primary/10 dark:border-secondary/20">
+                  <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+                    <span className="block text-xs font-bold uppercase tracking-wider text-primary dark:text-secondary mb-1">How I use it</span>
+                    {model.top.howIUse}
                   </p>
                 </div>
               )}
