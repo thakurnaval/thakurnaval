@@ -1,0 +1,17 @@
+{
+  "name": "gaadiganit",
+  "private": true,
+  "version": "0.1.0",
+  "description": "GaadiGanit: vehicle cost-of-ownership and ROI calculator for India",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces --if-present",
+    "coverage": "npm run coverage --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

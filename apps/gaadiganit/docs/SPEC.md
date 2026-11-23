@@ -77,7 +77,7 @@ A single vehicle (personal use), quick estimate plus detailed editor, a result s
 | ENG-13 | v1 | Resale per §4.6 | Resale at month N is interpolated linearly between yearly curve points. A user ₹ or % override wins |
 | ENG-14 | v1 | Derived metrics: cost/month, cost/km, depreciation, interest paid | Cost per km is `null` (shown as "—") when total km = 0 |
 | ENG-15 | v1 | Opportunity cost (optional, off by default) | When on, interest lost on the upfront cash at the FD rate, compounded monthly, shows as its own line and is included in TCO |
-| ENG-16 | v1 | Cost breakdown buckets | `result.breakdown` has: vehicle cost (upfront + EMI principal + outstanding − resale), interest, energy, service, tyres, insurance, other. Buckets sum to TCO exactly |
+| ENG-16 | v1 | Cost breakdown buckets | `result.breakdown` has: vehicle (on-road − year-1 insurance − resale), interest (loan interest + processing fee), energy, service, tyres, insurance (year 1 + renewals), other (12V battery, parking/tolls, repairs buffer, custom), opportunity cost. Buckets sum to TCO exactly |
 | ENG-17 | v1.1 | `compare(scenarios[], defaults) → ComparisonResult` | Winner per metric. Ties are reported as ties |
 | ENG-18 | v1.1 | Break-even km/month between two scenarios | Bisection over 0–20,000 km/month to ±1 km. Returns `null` with a reason when the two TCO curves don't cross in range |
 | ENG-19 | v1.1 | Break-even month | The first month the cumulative cost order flips. `null` if it never flips |
@@ -173,7 +173,7 @@ EMI = P × r(1+r)^n / ((1+r)^n − 1)         (r = 0 → P ÷ n)
 
 ### 4.4 Service and tyres
 
-- **Service:** a service falls due in month m when km since the last service ≥ interval km, **or** months since the last service ≥ interval months. Both counters reset at each service. EV and hybrid use their own service cost and interval.
+- **Service:** a service falls due in month m when km since the last service ≥ interval km, **or** months since the last service ≥ interval months. A km-triggered service keeps the km remainder, so services follow the odometer (10,000, 20,000, 30,000 km…). A time-triggered service resets the km counter. Either one resets the month counter. If a month covers several intervals, several services are charged. EV and hybrid use their own service cost and interval.
 - **Tyres:** a new set is charged in the month cumulative km first reaches k × tyre life (k = 1, 2, …). Several crossings in one month charge several sets.
 - **12V battery:** charged every `batteryIntervalMonths`. EV traction-battery cost is **not modelled in v1** (D4) and is left for a later phase.
 
@@ -393,6 +393,7 @@ export interface DefaultsPack {
   finance: Sourced<{ downPaymentRate: Rate; annualRate: Rate; tenureMonths: number; processingFee: Paise }>;
   usage: Sourced<{ ownershipMonths: number; kmPerMonth: number; fuelInflation: Rate; cngShare: Rate; evHomeShare: Rate }>;
   realWorldFactor: Sourced<Record<FuelType, Rate>>;
+  typicalMileage: Sourced<Record<FuelType, { primary: number; secondary?: number }>>;  // claimed; used when the user gives none
   insurance: Sourced<{ year1RateByCategory: Record<Category, Rate>; renewalDecline: Rate }>;
   service: Sourced<Record<Category, Partial<Record<FuelType, { cost: Paise; intervalKm: number; intervalMonths: number }>> & {
     default: { cost: Paise; intervalKm: number; intervalMonths: number };
@@ -531,6 +532,7 @@ The results of W1 and W2 are checked first. Their monthly schedules, exported as
 | `TCO = DownPayment + UpfrontOther + …` | `TCO = CashUpfront + …` where CashUpfront = OnRoad − LoanPrincipal + ProcessingFee | Makes it explicit what is paid in cash on day 1 and avoids double-counting road tax and insurance |
 | ROI % = (Σ net profit + resale − upfront) ÷ upfront | Also subtracts `LoanOutstanding_N` | When the loan outlives ownership, the balance is owed at sale and reduces the return |
 | Break-even km "solve numerically" | Coarse 100 km scan, then bisection | Service and tyre events make TCO step-wise; a plain bisection could miss the first crossing |
+| Quick estimate has no mileage field | Mileage defaults to a typical claimed figure per fuel type (`typicalMileage` in the defaults pack) | The engine needs a mileage, and v1 has no model catalogue |
 | Quick estimate fields include "model" | Category is inferred from price (IN-02) | 5 fields don't include category, but insurance, service and tyre defaults depend on it |
 
 ---

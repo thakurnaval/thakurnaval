@@ -1,6 +1,6 @@
 # GaadiGanit
 
-> Status: **spec v0.2, build started.** Product intent: [docs/INTENT.md](docs/INTENT.md). Detailed spec: [docs/SPEC.md](docs/SPEC.md). Placeholder defaults: [defaults/india.json](defaults/india.json). App code comes next.
+> Status: **spec v0.2, build started.** Product intent: [docs/INTENT.md](docs/INTENT.md). Detailed spec: [docs/SPEC.md](docs/SPEC.md). Placeholder defaults: [defaults/india.json](defaults/india.json). Engine built ([packages/engine](packages/engine)); web app next.
 
 GaadiGanit ("vehicle maths") is a vehicle cost-of-ownership and ROI calculator for Indian buyers. It turns "is this car worth it?" into one number per month and per km.
 
@@ -57,10 +57,14 @@ The deploy workflow will be at `/.github/workflows/deploy-gaadiganit.yml` at the
 
 ## Running locally
 
-To be added once the stack is set up. All commands will run from this folder:
+All commands run from this folder:
 
 ```bash
 cd apps/gaadiganit
 npm install
-npm run dev
+npm test            # engine unit tests
+npm run coverage    # engine tests with the 100% coverage gate
+npm run typecheck
 ```
+
+The web app (`web/`) will add `npm run dev`.

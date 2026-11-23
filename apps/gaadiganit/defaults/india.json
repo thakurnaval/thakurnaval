@@ -88,6 +88,19 @@
     "value": { "petrol": 0.75, "diesel": 0.75, "cng": 0.75, "dual_petrol_cng": 0.75, "strong_hybrid": 0.80, "ev": 0.80 }
   },
 
+  "typicalMileage": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "_note": "Claimed (ARAI-style) mileage used when the quick estimate has no mileage. km/l for petrol, diesel, hybrid; km/kg for CNG; km/kWh for EV; dual = petrol km/l + CNG km/kg.",
+    "value": {
+      "petrol":          { "primary": 18 },
+      "diesel":          { "primary": 20 },
+      "cng":             { "primary": 26 },
+      "strong_hybrid":   { "primary": 25 },
+      "ev":              { "primary": 7 },
+      "dual_petrol_cng": { "primary": 18, "secondary": 26 }
+    }
+  },
+
   "insurance": {
     "source": "PLACEHOLDER", "asOf": "2026-11-23",
     "value": {
