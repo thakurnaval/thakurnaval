@@ -1,5 +1,5 @@
 # Naval Thakur — Master Action Plan
-*Last updated: July 2026*
+*Last updated: 24 November 2026*
 
 This is the single source of truth for all outstanding action items across the website, LinkedIn, content, assessments, and newsletter. Check items off as they're completed.
 
@@ -27,6 +27,15 @@ This is the single source of truth for all outstanding action items across the w
 | CI/CD pipeline | ✅ Pipeline verified · Actions bumped to Node.js 24-compatible versions · `id: deploy` fix applied |
 | AUTHORITY_PLAN.md | ✅ Created — full authority building strategy across all 5 channels |
 | Website — digital products (Tier 1) | ✅ All 5 Tier 1 products live — CognitiveOps Playbook, 30 Days of FinOps, DevOps Roadmap, FinOps Cert Prep, 7 Cs of DevOps |
+| Website — digital products (Tier 2 free) | ✅ AI-Native SDLC Field Guide, DevSecOps Playbook, GenAI Adoption Framework, Terraform & Bicep templates (Nov 2026) |
+| Website — Free Resources hub | ✅ `/resources` lists every guide, template, assessment and library; in the Insights menu |
+| Website — assessment results | ✅ Pillar-by-pillar plans (80) in DevOps, FinOps, SecOps, GenAI and CognitiveOps results and PDFs |
+| Website — mental models | ✅ 210 models, all with detail; Practitioner's 25 pinned; 4 toolkits at `/explore/toolkits` |
+| Website — premium report | 🟡 Interest capture live at `/cognitiveops/premium-report`; build on first customer request |
+| Website — DevOpsism page | ✅ Book page + early-reader list at `/devopsism` |
+| Website — projects | ✅ GaadiGanit live at gg.nthakur.com; home page shows 4 projects |
+| Website — security & ops | ✅ Dependabot high/moderate fixed (React Router 7, Vite 7.3.8); Cloud Run 5xx email alert; all services scale to zero |
+| Website — privacy & consent | 🔲 No privacy policy page or cookie notice (GA4 is installed and forms collect emails) |
 
 ---
 
@@ -38,11 +47,18 @@ This is the single source of truth for all outstanding action items across the w
   - Suggested ask: "3 sentences on working together and one specific result"
 - [x] Replace placeholder entries in `pages/home/Testimonials.tsx`
 
-### P2 — Project Logos (BookEx + TrueNorth)
-- [ ] Drop `BookEx` logo image into `public/assets/img/gallery/`
-- [ ] Drop `TrueNorth` logo image into `public/assets/img/gallery/`
-- [ ] Wire filenames into `PROJECTS` array in `constants.ts` with `image` field
-  - Estimated effort: 10 minutes once files are available
+### P2 — Project Logos (BookEx + TrueNorth) ✅ COMPLETE
+- [x] Logos in `public/assets/img/gallery/` and wired into `PROJECTS` (see Completed table)
+- [x] GaadiGanit logo added (Nov 2026)
+
+### P1 — Mental Models & Toolkits ✅ COMPLETE (Nov 2026)
+- [x] Library organised by situation ("What are you trying to do?"), each model linkable (`/explore/mental-models#slug`)
+- [x] Practitioner's 25 pinned with "How I use it" notes (`pages/explore/practitioners25.ts`)
+- [x] "More detail" (when to use, how to apply, watch out for, related) for all 210 models (`pages/explore/modelDetails.ts`)
+- [x] Library trimmed from 233 to 210 (5 duplicates merged, 18 weak fits removed)
+- [x] Toolkits: Incident Review, Architecture Decisions, Platform Strategy, Better Reviews and Meetings (`pages/explore/toolkitData.ts`)
+- [ ] Optional: strengthen "Generate ideas" (only 5 models) with Brainstorming, Crazy 8s, How Might We, Design Thinking
+- [ ] Optional: more toolkits — FinOps cost review, AI use-case selection, team health check
 
 ### P3 — Newsletter Archive Page ✅ COMPLETE
 - [x] Create `/newsletter` route and page (`pages/Newsletter.tsx`)
@@ -183,9 +199,11 @@ Ordered by effort-to-impact. Build Tier 1 first — these come directly from exi
 
 ### Tier 2 — Medium effort
 - [ ] **Premium CognitiveOps Assessment Report** — Enhanced version of the existing assessment with team scoring, benchmarking, and a detailed PDF. Priced at $199–$499 per report. *Interest capture live at `/cognitiveops/premium-report` (Nov 2026); build the product when the first customer asks. Open decisions: payment provider, price tiers, team-scoring storage, benchmark data.*
-- [ ] **DevSecOps Playbook** — Combine DevOps + SecOps content into a practitioner-focused guide.
-- [ ] **GenAI Adoption Framework for Enterprise Teams** — Based on existing GenAI content + CognitiveOps model.
-- [ ] **IaC Starter Templates** — Terraform/Bicep templates for the most common architectures in the portfolio.
+- [x] **DevSecOps Playbook** — Free, email-gated 6-page PDF. Live at `/secops/devsecops-playbook` (Nov 2026).
+- [x] **GenAI Adoption Framework for Enterprise Teams** — Free, email-gated 5-page PDF. Live at `/genai/adoption-framework` (Nov 2026).
+- [x] **IaC Starter Templates** — Five Terraform/Bicep/GitHub Actions starters with copy and download, email-gated. Live at `/architecture/iac-templates` (Nov 2026).
+- [x] **AI-Native SDLC Field Guide** — Original 7-page guide with on-page readiness check; credits Anthropic's playbook as further reading. Live at `/ai-sdlc/field-guide` (Nov 2026).
+- [x] **Detailed assessment results** — Pillar-by-pillar plans in the five flagship assessments (results screen and PDF).
 
 ### Tier 3 — Courses (high effort, recurring revenue)
 - [ ] **CognitiveOps Foundations** ($99–$199)
@@ -241,12 +259,49 @@ DevOps is not a toolchain. It is not a job title. It is an operating philosophy 
 - [ ] Decide: self-publish (Amazon KDP) vs. traditional publisher (Wiley, O'Reilly, Packt)
 - [ ] Research comparable titles (The Phoenix Project, Team Topologies, Accelerate) for positioning
 - [ ] Write sample chapter for O'Reilly or Packt submission if going traditional
-- [ ] Register nthakur.com/devopsism page once manuscript is underway
+- [x] Register nthakur.com/devopsism page — live early as a book-in-progress page with outline and early-reader list (Nov 2026)
 
 ### Notes
 - Draw heavily from the SpeakerProfile.md abstracts — each session abstract is essentially a chapter outline
 - The CognitiveOps Maturity Model is the intellectual centrepiece; the book should make it the canonical reference
 - Tone: practitioner-first, honest, no consulting-speak, willing to name failures
+
+---
+
+## 8 — Next Phase: Website Foundations (proposed Nov 2026)
+
+The site now has a lot of free content and lead capture. The next phase is making sure it is legally sound, measurable, fast, and that leads turn into relationships. Social channels are tracked separately (Sections 2, 3, AUTHORITY_PLAN.md).
+
+### P0 — Privacy and consent
+- [ ] Add a Privacy Policy page (`/privacy`): what is collected (emails, assessment answers, phone on the contact form, GA4 analytics), why, where it is stored (Google Sheets via Apps Script), retention, and how to request deletion. Cover India's DPDP Act 2023 and GDPR for EU visitors.
+- [ ] Cookie/analytics consent banner (GA4 only loads after consent), or switch to a cookieless analytics tool.
+- [ ] Consent wording under every email form, linking to the privacy policy.
+- [ ] Check the Google Apps Script sends notifications only to contact@nthakur.com.
+
+### P1 — Email that actually nurtures leads
+- [ ] Move subscribers from the Google Sheet to an email platform (e.g. MailerLite, Buttondown, Kit) with double opt-in and real unsubscribe links (the forms already promise "unsubscribe anytime").
+- [ ] Welcome sequence of 4–5 emails per lead source: deliver the guide, link the matching assessment, a relevant toolkit, an invitation to book time.
+- [ ] Tag each lead by source (which guide or assessment) so follow-ups are relevant.
+
+### P1 — Measurement
+- [ ] GA4 events for the things that matter: guide unlocks, PDF opens, assessment completions, premium-report interest, contact form sends.
+- [ ] Google Search Console: verify nthakur.com, submit the sitemap, watch which pages and queries bring visitors.
+- [ ] Monthly one-page review: visits, leads by source, top pages, assessment completions.
+
+### P2 — Performance and robustness
+- [ ] Replace the Tailwind play CDN (`cdn.tailwindcss.com`, not meant for production) with a compiled Tailwind build — faster first paint, no runtime CSS generation, enables a Content Security Policy.
+- [ ] Add a Content-Security-Policy header in `nginx.conf` once the above is done.
+- [ ] Lighthouse and accessibility pass on mobile for the home page, a guide page, an assessment and the mental models page.
+- [ ] CI checks: broken-link checker across all prerendered pages, and a few Playwright smoke tests (home, an assessment through to results, a guide unlock).
+- [ ] Dismiss the remaining moderate Dependabot alert (GaadiGanit `minimatch`, build-time only) or wait for an upstream fix.
+
+### P2 — Content structure and SEO
+- [ ] Interlink: each topic page links to its guide, assessment and relevant toolkit; each toolkit links to an article.
+- [ ] Publish the 2 case studies from AUTHORITY_PLAN.md (Section 3 / month-6 milestone).
+- [ ] Turn each toolkit into an article and newsletter issue (ready-made content).
+
+### P3 — Data for the premium report
+- [ ] With consent, store anonymised assessment scores so real benchmarks exist when the premium report is built.
 
 ---
 
@@ -300,3 +355,17 @@ These items are done. Listed here for context only.
 | CI/CD — Added missing `id: deploy` to Deploy to Cloud Run step; Print deployed URL now resolves correctly | Jul 2026 |
 | CI/CD — Pipeline end-to-end verified; build passes in ~1m30s on push to main | Jul 2026 |
 | AUTHORITY_PLAN.md — Full authority building strategy created: positioning, domain statements, per-channel playbooks (Website, LinkedIn, Sessionize, X, Topmate), content pillars, repurposing matrix, quarterly milestones Q3 2026–Q2 2027, metrics dashboard | Jul 2026 |
+| GaadiGanit app live at gg.nthakur.com (own Cloud Run service); /gg and /gaadiganit redirect; project card added | Nov 2026 |
+| Dependabot high + moderate alerts fixed — React Router 7.18, Vite 7.3.8, transitive updates | Nov 2026 |
+| Cloud Run uptime checks removed (services scale to zero); 5xx error email alert added instead | Nov 2026 |
+| Sitemap lastmod now from git history (only changes when a page changes) | Nov 2026 |
+| AI-Native SDLC Field Guide (`/ai-sdlc/field-guide`) | Nov 2026 |
+| DevSecOps Playbook, GenAI Adoption Framework, Terraform & Bicep templates | Nov 2026 |
+| Pillar-by-pillar plans (80) in five assessment results and PDF reports | Nov 2026 |
+| Premium CognitiveOps report — interest capture page and results teaser | Nov 2026 |
+| DevOpsism book page with early-reader list | Nov 2026 |
+| All guides, PDFs and new pages switched to the site blue theme | Nov 2026 |
+| Experience updated to 20+ years everywhere; home shows 8 talks and 4 articles; broken article images fixed | Nov 2026 |
+| Menu: Insights now holds Mental Models, Toolkits, Book Summaries, Free Resources; `/resources` hub | Nov 2026 |
+| Mental models: 210 models by situation, all with detail; Practitioner's 25; 4 toolkits | Nov 2026 |
+| CONTENT_REVIEW.md and PRACTITIONERS_25.md in Requirements/ | Nov 2026 |
