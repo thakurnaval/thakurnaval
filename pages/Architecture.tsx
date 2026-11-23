@@ -1,4 +1,5 @@
 import React from 'react';
+import RelatedResources from '../components/RelatedResources';
 import { Link } from 'react-router-dom';
 import { Layers, Server, Network, Database, ArrowRight, Box } from 'lucide-react';
 import Section from '../components/Section';
@@ -137,6 +138,7 @@ const Architecture: React.FC = () => {
           </div>
         </div>
       </Section>
+      <RelatedResources topic="architecture" />
     </>
   );
 };

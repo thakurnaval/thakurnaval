@@ -35,7 +35,9 @@ This is the single source of truth for all outstanding action items across the w
 | Website — DevOpsism page | ✅ Book page + early-reader list at `/devopsism` |
 | Website — projects | ✅ GaadiGanit live at gg.nthakur.com; home page shows 4 projects |
 | Website — security & ops | ✅ Dependabot high/moderate fixed (React Router 7, Vite 7.3.8); Cloud Run 5xx email alert; all services scale to zero |
-| Website — privacy & consent | 🔲 No privacy policy page or cookie notice (GA4 is installed and forms collect emails) |
+| Website — privacy & consent | ✅ `/privacy` policy (DPDP Act + GDPR), analytics consent banner, privacy note on all 18 forms |
+| Website — measurement | ✅ GA4 `generate_lead` + `file_download` events (consent-gated); setup and monthly review in `MEASUREMENT.md` |
+| Website — performance & checks | ✅ Compiled Tailwind (CDN removed), HSTS + CSP (report-only), build fails on broken links / missing CSS / unlisted inline scripts |
 
 ---
 
@@ -273,10 +275,11 @@ DevOps is not a toolchain. It is not a job title. It is an operating philosophy 
 The site now has a lot of free content and lead capture. The next phase is making sure it is legally sound, measurable, fast, and that leads turn into relationships. Social channels are tracked separately (Sections 2, 3, AUTHORITY_PLAN.md).
 
 ### P0 — Privacy and consent
-- [ ] Add a Privacy Policy page (`/privacy`): what is collected (emails, assessment answers, phone on the contact form, GA4 analytics), why, where it is stored (Google Sheets via Apps Script), retention, and how to request deletion. Cover India's DPDP Act 2023 and GDPR for EU visitors.
-- [ ] Cookie/analytics consent banner (GA4 only loads after consent), or switch to a cookieless analytics tool.
-- [ ] Consent wording under every email form, linking to the privacy policy.
-- [ ] Check the Google Apps Script sends notifications only to contact@nthakur.com.
+- [x] Add a Privacy Policy page (`/privacy`): what is collected (emails, assessment answers, phone on the contact form, GA4 analytics), why, where it is stored (Google Sheets via Apps Script), retention, and how to request deletion. Cover India's DPDP Act 2023 and GDPR for EU visitors.
+- [x] Cookie/analytics consent banner — GA4 loads only after "Accept analytics" (Consent Mode); "Cookie settings" in the footer.
+- [x] Consent wording under every email form (18 forms), linking to the privacy policy.
+- [ ] Check the Google Apps Script sends notifications only to contact@nthakur.com. *(Naval — the script isn't in this repo)*
+- [ ] Review the Privacy Policy wording, especially retention periods and where submissions are stored. *(Naval)*
 
 ### P1 — Email that actually nurtures leads
 - [ ] Move subscribers from the Google Sheet to an email platform (e.g. MailerLite, Buttondown, Kit) with double opt-in and real unsubscribe links (the forms already promise "unsubscribe anytime").
@@ -284,20 +287,24 @@ The site now has a lot of free content and lead capture. The next phase is makin
 - [ ] Tag each lead by source (which guide or assessment) so follow-ups are relevant.
 
 ### P1 — Measurement
-- [ ] GA4 events for the things that matter: guide unlocks, PDF opens, assessment completions, premium-report interest, contact form sends.
-- [ ] Google Search Console: verify nthakur.com, submit the sitemap, watch which pages and queries bring visitors.
-- [ ] Monthly one-page review: visits, leads by source, top pages, assessment completions.
+- [x] GA4 events: `generate_lead` (with `lead_source`) on every form, `file_download` on every PDF and template — see `MEASUREMENT.md`.
+- [ ] In GA4, mark `generate_lead` as a key event and add `lead_source` / `file_name` custom dimensions. *(Naval, 5 min — steps in `MEASUREMENT.md`)*
+- [ ] Google Search Console: verify nthakur.com (DNS TXT at Hostinger), submit the sitemap. *(Naval — steps in `MEASUREMENT.md`)*
+- [x] Monthly review template in `MEASUREMENT.md` (first review: early December 2026).
 
 ### P2 — Performance and robustness
-- [ ] Replace the Tailwind play CDN (`cdn.tailwindcss.com`, not meant for production) with a compiled Tailwind build — faster first paint, no runtime CSS generation, enables a Content Security Policy.
-- [ ] Add a Content-Security-Policy header in `nginx.conf` once the above is done.
-- [ ] Lighthouse and accessibility pass on mobile for the home page, a guide page, an assessment and the mental models page.
-- [ ] CI checks: broken-link checker across all prerendered pages, and a few Playwright smoke tests (home, an assessment through to results, a guide unlock).
+- [x] Replaced the Tailwind play CDN with a compiled Tailwind 3.4 build (71 KB CSS, 11 KB gzipped).
+- [x] Content-Security-Policy added in **report-only** mode, plus HSTS and Permissions-Policy.
+- [ ] Switch the CSP to enforcing (rename the header in `nginx.conf`) after checking the browser console on a few pages shows no CSP reports.
+- [ ] Lighthouse and accessibility pass on mobile for the home page, a guide page, an assessment and the mental models page. *(Run in Chrome DevTools; couldn't be run from the build environment)*
+- [x] Build-time checks (`npm run check`, run in the Docker build): CSS coverage, internal links and anchors, CSP hashes.
+- [ ] Optional: Playwright smoke tests (home, an assessment through to results, a guide unlock).
 - [ ] Dismiss the remaining moderate Dependabot alert (GaadiGanit `minimatch`, build-time only) or wait for an upstream fix.
 
 ### P2 — Content structure and SEO
-- [ ] Interlink: each topic page links to its guide, assessment and relevant toolkit; each toolkit links to an article.
-- [ ] Publish the 2 case studies from AUTHORITY_PLAN.md (Section 3 / month-6 milestone).
+- [x] Interlink: "Keep going" block on the 7 topic pages — guides, assessment, toolkit, mental models. Toolkits link back to topic pages.
+- [ ] Link each toolkit to an article once the articles exist.
+- [ ] Publish the 2 case studies from AUTHORITY_PLAN.md (Section 3 / month-6 milestone). *(Needs Naval's real engagement details)*
 - [ ] Turn each toolkit into an article and newsletter issue (ready-made content).
 
 ### P3 — Data for the premium report
@@ -369,3 +376,7 @@ These items are done. Listed here for context only.
 | Menu: Insights now holds Mental Models, Toolkits, Book Summaries, Free Resources; `/resources` hub | Nov 2026 |
 | Mental models: 210 models by situation, all with detail; Practitioner's 25; 4 toolkits | Nov 2026 |
 | CONTENT_REVIEW.md and PRACTITIONERS_25.md in Requirements/ | Nov 2026 |
+| Privacy policy, analytics consent banner, privacy notes on all forms | Nov 2026 |
+| Compiled Tailwind, HSTS, CSP (report-only), build-time link/CSS/CSP checks | Nov 2026 |
+| GA4 lead and download events; MEASUREMENT.md | Nov 2026 |
+| "Keep going" next-step block on all 7 topic pages | Nov 2026 |

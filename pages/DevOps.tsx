@@ -1,4 +1,5 @@
 import React from 'react';
+import RelatedResources from '../components/RelatedResources';
 import { Link } from 'react-router-dom';
 import { Settings, RefreshCw, BarChart2, GitMerge, ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
@@ -112,6 +113,7 @@ const DevOps: React.FC = () => {
           </div>
         </div>
       </Section>
+      <RelatedResources topic="devops" />
     </>
   );
 };

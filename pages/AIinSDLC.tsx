@@ -1,4 +1,5 @@
 import React from 'react';
+import RelatedResources from '../components/RelatedResources';
 import { Link } from 'react-router-dom';
 import { Code, TestTube, FileText, CheckCircle, Rocket, Activity, Lightbulb, TrendingUp, AlertTriangle, Brain } from 'lucide-react';
 import Section from '../components/Section';
@@ -144,6 +145,7 @@ const AIinSDLC: React.FC = () => {
           </div>
         </div>
       </Section>
+      <RelatedResources topic="ai-sdlc" />
     </>
   );
 };

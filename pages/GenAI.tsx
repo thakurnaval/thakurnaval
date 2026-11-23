@@ -1,4 +1,5 @@
 import React from 'react';
+import RelatedResources from '../components/RelatedResources';
 import { Link } from 'react-router-dom';
 import { Bot, Sparkles, Database, Lock, ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
@@ -90,6 +91,7 @@ const GenAI: React.FC = () => {
           </div>
         </div>
       </Section>
+      <RelatedResources topic="genai" />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import RelatedResources from '../components/RelatedResources';
 import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { PieChart, Pie, Cell } from 'recharts';
@@ -173,6 +174,7 @@ const FinOps: React.FC = () => {
           </div>
         </div>
       </Section>
+      <RelatedResources topic="finops" />
     </>
   );
 };

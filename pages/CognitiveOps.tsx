@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RelatedResources from '../components/RelatedResources';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BrainCircuit, Layers, ShieldCheck, TrendingUp, Terminal, Cpu, CheckCircle2, ChevronRight, Lightbulb, GitMerge, BarChart3, Users } from 'lucide-react';
 import Section from '../components/Section';
@@ -357,6 +358,7 @@ const CognitiveOps: React.FC = () => {
           <NewsletterSignup />
         </div>
       </Section>
+      <RelatedResources topic="cognitiveops" />
     </>
   );
 };
