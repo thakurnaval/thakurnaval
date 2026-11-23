@@ -85,7 +85,7 @@ export default function ScenarioPage() {
         <div className="space-y-4 lg:sticky lg:top-4 lg:h-fit">
           {result ? (
             <>
-              <ResultView result={result} stale={stale} onEditAssumption={(path) => setFocus((f) => ({ path, n: (f?.n ?? 0) + 1 }))} />
+              <ResultView result={result} stale={stale} category={s.vehicle.category} onEditAssumption={(path) => setFocus((f) => ({ path, n: (f?.n ?? 0) + 1 }))} />
               {!stale ? <WhatIf key={`${s.id}-${result.tco}`} scenario={s} base={result} onSaveAsNew={(copy) => {
                 void saveScenario(copy).then(() => navigate(`/s/${copy.id}`));
               }} /> : null}

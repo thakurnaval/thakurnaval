@@ -48,7 +48,12 @@ export function ModelPicker({ value, onTextChange, onPick, fuel, myModels, error
     onPick(p);
     setOpen(false);
     const name = `${p.model.make} ${p.model.model}`;
-    setNote(isMine(p.model) ? t('picker.appliedMine', { name }) : t('picker.applied', { name: `${name} (${t(`fuel.${p.option.fuelType}`)})`, range: range(p.option) }));
+    const label = `${name} (${t(`fuel.${p.option.fuelType}`)})`;
+    setNote(isMine(p.model)
+      ? t('picker.appliedMine', { name })
+      : p.model.use === 'commercial'
+        ? t('picker.appliedCommercial', { name: label, range: range(p.option) })
+        : t('picker.applied', { name: label, range: range(p.option) }));
   };
 
   const date = new Date(`${catalogue.asOf}T00:00:00`).toLocaleDateString(lang === 'hi' ? 'hi-IN' : 'en-IN', { month: 'short', year: 'numeric' });
@@ -95,6 +100,8 @@ export function ModelPicker({ value, onTextChange, onPick, fuel, myModels, error
                 <span className="font-medium">{r.model.make} {r.model.model}</span>
                 <span className="text-slate-500 dark:text-slate-400"> · {t(`fuel.${r.option.fuelType}`)}</span>
                 {isMine(r.model) ? <span className="ml-2 rounded bg-brand-100 px-1.5 py-0.5 text-xs text-brand-800 dark:bg-brand-900 dark:text-brand-100">{t('picker.mine')}</span> : null}
+                {r.model.use === 'commercial' ? <span className="ml-2 rounded bg-amber-100 px-1.5 py-0.5 text-xs text-amber-900 dark:bg-amber-900 dark:text-amber-100">{t('picker.commercial')}</span> : null}
+                <span className="block text-xs text-slate-500 dark:text-slate-400">{t(`category.${r.model.category}`)}{r.model.note ? ` · ${r.model.note}` : ''}</span>
               </span>
               <span className="tabular-nums text-slate-600 dark:text-slate-300">{range(r.option)} · {formatNumber(r.option.mileage, lang, 2)} {UNIT[r.option.fuelType]}</span>
             </li>

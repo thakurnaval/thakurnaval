@@ -74,7 +74,7 @@ export default function QuickEstimate() {
         </button>
       </section>
       <div>
-        {result ? <ResultView result={result} stale={stale} /> : <p className="card text-slate-600">{t('quick.fillIn')}</p>}
+        {result ? <ResultView result={result} stale={stale} category={s.vehicle.category} /> : <p className="card text-slate-600">{t('quick.fillIn')}</p>}
       </div>
     </div>
   );

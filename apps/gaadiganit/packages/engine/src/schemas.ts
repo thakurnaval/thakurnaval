@@ -17,8 +17,13 @@ export const IsoDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected Y
 
 export const FUEL_TYPES = ['petrol', 'diesel', 'cng', 'strong_hybrid', 'ev', 'dual_petrol_cng'] as const;
 export const CATEGORIES = [
-  'hatchback', 'sedan', 'compact_suv', 'suv', 'mpv', 'pickup', 'van', 'mini_truck', 'bus',
+  'hatchback', 'sedan', 'compact_suv', 'suv', 'mpv',
+  // Commercial: small (≤ 3.5 t) to heavy (≥ 19 t GVW), and passenger
+  'pickup', 'van', 'mini_truck', 'light_truck', 'truck', 'heavy_truck', 'minibus', 'bus',
 ] as const;
+
+/** Categories that are normally used commercially (cabs, goods, passengers). */
+export const COMMERCIAL_CATEGORIES: readonly Category[] = ['pickup', 'mini_truck', 'light_truck', 'truck', 'heavy_truck', 'minibus', 'bus'];
 
 export const FuelTypeSchema = z.enum(FUEL_TYPES);
 export const CategorySchema = z.enum(CATEGORIES);
@@ -45,7 +50,7 @@ export const VehicleSchema = z.object({
   exShowroom: PaiseSchema.min(LAKH, 'Price must be at least ₹1 lakh').max(5 * CRORE, 'Price must be at most ₹5 crore'),
 });
 
-const MileageValue = z.number().min(1).max(60);
+const MileageValue = z.number().min(0.5).max(60);
 const FuelPriceValue = PaiseSchema.min(100).max(50_000); // Rs 1 – Rs 500 per unit
 
 export const ScenarioInputsSchema = z.object({
@@ -143,8 +148,9 @@ export const CalculationInputSchema = z.object({
 }).superRefine((s, ctx) => {
   const fuel = s.vehicle.fuelType;
   const m = s.inputs.usage.mileage;
-  if (fuel === 'ev' && m?.primary !== undefined && (m.primary < 2 || m.primary > 15)) {
-    ctx.addIssue({ code: 'custom', path: ['inputs', 'usage', 'mileage', 'primary'], message: 'EV efficiency must be 2–15 km per kWh' });
+  // EV buses and trucks run at about 1 km per kWh; cars at 5–12.
+  if (fuel === 'ev' && m?.primary !== undefined && (m.primary < 0.5 || m.primary > 15)) {
+    ctx.addIssue({ code: 'custom', path: ['inputs', 'usage', 'mileage', 'primary'], message: 'EV efficiency must be 0.5–15 km per kWh' });
   }
   if (fuel !== 'dual_petrol_cng' && m?.secondary !== undefined) {
     ctx.addIssue({ code: 'custom', path: ['inputs', 'usage', 'mileage', 'secondary'], message: 'A second mileage applies only to dual fuel (petrol + CNG)' });
@@ -238,6 +244,8 @@ export const DefaultsPackSchema = z.object({
   })),
   realWorldFactor: sourced(byFuel(RateSchema)),
   typicalMileage: sourced(byFuel(z.object({ primary: z.number().positive(), secondary: z.number().positive().optional() }))),
+  /** Overrides typicalMileage for categories far from a car's figures (trucks, buses). */
+  typicalMileageByCategory: sourced(z.partialRecord(CategorySchema, z.partialRecord(FuelTypeSchema, z.number().positive()))).optional(),
   insurance: sourced(z.object({
     year1RateByCategory: byCategory(RateSchema),
     renewalDecline: RateSchema,

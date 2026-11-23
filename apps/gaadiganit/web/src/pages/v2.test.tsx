@@ -1,6 +1,6 @@
 /** v2: model catalogue picker, my models, my fuel prices. */
 import { afterEach, describe, expect, it } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Route, Routes } from 'react-router';
 import { calculate } from '@gaadiganit/engine';
@@ -119,5 +119,33 @@ describe('model picker (v2)', () => {
     await user.click(screen.getByRole('button', { name: 'Delete: Kia Test Seltos' }));
     window.confirm = confirm;
     await waitFor(() => expect(screen.queryByText('Kia Test Seltos')).toBeNull());
+  });
+});
+
+describe('commercial vehicles in the catalogue', () => {
+  it('opens a truck in commercial mode with truck mileage and a road-tax note', async () => {
+    const user = renderAt('/new');
+    const box = await screen.findByRole('combobox', { name: 'Model' });
+    await user.type(box, 'bada dost');
+    const option = (await screen.findAllByRole('option')).find((o) => /Bada Dost/.test(o.textContent ?? ''))!;
+    expect(option.textContent).toMatch(/Commercial/);
+    expect(option.textContent).toMatch(/Light truck/);
+    await user.click(option);
+    expect(screen.getByText(/switched to commercial use/)).toBeTruthy();
+    // No earnings yet: cost headline plus a prompt, not a "loses money" headline.
+    expect(screen.getByText(/This car costs you/)).toBeTruthy();
+    expect(screen.getByText(/Add earnings in the Earnings section/)).toBeTruthy();
+    expect(screen.getByText(/Road tax for trucks and buses/)).toBeTruthy();
+  });
+
+  it('finds buses and minibuses', async () => {
+    const user = renderAt('/new');
+    const box = await screen.findByRole('combobox', { name: 'Model' });
+    await user.type(box, 'starbus');
+    const picked = () => within(screen.getByRole('listbox')).getAllByRole('option');
+    await waitFor(() => expect(picked()).toHaveLength(2));
+    await user.clear(box);
+    await user.type(box, 'traveller');
+    await waitFor(() => expect(picked()[0]!.textContent).toMatch(/Minibus/));
   });
 });

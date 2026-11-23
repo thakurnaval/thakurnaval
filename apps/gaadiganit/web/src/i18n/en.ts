@@ -296,6 +296,15 @@ export const en = {
   'myprices.title': "My fuel prices",
   'myprices.intro': "Set the prices you actually pay. They apply to every calculation unless a calculation sets its own price. Leave a box blank to use the city price.",
   'myprices.clear': "Clear my prices",
+
+  // -- commercial vehicles --
+  'category.light_truck': "Light truck (3.5–7.5 t)",
+  'category.truck': "Medium truck (7.5–19 t)",
+  'category.heavy_truck': "Heavy truck (19 t and above)",
+  'category.minibus': "Minibus / tempo traveller",
+  'picker.commercial': "Commercial",
+  'picker.appliedCommercial': "Filled in from {{name}} and switched to commercial use; add earnings to see profit. The price is the lowest variant ({{range}}).",
+  'warning.ROAD_TAX_COMMERCIAL': "Road tax for trucks and buses is often charged by weight every quarter; check your state’s rate and enter it under Purchase.",
 } as const;
 
 export type MessageKey = keyof typeof en;

@@ -321,7 +321,7 @@ describe('validation (IN-13)', () => {
   it('checks EV efficiency range and stray secondary mileage', () => {
     const ev = validateInput(input({ vehicle: { fuelType: 'ev' }, inputs: { usage: { ownershipMonths: 12, kmPerMonth: 100, mileage: { primary: 30 } } } }));
     expect(ev.success).toBe(false);
-    expect(ev.error!.issues[0]!.message).toMatch(/2–15 km per kWh/);
+    expect(ev.error!.issues[0]!.message).toMatch(/0.5–15 km per kWh/);
     const stray = validateInput(input({ inputs: { usage: { ownershipMonths: 12, kmPerMonth: 100, mileage: { secondary: 20 } } } }));
     expect(stray.error!.issues[0]!.message).toMatch(/only to dual fuel/);
     expect(validateInput(input({ vehicle: { fuelType: 'ev' }, inputs: { usage: { ownershipMonths: 12, kmPerMonth: 100, mileage: { primary: 7 } } } })).success).toBe(true);

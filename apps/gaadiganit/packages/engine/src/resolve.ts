@@ -201,7 +201,11 @@ export function resolveInputs(vehicle: Vehicle, inputs: ParsedInputs, defaults: 
   const factor = isClaimed
     ? take('usage.realWorldFactor', u.realWorldFactor, defaults.realWorldFactor.value[fuel], defaults.realWorldFactor, 'rate')
     : 1;
-  const primaryMileage = take('usage.mileage.primary', u.mileage?.primary, typical.value[fuel].primary, typical, mileageUnit(fuel));
+  const byCat = defaults.typicalMileageByCategory;
+  const catMileage = byCat?.value[category]?.[fuel];
+  const primaryMileage = catMileage !== undefined
+    ? take('usage.mileage.primary', u.mileage?.primary, catMileage, byCat!, mileageUnit(fuel))
+    : take('usage.mileage.primary', u.mileage?.primary, typical.value[fuel].primary, typical, mileageUnit(fuel));
 
   const prices = city.fuelPrices;
   const price = (path: string, user: Paise | undefined, fallback: Paise, unit: string) =>

@@ -35,9 +35,14 @@ export function applyModel(s: StoredScenario, m: AnyModel, o: CatalogueOption): 
   }) as ScenarioInputs;
   // Prices are per litre / kg / kWh, so they don't carry across fuel types.
   if (fuelChanged) inputs = setIn(inputs, ['usage', 'fuelPrice'], undefined) as ScenarioInputs;
+  // Commercial models open in commercial mode, ready for earnings.
+  const useType = m.use ?? s.vehicle.useType;
+  if (useType === 'commercial' && !inputs.commercial) {
+    inputs = setIn(inputs, ['commercial'], { earnings: { kind: 'per_km', value: 0 } }) as ScenarioInputs;
+  }
   return {
     ...s,
-    vehicle: { ...s.vehicle, make: m.make, model: m.model, category: m.category, fuelType: o.fuelType, exShowroom },
+    vehicle: { ...s.vehicle, make: m.make, model: m.model, category: m.category, fuelType: o.fuelType, exShowroom, useType },
     categoryAuto: false,
     inputs,
   };

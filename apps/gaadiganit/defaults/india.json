@@ -1,13 +1,15 @@
 {
-  "version": "2026.11.0",
+  "version": "2026.11.1",
   "asOf": "2026-11-23",
   "currency": "INR",
   "_notes": [
     "All money values are integer paise (Rs 1 = 100 paise). All rates are decimal fractions (0.09 = 9%).",
+    "Road tax uses the same % of ex-showroom for every category. Many states tax commercial vehicles by weight, quarterly; override road tax in the editor for trucks and buses.",
     "Every group marked source=PLACEHOLDER holds approximate figures from general knowledge. Verify against the sources listed in docs/SPEC.md section 6 before launch."
   ],
   "changelog": [
-    { "version": "2026.11.0", "date": "2026-11-23", "change": "Initial placeholder pack: DL, MH, KA; Delhi, Mumbai, Pune, Bengaluru." }
+    { "version": "2026.11.0", "date": "2026-11-23", "change": "Initial placeholder pack: DL, MH, KA; Delhi, Mumbai, Pune, Bengaluru." },
+    { "version": "2026.11.1", "date": "2026-11-23", "change": "Commercial categories (light, medium, heavy truck; minibus) and typical mileage by category." }
   ],
 
   "fallbackStateCode": "DL",
@@ -101,12 +103,28 @@
     }
   },
 
+  "typicalMileageByCategory": {
+    "source": "PLACEHOLDER", "asOf": "2026-11-23",
+    "_note": "Typical loaded real-use figures for commercial categories, used when no mileage is given. km/l diesel/petrol, km/kg CNG, km/kWh EV.",
+    "value": {
+      "pickup":      { "diesel": 14, "cng": 18 },
+      "van":         { "petrol": 16, "diesel": 14, "cng": 22 },
+      "mini_truck":  { "petrol": 18, "diesel": 20, "cng": 22, "ev": 7 },
+      "light_truck": { "diesel": 11, "cng": 9 },
+      "truck":       { "diesel": 6.5, "cng": 5 },
+      "heavy_truck": { "diesel": 3.8 },
+      "minibus":     { "diesel": 10 },
+      "bus":         { "diesel": 4.5, "cng": 3.2, "ev": 1.0 }
+    }
+  },
+
   "insurance": {
     "source": "PLACEHOLDER", "asOf": "2026-11-23",
     "value": {
       "year1RateByCategory": {
         "hatchback": 0.035, "sedan": 0.033, "compact_suv": 0.032, "suv": 0.030, "mpv": 0.031,
-        "pickup": 0.030, "van": 0.030, "mini_truck": 0.030, "bus": 0.030
+        "pickup": 0.030, "van": 0.030, "mini_truck": 0.030, "light_truck": 0.030, "truck": 0.030,
+        "heavy_truck": 0.030, "minibus": 0.032, "bus": 0.030
       },
       "renewalDecline": 0.10
     }
@@ -131,8 +149,14 @@
                        "diesel":  { "cost": 900000,  "intervalKm": 10000, "intervalMonths": 12 } },
       "pickup":      { "default": { "cost": 800000,  "intervalKm": 10000, "intervalMonths": 6 } },
       "van":         { "default": { "cost": 700000,  "intervalKm": 10000, "intervalMonths": 6 } },
-      "mini_truck":  { "default": { "cost": 600000,  "intervalKm": 10000, "intervalMonths": 6 } },
-      "bus":         { "default": { "cost": 1500000, "intervalKm": 15000, "intervalMonths": 6 } }
+      "mini_truck":  { "default": { "cost": 600000,  "intervalKm": 10000, "intervalMonths": 6 },
+                       "ev":      { "cost": 300000,  "intervalKm": 15000, "intervalMonths": 12 } },
+      "light_truck": { "default": { "cost": 1200000, "intervalKm": 20000, "intervalMonths": 6 } },
+      "truck":       { "default": { "cost": 2500000, "intervalKm": 25000, "intervalMonths": 6 } },
+      "heavy_truck": { "default": { "cost": 4000000, "intervalKm": 30000, "intervalMonths": 6 } },
+      "minibus":     { "default": { "cost": 1000000, "intervalKm": 15000, "intervalMonths": 6 } },
+      "bus":         { "default": { "cost": 1500000, "intervalKm": 15000, "intervalMonths": 6 },
+                       "ev":      { "cost": 800000,  "intervalKm": 20000, "intervalMonths": 6 } }
     }
   },
 
@@ -147,6 +171,10 @@
       "pickup":      { "costPerSet": 3000000,  "lifeKm": 50000 },
       "van":         { "costPerSet": 2800000,  "lifeKm": 50000 },
       "mini_truck":  { "costPerSet": 2400000,  "lifeKm": 50000 },
+      "light_truck": { "costPerSet": 6000000,  "lifeKm": 60000 },
+      "truck":       { "costPerSet": 12000000, "lifeKm": 80000 },
+      "heavy_truck": { "costPerSet": 35000000, "lifeKm": 100000 },
+      "minibus":     { "costPerSet": 6000000,  "lifeKm": 60000 },
       "bus":         { "costPerSet": 12000000, "lifeKm": 60000 }
     }
   },
@@ -161,7 +189,8 @@
     "value": {
       "repairsBufferPerYearByCategory": {
         "hatchback": 300000, "sedan": 400000, "compact_suv": 500000, "suv": 700000, "mpv": 600000,
-        "pickup": 600000, "van": 600000, "mini_truck": 600000, "bus": 1500000
+        "pickup": 600000, "van": 600000, "mini_truck": 600000, "light_truck": 1500000, "truck": 3000000,
+        "heavy_truck": 6000000, "minibus": 1500000, "bus": 1500000
       },
       "parkingTollsCleaningPerMonth": 0
     }
@@ -200,7 +229,8 @@
       "idleDaysPerMonth": 4,
       "permitsPerYearByCategory": {
         "hatchback": 1200000, "sedan": 1200000, "compact_suv": 1500000, "suv": 1500000, "mpv": 1500000,
-        "pickup": 1500000, "van": 1500000, "mini_truck": 2000000, "bus": 6000000
+        "pickup": 1500000, "van": 1500000, "mini_truck": 2000000, "light_truck": 2500000, "truck": 4000000,
+        "heavy_truck": 7500000, "minibus": 3000000, "bus": 6000000
       }
     }
   },

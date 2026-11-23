@@ -301,4 +301,13 @@ export const hi: Record<MessageKey, string> = {
   'myprices.title': "मेरी ईंधन कीमतें",
   'myprices.intro': "जो कीमत आप असल में देते हैं, वह लिखें। यह हर गणना पर लागू होगी, जब तक कोई गणना अपनी कीमत न रखे। शहर की कीमत के लिए ख़ाली छोड़ें।",
   'myprices.clear': "मेरी कीमतें हटाएँ",
+
+  // -- commercial vehicles --
+  'category.light_truck': "हल्का ट्रक (3.5–7.5 टन)",
+  'category.truck': "मध्यम ट्रक (7.5–19 टन)",
+  'category.heavy_truck': "भारी ट्रक (19 टन और ऊपर)",
+  'category.minibus': "मिनीबस / टेम्पो ट्रैवलर",
+  'picker.commercial': "कमर्शियल",
+  'picker.appliedCommercial': "{{name}} से भरा गया और कमर्शियल उपयोग पर सेट किया गया; मुनाफ़ा देखने के लिए कमाई भरें। कीमत सबसे सस्ते वेरिएंट की है ({{range}})।",
+  'warning.ROAD_TAX_COMMERCIAL': "ट्रक और बस का रोड टैक्स अक्सर वज़न के हिसाब से हर तिमाही लगता है; अपने राज्य की दर देखकर “ख़रीद” में भरें।",
 };

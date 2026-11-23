@@ -59,10 +59,11 @@ Merge order: 1 → 3 → (4, 5, 6 in parallel) → 7. Workstream 2 runs alongsid
 
 | # | Workstream | Status |
 | --- | --- | --- |
-| 15 | Curated model catalogue (`defaults/catalogue.json`, 43 models) with schema and search in the engine | Done; data unverified |
+| 15 | Curated model catalogue (`defaults/catalogue.json`, now 71 models) with schema and search in the engine | Done; data unverified |
 | 16 | Model picker (combobox) in the quick estimate and editor; fills make, body type, fuel, price, mileage | Done |
 | 17 | "My models": save a calculation's vehicle, shown first in search, managed in Settings | Done |
 | 18 | "My fuel prices" in Settings, applied to every calculation through the defaults | Done |
+| 19 | Commercial vehicles: truck/minibus categories, category mileage defaults, 28 more catalogue models (MPVs, SCVs, trucks, buses) | Done; data unverified |
 
 Dropped from v2 by the owner (ADR-006): Android app, login and sync, live fuel-price feed.
 

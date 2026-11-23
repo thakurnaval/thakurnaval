@@ -1,5 +1,5 @@
 import { lazy, Suspense, useState } from 'react';
-import type { CalculationResult } from '@gaadiganit/engine';
+import { COMMERCIAL_CATEGORIES, type CalculationResult, type Category } from '@gaadiganit/engine';
 import { useT } from '../i18n/index.ts';
 import type { MessageKey } from '../i18n/en.ts';
 import { defaults } from '../lib/defaults.ts';
@@ -18,6 +18,11 @@ export function headlineParts(r: CalculationResult) {
   return { perMonth, perKm };
 }
 
+/** Commercial figures only once some earnings are entered; until then show costs. */
+export function withEarnings(r: CalculationResult) {
+  return r.commercial && r.commercial.earningsTotal > 0 ? r.commercial : null;
+}
+
 export function usePeriod() {
   const { t } = useT();
   return (n: number) => (n % 12 === 0 ? t('period.years', { count: n / 12 }) : t('period.months', { count: n }));
@@ -26,7 +31,7 @@ export function usePeriod() {
 export function Headline({ result }: { result: CalculationResult }) {
   const { t, lang } = useT();
   const period = usePeriod()(result.ownershipMonths);
-  const c = result.commercial;
+  const c = withEarnings(result);
   let text: string;
   if (c) {
     const profit = Math.round(c.netProfitPerMonth / 10_000) * 10_000;
@@ -43,8 +48,10 @@ export function Headline({ result }: { result: CalculationResult }) {
   return <p className="text-xl font-semibold leading-snug text-balance sm:text-2xl" aria-live="polite">{text}</p>;
 }
 
-export function ResultView({ result, stale, onEditAssumption }: {
+export function ResultView({ result, stale, onEditAssumption, category }: {
   result: CalculationResult;
+  /** Vehicle category, to flag road-tax rules that differ for trucks and buses. */
+  category?: Category;
   stale?: boolean;
   /** When given, each assumption gets a "Change" button that calls it with the input path. */
   onEditAssumption?: (path: string) => void;
@@ -54,7 +61,7 @@ export function ResultView({ result, stale, onEditAssumption }: {
   const shown = BUCKETS.filter((b) => result.breakdown[b] !== 0);
   const max = Math.max(...shown.map((b) => Math.abs(result.breakdown[b])), 1);
   const defaultsUsed = result.assumptions.filter((a) => a.provenance.kind !== 'user');
-  const c = result.commercial;
+  const c = withEarnings(result);
 
   return (
     <div className={`space-y-4 transition-opacity ${stale ? 'opacity-60' : ''}`}>
@@ -85,11 +92,17 @@ export function ResultView({ result, stale, onEditAssumption }: {
             {t('result.fleet', { count: c.fleetSize, profit: formatCompactINR(c.fleet.netProfitTotal, lang), upfront: formatCompactINR(c.fleet.upfrontInvestment, lang) })}
           </p>
         ) : null}
-        {result.warnings.length > 0 ? (
-          <ul className="space-y-1 rounded-lg bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200">
-            {result.warnings.map((w) => <li key={w.code}>{t(`warning.${w.code}` as MessageKey)}</li>)}
-          </ul>
-        ) : null}
+        {(() => {
+          const roadTaxDefault = result.assumptions.some((a) => a.path === 'purchase.roadTax.rate' && a.provenance.kind === 'default');
+          const codes = [...result.warnings.map((w) => w.code as string),
+            ...(category && COMMERCIAL_CATEGORIES.includes(category) && roadTaxDefault ? ['ROAD_TAX_COMMERCIAL'] : []),
+            ...(result.commercial && !c ? ['COMMERCIAL_NO_EARNINGS'] : [])];
+          return codes.length > 0 ? (
+            <ul className="space-y-1 rounded-lg bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200">
+              {codes.map((c) => <li key={c}>{t(`warning.${c}` as MessageKey)}</li>)}
+            </ul>
+          ) : null;
+        })()}
       </section>
 
       {c ? (

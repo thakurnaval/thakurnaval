@@ -64,3 +64,15 @@ Short records of significant technical decisions. Newest at the bottom.
   - **"My models"** are saved on the device (IndexedDB store `models`, DB version 2) and searched first.
   - **No live fuel-price feed.** Instead, users set **"My fuel prices"** once in Settings (stored with the other settings). They are laid over every city's prices in an effective defaults pack, so every calculation, comparison and what-if uses them. A price set inside a calculation still wins. The source shows as "your prices in Settings".
 - **Consequences:** No backend and no running cost. The catalogue and defaults need a manual refresh every few months (bump `version`, update `asOf`).
+
+## ADR-007 — Commercial vehicles: trucks, buses, minibuses
+
+- **Date:** 2026-11-23
+- **Status:** Accepted
+- **Decision:**
+  - **Four new categories:** `light_truck` (3.5–7.5 t GVW), `truck` (7.5–19 t), `heavy_truck` (19 t and above) and `minibus` (tempo travellers). They sit next to `pickup`, `van`, `mini_truck` and `bus`. Every category-keyed default (insurance, service, tyres, repairs, permits) has values for them, as placeholders like the rest of the pack.
+  - **`typicalMileageByCategory`** in the defaults pack overrides the fuel-wide typical mileage for categories far from a car (e.g. heavy truck 3.8 km/l, bus 4.5 km/l, EV bus 1 km/kWh).
+  - **The EV efficiency range is now 0.5–15 km/kWh** (was 2–15), so electric buses and trucks validate.
+  - **Catalogue entries carry `use`** (`commercial` for goods and passenger vehicles) and an optional `note` (e.g. "chassis price; body extra"). Picking a commercial model switches the scenario to commercial use. Until earnings are entered, the result shows costs and a prompt to add earnings, not a loss.
+  - **Road tax stays a % of ex-showroom.** Many states tax commercial vehicles by weight, quarterly, so the result shows a note for commercial categories while road tax is on the default.
+- **Catalogue:** 71 models: 43 cars, plus MPVs, minibuses, small commercial vehicles and pickups, light, medium and heavy trucks, and buses. Truck and bus mileage figures are typical approximations; none are verified.

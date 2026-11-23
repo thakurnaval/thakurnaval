@@ -3,7 +3,7 @@
  * claimed mileage per fuel option. Data, not code (NFR-07).
  */
 import { z } from 'zod';
-import { CategorySchema, FuelTypeSchema, IsoDateSchema, type FuelType, type Paise } from './schemas.ts';
+import { CategorySchema, FuelTypeSchema, IsoDateSchema, UseTypeSchema, type FuelType, type Paise } from './schemas.ts';
 
 const LAKH_PAISE = 100_000 * 100;
 
@@ -17,7 +17,7 @@ export const CatalogueOptionSchema = z.object({
   mileageSecondary: z.number().positive().optional(),
 }).superRefine((o, ctx) => {
   if (o.priceLakh[0] > o.priceLakh[1]) ctx.addIssue({ code: 'custom', path: ['priceLakh'], message: 'Lowest price is above highest price' });
-  const [lo, hi] = o.fuelType === 'ev' ? [2, 15] : [1, 60];
+  const [lo, hi] = o.fuelType === 'ev' ? [0.5, 15] : [1, 60];
   if (o.mileage < lo || o.mileage > hi) ctx.addIssue({ code: 'custom', path: ['mileage'], message: `Mileage must be ${lo}–${hi}` });
 });
 
@@ -26,6 +26,10 @@ export const CatalogueModelSchema = z.object({
   make: z.string().min(1),
   model: z.string().min(1),
   category: CategorySchema,
+  /** How the model is normally used; commercial models open in commercial mode. Default personal. */
+  use: UseTypeSchema.optional(),
+  /** Short note shown in the picker, e.g. "chassis price; body extra", "26-seater". */
+  note: z.string().max(60).optional(),
   options: z.array(CatalogueOptionSchema).min(1),
   source: z.string().min(1),
   asOf: IsoDateSchema,
@@ -66,10 +70,13 @@ const norm = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[\s\-_.]/
 export function searchCatalogue<T extends Pick<CatalogueModel, 'make' | 'model'>>(models: T[], query: string, fuel?: FuelType): T[] {
   const words = query.toLowerCase().split(/\s+/).map(norm).filter(Boolean);
   const scored = models.flatMap((m) => {
-    const hay = `${m.make} ${m.model}`.toLowerCase().split(/\s+/).map(norm);
+    const name = `${m.make} ${m.model}`.toLowerCase();
+    // Whole words ("scorpion") and their parts split on - _ . ("scorpio", "n").
+    const hay = [...name.split(/\s+/), ...name.split(/[\s\-_.]+/)].map(norm).filter(Boolean);
     const joined = norm(`${m.make}${m.model}`);
     const modelKey = norm(m.model);
-    if (!words.every((w) => hay.some((h) => h.startsWith(w)) || joined.includes(w))) return [];
+    // Word-start match, or (for 3+ letters) anywhere in the run-together name, e.g. "xuv3xo".
+    if (!words.every((w) => hay.some((h) => h.startsWith(w)) || (w.length >= 3 && joined.includes(w)))) return [];
     const score = (words.length && modelKey.startsWith(words.join('')) ? 0 : 1)
       + (fuel && 'options' in m && !(m as unknown as CatalogueModel).options.some((o) => o.fuelType === fuel) ? 2 : 0);
     return [{ m, score }];
