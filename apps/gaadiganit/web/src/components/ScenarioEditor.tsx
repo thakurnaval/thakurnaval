@@ -1,10 +1,11 @@
 /**
  * Detailed editor (IN-03): collapsible sections, each showing its subtotal.
+ * `focus` opens the section holding a field and moves focus to it (UI-05).
  */
-import { useId, useState, type ReactNode } from 'react';
+import { useEffect, useId, useState, type ReactNode } from 'react';
 import {
   CATEGORIES, FUEL_TYPES, inferCategory,
-  type CalculationResult, type Category, type FuelType, type ScenarioInputs,
+  type CalculationResult, type Category, type FuelType, type ScenarioInputs, type UseType,
 } from '@gaadiganit/engine';
 import { useT } from '../i18n/index.ts';
 import type { MessageKey } from '../i18n/en.ts';
@@ -22,13 +23,24 @@ export interface EditorProps {
   result: CalculationResult | null;
   errors: Record<string, string>;
   onChange: Update;
+  /** Input path to reveal and focus, with a counter so the same path can be requested twice. */
+  focus?: { path: string; n: number } | null;
 }
 
-export function Section({ title, subtotal, children, defaultOpen = false }: {
-  title: string; subtotal?: string | undefined; children: ReactNode; defaultOpen?: boolean;
+export function Section({ title, subtotal, children, defaultOpen = false, paths = [], focus }: {
+  title: string;
+  subtotal?: string | undefined;
+  children: ReactNode;
+  defaultOpen?: boolean;
+  /** Input path prefixes this section edits. */
+  paths?: string[];
+  focus?: EditorProps['focus'];
 }) {
   const [open, setOpen] = useState(defaultOpen);
   const id = useId();
+  useEffect(() => {
+    if (focus && paths.some((p) => focus.path.startsWith(p))) setOpen(true);
+  }, [focus]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <section className="card p-0 sm:p-0">
       <h2>
@@ -61,7 +73,10 @@ const PRICE_LABEL: Record<FuelType, [MessageKey, MessageKey?]> = {
   dual_petrol_cng: ['price.petrol', 'price.cng'], ev: ['price.electricity_home', 'price.electricity_public'],
 };
 
-export function ScenarioEditor({ scenario, result, errors, onChange }: EditorProps) {
+type Commercial = NonNullable<ScenarioInputs['commercial']>;
+type EarningsKind = Commercial['earnings']['kind'];
+
+export function ScenarioEditor({ scenario, result, errors, onChange, focus = null }: EditorProps) {
   const { t, lang } = useT();
   const v = scenario.vehicle;
   const inp = scenario.inputs;
@@ -83,19 +98,34 @@ export function ScenarioEditor({ scenario, result, errors, onChange }: EditorPro
       return { ...s, vehicle, categoryAuto: key === 'category' ? false : s.categoryAuto };
     });
 
+  // Reveal and focus a field once its section has opened.
+  useEffect(() => {
+    if (!focus) return;
+    const id = requestAnimationFrame(() => {
+      const el = document.querySelector<HTMLElement>(`[data-field="${focus.path.replace(/[^\w.]/g, '')}"]`);
+      el?.scrollIntoView?.({ behavior: 'smooth', block: 'center' });
+      el?.querySelector<HTMLElement>('input, select')?.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(id);
+  }, [focus]);
+
   const b = result?.breakdown;
   const renewals = result ? result.breakdown.insurance - result.upfront.insuranceYear1 : undefined;
   const onRoad = result?.upfront.onRoad ?? v.exShowroom;
   const fuel = v.fuelType;
   const [price1, price2] = PRICE_LABEL[fuel];
+  const claimed = inp.usage.mileage?.isClaimed ?? true;
+  const com = inp.commercial;
 
   // km per day × days (IN-07) is a view over kmPerMonth.
   const [perDay, setPerDay] = useState(false);
   const [days, setDays] = useState(30);
 
+  const sectionProps = { focus };
+
   return (
     <div className="space-y-3">
-      <Section title={t('section.vehicle')} subtotal={formatCompactINR(v.exShowroom, lang)} defaultOpen>
+      <Section title={t('section.vehicle')} subtotal={formatCompactINR(v.exShowroom, lang)} defaultOpen paths={['location.', 'vehicle.']} {...sectionProps}>
         <TextField label={t('editor.name')} value={scenario.name} onChange={(name) => onChange((s) => ({ ...s, name }))} />
         <TextField label={t('fields.vehicle.nickname')} value={v.nickname ?? ''} onChange={(x) => setVehicle('nickname', x || undefined)} />
         <TextField label={t('fields.vehicle.make')} value={v.make} onChange={(x) => setVehicle('make', x)} />
@@ -122,26 +152,61 @@ export function ScenarioEditor({ scenario, result, errors, onChange }: EditorPro
         />
         <SelectField<string>
           label={t('fields.location.cityId')}
+          field="location.cityId"
           value={inp.cityId ?? defaults.fallbackCityId}
           onChange={(c) => set('cityId', c)}
           options={cityIds.map((c) => ({ value: c, label: defaults.cities[c]!.name }))}
         />
+        <SelectField<UseType>
+          label={t('fields.vehicle.useType')}
+          value={v.useType}
+          onChange={(u) => onChange((s) => ({
+            ...s,
+            vehicle: { ...s.vehicle, useType: u },
+            inputs: (u === 'commercial' && !s.inputs.commercial
+              ? setIn(s.inputs, ['commercial'], { earnings: { kind: 'per_km', value: 0 } })
+              : s.inputs) as ScenarioInputs,
+          }))}
+          options={[{ value: 'personal', label: t('use.personal') }, { value: 'commercial', label: t('use.commercial') }]}
+        />
       </Section>
 
-      <Section title={t('section.purchase')} subtotal={money(result?.upfront.onRoad)}>
+      {v.useType === 'commercial' && com ? (
+        <Section title={t('section.commercial')} subtotal={result?.commercial ? money(result.commercial.earningsTotal - result.commercial.commissionTotal) : undefined} defaultOpen paths={['commercial.']} {...sectionProps}>
+          <SelectField<EarningsKind>
+            label={t('fields.commercial.earningsKind')}
+            value={com.earnings.kind}
+            onChange={(kind) => set('commercial.earnings', kind === 'per_trip'
+              ? { kind, value: com.earnings.value, tripsPerWorkingDay: 10 }
+              : { kind, value: com.earnings.value })}
+            options={(['per_km', 'per_trip', 'per_month'] as const).map((k) => ({ value: k, label: t(`earn.${k}`) }))}
+          />
+          <MoneyField label={t(`fields.commercial.earnings.${com.earnings.kind}`)} field={`commercial.earnings.${com.earnings.kind}`} value={com.earnings.value} onChange={(x) => set('commercial.earnings.value', x ?? 0)} />
+          {com.earnings.kind === 'per_trip' ? (
+            <NumberField label={t('fields.commercial.tripsPerWorkingDay')} value={com.earnings.tripsPerWorkingDay} error={err('commercial.earnings.tripsPerWorkingDay')} onChange={(x) => set('commercial.earnings.tripsPerWorkingDay', x ?? 1)} />
+          ) : null}
+          <PercentField label={t('fields.commercial.platformCommission')} value={com.platformCommission} placeholder={num('commercial.platformCommission')} assumption={a('commercial.platformCommission')} onChange={(x) => set('commercial.platformCommission', x)} />
+          <MoneyField label={t('fields.commercial.driverSalaryPerMonth')} value={com.driverSalaryPerMonth} placeholder={num('commercial.driverSalaryPerMonth')} assumption={a('commercial.driverSalaryPerMonth')} onChange={(x) => set('commercial.driverSalaryPerMonth', x)} />
+          <MoneyField label={t('fields.commercial.permitsPerYear')} value={com.permitsPerYear} placeholder={num('commercial.permitsPerYear')} assumption={a('commercial.permitsPerYear')} onChange={(x) => set('commercial.permitsPerYear', x)} />
+          <NumberField label={t('fields.commercial.idleDaysPerMonth')} value={com.idleDaysPerMonth} placeholder={num('commercial.idleDaysPerMonth')} assumption={a('commercial.idleDaysPerMonth')} error={err('commercial.idleDaysPerMonth')} onChange={(x) => set('commercial.idleDaysPerMonth', x)} />
+          <NumberField label={t('fields.commercial.fleetSize')} value={com.fleetSize} placeholder={1} error={err('commercial.fleetSize')} onChange={(x) => set('commercial.fleetSize', x)} />
+        </Section>
+      ) : null}
+
+      <Section title={t('section.purchase')} subtotal={money(result?.upfront.onRoad)} paths={['purchase.']} {...sectionProps}>
         <AmountOrRateField label={t('fields.purchase.roadTax')} value={inp.purchase?.roadTax} base={v.exShowroom} defaultRate={num('purchase.roadTax.rate')} assumption={a('purchase.roadTax.rate')} onChange={(x) => set('purchase.roadTax', x)} />
         <AmountOrRateField label={t('fields.purchase.insuranceYear1')} value={inp.purchase?.insuranceYear1} base={v.exShowroom} defaultRate={num('purchase.insuranceYear1.rate')} assumption={a('purchase.insuranceYear1.rate')} onChange={(x) => set('purchase.insuranceYear1', x)} />
-        <MoneyField label={t('fields.purchase.accessories')} value={get('purchase.accessories')} placeholder={0} onChange={(x) => set('purchase.accessories', x)} />
-        <MoneyField label={t('fields.purchase.discounts')} value={get('purchase.discounts')} placeholder={0} error={err('inputs.purchase.discounts') ?? err('purchase.discounts')} onChange={(x) => set('purchase.discounts', x)} />
+        <MoneyField label={t('fields.purchase.accessories')} value={get('purchase.accessories')} placeholder={0} assumption={a('purchase.accessories')} onChange={(x) => set('purchase.accessories', x)} />
+        <MoneyField label={t('fields.purchase.discounts')} value={get('purchase.discounts')} placeholder={0} assumption={a('purchase.discounts')} error={err('purchase.discounts')} onChange={(x) => set('purchase.discounts', x)} />
       </Section>
 
-      <Section title={t('section.finance')} subtotal={inp.finance ? money(b?.interest) : undefined}>
+      <Section title={t('section.finance')} subtotal={inp.finance ? money(b?.interest) : undefined} paths={['finance.']} {...sectionProps}>
         <div className="sm:col-span-2">
           <Toggle label={t('fields.finance.onLoan')} checked={!!inp.finance} onChange={(on) => set('finance', on ? {} : undefined)} />
         </div>
         {inp.finance ? (
           <>
-            <AmountOrRateField label={t('fields.finance.downPayment')} value={inp.finance.downPayment} base={onRoad} defaultRate={num('finance.downPayment.rate') ?? defaults.finance.value.downPaymentRate} assumption={a('finance.downPayment.rate')} error={err('inputs.finance.downPayment') ?? err('finance.downPayment')} onChange={(x) => set('finance.downPayment', x)} />
+            <AmountOrRateField label={t('fields.finance.downPayment')} value={inp.finance.downPayment} base={onRoad} defaultRate={num('finance.downPayment.rate') ?? defaults.finance.value.downPaymentRate} assumption={a('finance.downPayment.rate')} error={err('finance.downPayment')} onChange={(x) => set('finance.downPayment', x)} />
             <PercentField label={t('fields.finance.annualRate')} value={inp.finance.annualRate} placeholder={num('finance.annualRate')} assumption={a('finance.annualRate')} error={err('finance.annualRate')} onChange={(x) => set('finance.annualRate', x)} />
             <NumberField label={t('fields.finance.tenureMonths')} value={inp.finance.tenureMonths} placeholder={num('finance.tenureMonths')} assumption={a('finance.tenureMonths')} error={err('finance.tenureMonths')} onChange={(x) => set('finance.tenureMonths', x)} />
             <MoneyField label={t('fields.finance.processingFee')} value={inp.finance.processingFee} placeholder={num('finance.processingFee')} assumption={a('finance.processingFee')} onChange={(x) => set('finance.processingFee', x)} />
@@ -149,7 +214,7 @@ export function ScenarioEditor({ scenario, result, errors, onChange }: EditorPro
         ) : null}
       </Section>
 
-      <Section title={t('section.usage')} subtotal={money(b?.energy)} defaultOpen>
+      <Section title={t('section.usage')} subtotal={money(b?.energy)} defaultOpen paths={['usage.']} {...sectionProps}>
         <NumberField label={t('fields.usage.ownershipMonths')} value={inp.usage.ownershipMonths} error={err('usage.ownershipMonths')} onChange={(x) => set('usage.ownershipMonths', x ?? 0)} />
         <div>
           {perDay ? (
@@ -178,8 +243,11 @@ export function ScenarioEditor({ scenario, result, errors, onChange }: EditorPro
           <NumberField label={t('fields.usage.mileage.secondary')} value={inp.usage.mileage?.secondary} placeholder={num('usage.mileage.secondary')} assumption={a('usage.mileage.secondary')} error={err('usage.mileage.secondary')} onChange={(x) => set('usage.mileage.secondary', x)} />
         ) : null}
         <div className="sm:col-span-2">
-          <Toggle label={t('fields.usage.mileage.isClaimed')} checked={inp.usage.mileage?.isClaimed ?? true} onChange={(c) => set('usage.mileage.isClaimed', c ? undefined : false)} />
+          <Toggle label={t('fields.usage.mileage.isClaimed')} checked={claimed} onChange={(c) => set('usage.mileage.isClaimed', c ? undefined : false)} />
         </div>
+        {claimed ? (
+          <PercentField label={t('fields.usage.realWorldFactor')} value={inp.usage.realWorldFactor} placeholder={num('usage.realWorldFactor')} assumption={a('usage.realWorldFactor')} error={err('usage.realWorldFactor')} onChange={(x) => set('usage.realWorldFactor', x)} />
+        ) : null}
         <MoneyField label={t(price1)} value={inp.usage.fuelPrice?.primary} placeholder={num('usage.fuelPrice.primary')} assumption={a('usage.fuelPrice.primary')} error={err('usage.fuelPrice.primary')} onChange={(x) => set('usage.fuelPrice.primary', x)} />
         {price2 ? (
           <MoneyField label={t(price2)} value={inp.usage.fuelPrice?.secondary} placeholder={num('usage.fuelPrice.secondary')} assumption={a('usage.fuelPrice.secondary')} error={err('usage.fuelPrice.secondary')} onChange={(x) => set('usage.fuelPrice.secondary', x)} />
@@ -193,22 +261,23 @@ export function ScenarioEditor({ scenario, result, errors, onChange }: EditorPro
         <PercentField label={t('fields.usage.fuelInflation')} value={inp.usage.fuelInflation} placeholder={num('usage.fuelInflation')} assumption={a('usage.fuelInflation')} error={err('usage.fuelInflation')} onChange={(x) => set('usage.fuelInflation', x)} />
       </Section>
 
-      <Section title={t('section.maintenance')} subtotal={b && renewals !== undefined ? money(b.service + b.tyres + b.other + renewals) : undefined}>
+      <Section title={t('section.maintenance')} subtotal={b && renewals !== undefined ? money(b.service + b.tyres + b.other + renewals) : undefined} paths={['maintenance.']} {...sectionProps}>
         <MoneyField label={t('fields.maintenance.service.cost')} value={get('maintenance.service.cost')} placeholder={num('maintenance.service.cost')} assumption={a('maintenance.service.cost')} onChange={(x) => set('maintenance.service.cost', x)} />
         <div className="grid grid-cols-2 gap-3">
-          <NumberField label={t('fields.maintenance.service.intervalKm')} value={get('maintenance.service.intervalKm')} placeholder={num('maintenance.service.intervalKm')} onChange={(x) => set('maintenance.service.intervalKm', x)} error={err('maintenance.service.intervalKm')} />
-          <NumberField label={t('fields.maintenance.service.intervalMonths')} value={get('maintenance.service.intervalMonths')} placeholder={num('maintenance.service.intervalMonths')} onChange={(x) => set('maintenance.service.intervalMonths', x)} error={err('maintenance.service.intervalMonths')} />
+          <NumberField label={t('fields.maintenance.service.intervalKm')} value={get('maintenance.service.intervalKm')} placeholder={num('maintenance.service.intervalKm')} assumption={a('maintenance.service.intervalKm')} onChange={(x) => set('maintenance.service.intervalKm', x)} error={err('maintenance.service.intervalKm')} />
+          <NumberField label={t('fields.maintenance.service.intervalMonths')} value={get('maintenance.service.intervalMonths')} placeholder={num('maintenance.service.intervalMonths')} assumption={a('maintenance.service.intervalMonths')} onChange={(x) => set('maintenance.service.intervalMonths', x)} error={err('maintenance.service.intervalMonths')} />
         </div>
         <MoneyField label={t('fields.maintenance.tyres.costPerSet')} value={get('maintenance.tyres.costPerSet')} placeholder={num('maintenance.tyres.costPerSet')} assumption={a('maintenance.tyres.costPerSet')} onChange={(x) => set('maintenance.tyres.costPerSet', x)} />
         <NumberField label={t('fields.maintenance.tyres.lifeKm')} value={get('maintenance.tyres.lifeKm')} placeholder={num('maintenance.tyres.lifeKm')} assumption={a('maintenance.tyres.lifeKm')} error={err('maintenance.tyres.lifeKm')} onChange={(x) => set('maintenance.tyres.lifeKm', x)} />
         <PercentField label={t('fields.maintenance.insuranceRenewal.rate')} value={get<{ kind: string; rate?: number }>('maintenance.insuranceRenewal')?.rate} placeholder={num('maintenance.insuranceRenewal.rate')} assumption={a('maintenance.insuranceRenewal.rate')} onChange={(x) => set('maintenance.insuranceRenewal', x === undefined ? undefined : { kind: 'decline', rate: x })} />
         <MoneyField label={t('fields.maintenance.battery12v.cost')} value={get('maintenance.battery12v.cost')} placeholder={num('maintenance.battery12v.cost')} assumption={a('maintenance.battery12v.cost')} onChange={(x) => set('maintenance.battery12v.cost', x)} />
-        <MoneyField label={t('fields.maintenance.parkingTollsCleaningPerMonth')} value={get('maintenance.parkingTollsCleaningPerMonth')} placeholder={num('maintenance.parkingTollsCleaningPerMonth')} onChange={(x) => set('maintenance.parkingTollsCleaningPerMonth', x)} />
+        <NumberField label={t('fields.maintenance.battery12v.intervalMonths')} value={get('maintenance.battery12v.intervalMonths')} placeholder={num('maintenance.battery12v.intervalMonths')} assumption={a('maintenance.battery12v.intervalMonths')} onChange={(x) => set('maintenance.battery12v.intervalMonths', x)} />
+        <MoneyField label={t('fields.maintenance.parkingTollsCleaningPerMonth')} value={get('maintenance.parkingTollsCleaningPerMonth')} placeholder={num('maintenance.parkingTollsCleaningPerMonth')} assumption={a('maintenance.parkingTollsCleaningPerMonth')} onChange={(x) => set('maintenance.parkingTollsCleaningPerMonth', x)} />
         <MoneyField label={t('fields.maintenance.repairsBufferPerYear')} value={get('maintenance.repairsBufferPerYear')} placeholder={num('maintenance.repairsBufferPerYear')} assumption={a('maintenance.repairsBufferPerYear')} onChange={(x) => set('maintenance.repairsBufferPerYear', x)} />
         <CustomCosts items={inp.maintenance?.custom ?? []} onChange={(items) => set('maintenance.custom', items.length ? items : undefined)} />
       </Section>
 
-      <Section title={t('section.resale')} subtotal={result ? `−${formatCompactINR(result.exit.resale, lang)}` : undefined}>
+      <Section title={t('section.resale')} subtotal={result ? `−${formatCompactINR(result.exit.resale, lang)}` : undefined} paths={['exit.', 'opportunityCost.']} {...sectionProps}>
         <AmountOrRateField label={t('fields.exit.resale')} value={inp.exit?.resale} base={v.exShowroom} defaultRate={num('exit.resale.rate')} assumption={a('exit.resale.rate')} onChange={(x) => set('exit.resale', x)} />
         <div className="space-y-3">
           <Toggle label={t('fields.opportunityCost.enabled')} checked={!!inp.opportunityCost?.enabled} onChange={(on) => set('opportunityCost', on ? { enabled: true } : undefined)} />

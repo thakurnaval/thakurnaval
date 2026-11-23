@@ -118,6 +118,11 @@ describe('calculate — energy (ENG-06)', () => {
     expect(r.months[24]!.energy).toBe(rupees(12_100));
   });
 
+  it('accepts a user real-world factor', () => {
+    const r = calculate(input({ inputs: { ...base, usage: { ownershipMonths: 1, kmPerMonth: 1500, mileage: { primary: 20 }, realWorldFactor: 0.5, fuelPrice: { primary: 10_000 } } } }), defaults);
+    expect(r.months[0]!.energy).toBe(rupees(15_000));
+  });
+
   it('skips the factor for real-world mileage', () => {
     const r = calculate(input({ inputs: { ...base, usage: { ownershipMonths: 1, kmPerMonth: 1500, mileage: { primary: 15, isClaimed: false }, fuelPrice: { primary: 10_000 } } } }), defaults);
     expect(r.months[0]!.energy).toBe(rupees(10_000));

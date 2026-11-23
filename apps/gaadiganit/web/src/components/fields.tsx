@@ -12,13 +12,15 @@ interface Common {
   error?: string | undefined;
   hint?: ReactNode;
   assumption?: Assumption | undefined;
+  /** Input path this field edits, so "Change" links can find it (defaults to the assumption's path). */
+  field?: string | undefined;
 }
 
-function Shell({ id, label, error, hint, assumption, children }: Common & { id: string; children: ReactNode }) {
+function Shell({ id, label, error, hint, assumption, field, children }: Common & { id: string; children: ReactNode }) {
   const { t } = useT();
   const usingDefault = assumption && assumption.provenance.kind !== 'user';
   return (
-    <div>
+    <div data-field={field ?? assumption?.path}>
       <label htmlFor={id} className="label">{label}</label>
       {children}
       {error ? (

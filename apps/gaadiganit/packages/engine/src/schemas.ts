@@ -74,6 +74,8 @@ export const ScenarioInputsSchema = z.object({
       secondary: MileageValue.optional(),
       isClaimed: z.boolean().optional(),
     }).optional(),
+    /** Share of claimed mileage achieved on the road (applies only when mileage is claimed). */
+    realWorldFactor: z.number().min(0.3).max(1).optional(),
     fuelPrice: z.object({
       primary: FuelPriceValue.optional(),
       secondary: FuelPriceValue.optional(),

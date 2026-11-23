@@ -1,11 +1,13 @@
 /** A saved scenario: detailed editor + live result, autosaved (DATA-01, DATA-02). */
 import { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import { ResultView } from '../components/ResultView.tsx';
-import { ScenarioEditor } from '../components/ScenarioEditor.tsx';
+import { ScenarioEditor, type EditorProps } from '../components/ScenarioEditor.tsx';
+import { ShareBar } from '../components/ShareBar.tsx';
+import { WhatIf } from '../components/WhatIf.tsx';
 import { useT } from '../i18n/index.ts';
 import { defaults } from '../lib/defaults.ts';
-import type { StoredScenario } from '../lib/scenario.ts';
+import { displayName, type StoredScenario } from '../lib/scenario.ts';
 import { getScenario, saveScenario } from '../lib/storage.ts';
 import { useCalculation } from '../lib/useCalculation.ts';
 
@@ -14,12 +16,16 @@ const AUTOSAVE_MS = 1000;
 export default function ScenarioPage() {
   const { id = '' } = useParams();
   const { t } = useT();
+  const navigate = useNavigate();
   const [s, setS] = useState<StoredScenario | null | 'missing'>(null);
   const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved'>('idle');
+  const [focus, setFocus] = useState<EditorProps['focus']>(null);
   const dirty = useRef(false);
 
   useEffect(() => {
     let alive = true;
+    dirty.current = false;
+    setS(null);
     void getScenario(id).then((r) => alive && setS(r ?? 'missing'));
     return () => { alive = false; };
   }, [id]);
@@ -60,21 +66,32 @@ export default function ScenarioPage() {
 
   return (
     <div className="space-y-4">
+      <h1 className="hidden text-2xl font-bold print:block">{displayName(s)}</h1>
       {outdated ? (
-        <div className="card flex flex-wrap items-center justify-between gap-3 border-amber-300 bg-amber-50 dark:border-amber-800 dark:bg-amber-950">
+        <div className="card flex flex-wrap items-center justify-between gap-3 border-amber-300 bg-amber-50 print:hidden dark:border-amber-800 dark:bg-amber-950">
           <p className="text-sm">{t('editor.defaultsUpdated')}</p>
           <button type="button" className="btn-secondary" onClick={() => update((x) => ({ ...x, defaultsVersion: defaults.version }))}>
             {t('editor.useNewDefaults')}
           </button>
         </div>
       ) : null}
-      <p className="text-right text-xs text-slate-500 dark:text-slate-400" aria-live="polite">
+      <p className="text-right text-xs text-slate-500 print:hidden dark:text-slate-400" aria-live="polite">
         {saveState === 'saving' ? t('editor.saving') : saveState === 'saved' ? t('editor.saved') : ''}
       </p>
       <div className="grid gap-6 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)]">
-        <ScenarioEditor scenario={s} result={result} errors={errors} onChange={update} />
-        <div className="lg:sticky lg:top-4 lg:h-fit">
-          {result ? <ResultView result={result} stale={stale} /> : null}
+        <div className="print:hidden">
+          <ScenarioEditor scenario={s} result={result} errors={errors} onChange={update} focus={focus} />
+        </div>
+        <div className="space-y-4 lg:sticky lg:top-4 lg:h-fit">
+          {result ? (
+            <>
+              <ResultView result={result} stale={stale} onEditAssumption={(path) => setFocus((f) => ({ path, n: (f?.n ?? 0) + 1 }))} />
+              {!stale ? <WhatIf key={`${s.id}-${result.tco}`} scenario={s} base={result} onSaveAsNew={(copy) => {
+                void saveScenario(copy).then(() => navigate(`/s/${copy.id}`));
+              }} /> : null}
+              {!stale ? <ShareBar scenario={s} result={result} /> : null}
+            </>
+          ) : null}
         </div>
       </div>
     </div>

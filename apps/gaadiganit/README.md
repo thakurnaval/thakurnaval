@@ -1,6 +1,6 @@
 # GaadiGanit
 
-> Status: **v1 MVP in progress.** Product intent: [docs/INTENT.md](docs/INTENT.md). Detailed spec: [docs/SPEC.md](docs/SPEC.md). Placeholder defaults: [defaults/india.json](defaults/india.json). Engine ([packages/engine](packages/engine)) and web app ([web](web)) built; deployment next.
+> Status: **v1, v1.1 and v1.2 built and deployed.** Product intent: [docs/INTENT.md](docs/INTENT.md). Detailed spec: [docs/SPEC.md](docs/SPEC.md). Placeholder defaults: [defaults/india.json](defaults/india.json). Engine ([packages/engine](packages/engine)) and web app ([web](web)) built; live on Cloud Run.
 
 GaadiGanit ("vehicle maths") is a vehicle cost-of-ownership and ROI calculator for Indian buyers. It turns "is this car worth it?" into one number per month and per km.
 

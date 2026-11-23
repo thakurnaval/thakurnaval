@@ -6,6 +6,8 @@ import Home from './pages/Home.tsx';
 const QuickEstimate = lazy(() => import('./pages/QuickEstimate.tsx'));
 const ScenarioPage = lazy(() => import('./pages/ScenarioPage.tsx'));
 const Settings = lazy(() => import('./pages/Settings.tsx'));
+const ComparePage = lazy(() => import('./pages/ComparePage.tsx'));
+const SharedPage = lazy(() => import('./pages/SharedPage.tsx'));
 
 export default function App() {
   const { t } = useT();
@@ -14,7 +16,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <header className="border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
+      <header className="print:hidden border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-4 py-3">
           <NavLink to="/" className="flex items-center gap-2" aria-label={t('app.name')}>
             <img src="/icon.svg" alt="" className="size-8" />
@@ -37,11 +39,13 @@ export default function App() {
             <Route path="/new" element={<QuickEstimate />} />
             <Route path="/s/:id" element={<ScenarioPage />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/compare" element={<ComparePage />} />
+            <Route path="/shared" element={<SharedPage />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>
       </main>
-      <footer className="px-4 py-6 text-center text-xs text-slate-500 dark:text-slate-400">{t('footer.disclaimer')}</footer>
+      <footer className="print:hidden px-4 py-6 text-center text-xs text-slate-500 dark:text-slate-400">{t('footer.disclaimer')}</footer>
     </div>
   );
 }

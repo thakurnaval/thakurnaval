@@ -199,7 +199,7 @@ export function resolveInputs(vehicle: Vehicle, inputs: ParsedInputs, defaults: 
   const typical = defaults.typicalMileage;
   const isClaimed = u.mileage?.isClaimed ?? true;
   const factor = isClaimed
-    ? take('usage.realWorldFactor', undefined, defaults.realWorldFactor.value[fuel], defaults.realWorldFactor, 'rate')
+    ? take('usage.realWorldFactor', u.realWorldFactor, defaults.realWorldFactor.value[fuel], defaults.realWorldFactor, 'rate')
     : 1;
   const primaryMileage = take('usage.mileage.primary', u.mileage?.primary, typical.value[fuel].primary, typical, mileageUnit(fuel));
 

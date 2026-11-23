@@ -40,3 +40,15 @@ Short records of significant technical decisions. Newest at the bottom.
   - **The engine is consumed as TypeScript source** through the npm workspace (`exports: ./src/index.ts`). There's no separate build step; Vite compiles it with the app.
   - **Breakdown bars are plain HTML/CSS.** Only the cumulative chart uses Recharts, which keeps the first load small (~144 KB gzip JS against a 200 KB budget).
   - **Settings (language, default city) live in `localStorage`; scenarios live in IndexedDB.** Both are wrapped so the app still works when storage is blocked.
+
+## ADR-005 — v1.1 sharing and comparison choices
+
+- **Date:** 2026-11-23
+- **Status:** Accepted
+- **Decision:**
+  - **Comparisons are URL-based** (`/compare?ids=a,b,c`) rather than stored `Comparison` records. Picking on Home is quick, and nothing goes stale when a scenario is deleted. The `Comparison` type stays in the engine for a later "saved comparisons" feature.
+  - **Break-even km/month compares cost per month** (TCO ÷ months), so vehicles kept for different periods compare fairly.
+  - **Share links carry the scenario in the URL fragment**, deflate-compressed (`#s=z…`, plain base64 `j…` where `CompressionStream` is missing). The fragment never reaches the server, so sharing needs no backend and logs nothing.
+  - **"Save as PDF" uses the browser's print dialog** with a print stylesheet, instead of bundling a PDF library. It's smaller and works offline; the trade-off is that the user picks "Save as PDF" in the dialog.
+  - **The WhatsApp card is drawn on a canvas** (1080 × 1080 PNG) and shared with the Web Share API, falling back to a download.
+  - **Commercial driver and permit costs count towards TCO** (an `operating` bucket), so cost per km is the full operating cost. Net profit = earnings − commission − all monthly costs, including EMI.
