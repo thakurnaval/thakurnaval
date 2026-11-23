@@ -2075,4 +2075,105 @@ export const MODEL_DETAILS: Record<string, ModelDetail> = {
     watchOut: 'Neither can be forced. Create the conditions and let them grow.',
     related: ['trust', 'ikigai', 'maslows-hierarchy-of-needs'],
   },
+  // ── Wave 6: the remaining academic models, made practical ──────────────
+  'mr-market': {
+    whenToUse: 'When hype and fear swing opinions about a technology, vendor or AI trend, and you need to decide calmly.',
+    howTo: [
+      'Treat market mood, whether excitement or panic, as information about people, not about value.',
+      'Judge the technology on your own criteria and evidence.',
+      'Act when the mood offers an opportunity, such as better pricing or talent, not because of the mood itself.',
+    ],
+    watchOut: 'Ignoring the market entirely is also risky. Mood can change vendor support, hiring and ecosystem health.',
+    related: ['social-proof', 'margin-of-safety-in-investing', 'the-lindy-effect'],
+  },
+  'markov-models': {
+    whenToUse: 'Modelling systems that move between states, such as incident lifecycles, user journeys, retry behaviour or agent workflows.',
+    howTo: [
+      'List the states (healthy, degraded, down; or new, active, churned).',
+      'Estimate the probability of moving between them from real data.',
+      'Use the model to find where systems or users get stuck and to predict long-run behaviour.',
+    ],
+    watchOut: 'Markov models assume the next state depends only on the current one. Real systems often have memory, so validate against data.',
+    related: ['simulation', 'feedback-loops', 'randomness'],
+  },
+  'heisenberg-uncertainty-principle': {
+    whenToUse: 'As a reminder that precise measurement of one property can come at the cost of another, as with debugging, profiling and tracing in production.',
+    howTo: [
+      'Decide which property matters most for the question you are asking.',
+      'Measure it with the lightest tool that answers the question.',
+      'Accept some uncertainty elsewhere rather than disturbing the system heavily.',
+    ],
+    watchOut: 'In software this is an analogy, not physics. The practical lesson is the observer effect: measurement has a cost.',
+    related: ['observer-effect', 'the-map-is-not-the-territory', 'confidence-interval'],
+  },
+  'exaptation': {
+    whenToUse: 'Finding new uses for existing tools, data and skills, such as reusing a deployment pipeline for ML models or logs for AI training data.',
+    howTo: [
+      'List capabilities you already have: tools, data, platforms, people\'s skills.',
+      'Ask what else each could be used for.',
+      'Try the most promising reuse on a small scale before building something new.',
+    ],
+    watchOut: 'Repurposed tools can be stretched too far. Check that the reuse doesn\'t compromise the original purpose or security.',
+    related: ['scamper', 'lateral-thinking', 'core-competency'],
+  },
+  'niches': {
+    whenToUse: 'Choosing where a team, product, consultancy or career can stand out, rather than competing everywhere.',
+    howTo: [
+      'Look for underserved needs where your strengths are rare.',
+      'Focus deeply on that niche and become known for it.',
+      'Expand to neighbouring niches once you are established.',
+    ],
+    watchOut: 'Niches can shrink or disappear as markets change. Keep an eye on adjacent areas you could move into.',
+    related: ['core-competency', 'comparative-advantage', 'ikigai'],
+  },
+  'central-limit-theorem': {
+    whenToUse: 'Interpreting averages from many samples, such as average build time across runs or average eval score across many prompts.',
+    howTo: [
+      'Remember that averages of many independent samples tend towards a normal distribution, even if individual values don\'t.',
+      'Use this to estimate how reliable an average is from its sample size.',
+      'Still look at the underlying distribution for tail behaviour.',
+    ],
+    watchOut: 'A well-behaved average can hide a dangerous tail. Report percentiles for anything users feel directly.',
+    related: ['normal-distribution', 'law-of-large-numbers', 'confidence-interval'],
+  },
+  'randomness': {
+    whenToUse: 'Interpreting short-term ups and downs in metrics, sprint results, incident counts or AI outputs.',
+    howTo: [
+      'Expect natural variation and estimate how large it usually is.',
+      'React to sustained trends or clear outliers, not to every fluctuation.',
+      'Use randomness deliberately: random sampling for reviews, jitter in retries, randomised experiments.',
+    ],
+    watchOut: 'People see patterns in noise. Before acting on a "trend", check it is bigger than normal variation.',
+    related: ['regression-to-the-mean', 'law-of-large-numbers', 'confidence-interval'],
+  },
+  'pareto-efficiency': {
+    whenToUse: 'Trade-off decisions with several goals, such as cost, latency, reliability and model quality, where no option is best on all.',
+    howTo: [
+      'Plot the options against the competing goals.',
+      'Discard options that are worse on every goal than another option.',
+      'Choose among the remaining "efficient" options based on priorities.',
+    ],
+    watchOut: 'Pareto efficiency tells you which options are sensible, not which one to pick. The final choice still needs judgement.',
+    related: ['weighted-decision-matrix', 'opportunity-costs', 'pareto-principle'],
+  },
+  'half-life': {
+    whenToUse: 'Understanding how quickly knowledge, skills, documentation, dependencies or AI models become outdated.',
+    howTo: [
+      'Estimate how long it takes for half of something to become obsolete: a framework skill, a runbook, a model.',
+      'Set review and refresh cycles to match.',
+      'Invest more in knowledge with a long half-life, such as fundamentals and principles.',
+    ],
+    watchOut: 'Fast-moving fields like AI have short half-lives. Plan for continuous refresh rather than one-off training.',
+    related: ['culture-of-lifelong-learning', 'the-lindy-effect', 'laws-of-thermodynamics'],
+  },
+  'asymmetric-warfare': {
+    whenToUse: 'Competing against much larger organisations, or defending against attackers who only need to succeed once.',
+    howTo: [
+      'Identify where a smaller player has the advantage: speed, focus, closeness to customers.',
+      'Compete there rather than head-on.',
+      'In security, assume attackers have the advantage and invest in detection and response, not just prevention.',
+    ],
+    watchOut: 'Advantages of size, such as scale and resources, are real. Asymmetric strategies work best when you stay focused.',
+    related: ['niches', 'red-queen-effect', 'swiss-cheese-model'],
+  },
 };

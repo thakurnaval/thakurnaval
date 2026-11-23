@@ -55,7 +55,6 @@ const MENTAL_MODELS: MentalModel[] = [
 
   // Engineering Specific
   { name: "Technical Debt", category: "Engineering", description: "The implied cost of additional rework caused by choosing an easy but limited solution now instead of using a better approach that would take longer.", example: "Skipping unit tests to meet a deadline creates debt that must be paid back later with interest (bugs, slow dev)." },
-  { name: "Redundancy / Backup Systems", category: "Engineering", description: "The inclusion of extra components which are not strictly necessary to functioning, in case of failure in other components.", example: "Running multiple instances of a service across different availability zones." },
   { name: "Margin of Safety", category: "Engineering", description: "Building in extra capacity or tolerance to handle unexpected loads or failures.", example: "Provisioning 50% more server capacity than peak expected load." },
   { name: "Abstraction", category: "Engineering", description: "Hiding complex implementation details behind a simple interface.", example: "Using an ORM instead of writing raw SQL queries." },
   
@@ -63,7 +62,6 @@ const MENTAL_MODELS: MentalModel[] = [
   { name: "Reductio ad Absurdum", category: "Logic", description: "Proving a statement true by showing that its opposite leads to an absurd or impossible conclusion.", example: "If we assume that adding 100 developers to a project will make it 100x faster, we ignore the communication overhead which eventually makes progress negative (absurd)." },
   { name: "Rapoport’s Rules", category: "Logic", description: "A set of rules for critical commentary: 1. Re-express the target's position clearly. 2. List points of agreement. 3. Mention what you've learned. 4. Only then rebut.", example: "Using these rules in a code review to ensure constructive feedback." },
   { name: "Sturgeon’s Law", category: "Logic", description: "The adage that 'ninety percent of everything is crap.'", example: "Filtering through 90% of low-quality libraries to find the 10% that are actually reliable." },
-  { name: "Occam’s Broom", category: "Logic", description: "The tendency to sweep inconvenient facts under the rug.", example: "Ignoring performance bottlenecks in a new feature because the UI looks great." },
   
   // Scientific Thinking
   { name: "Scientific Method", category: "Scientific", description: "A systematic way of learning about the world through observation, hypothesis, experimentation, and refinement.", example: "A/B testing a new feature to see if it actually improves user conversion." },
@@ -73,7 +71,6 @@ const MENTAL_MODELS: MentalModel[] = [
   // Systems & Complexity (Extended)
   { name: "Chaos Dynamics (Butterfly Effect)", category: "Systems", description: "The idea that small changes in initial conditions can lead to vast differences in outcomes in complex systems.", example: "A single line of code change in a core library causing a cascading failure across an entire microservices architecture." },
   { name: "Emergence", category: "Systems", description: "Complex patterns or behaviors that arise from the interaction of simple parts, which are not present in the parts themselves.", example: "The 'culture' of a company emerging from the daily interactions of its employees." },
-  { name: "Fragility – Robustness – Antifragility", category: "Systems", description: "Fragile things break under stress; robust things resist it; antifragile things get better from it.", example: "A monolith is often fragile; a well-designed microservices architecture with circuit breakers is robust; a system with automated chaos testing is antifragile." },
   
   // Math & Statistics (Extended)
   { name: "Normal Distribution (Bell Curve)", category: "Math", description: "A probability distribution that is symmetric about the mean, showing that data near the mean are more frequent in occurrence than data far from the mean.", example: "The distribution of heights in a population or response times for a stable API." },
@@ -91,15 +88,10 @@ const MENTAL_MODELS: MentalModel[] = [
   
   // Military & Strategy
   { name: "Asymmetric Warfare", category: "Strategy", description: "Warfare in which the relative military power of belligerents differs significantly.", example: "A small startup using agility and niche focus to compete with a massive incumbent." },
-  { name: "Trojan Horse", category: "Strategy", description: "A person or thing intended to undermine or secretly overthrow an enemy or opponent.", example: "A free tool offered by a company to gain access to a competitor's customer data." },
   { name: "Black Swan", category: "Strategy", description: "An unpredictable event that is beyond what is normally expected of a situation and has potentially severe consequences.", example: "The 2008 financial crisis or the COVID-19 pandemic." },
   { name: "Margin of Safety in Investing", category: "Strategy", description: "The difference between the intrinsic value of an asset and the price you pay. Buying well below your estimate of value leaves room for your estimate to be wrong.", example: "Approving a platform investment only if the conservative-case savings still cover its cost, so the business case survives optimistic assumptions turning out wrong." },
   
   // Cognitive & Communication
-  { name: "The “Surely” Operator", category: "Cognitive", description: "A mental block where using the word 'surely' signals a leap in logic that hasn't been proven.", example: "'Surely, the users will love this feature'—this often masks a lack of user research." },
-  { name: "Deepity", category: "Cognitive", description: "A statement that is true but trivial on one level, and false but seemingly profound on another.", example: "'Love is just a four-letter word'—technically true, but misses the profound complexity of the emotion." },
-  { name: "Jootsing", category: "Cognitive", description: "Jumping Out Of The System. A way of thinking that involves stepping outside the rules of a system to see it from a new perspective.", example: "Instead of optimizing a legacy system, questioning if the system is even needed anymore." },
-  { name: "Rhetorical Questions", category: "Communication", description: "A question asked in order to create a dramatic effect or to make a point rather than to get an answer.", example: "'Do you want our servers to crash on Black Friday?'—used to emphasize the importance of scalability." },
   
   // Leadership & Management (Dalio / Munger)
   { name: "Radical Transparency", category: "Leadership", description: "The practice of being completely open and honest about everything within an organization.", example: "Recording all meetings and making them available to everyone in the company (Ray Dalio's approach)." },
@@ -109,9 +101,6 @@ const MENTAL_MODELS: MentalModel[] = [
 
   // Model Thinking (Scott Page)
   { name: "Markov Models", category: "Model Thinking", description: "A stochastic model used to describe a sequence of possible events in which the probability of each event depends only on the state attained in the previous event.", example: "Predicting user behavior on a website based on their current page." },
-  { name: "Lyapunov Functions", category: "Model Thinking", description: "A scalar function used to prove the stability of an equilibrium point of a dynamical system.", example: "Ensuring that a load-balancing algorithm will eventually reach a stable state." },
-  { name: "Schelling's Segregation Model", category: "Model Thinking", description: "An agent-based model that illustrates how individual incentives can lead to unintended collective outcomes (like segregation).", example: "Understanding how small preferences for similar neighbors can lead to highly segregated neighborhoods." },
-  { name: "Standing Ovation Model", category: "Model Thinking", description: "A model that explores how a collective behavior (like a standing ovation) can be triggered by a few individuals.", example: "How a few early adopters can trigger a massive trend in technology adoption." },
 
   // Physics & Science (Extended)
   { name: "Laws of Thermodynamics", category: "Physics", description: "Fundamental principles governing energy and entropy. The second law states that entropy (disorder) in an isolated system always increases.", example: "Software systems naturally tend toward technical debt and complexity (entropy) unless energy is actively spent to refactor them." },
@@ -136,15 +125,10 @@ const MENTAL_MODELS: MentalModel[] = [
 
   // Military & Strategy (Extended)
   { name: "Exit Strategy", category: "Strategy", description: "A pre-planned means of leaving a situation that is either going bad or has reached its goal.", example: "Having a plan to migrate away from a third-party vendor if their service quality drops or prices spike." },
-  { name: "Boots on the Ground", category: "Strategy", description: "The use of physical presence to achieve a goal, rather than remote or automated means.", example: "A leader spending time 'in the trenches' with developers to understand their daily friction points." },
-  { name: "Winning Hearts and Minds", category: "Strategy", description: "Gaining emotional and intellectual support rather than just compliance.", example: "Convincing a team of the value of a new process rather than just mandating it." },
-  { name: "Containment", category: "Strategy", description: "A policy of preventing the expansion of a hostile power or influence.", example: "Isolating a legacy system with a 'strangler fig' pattern to prevent its complexity from leaking into new services." },
-  { name: "Appeasement", category: "Strategy", description: "Making concessions to an aggressive power to avoid conflict.", example: "Continuously adding 'one more small feature' for a demanding client instead of setting firm boundaries." },
 
   // Statistics & Probability (Extended)
   { name: "Central Limit Theorem", category: "Math", description: "The theory that the distribution of sample means will be normal, regardless of the population distribution, given a large enough sample size.", example: "Using this to justify the use of normal distribution models in large-scale system monitoring." },
   { name: "Six Sigma", category: "Math", description: "A set of techniques and tools for process improvement, aiming for near-perfection (3.4 defects per million opportunities).", example: "Applying rigorous quality controls to a high-stakes financial transaction system." },
-  { name: "Bayes’ Theorem", category: "Probability", description: "A mathematical formula for determining conditional probability, helping to update beliefs based on new evidence.", example: "Spam filters use Bayesian logic to calculate the probability a message is spam based on the words it contains." },
   { name: "Simpson’s Paradox", category: "Math", description: "A phenomenon in which a trend appears in several groups of data but disappears or reverses when these groups are combined.", example: "A feature appearing to improve conversion in every individual country but showing a decrease when looking at global data due to varying sample sizes." },
 
   // Decision Making (Extended)
@@ -198,13 +182,11 @@ const MENTAL_MODELS: MentalModel[] = [
   { name: "Price Elasticity", category: "Economics", description: "The measure of the responsiveness of the quantity demanded or supplied of a good to a change in its price.", example: "A small increase in subscription price leading to a massive drop in users (high elasticity)." },
   { name: "Information Asymmetry", category: "Economics", description: "When one party in a transaction has more or better information than the other.", example: "A developer knowing a codebase is a mess while the manager thinks it's high quality." },
   { name: "Externalities", category: "Economics", description: "A consequence of an industrial or commercial activity which affects other parties without this being reflected in market prices.", example: "A team shipping a feature quickly but leaving technical debt for another team to maintain." },
-  { name: "Sunk Cost", category: "Economics", description: "A cost that has already been incurred and cannot be recovered.", example: "Continuing to use a failing tool just because you spent $10k on the license." },
 
   // Psychology & Behavior (Extended)
   { name: "Authority Bias", category: "Psychology", description: "The tendency to attribute greater accuracy to the opinion of an authority figure.", example: "Agreeing with a CTO's technical choice even if you know it's wrong because of their title." },
   { name: "Commitment & Consistency Bias", category: "Psychology", description: "The tendency to be consistent with what we have previously said or done.", example: "Refusing to admit a project is failing because you publicly championed it." },
   { name: "Envy & Jealousy", category: "Psychology", description: "The tendency to want what others have or to feel resentful of their success.", example: "A team being reluctant to adopt a tool built by another team due to 'Not Invented Here' syndrome." },
-  { name: "Availability Heuristic", category: "Psychology", description: "Overestimating the importance of information that is most available or recent in our minds.", example: "Thinking a specific type of bug is common just because it happened yesterday." },
 
   // Management & Leadership (Extended)
   { name: "Directly Responsible Individual (DRI)", category: "Management", description: "A single person who is ultimately responsible for the success or failure of a project or task.", example: "Apple's management style where every task has one owner." },
@@ -257,17 +239,12 @@ const MENTAL_MODELS: MentalModel[] = [
   // Final Specific Models
   { name: "Default Status", category: "Decision Making", description: "The tendency to stick with the pre-set option because it's the path of least resistance.", example: "Users rarely changing the default settings of an application, making those defaults incredibly powerful." },
   { name: "Making Mistakes", category: "Core Thinking", description: "Recognizing that mistakes are an essential part of the learning and evolution process.", example: "A team that celebrates 'smart failures' as opportunities to learn and improve their systems." },
-  { name: "Using Lay Audiences as Decoys", category: "Communication", description: "Explaining a complex topic to a non-expert as a way to clarify your own understanding and find gaps in your logic.", example: "Explaining a new system architecture to a product manager to see if the core logic holds up." },
-  { name: "Three Species of Goulding", category: "Logic", description: "A framework for identifying different types of flawed arguments: Rathering, Piling On, and the Gould Two-Step.", example: "Identifying when a debate has shifted from facts to 'piling on' emotional arguments." },
   { name: "Scenario Analysis", category: "Strategy", description: "A process of analyzing possible future events by considering alternative possible outcomes.", example: "Planning for three different scenarios: high growth, steady state, and market downturn." },
   { name: "Sensitivity Analysis", category: "Math", description: "The study of how the uncertainty in the output of a mathematical model or system can be apportioned to different sources of uncertainty in its inputs.", example: "Determining which variable (e.g., server cost vs. user growth) has the biggest impact on a project's budget." },
   { name: "Cost-benefit Analysis", category: "Decision Making", description: "A systematic approach to estimating the strengths and weaknesses of alternatives.", example: "Comparing the cost of building a custom tool vs. the benefit of buying a third-party solution." },
   { name: "Simulation", category: "Systems", description: "The imitation of the operation of a real-world process or system over time.", example: "Running a load test simulation to see how a system behaves under 10x normal traffic." },
   { name: "Pareto Efficiency", category: "Economics", description: "A state where no individual can be made better off without making at least one individual worse off.", example: "Reaching a point in a resource allocation where any further change would hurt one team's productivity." },
-  { name: "Permutations and Combinations", category: "Math", description: "The study of the different ways in which objects from a set may be selected and arranged.", example: "Calculating the number of possible ways a feature could be configured by a user." },
-  { name: "Algebraic Equivalence", category: "Math", description: "The idea that two expressions can look different but represent the same underlying value or logic.", example: "Refactoring code to be more readable while ensuring the underlying logic remains identical." },
   { name: "Randomness", category: "Probability", description: "The lack of pattern or predictability in events.", example: "Recognizing that a sudden spike in errors might just be a random cluster rather than a systemic issue." },
-  { name: "Stochastic Processes", category: "Probability", description: "A collection of random variables representing the evolution of some system of values over time.", example: "Modeling user arrival times at an API using a Poisson process." },
   // Agile & Lean
   { name: "The Agile Manifesto", category: "Agile & Lean", description: "Four values and twelve principles (2001) that favour individuals and interactions, working software, customer collaboration and responding to change over processes, documentation, contracts and following a plan. The items on the right still matter; the ones on the left matter more.", example: "When a team argues about a missing requirements document, the manifesto asks a better question: what would a working increment and a conversation with the customer tell us today?" },
   { name: "Scrum", category: "Agile & Lean", description: "A lightweight framework for complex work: a Product Owner, a Scrum Master and Developers deliver a usable increment every sprint (one month or less), using Sprint Planning, Daily Scrum, Sprint Review and Retrospective, and three artifacts: Product Backlog, Sprint Backlog and Increment.", example: "A platform team runs two-week sprints with a single Product Owner prioritising internal-customer requests, and demos a working golden-path template at every review." },
