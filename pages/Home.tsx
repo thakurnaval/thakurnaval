@@ -254,8 +254,8 @@ const Home: React.FC = () => {
             View all projects <ArrowRight size={16} className="ml-1" />
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {PROJECTS.slice(0, 3).map((project, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {PROJECTS.slice(0, 4).map((project, idx) => (
             <ProjectCard key={idx} {...project} />
           ))}
         </div>

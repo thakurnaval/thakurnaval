@@ -2,6 +2,7 @@ import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import fs from 'fs'
 import path from 'path'
+import { execFileSync } from 'child_process'
 
 const BASE_URL = 'https://nthakur.com'
 
@@ -129,17 +130,54 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/talks/seven-habits-devops-teams',                   priority: 0.7, changefreq: 'monthly' },
 ]
 
+/**
+ * lastmod for each route = date of the last git commit touching the page that
+ * renders it, so the sitemap only changes when a page does.
+ * Without git (the Docker build excludes .git) it keeps the date already in
+ * public/sitemap.xml, and only falls back to today for brand-new routes.
+ */
+function routeSourceFiles(): Map<string, string> {
+  const app = fs.readFileSync(path.resolve('AppContent.tsx'), 'utf-8')
+  const imports = new Map<string, string>()
+  for (const m of app.matchAll(/import\s+(\w+)\s+from\s+'\.\/([^']+)'/g)) imports.set(m[1], m[2])
+  const files = new Map<string, string>()
+  for (const m of app.matchAll(/<Route\s+path="([^"]+)"\s+element=\{<(\w+)/g)) {
+    const rel = imports.get(m[2])
+    if (!rel) continue
+    const file = ['.tsx', '.ts'].map(ext => rel + ext).find(f => fs.existsSync(path.resolve(f)))
+    if (file) files.set(m[1], file)
+  }
+  return files
+}
+
+function gitDate(file: string): string | null {
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
+    return /^\d{4}-\d{2}-\d{2}$/.test(out) ? out : null
+  } catch {
+    return null
+  }
+}
+
 function sitemapPlugin(): Plugin {
   return {
     name: 'generate-sitemap',
     buildStart() {
+      const out = path.resolve('public/sitemap.xml')
+      const previous = fs.existsSync(out) ? fs.readFileSync(out, 'utf-8') : ''
+      const prevDates = new Map<string, string>()
+      for (const m of previous.matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)) prevDates.set(m[1], m[2])
+      const sources = routeSourceFiles()
       const today = new Date().toISOString().split('T')[0]
-      const urlEntries = SITEMAP_ROUTES.map(r =>
-        `  <url>\n    <loc>${BASE_URL}${r.path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority.toFixed(1)}</priority>\n  </url>`
-      ).join('\n')
+      const urlEntries = SITEMAP_ROUTES.map(r => {
+        const loc = `${BASE_URL}${r.path}`
+        const file = sources.get(r.path)
+        const lastmod = (file && gitDate(file)) ?? prevDates.get(loc) ?? today
+        return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority.toFixed(1)}</priority>\n  </url>`
+      }).join('\n')
       const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>`
-      fs.writeFileSync(path.resolve('public/sitemap.xml'), xml, 'utf-8')
-      console.log(`\n  ✓ sitemap.xml — ${SITEMAP_ROUTES.length} URLs written`)
+      if (xml !== previous) fs.writeFileSync(out, xml, 'utf-8')
+      console.log(`\n  ✓ sitemap.xml — ${SITEMAP_ROUTES.length} URLs${xml === previous ? ' (unchanged)' : ' written'}`)
     },
   }
 }
