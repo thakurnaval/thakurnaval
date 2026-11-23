@@ -38,32 +38,32 @@ const generateFinOps30DayPDF = (email: string) => {
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; background: #fff; font-size: 12px; line-height: 1.6; }
   .page { padding: 48px 56px; min-height: 100vh; page-break-after: always; }
-  .cover { background: linear-gradient(135deg, #166534 0%, #15803d 60%, #16a34a 100%); color: white; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; padding: 72px 64px; page-break-after: always; }
+  .cover { background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 60%, #2563eb 100%); color: white; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; padding: 72px 64px; page-break-after: always; }
   .cover-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #bbf7d0; margin-bottom: 24px; }
   .cover-title { font-size: 52px; font-weight: 800; line-height: 1.05; color: white; margin-bottom: 16px; }
-  .cover-subtitle { font-size: 18px; color: #dcfce7; margin-bottom: 48px; max-width: 480px; line-height: 1.5; }
-  .cover-author { font-size: 13px; color: #86efac; }
-  .cover-author strong { color: #dcfce7; }
-  .cover-line { width: 60px; height: 4px; background: #4ade80; margin: 40px 0; }
-  h1 { font-size: 28px; font-weight: 800; color: #166534; margin-bottom: 8px; }
-  h2 { font-size: 18px; font-weight: 700; color: #166534; margin: 28px 0 10px; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+  .cover-subtitle { font-size: 18px; color: #dbeafe; margin-bottom: 48px; max-width: 480px; line-height: 1.5; }
+  .cover-author { font-size: 13px; color: #93c5fd; }
+  .cover-author strong { color: #dbeafe; }
+  .cover-line { width: 60px; height: 4px; background: #60a5fa; margin: 40px 0; }
+  h1 { font-size: 28px; font-weight: 800; color: #1e40af; margin-bottom: 8px; }
+  h2 { font-size: 18px; font-weight: 700; color: #1e40af; margin: 28px 0 10px; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
   h3 { font-size: 14px; font-weight: 700; color: #1e293b; margin: 18px 0 6px; }
   p { margin-bottom: 10px; color: #475569; }
-  .week-header { background: #f0fdf4; border-left: 4px solid #16a34a; padding: 12px 16px; margin: 20px 0 12px; border-radius: 0 6px 6px 0; }
-  .week-title { font-size: 13px; font-weight: 800; color: #166534; text-transform: uppercase; letter-spacing: 1px; }
+  .week-header { background: #f0fdf4; border-left: 4px solid #2563eb; padding: 12px 16px; margin: 20px 0 12px; border-radius: 0 6px 6px 0; }
+  .week-title { font-size: 13px; font-weight: 800; color: #1e40af; text-transform: uppercase; letter-spacing: 1px; }
   .week-sub { font-size: 11px; color: #4b5563; margin-top: 2px; }
   .day-card { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
-  .day-num { font-size: 11px; font-weight: 800; color: #16a34a; min-width: 40px; padding-top: 2px; }
+  .day-num { font-size: 11px; font-weight: 800; color: #2563eb; min-width: 40px; padding-top: 2px; }
   .day-title { font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
   .day-action { font-size: 11px; color: #475569; }
   .callout { padding: 14px 18px; border-radius: 8px; margin: 16px 0; }
   .callout-green { background: #f0fdf4; border: 1px solid #bbf7d0; }
   .callout-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
   .callout-amber { background: #fffbeb; border: 1px solid #fde68a; }
-  .callout-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #166534; margin-bottom: 4px; }
+  .callout-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1e40af; margin-bottom: 4px; }
   .kpi-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
   .kpi-name { font-weight: 600; color: #1e293b; font-size: 12px; }
-  .kpi-target { font-size: 11px; color: #16a34a; font-weight: 700; }
+  .kpi-target { font-size: 11px; color: #2563eb; font-weight: 700; }
   .tag-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
   .tag-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }
   .tag-key { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 2px; }
@@ -90,7 +90,7 @@ const generateFinOps30DayPDF = (email: string) => {
 <div class="page">
   <div class="callout callout-green">
     <div class="callout-title">How to use this guide</div>
-    <p style="font-size:11px; margin:0; color:#166534">Do one day per working day. Each day has a concept, an action, and a reflection. The actions are sized for 30–60 minutes. The goal is not to read this — it's to do it. By Day 30, you will have a functioning FinOps baseline, a tagging strategy, an optimisation backlog, and a 90-day plan ready to present to your leadership.</p>
+    <p style="font-size:11px; margin:0; color:#1e40af">Do one day per working day. Each day has a concept, an action, and a reflection. The actions are sized for 30–60 minutes. The goal is not to read this — it's to do it. By Day 30, you will have a functioning FinOps baseline, a tagging strategy, an optimisation backlog, and a 90-day plan ready to present to your leadership.</p>
   </div>
 
   <h1>Why FinOps Fails Without a Practice</h1>
@@ -301,8 +301,8 @@ const generateFinOps30DayPDF = (email: string) => {
   </div>
   <div class="callout callout-green">
     <div class="callout-title">Days 61–90: Operate</div>
-    <p style="font-size:11px; margin:0; color:#166534">Goal: __________ · Owner: __________ · Success metric: __________</p>
-    <p style="font-size:11px; margin:4px 0 0; color:#166534">Key actions: __________ · __________ · __________</p>
+    <p style="font-size:11px; margin:0; color:#1e40af">Goal: __________ · Owner: __________ · Success metric: __________</p>
+    <p style="font-size:11px; margin:4px 0 0; color:#1e40af">Key actions: __________ · __________ · __________</p>
   </div>
 
   <h2>FinOps KPI Dashboard — Target Values</h2>
@@ -313,10 +313,10 @@ const generateFinOps30DayPDF = (email: string) => {
   <div class="kpi-row"><span class="kpi-name">Time to detect cost anomaly</span><span class="kpi-target">Target: &lt;24 hours</span></div>
   <div class="kpi-row"><span class="kpi-name">Unused resource identification cycle</span><span class="kpi-target">Target: Weekly automated scan</span></div>
 
-  <div style="margin-top:32px; padding:18px; background:#166534; border-radius:10px; color:white">
-    <div style="font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#86efac; font-weight:700; margin-bottom:6px">Take the FinOps Assessment</div>
+  <div style="margin-top:32px; padding:18px; background:#1e40af; border-radius:10px; color:white">
+    <div style="font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#93c5fd; font-weight:700; margin-bottom:6px">Take the FinOps Assessment</div>
     <div style="font-size:13px; font-weight:700; margin-bottom:6px">Know your exact maturity level</div>
-    <div style="font-size:11px; color:#dcfce7">The free FinOps maturity assessment at nthakur.com/finops/assessment gives you a scored maturity report across all FinOps capabilities — and tells you exactly where to focus next.</div>
+    <div style="font-size:11px; color:#dbeafe">The free FinOps maturity assessment at nthakur.com/finops/assessment gives you a scored maturity report across all FinOps capabilities — and tells you exactly where to focus next.</div>
   </div>
 
   <div class="footer"><span>30 Days of FinOps · nthakur.com · © Naval Thakur 2026 · All rights reserved</span><span>Page 5</span></div>
@@ -378,11 +378,11 @@ const FinOps30DayGuide: React.FC = () => {
 
       {/* Hero */}
       <div className="relative bg-primary text-white py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-primary to-green-900/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-blue-900/30"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-400/40 bg-green-400/10 text-green-300 text-sm font-bold mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-400/40 bg-blue-400/10 text-blue-300 text-sm font-bold mb-6">
                 <Calendar size={14} /> Free 30-Day Challenge · PDF Guide
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">30 Days of FinOps</h1>
@@ -392,7 +392,7 @@ const FinOps30DayGuide: React.FC = () => {
               <div className="space-y-2">
                 {INCLUDES.slice(0, 4).map(item => (
                   <div key={item} className="flex items-center gap-2 text-sm text-slate-300">
-                    <CheckCircle2 size={14} className="text-green-400 shrink-0" />
+                    <CheckCircle2 size={14} className="text-blue-400 shrink-0" />
                     {item}
                   </div>
                 ))}
@@ -403,14 +403,14 @@ const FinOps30DayGuide: React.FC = () => {
             <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-2xl border border-slate-200/20">
               {status === 'success' ? (
                 <div className="text-center py-4">
-                  <div className="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Unlock className="w-7 h-7 text-green-600 dark:text-green-400" />
+                  <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Unlock className="w-7 h-7 text-blue-600 dark:text-blue-400" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Guide unlocked</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">Your 30-day guide is ready. Open it and save as PDF.</p>
                   <button
                     onClick={() => generateFinOps30DayPDF(email)}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-green-700 text-white font-bold rounded-xl hover:bg-green-800 transition-colors"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors"
                   >
                     <Download size={16} /> Open &amp; Save PDF
                   </button>
@@ -419,8 +419,8 @@ const FinOps30DayGuide: React.FC = () => {
               ) : (
                 <>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                      <Lock className="w-5 h-5 text-green-700 dark:text-green-400" />
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                      <Lock className="w-5 h-5 text-blue-700 dark:text-blue-400" />
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 dark:text-white">Get the free guide</h3>
@@ -435,7 +435,7 @@ const FinOps30DayGuide: React.FC = () => {
                         <input
                           type="email" required value={email} onChange={e => setEmail(e.target.value)}
                           placeholder="you@company.com" disabled={status === 'submitting'}
-                          className="w-full pl-9 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm disabled:opacity-50"
+                          className="w-full pl-9 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm disabled:opacity-50"
                         />
                       </div>
                       {status === 'error' && (
@@ -446,7 +446,7 @@ const FinOps30DayGuide: React.FC = () => {
                     </div>
                     <button
                       type="submit" disabled={status === 'submitting'}
-                      className="w-full flex items-center justify-center gap-2 py-3 bg-green-700 text-white font-bold rounded-xl hover:bg-green-800 transition-colors disabled:opacity-70"
+                      className="w-full flex items-center justify-center gap-2 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-70"
                     >
                       {status === 'submitting' ? <><Loader2 className="animate-spin" size={16} /> Unlocking…</> : <><Download size={16} /> Download Free Guide</>}
                     </button>
@@ -490,7 +490,7 @@ const FinOps30DayGuide: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {INCLUDES.map(item => (
               <div key={item} className="flex items-start gap-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-                <CheckCircle2 size={18} className="text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
+                <CheckCircle2 size={18} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
                 <span className="text-sm text-slate-700 dark:text-slate-300">{item}</span>
               </div>
             ))}
@@ -502,11 +502,11 @@ const FinOps30DayGuide: React.FC = () => {
       <Section bg="white">
         <div className="max-w-3xl mx-auto text-center">
           <div className="bg-primary rounded-2xl p-8 text-white">
-            <BarChart3 className="w-10 h-10 text-green-400 mx-auto mb-4" />
+            <BarChart3 className="w-10 h-10 text-blue-400 mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-3">Know your FinOps maturity level</h2>
             <p className="text-slate-200 mb-6">The free FinOps assessment gives you a scored report and tells you exactly where to focus.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/finops/assessment" className="inline-flex items-center gap-2 px-7 py-3 bg-green-500 text-white font-bold rounded-xl hover:bg-green-400 transition-colors">
+              <Link to="/finops/assessment" className="inline-flex items-center gap-2 px-7 py-3 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-colors">
                 Take the FinOps Assessment <Target size={15} />
               </Link>
               <Link to="/finops" className="inline-flex items-center gap-2 px-7 py-3 border border-white/30 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-colors">

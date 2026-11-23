@@ -37,41 +37,41 @@ const generateFinOpsCertPrepPDF = (email: string) => {
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; background: #fff; font-size: 12px; line-height: 1.6; }
   .page { padding: 48px 56px; min-height: 100vh; page-break-after: always; }
-  .cover { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 60%, #5b21b6 100%); color: white; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; padding: 72px 64px; page-break-after: always; }
-  .cover-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #ddd6fe; margin-bottom: 24px; }
+  .cover { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #1e40af 100%); color: white; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; padding: 72px 64px; page-break-after: always; }
+  .cover-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #bfdbfe; margin-bottom: 24px; }
   .cover-title { font-size: 48px; font-weight: 800; line-height: 1.05; color: white; margin-bottom: 16px; }
-  .cover-subtitle { font-size: 18px; color: #ede9fe; margin-bottom: 48px; max-width: 480px; line-height: 1.5; }
-  .cover-author { font-size: 13px; color: #c4b5fd; }
-  .cover-author strong { color: #ede9fe; }
-  .cover-line { width: 60px; height: 4px; background: #a78bfa; margin: 40px 0; }
-  h1 { font-size: 26px; font-weight: 800; color: #6d28d9; margin-bottom: 8px; }
-  h2 { font-size: 17px; font-weight: 700; color: #6d28d9; margin: 28px 0 10px; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+  .cover-subtitle { font-size: 18px; color: #dbeafe; margin-bottom: 48px; max-width: 480px; line-height: 1.5; }
+  .cover-author { font-size: 13px; color: #93c5fd; }
+  .cover-author strong { color: #dbeafe; }
+  .cover-line { width: 60px; height: 4px; background: #60a5fa; margin: 40px 0; }
+  h1 { font-size: 26px; font-weight: 800; color: #1d4ed8; margin-bottom: 8px; }
+  h2 { font-size: 17px; font-weight: 700; color: #1d4ed8; margin: 28px 0 10px; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
   h3 { font-size: 13px; font-weight: 700; color: #1e293b; margin: 16px 0 5px; }
   p { margin-bottom: 10px; color: #475569; font-size: 12px; }
-  .domain-card { border: 1px solid #e9d5ff; border-radius: 8px; margin: 12px 0; overflow: hidden; }
-  .domain-header { background: #f5f3ff; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; }
-  .domain-name { font-weight: 700; color: #4c1d95; font-size: 12px; }
-  .domain-weight { font-size: 11px; background: #ddd6fe; color: #4c1d95; padding: 2px 8px; border-radius: 99px; font-weight: 700; }
+  .domain-card { border: 1px solid #bfdbfe; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+  .domain-header { background: #eff6ff; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; }
+  .domain-name { font-weight: 700; color: #1e3a8a; font-size: 12px; }
+  .domain-weight { font-size: 11px; background: #bfdbfe; color: #1e3a8a; padding: 2px 8px; border-radius: 99px; font-weight: 700; }
   .domain-body { padding: 10px 14px; }
   .topic-item { display: flex; gap: 6px; margin: 4px 0; }
-  .topic-dot { color: #7c3aed; font-weight: 700; }
+  .topic-dot { color: #2563eb; font-weight: 700; }
   .topic-text { font-size: 11px; color: #374151; }
-  .concept-box { background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 6px; padding: 12px 14px; margin: 8px 0; }
-  .concept-title { font-weight: 700; color: #4c1d95; font-size: 12px; margin-bottom: 4px; }
+  .concept-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 14px; margin: 8px 0; }
+  .concept-title { font-weight: 700; color: #1e3a8a; font-size: 12px; margin-bottom: 4px; }
   .concept-body { font-size: 11px; color: #374151; }
   .callout { padding: 12px 16px; border-radius: 8px; margin: 14px 0; }
-  .callout-purple { background: #f5f3ff; border: 1px solid #ddd6fe; }
-  .callout-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6d28d9; margin-bottom: 4px; }
+  .callout-purple { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1d4ed8; margin-bottom: 4px; }
   .q-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; margin: 10px 0; }
   .q-text { font-size: 11px; font-weight: 700; color: #1e293b; margin-bottom: 8px; }
   .q-option { font-size: 11px; color: #475569; margin: 3px 0; padding-left: 8px; }
   .q-correct { color: #166534; font-weight: 700; }
   .q-explain { font-size: 10px; color: #64748b; margin-top: 8px; padding-top: 8px; border-top: 1px solid #f1f5f9; }
-  .tip-card { border-left: 3px solid #7c3aed; padding: 10px 14px; margin: 8px 0; background: #faf5ff; }
-  .tip-title { font-weight: 700; color: #4c1d95; font-size: 12px; margin-bottom: 3px; }
+  .tip-card { border-left: 3px solid #2563eb; padding: 10px 14px; margin: 8px 0; background: #eff6ff; }
+  .tip-title { font-weight: 700; color: #1e3a8a; font-size: 12px; margin-bottom: 3px; }
   .tip-body { font-size: 11px; color: #374151; }
   table { width: 100%; border-collapse: collapse; margin: 12px 0; }
-  th { background: #6d28d9; color: white; padding: 8px 10px; text-align: left; font-size: 11px; }
+  th { background: #1d4ed8; color: white; padding: 8px 10px; text-align: left; font-size: 11px; }
   td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; font-size: 11px; color: #475569; }
   tr:nth-child(even) td { background: #f8fafc; }
   ul { padding-left: 18px; margin-bottom: 10px; }
@@ -108,7 +108,7 @@ const generateFinOpsCertPrepPDF = (email: string) => {
 
   <div class="callout callout-purple">
     <div class="callout-title">Naval's study recommendation</div>
-    <p style="font-size:11px; margin:0; color:#4c1d95">The FOCP is a practitioner-level exam, not a theory exam. If you have 12+ months of hands-on cloud cost work, the concepts will feel familiar. The preparation gap is usually the FinOps-specific vocabulary and the structured framework (Inform → Optimize → Operate). Focus on that.</p>
+    <p style="font-size:11px; margin:0; color:#1e3a8a">The FOCP is a practitioner-level exam, not a theory exam. If you have 12+ months of hands-on cloud cost work, the concepts will feel familiar. The preparation gap is usually the FinOps-specific vocabulary and the structured framework (Inform → Optimize → Operate). Focus on that.</p>
   </div>
 
   <h2>The Six Exam Domains</h2>
@@ -291,7 +291,7 @@ const generateFinOpsCertPrepPDF = (email: string) => {
 
   <div class="callout callout-purple">
     <div class="callout-title">The most important thing to know before sitting the exam</div>
-    <p style="font-size:11px; margin:0; color:#4c1d95">The FinOps Foundation publishes an open-source study curriculum at finops.org. Read it end-to-end at least once — the exam is drawn directly from it. This prep pack accelerates your understanding of the concepts that trip up first-time takers, but the Foundation's materials are the canonical source. Use both.</p>
+    <p style="font-size:11px; margin:0; color:#1e3a8a">The FinOps Foundation publishes an open-source study curriculum at finops.org. Read it end-to-end at least once — the exam is drawn directly from it. This prep pack accelerates your understanding of the concepts that trip up first-time takers, but the Foundation's materials are the canonical source. Use both.</p>
   </div>
 
   <h2>Key Vocabulary — Learn These Cold</h2>
@@ -309,10 +309,10 @@ const generateFinOpsCertPrepPDF = (email: string) => {
     <tr><td><strong>FinOps Maturity</strong></td><td>Three-phase model: Crawl (awareness), Walk (action), Run (automation + governance)</td></tr>
   </table>
 
-  <div style="margin-top:28px; padding:18px; background:#4c1d95; border-radius:10px; color:white">
-    <div style="font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#c4b5fd; font-weight:700; margin-bottom:6px">Practice Makes Passing</div>
+  <div style="margin-top:28px; padding:18px; background:#1e3a8a; border-radius:10px; color:white">
+    <div style="font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#93c5fd; font-weight:700; margin-bottom:6px">Practice Makes Passing</div>
     <div style="font-size:13px; font-weight:700; margin-bottom:6px">Test your FinOps knowledge interactively</div>
-    <div style="font-size:11px; color:#ede9fe">Take the free FinOps assessment at nthakur.com/finops/assessment. It's structured around the same six domains as the exam — and gives you a scored gap analysis that tells you exactly where to focus your last week of prep.</div>
+    <div style="font-size:11px; color:#dbeafe">Take the free FinOps assessment at nthakur.com/finops/assessment. It's structured around the same six domains as the exam — and gives you a scored gap analysis that tells you exactly where to focus your last week of prep.</div>
   </div>
 
   <div class="footer"><span>FinOps Cert Prep Pack · nthakur.com · © Naval Thakur 2026 · All rights reserved</span><span>Page 4</span></div>
@@ -374,11 +374,11 @@ const FinOpsCertPrep: React.FC = () => {
 
       {/* Hero */}
       <div className="relative bg-primary text-white py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-violet-950 to-purple-900/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-blue-900/30"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-400/40 bg-purple-400/10 text-purple-300 text-sm font-bold mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-400/40 bg-blue-400/10 text-blue-300 text-sm font-bold mb-6">
                 <Award size={14} /> FinOps Foundation Cert · FOCP
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">FinOps Cert Prep Pack</h1>
@@ -388,7 +388,7 @@ const FinOpsCertPrep: React.FC = () => {
               <div className="space-y-2">
                 {['All 6 FOCP exam domains covered', 'RI vs Savings Plans distinction (most-tested topic)', '4 practice questions with explained answers', '3-week study plan', 'Key FinOps vocabulary — 10 terms to know cold', 'Exam technique tips from a certified practitioner'].map(item => (
                   <div key={item} className="flex items-center gap-2 text-sm text-slate-300">
-                    <CheckCircle2 size={14} className="text-purple-400 shrink-0" />
+                    <CheckCircle2 size={14} className="text-blue-400 shrink-0" />
                     {item}
                   </div>
                 ))}
@@ -399,14 +399,14 @@ const FinOpsCertPrep: React.FC = () => {
             <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-2xl border border-slate-200/20">
               {status === 'success' ? (
                 <div className="text-center py-4">
-                  <div className="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Unlock className="w-7 h-7 text-purple-600 dark:text-purple-400" />
+                  <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Unlock className="w-7 h-7 text-blue-600 dark:text-blue-400" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Pack unlocked</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">Your cert prep pack is ready. Open and save as PDF.</p>
                   <button
                     onClick={() => generateFinOpsCertPrepPDF(email)}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-purple-700 text-white font-bold rounded-xl hover:bg-purple-800 transition-colors"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors"
                   >
                     <Download size={16} /> Open &amp; Save PDF
                   </button>
@@ -415,8 +415,8 @@ const FinOpsCertPrep: React.FC = () => {
               ) : (
                 <>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
-                      <Lock className="w-5 h-5 text-purple-700 dark:text-purple-400" />
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                      <Lock className="w-5 h-5 text-blue-700 dark:text-blue-400" />
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 dark:text-white">Get the free prep pack</h3>
@@ -431,7 +431,7 @@ const FinOpsCertPrep: React.FC = () => {
                         <input
                           type="email" required value={email} onChange={e => setEmail(e.target.value)}
                           placeholder="you@company.com" disabled={status === 'submitting'}
-                          className="w-full pl-9 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm disabled:opacity-50"
+                          className="w-full pl-9 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm disabled:opacity-50"
                         />
                       </div>
                       {status === 'error' && (
@@ -442,7 +442,7 @@ const FinOpsCertPrep: React.FC = () => {
                     </div>
                     <button
                       type="submit" disabled={status === 'submitting'}
-                      className="w-full flex items-center justify-center gap-2 py-3 bg-purple-700 text-white font-bold rounded-xl hover:bg-purple-800 transition-colors disabled:opacity-70"
+                      className="w-full flex items-center justify-center gap-2 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-70"
                     >
                       {status === 'submitting' ? <><Loader2 className="animate-spin" size={16} /> Unlocking…</> : <><Download size={16} /> Download Free Pack</>}
                     </button>
@@ -470,12 +470,12 @@ const FinOpsCertPrep: React.FC = () => {
                     <span className="text-xl mr-2">{d.icon}</span>
                     <span className="font-bold text-slate-900 dark:text-white text-sm">{d.domain}</span>
                   </div>
-                  <span className="text-xs font-bold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 px-2 py-0.5 rounded-full shrink-0">{d.weight}</span>
+                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full shrink-0">{d.weight}</span>
                 </div>
                 <div className="space-y-1">
                   {d.topics.map(t => (
                     <div key={t} className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
-                      <CheckCircle2 size={11} className="text-purple-500 shrink-0 mt-0.5" /> {t}
+                      <CheckCircle2 size={11} className="text-blue-500 shrink-0 mt-0.5" /> {t}
                     </div>
                   ))}
                 </div>
@@ -492,7 +492,7 @@ const FinOpsCertPrep: React.FC = () => {
           <p className="text-slate-500 dark:text-slate-400 text-center mb-10">The pack includes four exam technique tips. Here's a preview.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {EXAM_TIPS.map(t => (
-              <div key={t.tip} className="bg-white dark:bg-slate-800 rounded-xl border border-purple-100 dark:border-purple-900/30 border-l-4 border-l-purple-500 p-5">
+              <div key={t.tip} className="bg-white dark:bg-slate-800 rounded-xl border border-blue-100 dark:border-blue-900/30 border-l-4 border-l-blue-500 p-5">
                 <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-2">{t.tip}</h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400">{t.detail}</p>
               </div>
@@ -505,11 +505,11 @@ const FinOpsCertPrep: React.FC = () => {
       <Section bg="white">
         <div className="max-w-3xl mx-auto text-center">
           <div className="bg-primary rounded-2xl p-8 text-white">
-            <BookOpen className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+            <BookOpen className="w-10 h-10 text-blue-400 mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-3">Practice before the real thing</h2>
             <p className="text-slate-200 mb-6">The FinOps assessment covers the same six domains as the exam. Use it to identify your weakest area before you sit.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/finops/assessment" className="inline-flex items-center gap-2 px-7 py-3 bg-purple-500 text-white font-bold rounded-xl hover:bg-purple-400 transition-colors">
+              <Link to="/finops/assessment" className="inline-flex items-center gap-2 px-7 py-3 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-colors">
                 Take the FinOps Assessment <Target size={15} />
               </Link>
               <Link to="/finops" className="inline-flex items-center gap-2 px-7 py-3 border border-white/30 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-colors">
