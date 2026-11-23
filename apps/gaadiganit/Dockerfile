@@ -20,6 +20,7 @@ RUN npm run build -w @gaadiganit/web
 FROM nginx:alpine AS runner
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY security-headers.conf /etc/nginx/snippets/security-headers.conf
 COPY --from=build /app/web/dist /usr/share/nginx/html
 
 # Cloud Run sends traffic to 8080
