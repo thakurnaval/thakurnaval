@@ -80,6 +80,7 @@ import GenAIAdoptionFramework from './pages/genai/GenAIAdoptionFramework';
 import IacTemplates from './pages/architecture/IacTemplates';
 import DevOpsism from './pages/DevOpsism';
 import PremiumReport from './pages/cognitiveops/PremiumReport';
+import Resources from './pages/Resources';
 
 // Architecture Subpages
 import DesignPatterns from './pages/architecture/DesignPatterns';
@@ -214,6 +215,7 @@ const AppContent: React.FC = () => (
         <Route path="/genai/adoption-framework" element={<GenAIAdoptionFramework />} />
         <Route path="/architecture/iac-templates" element={<IacTemplates />} />
         <Route path="/devopsism" element={<DevOpsism />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/cognitiveops/premium-report" element={<PremiumReport />} />
 
         {/* Architecture Subpages */}

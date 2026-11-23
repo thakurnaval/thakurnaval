@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import SimplePage from '../../components/SimplePage';
-import { Search, Brain, Zap, Target, Layers, Repeat, Shield, Users, BarChart, Workflow, Compass, Wrench, Lightbulb } from 'lucide-react';
+import { Search, Brain, Zap, Target, Layers, Shield, Users, BarChart, Workflow, Compass, Wrench, Lightbulb } from 'lucide-react';
 
 interface MentalModel {
   name: string;
@@ -89,7 +89,7 @@ const MENTAL_MODELS: MentalModel[] = [
   { name: "Asymmetric Warfare", category: "Strategy", description: "Warfare in which the relative military power of belligerents differs significantly.", example: "A small startup using agility and niche focus to compete with a massive incumbent." },
   { name: "Trojan Horse", category: "Strategy", description: "A person or thing intended to undermine or secretly overthrow an enemy or opponent.", example: "A free tool offered by a company to gain access to a competitor's customer data." },
   { name: "Black Swan", category: "Strategy", description: "An unpredictable event that is beyond what is normally expected of a situation and has potentially severe consequences.", example: "The 2008 financial crisis or the COVID-19 pandemic." },
-  { name: "Margin of Safety", category: "Strategy", description: "The difference between the intrinsic value of a stock and its market price.", example: "Building a bridge to hold 10x the expected load to ensure it doesn't collapse." },
+  { name: "Margin of Safety in Investing", category: "Strategy", description: "The difference between the intrinsic value of an asset and the price you pay. Buying well below your estimate of value leaves room for your estimate to be wrong.", example: "Approving a platform investment only if the conservative-case savings still cover its cost, so the business case survives optimistic assumptions turning out wrong." },
   
   // Cognitive & Communication
   { name: "The “Surely” Operator", category: "Cognitive", description: "A mental block where using the word 'surely' signals a leap in logic that hasn't been proven.", example: "'Surely, the users will love this feature'—this often masks a lack of user research." },
@@ -323,81 +323,211 @@ const MENTAL_MODELS: MentalModel[] = [
   { name: "Goodhart's Law", category: "Economics", description: "When a measure becomes a target, it ceases to be a good measure. People optimise the number instead of the outcome it was meant to reflect.", example: "Targeting 90% code coverage produces tests that execute lines without checking behaviour; tracking change failure rate alongside coverage keeps the measure honest." },
 ];
 
+/** Situations a reader arrives with; the primary way to browse the library. */
+const SITUATIONS = [
+  'Diagnose a problem',
+  'Make a decision',
+  'Plan and prioritise',
+  'Improve flow and delivery',
+  'Lead and influence people',
+  'Think strategically',
+  'Understand systems and risk',
+  'Understand people and bias',
+  'Think clearly',
+  'Generate ideas',
+  'Grow yourself',
+] as const;
+type Situation = typeof SITUATIONS[number];
+
+/** Default situation for each discipline category. */
+const SITUATION_BY_CATEGORY: Record<string, Situation> = {
+  'Agile & Lean': 'Improve flow and delivery',
+  'Biology': 'Understand systems and risk',
+  'Cognitive': 'Think clearly',
+  'Communication': 'Lead and influence people',
+  'Core Thinking': 'Think clearly',
+  'Creative Thinking': 'Generate ideas',
+  'Decision Making': 'Make a decision',
+  'Economics': 'Think strategically',
+  'Engineering': 'Understand systems and risk',
+  'Leadership': 'Lead and influence people',
+  'Logic': 'Think clearly',
+  'Management': 'Plan and prioritise',
+  'Math': 'Think clearly',
+  'Model Thinking': 'Understand systems and risk',
+  'Physics': 'Think strategically',
+  'Probability': 'Make a decision',
+  'Problem Solving': 'Diagnose a problem',
+  'Psychology': 'Understand people and bias',
+  'Purpose': 'Grow yourself',
+  'Scientific': 'Think clearly',
+  'Strategy': 'Think strategically',
+  'Systems': 'Understand systems and risk',
+};
+
+/** Models whose best-fit situation differs from their category default (matched by name prefix). */
+const SITUATION_OVERRIDES: [string, Situation][] = [
+  ['Lateral Thinking', 'Generate ideas'],
+  ['Divergent vs Convergent', 'Generate ideas'],
+  ['Binary Search', 'Diagnose a problem'],
+  ['Divide and Conquer', 'Diagnose a problem'],
+  ['Making Mistakes', 'Grow yourself'],
+  ['Circle of Competence', 'Grow yourself'],
+  ['Regret Minimization', 'Grow yourself'],
+  ['Growth Mindset', 'Grow yourself'],
+  ['Deliberate Practice', 'Grow yourself'],
+  ['Imposter Syndrome', 'Grow yourself'],
+  ['Culture of Lifelong Learning', 'Grow yourself'],
+  ['Pain + Reflection', 'Grow yourself'],
+  ['Pareto Principle', 'Plan and prioritise'],
+  ['Technical Debt', 'Plan and prioritise'],
+  ['Reversible vs Irreversible', 'Make a decision'],
+  ['Sunk Cost', 'Make a decision'],
+  ['Scenario Analysis', 'Make a decision'],
+  ['Peter Principle', 'Lead and influence people'],
+  ['Directly Responsible Individual', 'Lead and influence people'],
+  ['Makers vs Manager', 'Lead and influence people'],
+  ['Incentives', 'Lead and influence people'],
+  ["Goodhart's Law", 'Lead and influence people'],
+  ['Six Sigma', 'Improve flow and delivery'],
+  ['PDCA', 'Improve flow and delivery'],
+  ['DMAIC', 'Improve flow and delivery'],
+  ['Minimum Viable Product', 'Improve flow and delivery'],
+  ['Time Value Of Shipping', 'Improve flow and delivery'],
+  ['Version two is a lie', 'Improve flow and delivery'],
+  ['Velocity vs Speed', 'Improve flow and delivery'],
+  ['Use checklists', 'Improve flow and delivery'],
+  ['Black Swan', 'Understand systems and risk'],
+  ['Unknown Unknowns', 'Understand systems and risk'],
+  ['Laws of Thermodynamics', 'Understand systems and risk'],
+  ['Half-life', 'Understand systems and risk'],
+  ['Heisenberg', 'Understand systems and risk'],
+  ['Pre-mortem', 'Understand systems and risk'],
+  ['FMEA', 'Understand systems and risk'],
+  ['Swiss Cheese', 'Understand systems and risk'],
+];
+
+const situationOf = (m: MentalModel): Situation =>
+  SITUATION_OVERRIDES.find(([prefix, s]) => m.name.startsWith(prefix) && !(prefix === 'Sunk Cost' && m.category === 'Psychology'))?.[1]
+  ?? SITUATION_BY_CATEGORY[m.category] ?? 'Think clearly';
+
+/** Stable anchor id for linking to one model, e.g. #six-thinking-hats. */
+const slugOf = (name: string) => name.toLowerCase()
+  .replace(/[’']/g, '')
+  .replace(/\(.*?\)/g, '')
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/^-+|-+$/g, '');
+
+const situationIcon = (s: Situation) => {
+  switch (s) {
+    case 'Diagnose a problem': return <Wrench className="w-5 h-5" />;
+    case 'Make a decision': return <Target className="w-5 h-5" />;
+    case 'Plan and prioritise': return <BarChart className="w-5 h-5" />;
+    case 'Improve flow and delivery': return <Workflow className="w-5 h-5" />;
+    case 'Lead and influence people': return <Users className="w-5 h-5" />;
+    case 'Think strategically': return <Zap className="w-5 h-5" />;
+    case 'Understand systems and risk': return <Layers className="w-5 h-5" />;
+    case 'Understand people and bias': return <Shield className="w-5 h-5" />;
+    case 'Think clearly': return <Brain className="w-5 h-5" />;
+    case 'Generate ideas': return <Lightbulb className="w-5 h-5" />;
+    case 'Grow yourself': return <Compass className="w-5 h-5" />;
+  }
+};
+
+const MODELS = MENTAL_MODELS.map(m => ({ ...m, situation: situationOf(m), slug: slugOf(m.name) }));
+
 const MentalModels: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selected, setSelected] = useState<'All' | Situation>('All');
+  const [highlight, setHighlight] = useState<string | null>(null);
 
-  const categories = ['All', ...Array.from(new Set(MENTAL_MODELS.map(m => m.category)))];
+  // Opening /explore/mental-models#six-thinking-hats scrolls to and highlights that card.
+  useEffect(() => {
+    const open = () => {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      if (!id || !MODELS.some(m => m.slug === id)) return;
+      setSelected('All');
+      setSearchTerm('');
+      setHighlight(id);
+      requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+    };
+    open();
+    window.addEventListener('hashchange', open);
+    return () => window.removeEventListener('hashchange', open);
+  }, []);
 
-  const filteredModels = MENTAL_MODELS.filter(model => {
-    const matchesSearch = model.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          model.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'All' || model.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const counts = useMemo(() => {
+    const c = new Map<string, number>();
+    MODELS.forEach(m => c.set(m.situation, (c.get(m.situation) ?? 0) + 1));
+    return c;
+  }, []);
 
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'Core Thinking': return <Brain className="w-5 h-5" />;
-      case 'Logic': return <Shield className="w-5 h-5" />;
-      case 'Decision Making': return <Target className="w-5 h-5" />;
-      case 'Systems': return <Layers className="w-5 h-5" />;
-      case 'Math': return <BarChart className="w-5 h-5" />;
-      case 'Probability': return <Repeat className="w-5 h-5" />;
-      case 'Psychology': return <Users className="w-5 h-5" />;
-      case 'Strategy': return <Zap className="w-5 h-5" />;
-      case 'Engineering': return <Shield className="w-5 h-5" />;
-      case 'Agile & Lean': return <Workflow className="w-5 h-5" />;
-      case 'Purpose': return <Compass className="w-5 h-5" />;
-      case 'Problem Solving': return <Wrench className="w-5 h-5" />;
-      case 'Creative Thinking': return <Lightbulb className="w-5 h-5" />;
-      default: return <Brain className="w-5 h-5" />;
-    }
-  };
+  const q = searchTerm.toLowerCase();
+  const filteredModels = MODELS.filter(model =>
+    (selected === 'All' || model.situation === selected) &&
+    (!q || model.name.toLowerCase().includes(q) || model.description.toLowerCase().includes(q) || model.category.toLowerCase().includes(q)));
+
+  const chip = (label: string, active: boolean, onClick: () => void, count: number) => (
+    <button key={label} type="button" onClick={onClick} aria-pressed={active}
+      className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${active
+        ? 'bg-primary text-white border-primary dark:bg-secondary dark:text-primary dark:border-secondary'
+        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-secondary'}`}>
+      {label} <span className="opacity-60">{count}</span>
+    </button>
+  );
 
   return (
-    <SimplePage 
-      title="Mental Models for Engineering Leaders" 
-      subtitle="A comprehensive library of frameworks for thinking, decision making, and problem solving."
+    <SimplePage
+      title="Mental Models for Engineering Leaders"
+      subtitle="A library of frameworks for thinking, deciding and solving problems, organised by the situation you are in."
     >
       <div className="mb-12 space-y-6">
-        {/* Search and Filter */}
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="relative flex-grow">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
-            <input 
-              type="text" 
-              placeholder="Search mental models..." 
-              className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-secondary outline-none transition-all"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          <select 
-            className="px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-secondary outline-none transition-all"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            {categories.map(cat => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
+        {/* Search and situation filter */}
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+          <input
+            id="model-search"
+            type="search"
+            aria-label="Search mental models"
+            placeholder="Search mental models…"
+            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-secondary outline-none transition-all"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
+        <div>
+          <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">What are you trying to do?</p>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by situation">
+            {chip('All', selected === 'All', () => setSelected('All'), MODELS.length)}
+            {SITUATIONS.map(s => chip(s, selected === s, () => setSelected(s), counts.get(s) ?? 0))}
+          </div>
+        </div>
+        <p className="text-sm text-slate-500 dark:text-slate-400" aria-live="polite">
+          Showing {filteredModels.length} of {MODELS.length} models
+        </p>
 
-        {/* Grid of Models */}
+        {/* Grid of models */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredModels.map((model, index) => (
-            <div 
-              key={index} 
-              className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all group"
+          {filteredModels.map(model => (
+            <article
+              key={model.slug}
+              id={model.slug}
+              className={`scroll-mt-24 p-6 rounded-2xl border bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all group ${highlight === model.slug
+                ? 'border-secondary ring-2 ring-secondary'
+                : 'border-slate-100 dark:border-slate-800'}`}
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-secondary-dark dark:text-secondary group-hover:bg-secondary group-hover:text-primary transition-colors">
-                  {getCategoryIcon(model.category)}
+                  {situationIcon(model.situation)}
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-primary dark:text-white leading-tight">{model.name}</h3>
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">{model.category}</span>
+                <div className="min-w-0">
+                  <h3 className="text-xl font-bold text-primary dark:text-white leading-tight">
+                    <a href={`#${model.slug}`} className="hover:underline focus-visible:underline">{model.name}</a>
+                  </h3>
+                  <div className="flex flex-wrap gap-x-2 text-xs font-semibold mt-1">
+                    <span className="text-secondary-dark dark:text-secondary">{model.situation}</span>
+                    <span className="text-slate-400 uppercase tracking-wider">· {model.category}</span>
+                  </div>
                 </div>
               </div>
               <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
@@ -411,13 +541,13 @@ const MentalModels: React.FC = () => {
                   </p>
                 </div>
               )}
-            </div>
+            </article>
           ))}
         </div>
 
         {filteredModels.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-slate-500">No mental models found matching your criteria.</p>
+            <p className="text-slate-500">No mental models match. Try another word, or choose All.</p>
           </div>
         )}
       </div>
@@ -426,9 +556,9 @@ const MentalModels: React.FC = () => {
         <div className="relative z-10">
           <h2 className="text-2xl font-bold mb-4">Why Mental Models?</h2>
           <p className="text-slate-300 max-w-2xl leading-relaxed">
-            Mental models are chunks of knowledge from various disciplines that help us understand how the world works. 
-            By building a "latticework" of these models, we can make better decisions, solve complex problems, and 
-            avoid common cognitive traps. As Charlie Munger said, "You've got to have models in your head... and you've 
+            Mental models are chunks of knowledge from various disciplines that help us understand how the world works.
+            By building a "latticework" of these models, we can make better decisions, solve complex problems, and
+            avoid common cognitive traps. As Charlie Munger said, "You've got to have models in your head... and you've
             got to array your experience both vicarious and direct on this latticework of models."
           </p>
         </div>

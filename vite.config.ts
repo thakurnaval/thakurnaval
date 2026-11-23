@@ -18,6 +18,7 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/cognitiveops',        priority: 0.95, changefreq: 'weekly'  },
   { path: '/assessments',         priority: 0.9,  changefreq: 'weekly'  },
   { path: '/newsletter',          priority: 0.8,  changefreq: 'weekly'  },
+  { path: '/resources',           priority: 0.85, changefreq: 'monthly' },
   { path: '/work-with-me',        priority: 0.7,  changefreq: 'monthly' },
   { path: '/community',           priority: 0.7,  changefreq: 'monthly' },
   { path: '/about',               priority: 0.6,  changefreq: 'monthly' },

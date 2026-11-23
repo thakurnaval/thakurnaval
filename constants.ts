@@ -25,6 +25,9 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Articles & Blog', path: '/articles' },
       { label: 'Talks & Webinars', path: '/talks' },
       { label: 'Newsletter', path: '/newsletter' },
+      { label: 'Free Resources', path: '/resources' },
+      { label: 'Mental Models', path: '/explore/mental-models' },
+      { label: 'Book Summaries', path: '/explore/books' },
     ]
   },
   {
@@ -34,9 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Case Studies', path: '/case-studies' },
       { label: 'Projects', path: '/projects' },
       { label: 'Photo Gallery', path: '/gallery' },
-      { label: 'Book Summaries', path: '/explore/books' },
       { label: 'Certifications', path: '/explore/certifications' },
-      { label: 'Mental Models', path: '/explore/mental-models' },
     ]
   },
   {
