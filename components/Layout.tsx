@@ -436,6 +436,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <ul className="space-y-2 text-sm text-slate-200">
                 <li><Link to="/assessments" className="hover:text-secondary transition-colors">Maturity Assessments</Link></li>
                 <li><Link to="/newsletter" className="hover:text-secondary transition-colors">Newsletter</Link></li>
+                <li><Link to="/devopsism" className="hover:text-secondary transition-colors">DevOpsism (book)</Link></li>
                 <li><Link to="/about" className="hover:text-secondary transition-colors">About Naval</Link></li>
                 <li><Link to="/projects" className="hover:text-secondary transition-colors">Projects</Link></li>
               </ul>

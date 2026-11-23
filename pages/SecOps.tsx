@@ -95,6 +95,7 @@ const SecOps: React.FC = () => {
                 <Link to="/secops/threat-modeling" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">Threat Modelling</Link>
                 <Link to="/secops/cloud-security" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">Cloud Security</Link>
                 <Link to="/secops/container-security" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">Container Security</Link>
+                <Link to="/secops/devsecops-playbook" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">📄 DevSecOps Playbook</Link>
               </div>
             </div>
           </div>

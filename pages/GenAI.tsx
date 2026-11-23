@@ -70,6 +70,7 @@ const GenAI: React.FC = () => {
                <Link to="/genai/fundamentals" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">Fundamentals</Link>
                <Link to="/genai/prompt-engineering" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">Prompt Engineering</Link>
                <Link to="/genai/rag" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">RAG Architecture</Link>
+               <Link to="/genai/adoption-framework" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">📄 GenAI Adoption Framework</Link>
              </div>
           </div>
 

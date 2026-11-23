@@ -75,6 +75,10 @@ import CodeReview from './pages/ai-sdlc/CodeReview';
 import Deployment from './pages/ai-sdlc/Deployment';
 import Monitoring from './pages/ai-sdlc/Monitoring';
 import AINativeSDLCGuide from './pages/ai-sdlc/AINativeSDLCGuide';
+import DevSecOpsPlaybook from './pages/secops/DevSecOpsPlaybook';
+import GenAIAdoptionFramework from './pages/genai/GenAIAdoptionFramework';
+import IacTemplates from './pages/architecture/IacTemplates';
+import DevOpsism from './pages/DevOpsism';
 
 // Architecture Subpages
 import DesignPatterns from './pages/architecture/DesignPatterns';
@@ -205,6 +209,10 @@ const AppContent: React.FC = () => (
         <Route path="/ai-sdlc/deployment" element={<Deployment />} />
         <Route path="/ai-sdlc/monitoring" element={<Monitoring />} />
         <Route path="/ai-sdlc/field-guide" element={<AINativeSDLCGuide />} />
+        <Route path="/secops/devsecops-playbook" element={<DevSecOpsPlaybook />} />
+        <Route path="/genai/adoption-framework" element={<GenAIAdoptionFramework />} />
+        <Route path="/architecture/iac-templates" element={<IacTemplates />} />
+        <Route path="/devopsism" element={<DevOpsism />} />
 
         {/* Architecture Subpages */}
         <Route path="/architecture/design-patterns" element={<DesignPatterns />} />

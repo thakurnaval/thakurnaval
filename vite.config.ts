@@ -101,6 +101,11 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/ai-sdlc/deployment',   priority: 0.8, changefreq: 'monthly' },
   { path: '/ai-sdlc/monitoring',   priority: 0.8, changefreq: 'monthly' },
   { path: '/ai-sdlc/field-guide',  priority: 0.85, changefreq: 'monthly' },
+  // Free guides and templates
+  { path: '/secops/devsecops-playbook',  priority: 0.85, changefreq: 'monthly' },
+  { path: '/genai/adoption-framework',   priority: 0.85, changefreq: 'monthly' },
+  { path: '/architecture/iac-templates', priority: 0.85, changefreq: 'monthly' },
+  { path: '/devopsism',                  priority: 0.7,  changefreq: 'monthly' },
   // Assessment Pages
   { path: '/agile/assessment', priority: 0.8, changefreq: 'monthly' },
   { path: '/pm/assessment',    priority: 0.8, changefreq: 'monthly' },

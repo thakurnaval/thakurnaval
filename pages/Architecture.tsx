@@ -94,6 +94,7 @@ const Architecture: React.FC = () => {
                  <Link to="/architecture/solid-principles" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">SOLID Principles</Link>
                  <Link to="/architecture/system-design-process" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">System Design Process</Link>
                  <Link to="/architecture/api-design" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">API Design</Link>
+                 <Link to="/architecture/iac-templates" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">📄 Terraform &amp; Bicep Templates</Link>
                </div>
             </div>
           </div>

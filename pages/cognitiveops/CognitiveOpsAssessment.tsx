@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import Section from '../../components/Section';
 import SEO from '../../components/SEO';
+import { PillarPlans, pillarPlansHTML } from '../../components/PillarPlans';
+import { COGNITIVEOPS_PLANS } from './cognitiveopsPlans';
 
 interface Option { label: string; value: number; }
 interface Question { q: string; options: Option[]; }
@@ -318,6 +320,7 @@ const generateReportHTML = (overallLayer: number, scores: PillarScore[], email: 
     <h2 style="font-size:13px;font-weight:700;color:#271789;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px">Recommended Next Steps</h2>
     <ol style="list-style:none;padding:0">${recItems}</ol>
   </div>
+  ${pillarPlansHTML(scores, COGNITIVEOPS_PLANS, LAYER_NAMES)}
   <div style="background:#271789;color:#fff;padding:28px 40px;border-radius:0 0 10px 10px">
     <h2 style="font-size:17px;font-weight:700;margin-bottom:8px">Want a tailored roadmap for your organisation?</h2>
     <p style="font-size:13px;color:#e2e8f0;line-height:1.65;margin-bottom:12px">Naval offers a 2-week CognitiveOps Assessment engagement — scored findings per pillar, a gap analysis, and a prioritised 90-day roadmap your team can act on immediately.</p>
@@ -660,6 +663,7 @@ const CognitiveOpsAssessment: React.FC = () => {
               ))}
             </ol>
           </div>
+          <PillarPlans scores={pillarScores} plans={COGNITIVEOPS_PLANS} layerNames={LAYER_NAMES} />
           <div className="flex flex-col sm:flex-row gap-4">
             <button onClick={handleDownloadPDF}
               className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-md">

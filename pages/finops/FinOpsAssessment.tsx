@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import Section from '../../components/Section';
 import SEO from '../../components/SEO';
+import { PillarPlans, pillarPlansHTML } from '../../components/PillarPlans';
+import { FINOPS_PLANS } from './finopsPlans';
 
 interface Option { label: string; value: number; }
 interface Question { q: string; options: Option[]; }
@@ -283,6 +285,7 @@ const generateReportHTML = (overallLayer: number, scores: PillarScore[], email: 
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-top:none;padding:28px 40px"><div style="display:flex;align-items:center;gap:24px"><div style="text-align:center;background:#271789;color:#fff;border-radius:10px;padding:18px 24px;min-width:100px;flex-shrink:0"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#00f1d4;margin-bottom:6px">Overall</div><div style="font-size:40px;font-weight:900;line-height:1">L${overallLayer}</div><div style="font-size:12px;font-weight:600;color:#e2e8f0;margin-top:5px">${LAYER_NAMES[overallLayer]}</div></div><div><h2 style="font-size:19px;font-weight:700;color:#271789;margin-bottom:8px">${meta.label}</h2><p style="font-size:13px;color:#475569;line-height:1.7;max-width:500px">${meta.description}</p></div></div></div>
 <div style="border:1px solid #e2e8f0;border-top:none;padding:28px 40px"><h2 style="font-size:13px;font-weight:700;color:#271789;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px">Score by Pillar</h2><table style="width:100%;border-collapse:collapse">${pillarRows}</table>${weakestNote}</div>
 <div style="border:1px solid #e2e8f0;border-top:none;padding:28px 40px"><h2 style="font-size:13px;font-weight:700;color:#271789;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px">Recommended Next Steps</h2><ol style="list-style:none;padding:0">${recItems}</ol></div>
+${pillarPlansHTML(scores, FINOPS_PLANS, LAYER_NAMES)}
 <div style="background:#271789;color:#fff;padding:28px 40px;border-radius:0 0 10px 10px"><h2 style="font-size:17px;font-weight:700;margin-bottom:8px">Want a FinOps transformation roadmap for your organisation?</h2><p style="font-size:13px;color:#e2e8f0;line-height:1.65;margin-bottom:12px">Naval offers FinOps advisory engagements and workshops built around your actual maturity level — from initial tagging strategy through to ML-driven cost intelligence.</p><div style="font-size:13px;color:#00f1d4;font-weight:700">Book at nthakur.com/work-with-me</div></div>
 <div style="padding:18px 40px;text-align:center"><p style="font-size:11px;color:#94a3b8">© ${new Date().getFullYear()} Naval Thakur · nthakur.com · Results are based on self-reported responses and are indicative, not prescriptive.</p></div>
 </body></html>`;
@@ -434,6 +437,7 @@ const FinOpsAssessment: React.FC = () => {
             <h2 className="text-base font-bold text-slate-900 dark:text-white mb-5">Recommended Next Steps</h2>
             <ol className="space-y-4">{RECOMMENDATIONS[overallLayer].map((rec, i) => (<li key={i} className="flex gap-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed"><span className="shrink-0 w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center mt-0.5">{i + 1}</span>{rec}</li>))}</ol>
           </div>
+          <PillarPlans scores={pillarScores} plans={FINOPS_PLANS} layerNames={LAYER_NAMES} />
           <div className="flex flex-col sm:flex-row gap-4">
             <button onClick={handleDownloadPDF} className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-md"><Download size={18} /> Download PDF Report</button>
             <Link to="/contact?topic=FinOps Advisory" className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary dark:text-white dark:border-white font-bold rounded-xl hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-colors">Book FinOps Advisory <ArrowRight size={16} /></Link>
