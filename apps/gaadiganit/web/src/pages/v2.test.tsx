@@ -9,7 +9,7 @@ import { MY_PRICES_SOURCE, withMyPrices } from '../lib/effectiveDefaults.ts';
 import { applyModel, catalogue, modelFromScenario } from '../lib/catalogue.ts';
 import { newScenario, toCalculationInput } from '../lib/scenario.ts';
 import { updateSettings } from '../lib/settings.ts';
-import { listModels, saveModel, saveScenario } from '../lib/storage.ts';
+import { listModels, listScenarios, saveModel, saveScenario } from '../lib/storage.ts';
 import QuickEstimate from './QuickEstimate.tsx';
 import ScenarioPage from './ScenarioPage.tsx';
 import Settings from './Settings.tsx';
@@ -147,5 +147,23 @@ describe('commercial vehicles in the catalogue', () => {
     await user.clear(box);
     await user.type(box, 'traveller');
     await waitFor(() => expect(picked()[0]!.textContent).toMatch(/Minibus/));
+  });
+});
+
+describe('changing assumptions from the quick estimate', () => {
+  it('shows what-if sliders and Change buttons on the quick estimate', async () => {
+    renderAt('/new');
+    expect(await screen.findByRole('heading', { name: 'What if?' }, T)).toBeTruthy();
+    expect(screen.getByLabelText('Distance per month')).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Try what-ifs ↓' })).toBeTruthy();
+    expect(screen.getAllByRole('button', { name: /^Change: / }).length).toBeGreaterThan(5);
+  });
+
+  it('saves and opens the editor at the field when Change is tapped', async () => {
+    const user = renderAt('/new');
+    await user.click(await screen.findByRole('button', { name: 'Change: Tyres, cost per set' }, T));
+    const field = await screen.findByLabelText('Tyres, cost per set', undefined, T);
+    await waitFor(() => expect(field.closest('[hidden]')).toBeNull());
+    expect((await listScenarios()).length).toBeGreaterThan(0);
   });
 });

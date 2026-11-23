@@ -83,7 +83,7 @@ export function WhatIf({ scenario, base, onSaveAsNew }: {
   const maxKm = Math.max(5000, Math.ceil((initial.km * 2) / 500) * 500);
 
   return (
-    <section className="card space-y-5 print:hidden" aria-labelledby="whatif-title">
+    <section id="whatif" className="card scroll-mt-4 space-y-5 print:hidden" aria-labelledby="whatif-title">
       <div>
         <h2 id="whatif-title" className="text-lg font-semibold">{t('whatif.title')}</h2>
         <p className="text-sm text-slate-500 dark:text-slate-400">{t('whatif.intro')}</p>

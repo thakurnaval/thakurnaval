@@ -305,6 +305,8 @@ export const en = {
   'picker.commercial': "Commercial",
   'picker.appliedCommercial': "Filled in from {{name}} and switched to commercial use; add earnings to see profit. The price is the lowest variant ({{range}}).",
   'warning.ROAD_TAX_COMMERCIAL': "Road tax for trucks and buses is often charged by weight every quarter; check your state’s rate and enter it under Purchase.",
+  'whatif.jump': "Try what-ifs ↓",
+  'result.changeHint': "Tap “Change” next to any value to edit it.",
 } as const;
 
 export type MessageKey = keyof typeof en;

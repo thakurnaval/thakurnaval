@@ -310,4 +310,6 @@ export const hi: Record<MessageKey, string> = {
   'picker.commercial': "कमर्शियल",
   'picker.appliedCommercial': "{{name}} से भरा गया और कमर्शियल उपयोग पर सेट किया गया; मुनाफ़ा देखने के लिए कमाई भरें। कीमत सबसे सस्ते वेरिएंट की है ({{range}})।",
   'warning.ROAD_TAX_COMMERCIAL': "ट्रक और बस का रोड टैक्स अक्सर वज़न के हिसाब से हर तिमाही लगता है; अपने राज्य की दर देखकर “ख़रीद” में भरें।",
+  'whatif.jump': "अगर-तो आज़माएँ ↓",
+  'result.changeHint': "किसी भी मान को बदलने के लिए उसके आगे “बदलें” दबाएँ।",
 };

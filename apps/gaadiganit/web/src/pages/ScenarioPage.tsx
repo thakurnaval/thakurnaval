@@ -1,6 +1,6 @@
 /** A saved scenario: detailed editor + live result, autosaved (DATA-01, DATA-02). */
 import { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router';
 import { ResultView } from '../components/ResultView.tsx';
 import { ScenarioEditor, type EditorProps } from '../components/ScenarioEditor.tsx';
 import { ShareBar } from '../components/ShareBar.tsx';
@@ -19,7 +19,12 @@ export default function ScenarioPage() {
   const navigate = useNavigate();
   const [s, setS] = useState<StoredScenario | null | 'missing'>(null);
   const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved'>('idle');
-  const [focus, setFocus] = useState<EditorProps['focus']>(null);
+  const [params] = useSearchParams();
+  // Arriving from the quick estimate's "Change" button opens that field.
+  const [focus, setFocus] = useState<EditorProps['focus']>(() => {
+    const path = params.get('focus');
+    return path ? { path, n: 1 } : null;
+  });
   const dirty = useRef(false);
 
   useEffect(() => {
@@ -79,13 +84,13 @@ export default function ScenarioPage() {
         {saveState === 'saving' ? t('editor.saving') : saveState === 'saved' ? t('editor.saved') : ''}
       </p>
       <div className="grid gap-6 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)]">
-        <div className="print:hidden">
+        <div className="order-2 print:hidden lg:order-none">
           <ScenarioEditor scenario={s} result={result} errors={errors} onChange={update} focus={focus} />
         </div>
-        <div className="space-y-4 lg:sticky lg:top-4 lg:h-fit">
+        <div className="order-1 space-y-4 lg:order-none lg:sticky lg:top-4 lg:h-fit">
           {result ? (
             <>
-              <ResultView result={result} stale={stale} category={s.vehicle.category} onEditAssumption={(path) => setFocus((f) => ({ path, n: (f?.n ?? 0) + 1 }))} />
+              <ResultView result={result} stale={stale} category={s.vehicle.category} whatIfId={stale ? undefined : 'whatif'} onEditAssumption={(path) => setFocus((f) => ({ path, n: (f?.n ?? 0) + 1 }))} />
               {!stale ? <WhatIf key={`${s.id}-${result.tco}`} scenario={s} base={result} onSaveAsNew={(copy) => {
                 void saveScenario(copy).then(() => navigate(`/s/${copy.id}`));
               }} /> : null}

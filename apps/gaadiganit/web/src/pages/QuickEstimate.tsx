@@ -6,6 +6,7 @@ import { MoneyField, NumberField, SelectField } from '../components/fields.tsx';
 import { ModelPicker } from '../components/ModelPicker.tsx';
 import { applyModel, useMyModels } from '../lib/catalogue.ts';
 import { ResultView } from '../components/ResultView.tsx';
+import { WhatIf } from '../components/WhatIf.tsx';
 import { useT } from '../i18n/index.ts';
 import { defaults } from '../lib/defaults.ts';
 import { newScenario, type StoredScenario } from '../lib/scenario.ts';
@@ -24,12 +25,13 @@ export default function QuickEstimate() {
   const setUsage = (key: 'kmPerMonth' | 'ownershipMonths', value: number | undefined) =>
     setS((p) => ({ ...p, inputs: { ...p.inputs, usage: { ...p.inputs.usage, [key]: value ?? 0 } } }));
 
-  const save = async () => {
+  /** Save the estimate and open it in the editor, optionally at one field. */
+  const save = async (focusPath?: string) => {
     setSaving(true);
     const now = new Date().toISOString();
     const record: StoredScenario = { ...s, updatedAt: now, lastCostPerMonth: result?.costPerMonth };
     await saveScenario(record);
-    navigate(`/s/${record.id}`);
+    navigate(`/s/${record.id}${focusPath ? `?focus=${encodeURIComponent(focusPath)}` : ''}`);
   };
 
   return (
@@ -69,12 +71,22 @@ export default function QuickEstimate() {
         />
         <NumberField label={t('fields.usage.kmPerMonth')} value={s.inputs.usage.kmPerMonth} error={errors['usage.kmPerMonth']} onChange={(n) => setUsage('kmPerMonth', n)} />
         <NumberField label={t('fields.usage.ownershipMonths')} value={s.inputs.usage.ownershipMonths} error={errors['usage.ownershipMonths']} onChange={(n) => setUsage('ownershipMonths', n)} />
-        <button type="button" className="btn-primary w-full" disabled={!result || stale || saving} onClick={save}>
+        <button type="button" className="btn-primary w-full" disabled={!result || stale || saving} onClick={() => void save()}>
           {t('quick.save')}
         </button>
       </section>
-      <div>
-        {result ? <ResultView result={result} stale={stale} category={s.vehicle.category} /> : <p className="card text-slate-600">{t('quick.fillIn')}</p>}
+      <div className="space-y-4">
+        {result ? (
+          <>
+            <ResultView result={result} stale={stale} category={s.vehicle.category} whatIfId={stale ? undefined : 'whatif'}
+              onEditAssumption={stale || saving ? undefined : (path) => void save(path)} />
+            {!stale ? (
+              <WhatIf key={result.tco} scenario={s} base={result} onSaveAsNew={(copy) => {
+                void saveScenario(copy).then(() => navigate(`/s/${copy.id}`));
+              }} />
+            ) : null}
+          </>
+        ) : <p className="card text-slate-600">{t('quick.fillIn')}</p>}
       </div>
     </div>
   );

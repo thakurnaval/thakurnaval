@@ -48,8 +48,10 @@ export function Headline({ result }: { result: CalculationResult }) {
   return <p className="text-xl font-semibold leading-snug text-balance sm:text-2xl" aria-live="polite">{text}</p>;
 }
 
-export function ResultView({ result, stale, onEditAssumption, category }: {
+export function ResultView({ result, stale, onEditAssumption, category, whatIfId }: {
   result: CalculationResult;
+  /** Element id of the what-if panel; shows a "Try what-ifs" link to it. */
+  whatIfId?: string;
   /** Vehicle category, to flag road-tax rules that differ for trucks and buses. */
   category?: Category;
   stale?: boolean;
@@ -68,6 +70,12 @@ export function ResultView({ result, stale, onEditAssumption, category }: {
       <section className="card space-y-4">
         {stale ? <p className="text-sm text-amber-700 dark:text-amber-400">{t('result.lastValid')}</p> : null}
         <Headline result={result} />
+        {whatIfId ? (
+          <a href={`#${whatIfId}`} className="inline-block text-sm font-medium text-brand-700 underline underline-offset-2 print:hidden dark:text-brand-500"
+            onClick={(e) => { e.preventDefault(); document.getElementById(whatIfId)?.scrollIntoView?.({ behavior: 'smooth', block: 'start' }); }}>
+            {t('whatif.jump')}
+          </a>
+        ) : null}
         <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {c ? (
             <>
@@ -151,7 +159,7 @@ export function ResultView({ result, stale, onEditAssumption, category }: {
       {defaultsUsed.length > 0 ? (
         <section className="card" aria-labelledby="assumptions-title">
           <h2 id="assumptions-title" className="mb-1 text-lg font-semibold">{t('result.assumptionsTitle')}</h2>
-          <p className="mb-4 text-sm text-slate-500 dark:text-slate-400">{t('result.assumptionsIntro')}</p>
+          <p className="mb-4 text-sm text-slate-500 dark:text-slate-400">{t('result.assumptionsIntro')}{onEditAssumption ? ` ${t('result.changeHint')}` : ''}</p>
           <dl className="divide-y divide-slate-100 text-sm dark:divide-slate-800">
             {defaultsUsed.map((a) => {
               const label = t(`fields.${a.path}` as MessageKey, { defaultValue: a.path });
