@@ -1,6 +1,8 @@
-node_modules
-dist
-coverage
+**/node_modules
+**/dist
+**/coverage
 docs
 *.md
 .env*
+Dockerfile
+.dockerignore

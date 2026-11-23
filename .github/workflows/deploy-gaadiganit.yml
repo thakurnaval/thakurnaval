@@ -1,0 +1,104 @@
+# Build, test and deploy GaadiGanit (apps/gaadiganit) to Cloud Run → gg.nthakur.com
+#
+# Runs only when the app or this workflow changes; the portfolio workflow
+# (deploy.yml) ignores these paths. Auth reuses the repo's Workload Identity
+# secrets (GCP_WORKLOAD_IDENTITY_PROVIDER, GCP_SA_EMAIL). Everything else is
+# plain config below, so moving the app to its own repo only means copying
+# those two secrets (see apps/gaadiganit/docs/EXTRACTION.md).
+
+name: GaadiGanit — Test & Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/gaadiganit/**'
+      - '.github/workflows/deploy-gaadiganit.yml'
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: navalthakur
+  REGION: asia-southeast1
+  SERVICE: gaadiganit
+  AR_REPO: gaadiganit
+  APP_DIR: apps/gaadiganit
+
+concurrency:
+  group: deploy-gaadiganit
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: apps/gaadiganit
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/gaadiganit/package-lock.json
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run coverage -w @gaadiganit/engine
+      - run: npm run test -w @gaadiganit/web
+
+  deploy:
+    name: Build, Push & Deploy
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # Workload Identity Federation
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SA_EMAIL }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v3
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker "${REGION}-docker.pkg.dev" --quiet
+
+      - name: Build and push image
+        run: |
+          IMAGE="${REGION}-docker.pkg.dev/${PROJECT_ID}/${AR_REPO}/${SERVICE}:${GITHUB_SHA}"
+          docker build -t "$IMAGE" "$APP_DIR"
+          docker push "$IMAGE"
+          echo "IMAGE=$IMAGE" >> "$GITHUB_ENV"
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v3
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service: ${{ env.SERVICE }}
+          region: ${{ env.REGION }}
+          image: ${{ env.IMAGE }}
+          flags: >-
+            --allow-unauthenticated
+            --min-instances=0
+            --max-instances=3
+            --memory=256Mi
+            --cpu=1
+            --port=8080
+
+      - name: Smoke test
+        run: |
+          URL="${{ steps.deploy.outputs.url }}"
+          curl -fsS "$URL/" | grep -q '<div id="root">'
+          curl -fsS -o /dev/null "$URL/new"
+          curl -fsS -o /dev/null "$URL/manifest.webmanifest"
+          echo "Deployed to $URL"

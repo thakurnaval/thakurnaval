@@ -16,6 +16,8 @@ It is a standalone app that lives inside the `thakurnaval` repo for now. It sits
 
 The redirects are in the portfolio's root `nginx.conf`. See ADR-003 in [docs/DECISIONS.md](docs/DECISIONS.md) for why only one URL serves the app.
 
+**Hosting:** Cloud Run service `gaadiganit` in `asia-southeast1` (project `navalthakur`). Images go to the Artifact Registry repo `gaadiganit` in the same region. Every push that changes `apps/gaadiganit/**` runs the tests and then deploys.
+
 **One-time domain setup** (after the first deploy), the same as Tackl:
 
 ```bash
@@ -33,7 +35,7 @@ This folder must work as if it were the root of its own repository:
 2. **Relative paths only** within this folder. Nothing may assume the repo root is `../..`.
 3. **Own build context.** Docker builds run with `apps/gaadiganit` as the context, not the repo root.
 4. **Own deploy pipeline.** CI is path-filtered to `apps/gaadiganit/**` and deploys a separate Cloud Run service. The portfolio pipeline ignores `apps/**`.
-5. **Own config and secrets.** Use GitHub secrets prefixed `GAADIGANIT_` so they can be copied to a new repo unchanged.
+5. **Own config.** The workflow keeps project, region and service as plain values. It reuses only the repo's two Workload Identity secrets, which copy to a new repo unchanged.
 
 ## Layout
 
@@ -43,6 +45,8 @@ apps/gaadiganit/
 ├── CLAUDE.md            ← working notes for AI-assisted development
 ├── .gitignore           ← app-local ignores (moves with the app)
 ├── .dockerignore        ← app-local Docker build ignores
+├── Dockerfile           ← Node build → nginx on Cloud Run (port 8080)
+├── nginx.conf           ← SPA fallback, caching, security headers
 ├── docs/
 │   ├── INTENT.md        ← product intent (copy of the Claude Doc)
 │   ├── SPEC.md          ← detailed requirements, written from INTENT.md
@@ -55,7 +59,7 @@ apps/gaadiganit/
 └── web/                 ← @gaadiganit/web: React PWA (screens, i18n, storage)
 ```
 
-The deploy workflow will be at `/.github/workflows/deploy-gaadiganit.yml` at the repo root, because GitHub only runs workflows from there. [docs/EXTRACTION.md](docs/EXTRACTION.md) covers moving it when the app gets its own repo.
+The deploy workflow is at [`/.github/workflows/deploy-gaadiganit.yml`](../../.github/workflows/deploy-gaadiganit.yml) at the repo root, because GitHub only runs workflows from there. [docs/EXTRACTION.md](docs/EXTRACTION.md) covers moving it when the app gets its own repo.
 
 ## Running locally
 

@@ -28,7 +28,13 @@ git remote add origin https://github.com/thakurnaval/GaadiGanit.git
 git push -u origin main
 ```
 
-Copy the `GAADIGANIT_*` GitHub secrets into the new repo. The Cloud Run service, Artifact Registry repo and domain mapping stay the same. If deploys use Workload Identity Federation, add the new repo to the service account's `principalSet` binding.
+Copy the two auth secrets, `GCP_WORKLOAD_IDENTITY_PROVIDER` and `GCP_SA_EMAIL`, into the new repo. Project, region, service and registry are plain `env` values in the workflow, so they don't change. Then let the new repo use the deploy service account:
+
+```bash
+gcloud iam service-accounts add-iam-policy-binding github-actions-deploy@navalthakur.iam.gserviceaccount.com   --project=navalthakur --role=roles/iam.workloadIdentityUser   --member="principalSet://iam.googleapis.com/projects/964069122524/locations/global/workloadIdentityPools/github-pool/attribute.repository/thakurnaval/GaadiGanit"
+```
+
+The Cloud Run service (`gaadiganit`, asia-southeast1), the Artifact Registry repo and the gg.nthakur.com domain mapping stay as they are.
 
 ## 4. Clean up `thakurnaval`
 
