@@ -430,6 +430,13 @@ export const PROJECTS: ProjectProps[] = [
     liveUrl: "https://truenorth.nthakur.com",
   },
   {
+    title: "GaadiGanit",
+    description: "What does a car, truck or bus really cost to own in India? Enter a price, distance and years to get the full cost of ownership: loan, fuel, insurance, service, tyres and resale. Compare vehicles, try what-ifs, and see ROI for commercial vehicles. Works offline, in English and Hindi.",
+    technologies: ["React", "TypeScript", "PWA", "Vite", "Tailwind", "Google Cloud Run"],
+    image: "/assets/img/gallery/GaadiGanit.svg",
+    liveUrl: "https://gg.nthakur.com",
+  },
+  {
     title: "90 Days Of DevOps",
     description: "A structured 90-day learning journey covering the entire DevOps landscape, from Linux fundamentals to advanced Kubernetes and CloudOps.",
     technologies: ["Linux", "Docker", "Kubernetes", "Terraform", "CI/CD"],
