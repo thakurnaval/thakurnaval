@@ -45,21 +45,21 @@ const TemplateCard: React.FC<{ t: IacTemplate; unlocked: boolean }> = ({ t, unlo
     <article id={t.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden">
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-2">
-          <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300">{t.tool}</span>
+          <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">{t.tool}</span>
           <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">{t.cloud}</span>
           <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">{t.filename}</span>
         </div>
         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">{t.title}</h3>
         <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">{t.summary}</p>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-sm text-slate-600 dark:text-slate-400 mb-4">
-          {t.includes.map(i => <li key={i} className="flex gap-2"><Check size={14} className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />{i}</li>)}
+          {t.includes.map(i => <li key={i} className="flex gap-2"><Check size={14} className="text-blue-600 dark:text-blue-400 mt-1 shrink-0" />{i}</li>)}
         </ul>
         {unlocked ? (
           <div className="flex flex-wrap gap-2">
-            <button onClick={copy} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:border-emerald-500">
+            <button onClick={copy} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:border-blue-500">
               {copied ? <><Check size={15} /> Copied</> : <><Copy size={15} /> Copy</>}
             </button>
-            <button onClick={() => downloadFile(t)} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-700 text-white text-sm font-semibold hover:bg-emerald-800">
+            <button onClick={() => downloadFile(t)} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-700 text-white text-sm font-semibold hover:bg-blue-800">
               <Download size={15} /> Download
             </button>
           </div>
@@ -97,7 +97,7 @@ const IacTemplates: React.FC = () => {
         openLabel="Show the templates"
         onUnlocked={unlock}
         onOpen={() => document.getElementById('templates')?.scrollIntoView({ behavior: 'smooth' })}
-        gradient="from-slate-950 via-emerald-950 to-emerald-900/40" accent="emerald" />
+        gradient="from-slate-950 via-blue-950 to-blue-900/30" accent="blue" />
 
       <Section bg="gray">
         <div id="templates" className="max-w-4xl mx-auto space-y-6 scroll-mt-24">
@@ -110,7 +110,7 @@ const IacTemplates: React.FC = () => {
             <h2 className="text-xl font-bold mb-2">Make infrastructure a golden path</h2>
             <p className="text-slate-200 mb-5">Templates help one team. A platform with policy-as-code helps every team. The DevOps assessment shows where your platform stands.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link to="/devops/assessment" className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-500">DevOps Assessment <ArrowRight size={15} /></Link>
+              <Link to="/devops/assessment" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500">DevOps Assessment <ArrowRight size={15} /></Link>
               <Link to="/secops/devsecops-playbook" className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 bg-white/10 font-bold rounded-xl hover:bg-white/20">DevSecOps Playbook <ArrowRight size={15} /></Link>
             </div>
           </div>

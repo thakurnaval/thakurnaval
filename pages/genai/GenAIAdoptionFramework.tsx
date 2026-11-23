@@ -48,7 +48,7 @@ const SCHEMA = {
 
 function openFramework(email: string) {
   const footer = (n: number) => `<div class="footer"><span>GenAI Adoption Framework · nthakur.com · © Naval Thakur 2026</span><span>Page ${n}</span></div>`;
-  openPrintable(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>GenAI Adoption Framework — Naval Thakur</title><style>${printStyles('#6d28d9', '#2e1065')}</style></head><body>
+  openPrintable(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>GenAI Adoption Framework — Naval Thakur</title><style>${printStyles('#1d4ed8', '#1e3a8a')}</style></head><body>
 <div class="cover"><div class="tag">Framework · Generative AI</div><h1>The GenAI<br>Adoption Framework</h1><p>For enterprise teams: from scattered experiments to a governed capability that delivers measured value.</p><div class="rule"></div><div class="by">By <strong>Naval Thakur</strong> · nthakur.com</div><div class="by" style="margin-top:8px">Prepared for: <strong>${esc(email)}</strong></div></div>
 <div class="page"><h2>Why adoption stalls</h2>
 <p>Most organisations are not short of AI ideas. They stall between the pilot and production: pilots without baselines cannot prove value, governance arrives late and blocks launches, and every team rebuilds the same plumbing. This framework gives you five stages to move through and six dimensions to keep in balance.</p>
@@ -72,7 +72,7 @@ ${STAGES.map(s => `<tr><td class="k">${esc(s.name)}</td><td>${esc(s.aim)}</td><t
 <div class="box"><b>Days 1–30 · Safe to try.</b><ul><li>Approved enterprise AI tool and a one-page usage policy.</li><li>Inventory current (including shadow) AI use.</li><li>Training sessions; recruit 10 champions across functions.</li><li>Long-list use cases and score them.</li></ul></div>
 <div class="box"><b>Days 31–60 · Prove value.</b><ul><li>Run three pilots with baselines, owners and success criteria.</li><li>Lightweight use-case review with risk tiers.</li><li>Start the shared platform: retrieval, logging, evaluation, cost tracking.</li></ul></div>
 <div class="box"><b>Days 61–90 · Decide and scale.</b><ul><li>Go/no-go on each pilot with measured results.</li><li>Take one or two winners to production on the platform.</li><li>Report value, cost and risk to leadership; fund the next wave.</li></ul></div>
-<div class="cta"><div style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:#c4b5fd;font-weight:700">Next step</div><div style="font-size:13px;font-weight:700;margin:6px 0">Score your GenAI readiness</div><div style="font-size:11px;color:#ede9fe">Take the free GenAI Readiness Assessment at nthakur.com/genai/assessment for a pillar-by-pillar plan, or book a session at nthakur.com/work-with-me.</div></div>${footer(5)}</div>
+<div class="cta"><div style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:#93c5fd;font-weight:700">Next step</div><div style="font-size:13px;font-weight:700;margin:6px 0">Score your GenAI readiness</div><div style="font-size:11px;color:#dbeafe">Take the free GenAI Readiness Assessment at nthakur.com/genai/assessment for a pillar-by-pillar plan, or book a session at nthakur.com/work-with-me.</div></div>${footer(5)}</div>
 </body></html>`);
 }
 
@@ -87,7 +87,7 @@ const GenAIAdoptionFramework: React.FC = () => (
       intro="From scattered experiments to a governed capability that delivers measured value. Built for enterprise teams that are past the hype and stuck between pilot and production."
       bullets={['Five stages: Explore → Experiment → Embed → Scale → Lead', 'Six dimensions to keep in balance', 'Use-case scoring model and risk tiers', 'Operating model and value metrics', '90-day plan']}
       topic="GenAI Adoption Framework PDF Download" cta="Download the Framework" readyText="Your 5-page framework is ready."
-      onOpen={openFramework} gradient="from-slate-950 via-violet-950 to-violet-900/40" accent="violet" />
+      onOpen={openFramework} gradient="from-slate-950 via-blue-950 to-blue-900/30" accent="blue" />
 
     <Section bg="white">
       <div className="max-w-5xl mx-auto">
@@ -96,7 +96,7 @@ const GenAIAdoptionFramework: React.FC = () => (
         <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
           {STAGES.map((s, i) => (
             <div key={s.name} className="rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-              <div className="text-xs font-black text-violet-600 dark:text-violet-400 mb-1">0{i + 1}</div>
+              <div className="text-xs font-black text-blue-600 dark:text-blue-400 mb-1">0{i + 1}</div>
               <h3 className="font-bold text-slate-900 dark:text-white mb-1">{s.name}</h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">{s.aim}</p>
               <p className="text-xs text-slate-500 dark:text-slate-400">{s.exit}</p>
@@ -118,7 +118,7 @@ const GenAIAdoptionFramework: React.FC = () => (
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link to="/genai/assessment" className="inline-flex items-center gap-2 px-7 py-3 bg-violet-700 text-white font-bold rounded-xl hover:bg-violet-800 transition-colors">
+          <Link to="/genai/assessment" className="inline-flex items-center gap-2 px-7 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors">
             Take the GenAI Readiness Assessment <ArrowRight size={15} />
           </Link>
         </div>

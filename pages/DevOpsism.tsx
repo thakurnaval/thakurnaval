@@ -46,7 +46,7 @@ const DevOpsism: React.FC = () => (
       topic="DevOpsism Early Reader List" cta="Join the early-reader list" readyTitle="You're on the list" readyText="Thank you. Draft chapters will come to your inbox as they're ready."
       openLabel="See the outline"
       onOpen={() => document.getElementById('outline')?.scrollIntoView({ behavior: 'smooth' })}
-      gradient="from-slate-950 via-indigo-950 to-blue-900/40" accent="blue" />
+      gradient="from-slate-950 via-blue-950 to-blue-900/30" accent="blue" />
 
     <Section bg="white">
       <div className="max-w-3xl mx-auto">

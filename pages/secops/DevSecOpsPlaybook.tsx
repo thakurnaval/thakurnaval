@@ -62,7 +62,7 @@ function openPlaybook(email: string) {
 <tr><td class="k">Tools (examples)</td><td>${esc(s.tools)}</td></tr>
 <tr><td class="k">Gate</td><td>${esc(s.gate)}</td></tr>
 <tr><td class="k">Measure</td><td>${esc(s.metric)}</td></tr></table></div>`;
-  openPrintable(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>The DevSecOps Playbook — Naval Thakur</title><style>${printStyles('#be123c', '#4c0519')}</style></head><body>
+  openPrintable(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>The DevSecOps Playbook — Naval Thakur</title><style>${printStyles('#1d4ed8', '#1e3a8a')}</style></head><body>
 <div class="cover"><div class="tag">Practitioner playbook · DevSecOps</div><h1>The DevSecOps<br>Playbook</h1><p>Security built into every stage of delivery: the controls, the gates, the metrics and a 90-day rollout.</p><div class="rule"></div><div class="by">By <strong>Naval Thakur</strong> · nthakur.com</div><div class="by" style="margin-top:8px">Prepared for: <strong>${esc(email)}</strong></div></div>
 <div class="page"><h2>Security at the speed of delivery</h2>
 <p>Teams now ship daily, and AI agents are multiplying the amount of code written. A security review at the end of the line cannot keep up: either the queue grows or code ships unreviewed. DevSecOps moves each check to the point where it is cheapest to fix, and turns policy into code that runs on every change.</p>
@@ -100,7 +100,7 @@ deny[msg] {
 <div class="box"><b>Days 1–30 · Baseline.</b><ul><li>Secret scanning pre-commit and in CI on all repos.</li><li>SCA (Dependabot or Renovate) everywhere.</li><li>SAST on your five most critical repos.</li><li>Agree severity SLAs and an exception process.</li></ul></div>
 <div class="box"><b>Days 31–60 · Gates.</b><ul><li>Block critical findings on merge; block high on release.</li><li>IaC and container image scanning in pipelines.</li><li>Threat models for new services; one-page template.</li><li>Centralised audit logs and cloud threat detection.</li></ul></div>
 <div class="box"><b>Days 61–90 · Policy & evidence.</b><ul><li>First policy-as-code rules at admission (non-root, signed images).</li><li>SBOM and artifact signing in the golden pipeline.</li><li>Security metrics dashboard reviewed monthly with engineering leads.</li><li>Tabletop exercise for a supply-chain incident.</li></ul></div>
-<div class="cta"><div style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:#fda4af;font-weight:700">Next step</div><div style="font-size:13px;font-weight:700;margin:6px 0">Score your security maturity</div><div style="font-size:11px;color:#ffe4e6">Take the free Cloud Security assessment at nthakur.com/secops/assessment for a pillar-by-pillar plan, or book a session at nthakur.com/work-with-me.</div></div>${footer(6)}</div>
+<div class="cta"><div style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:#93c5fd;font-weight:700">Next step</div><div style="font-size:13px;font-weight:700;margin:6px 0">Score your security maturity</div><div style="font-size:11px;color:#dbeafe">Take the free Cloud Security assessment at nthakur.com/secops/assessment for a pillar-by-pillar plan, or book a session at nthakur.com/work-with-me.</div></div>${footer(6)}</div>
 </body></html>`);
 }
 
@@ -115,7 +115,7 @@ const DevSecOpsPlaybook: React.FC = () => (
       intro="Security built into every stage of delivery, not bolted on at the end. Controls, gates, tools and metrics for each pipeline stage, and a 90-day plan to roll it out."
       bullets={['Six stages: plan, code, build, test, release, run', 'Controls, example tools, gates and a metric for each', 'Policy-as-code starter rule and finding SLAs', 'Securing AI-assisted development', '90-day rollout plan']}
       topic="DevSecOps Playbook PDF Download" cta="Download the Playbook" readyText="Your 6-page playbook is ready."
-      onOpen={openPlaybook} gradient="from-slate-950 via-rose-950 to-rose-900/40" accent="rose" />
+      onOpen={openPlaybook} gradient="from-slate-950 via-blue-950 to-blue-900/30" accent="blue" />
 
     <Section bg="white">
       <div className="max-w-5xl mx-auto">
@@ -124,7 +124,7 @@ const DevSecOpsPlaybook: React.FC = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {STAGES.map((s, i) => (
             <div key={s.name} className="rounded-xl border border-slate-200 dark:border-slate-700 p-5">
-              <div className="text-xs font-black text-rose-600 dark:text-rose-400 mb-1">0{i + 1}</div>
+              <div className="text-xs font-black text-blue-600 dark:text-blue-400 mb-1">0{i + 1}</div>
               <h3 className="font-bold text-slate-900 dark:text-white mb-1">{s.name}</h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">{s.goal}</p>
               <p className="text-xs text-slate-500 dark:text-slate-400"><span className="font-semibold text-slate-700 dark:text-slate-300">Gate: </span>{s.gate}</p>
@@ -146,7 +146,7 @@ const DevSecOpsPlaybook: React.FC = () => (
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link to="/secops/assessment" className="inline-flex items-center gap-2 px-7 py-3 bg-rose-700 text-white font-bold rounded-xl hover:bg-rose-800 transition-colors">
+          <Link to="/secops/assessment" className="inline-flex items-center gap-2 px-7 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors">
             Take the Cloud Security Assessment <ArrowRight size={15} />
           </Link>
         </div>
