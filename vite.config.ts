@@ -100,6 +100,7 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/ai-sdlc/code-review',  priority: 0.8, changefreq: 'monthly' },
   { path: '/ai-sdlc/deployment',   priority: 0.8, changefreq: 'monthly' },
   { path: '/ai-sdlc/monitoring',   priority: 0.8, changefreq: 'monthly' },
+  { path: '/ai-sdlc/field-guide',  priority: 0.85, changefreq: 'monthly' },
   // Assessment Pages
   { path: '/agile/assessment', priority: 0.8, changefreq: 'monthly' },
   { path: '/pm/assessment',    priority: 0.8, changefreq: 'monthly' },

@@ -69,6 +69,14 @@ const AIinSDLC: React.FC = () => {
             ))}
           </div>
 
+          {/* Field guide (free PDF) */}
+          <Link to="/ai-sdlc/field-guide" className="block rounded-2xl p-8 bg-gradient-to-br from-slate-900 via-teal-950 to-teal-900 text-white hover:shadow-xl transition-shadow group">
+            <div className="text-xs font-bold uppercase tracking-widest text-teal-300 mb-2">Free PDF · Field Guide</div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">The AI-Native SDLC Field Guide</h2>
+            <p className="text-slate-200 max-w-3xl mb-4">A 5-level maturity ladder across Plan, Design, Build, Test, Release and Operate; the advise · enforce · approve control model; metrics, a readiness check and a 90-day plan.</p>
+            <span className="inline-flex items-center gap-2 font-bold text-teal-300 group-hover:text-teal-200">Get the guide <TrendingUp size={16} /></span>
+          </Link>
+
           {/* Dedicated Case Studies Section */}
           <div id="case-studies" className="pt-8">
             <div className="flex items-center gap-3 mb-8">

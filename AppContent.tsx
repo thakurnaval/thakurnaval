@@ -74,6 +74,7 @@ import Requirements from './pages/ai-sdlc/Requirements';
 import CodeReview from './pages/ai-sdlc/CodeReview';
 import Deployment from './pages/ai-sdlc/Deployment';
 import Monitoring from './pages/ai-sdlc/Monitoring';
+import AINativeSDLCGuide from './pages/ai-sdlc/AINativeSDLCGuide';
 
 // Architecture Subpages
 import DesignPatterns from './pages/architecture/DesignPatterns';
@@ -203,6 +204,7 @@ const AppContent: React.FC = () => (
         <Route path="/ai-sdlc/code-review" element={<CodeReview />} />
         <Route path="/ai-sdlc/deployment" element={<Deployment />} />
         <Route path="/ai-sdlc/monitoring" element={<Monitoring />} />
+        <Route path="/ai-sdlc/field-guide" element={<AINativeSDLCGuide />} />
 
         {/* Architecture Subpages */}
         <Route path="/architecture/design-patterns" element={<DesignPatterns />} />
