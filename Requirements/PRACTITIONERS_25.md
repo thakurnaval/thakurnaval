@@ -39,5 +39,5 @@ Kanban · Scrum · Lean Portfolio Management · Fishbone (Ishikawa) Diagram · C
 
 ## Next steps
 
-1. Write the fuller detail (when to use, how to apply, watch out for, related models) for these 25 first, then for the next ~15.
+1. ~~Fuller detail for these 25~~ Done: when to use, how to apply, watch out for and related models, in `pages/explore/modelDetails.ts`. Next: the same for about 15 more models (add entries to that file).
 2. Group them into toolkit pages: incident review, architecture decisions, platform strategy, better reviews and meetings.

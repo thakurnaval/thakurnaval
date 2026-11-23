@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import SimplePage from '../../components/SimplePage';
 import { Search, Brain, Zap, Target, Layers, Shield, Users, BarChart, Workflow, Compass, Wrench, Lightbulb, Star } from 'lucide-react';
 import { PRACTITIONERS_25 } from './practitioners25';
+import { MODEL_DETAILS } from './modelDetails';
 
 interface MentalModel {
   name: string;
@@ -442,6 +443,8 @@ const MODELS = MENTAL_MODELS.map(m => {
   return { ...m, situation: situationOf(m), slug, top: TOP_RANK.get(slug) };
 });
 
+const NAME_BY_SLUG = new Map(MODELS.map(m => [m.slug, m.name]));
+
 /** The pinned shortlist, in the order Naval chose. */
 const TOP_MODELS = PRACTITIONERS_25
   .map(p => MODELS.find(m => m.slug === p.slug))
@@ -591,6 +594,41 @@ const MentalModels: React.FC = () => {
                   </p>
                 </div>
               )}
+              {MODEL_DETAILS[model.slug] && (() => {
+                const d = MODEL_DETAILS[model.slug];
+                return (
+                  <details className="mt-3 group/details" open={highlight === model.slug || undefined}>
+                    <summary className="cursor-pointer select-none text-sm font-semibold text-primary dark:text-secondary hover:underline focus-visible:underline list-none [&::-webkit-details-marker]:hidden flex items-center gap-1">
+                      <span className="inline-block transition-transform group-open/details:rotate-90" aria-hidden="true">›</span>
+                      More detail
+                    </summary>
+                    <div className="mt-3 space-y-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">When to use it</h4>
+                        <p>{d.whenToUse}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">How to apply it</h4>
+                        <ol className="list-decimal pl-5 space-y-1">
+                          {d.howTo.map(step => <li key={step}>{step}</li>)}
+                        </ol>
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Watch out for</h4>
+                        <p>{d.watchOut}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Related</h4>
+                        <p className="flex flex-wrap gap-x-3 gap-y-1">
+                          {d.related.filter(r => NAME_BY_SLUG.has(r)).map(r => (
+                            <a key={r} href={`#${r}`} className="text-primary dark:text-secondary hover:underline">{NAME_BY_SLUG.get(r)}</a>
+                          ))}
+                        </p>
+                      </div>
+                    </div>
+                  </details>
+                );
+              })()}
             </article>
           ))}
         </div>
