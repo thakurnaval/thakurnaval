@@ -290,7 +290,9 @@ The site now has a lot of free content and lead capture. The next phase is makin
 ### P1 — Measurement
 - [x] GA4 events: `generate_lead` (with `lead_source`) on every form, `file_download` on every PDF and template — see `MEASUREMENT.md`.
 - [ ] In GA4, mark `generate_lead` as a key event and add `lead_source` / `file_name` custom dimensions. *(Naval, 5 min — steps in `MEASUREMENT.md`)*
-- [ ] Google Search Console: verify nthakur.com (DNS TXT at Hostinger), submit the sitemap. *(Naval — steps in `MEASUREMENT.md`)*
+- [x] Google Search Console: nthakur.com verified and sitemap submitted (24 Nov 2026).
+- [ ] Link Search Console to GA4 (GA4 Admin → Search Console links). *(Naval)*
+- [ ] Early December: check Search Console → Pages for indexing errors and Sitemaps for "Success" with 123 discovered URLs.
 - [x] Monthly review template in `MEASUREMENT.md` (first review: early December 2026).
 
 ### P2 — Performance and robustness

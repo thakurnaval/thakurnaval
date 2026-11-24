@@ -21,6 +21,8 @@ Code: `src/services/analytics.ts` (`trackLead`, `trackDownload`, `trackEvent`, `
 
 ## One-time setup in Google Search Console
 
+*Status: verified and sitemap submitted on 24 Nov 2026. Remaining: step 4 (link to GA4).*
+
 1. Go to search.google.com/search-console and add the property **nthakur.com** (Domain property).
 2. Verify with the DNS TXT record it gives you, added at Hostinger (same place as the `gg` record). Alternatively choose the "HTML tag" method and send me the `google-site-verification` code to add to the site.
 3. **Sitemaps:** submit `https://nthakur.com/sitemap.xml` (robots.txt already points to it).
