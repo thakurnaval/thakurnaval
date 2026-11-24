@@ -1,5 +1,30 @@
 # Naval Thakur — Authority Building Plan
-*Owner: Naval Thakur · Created: July 2026 · Internal only — not published on website*
+*Owner: Naval Thakur · Created: July 2026 · Reviewed: 24 Nov 2026 · Internal only — not published on website*
+
+---
+
+## Status at 24 Nov 2026
+
+This is the strategy document. Website tasks live in `MASTER_ACTION_PLAN.md` and are not repeated here. Items marked *(to confirm)* happen off-site and can't be checked from this repo.
+
+**Website: ahead of plan**
+- 8 assessments live, each with per-pillar results, layer-specific recommendations and a PDF report (the Q1 2027 "result pages" deliverable).
+- Supporting content: CognitiveOps Playbook, AI-Native SDLC Field Guide, DevSecOps Playbook, GenAI Adoption Framework, FinOps 30-Day Guide, DevOps Roadmap Guide, IaC templates, 210 mental models, 6 toolkits, /devopsism book page, /newsletter archive page.
+- All 46 topic sub-pages and the 6 main topic pages are 600+ words, so the SEO/AEO targets in Section 4.1 now have real pages behind them.
+- Premium CognitiveOps Report: interest capture live at /cognitiveops/premium-report; build when the first customer asks.
+
+**Behind plan: content and channels**
+- **Articles:** still 4 (the same 4 as July). The plan called for 2 a month. This is the biggest gap.
+- **Newsletter:** issues 1–6 not written; no issue sent.
+- **Case studies:** /case-studies page exists but has no real case studies yet (needs engagement details).
+- **Off-site channels, all *(to confirm)*:** Topmate profile, LinkedIn Featured section and cadence, X pinned thread, Sessionize CFPs, NASSCOM / Gartner Peer Insights applications. There is no Topmate link on the site yet.
+- **Due now:** Microsoft MVP nomination (plan said "by November 2026").
+
+**Parked until 50 leads or newsletter sign-ups**
+- Moving subscribers from the Google Sheet to an email platform (double opt-in, welcome sequence, source tags).
+- Storing anonymised assessment scores for benchmarks.
+
+**Suggested focus for the rest of Q4 2026:** write and send newsletter issue 1, publish article 5, confirm the off-site channel status above, and submit the MVP nomination. Everything else in Q4 depends on content existing.
 
 ---
 
@@ -143,10 +168,10 @@ The signature angle is the self-assessment hook. Most organisations believe they
 
 **Content priorities (by impact on authority):**
 1. CognitiveOps page and assessment — flagship, must stay current
-2. Long-form articles — 2 new articles per month minimum
-3. Assessments hub — 8 assessments live; add domain-specific result pages
-4. Case studies — 3 detailed case studies needed (SLB FinOps, DevSecOps transformation, GenAI adoption)
-5. Newsletter archive — each issue published as a page after send
+2. Long-form articles — 2 new articles per month minimum *(4 live; none added since July 2026)*
+3. Assessments hub — 8 assessments live with per-layer result pages ✅
+4. Case studies — start with 2 (SLB FinOps, DevSecOps transformation), add GenAI adoption as the third
+5. Newsletter archive — page live at /newsletter ✅; publish each issue there after send
 
 **SEO/AEO targets per domain:**
 
@@ -162,7 +187,7 @@ The signature angle is the self-assessment hook. Most organisations believe they
 - 2 long-form articles per month (alternate domains: DevOps/FinOps one month, SecOps/GenAI the next)
 - 1 case study per quarter
 - Newsletter issues archived on site within 48 hours of send
-- Assessment result pages (add recommendation content per layer per domain) — Q3 priority
+- ~~Assessment result pages (add recommendation content per layer per domain)~~ — done Nov 2026
 
 ---
 
@@ -350,7 +375,7 @@ The signature angle is the self-assessment hook. Most organisations believe they
 | 6 | The Real ROI of Well-Architected Reviews | Architecture | Book a Topmate advisory |
 
 **Distribution:**
-- Email list (Google Apps Script / primary)
+- Email list (Google Apps Script / primary; move to an email platform once there are 50 leads or sign-ups)
 - LinkedIn newsletter (48h later)
 - Archive on nthakur.com/newsletter
 
@@ -391,9 +416,9 @@ Topmate session angle (if it generates 1:1 demand)
 
 ## 7. Quarterly Milestones
 
-*Today: July 2026*
+*Written July 2026; checkboxes reviewed 24 Nov 2026. See "Status" at the top for the summary.*
 
-### Q3 2026 (July – September 2026) — Activate
+### Q3 2026 (July – September 2026) — Activate *(quarter ended; open items carried into Q4)*
 
 **Theme:** Get all channels operational and producing consistently.
 
@@ -406,12 +431,12 @@ Topmate session angle (if it generates 1:1 demand)
 - Sessionize: Submit 3 CFPs; confirm at least 1 speaking engagement
 
 **Deliverables:**
-- [ ] Topmate profile live with 4 session types and pricing
-- [ ] LinkedIn Featured section updated (CognitiveOps + Assessments + Topmate)
-- [ ] Newsletter issues 1–3 written and sent
-- [ ] 4 articles published on nthakur.com
-- [ ] 3 CFP submissions via Sessionize
-- [ ] X pinned thread: CognitiveOps Model overview
+- [ ] Topmate profile live with 4 session types and pricing *(to confirm; then add the link to /work-with-me)*
+- [ ] LinkedIn Featured section updated (CognitiveOps + Assessments + Topmate) *(to confirm)*
+- [ ] Newsletter issues 1–3 written and sent — not started
+- [x] 4 articles published on nthakur.com — the 4 that were live in July; the 4 new ones (SecOps, GenAI, CognitiveOps, Architecture) are still to write
+- [ ] 3 CFP submissions via Sessionize *(to confirm)*
+- [ ] X pinned thread: CognitiveOps Model overview *(to confirm)*
 
 ---
 
@@ -453,9 +478,9 @@ Topmate session angle (if it generates 1:1 demand)
 **Deliverables:**
 - [ ] Major conference appearance confirmed and on calendar
 - [ ] Group Topmate session format launched
-- [ ] Book Chapter 1 draft (3,000–5,000 words)
-- [ ] 9 articles total on nthakur.com (from 4 live today)
-- [ ] Assessment result pages: per-layer recommendations for each of the 5 flagship domains
+- [ ] Book Chapter 1 draft (3,000–5,000 words) — book page live at /devopsism
+- [ ] 9 articles total on nthakur.com (from 4 live in July 2026)
+- [x] Assessment result pages: per-layer recommendations — done Nov 2026 for all 8 assessments
 
 ---
 
@@ -473,7 +498,7 @@ Topmate session angle (if it generates 1:1 demand)
 
 **Deliverables:**
 - [ ] 10k LinkedIn follower milestone — retrospective post and free resource drop
-- [ ] Premium CognitiveOps Report product live on Topmate
+- [ ] Premium CognitiveOps Report product live on Topmate — interest capture live; build when the first customer asks
 - [ ] Book Chapters 1, 3, 8 drafted
 - [ ] 12+ articles published on nthakur.com
 - [ ] 4 speaking appearances total in 12 months
@@ -530,6 +555,10 @@ Track these numbers monthly. Review quarterly against milestones.
 | `MASTER_ACTION_PLAN.md` | Task-level build work for the website | Task execution layer — implements the website actions in Section 4.1 |
 | `SPEC_KIT.md` | Technical spec for nthakur.com | Engineering reference — not an authority plan input |
 | `SpeakerProfile.md` | Speaker bio, abstracts, past appearances | Content library for Sessionize strategy in Section 4.3 |
+| `MEASUREMENT.md` | GA4 events, consent, Search Console setup | How the website metrics in Section 8 are collected |
+| `CONTENT_REVIEW.md` | Review list of guides and plans on the site | Source material for articles and newsletter issues |
+| `PRACTITIONERS_25.md` | The 25 core mental models | Source material for LinkedIn posts and X threads |
+| `ARTICLE_TEMPLATE.md` | Structure for new articles | Use for every article in Section 4.1 |
 | This document | Authority strategy across all 5 channels | The strategy layer. Informs what to build, write, and submit |
 
 **When plans conflict:** This document takes precedence on strategic priorities and channel cadence. MASTER_ACTION_PLAN.md takes precedence on specific website task sequencing.
@@ -635,10 +664,10 @@ Q2 2027 (Apr – Jun)
 
 | Target | Status | Next action | Target date |
 |--------|--------|------------|-------------|
-| LinkedIn Top Voice | 🔲 Not started | Begin 4x/week posting cadence | Jul 2026 |
-| NASSCOM Community Contributor | 🔲 Not started | Submit application | Aug 2026 |
-| Gartner Peer Insights Reviewer | 🔲 Not started | Create account + write 5 reviews | Aug 2026 |
-| Microsoft MVP | 🔲 Not started | Identify nominator; document contributions | Oct 2026 |
+| LinkedIn Top Voice | 🔲 To confirm | Begin 4x/week posting cadence | Jul 2026 (overdue) |
+| NASSCOM Community Contributor | 🔲 To confirm | Submit application | Aug 2026 (overdue) |
+| Gartner Peer Insights Reviewer | 🔲 To confirm | Create account + write 5 reviews | Aug 2026 (overdue) |
+| Microsoft MVP | 🔲 To confirm | Identify nominator; submit nomination | **Nov 2026 (due now)** |
 | Google Developer Expert (GDE) | 🔲 Not started | Identify GDE referral; build GCP evidence | Jan 2027 |
 | FinOps Foundation Fellow | 🔲 Not started | Join 2 SIGs; submit community talk | Apr 2027 |
 | Forbes Technology Council | 🔲 Not started | Assess eligibility; prepare executive profile | Apr 2027 |
@@ -658,4 +687,4 @@ Q2 2027 (Apr – Jun)
 
 ---
 
-*Last updated: July 2026 · Review quarterly · Do not publish on website*
+*Last updated: 24 Nov 2026 · Review quarterly · Do not publish on website*

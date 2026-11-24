@@ -281,7 +281,7 @@ The site now has a lot of free content and lead capture. The next phase is makin
 - [ ] Check the Google Apps Script sends notifications only to contact@nthakur.com. *(Naval — the script isn't in this repo)*
 - [ ] Review the Privacy Policy wording, especially retention periods and where submissions are stored. *(Naval)*
 
-### P1 — Email that actually nurtures leads
+### PARKED — Email that actually nurtures leads *(until 50 leads or newsletter sign-ups; decided 24 Nov 2026)*
 - [ ] Move subscribers from the Google Sheet to an email platform (e.g. MailerLite, Buttondown, Kit) with double opt-in and real unsubscribe links (the forms already promise "unsubscribe anytime").
 - [ ] Welcome sequence of 4–5 emails per lead source: deliver the guide, link the matching assessment, a relevant toolkit, an invitation to book time.
 - [ ] Tag each lead by source (which guide or assessment) so follow-ups are relevant.
@@ -299,7 +299,7 @@ The site now has a lot of free content and lead capture. The next phase is makin
 - [ ] Lighthouse and accessibility pass on mobile for the home page, a guide page, an assessment and the mental models page. *(Run in Chrome DevTools; couldn't be run from the build environment)*
 - [x] Build-time checks (`npm run check`, run in the Docker build): CSS coverage, internal links and anchors, CSP hashes.
 - [ ] Optional: Playwright smoke tests (home, an assessment through to results, a guide unlock).
-- [ ] Dismiss the remaining moderate Dependabot alert (GaadiGanit `minimatch`, build-time only) or wait for an upstream fix.
+- [x] GaadiGanit `minimatch` / `glob` advisories fixed (Nov 2026): workbox-build's glob overridden to 14.x, `npm audit` clean. See GaadiGanit ADR-008; remove the override when workbox-build updates.
 
 ### P2 — Content structure and SEO
 - [x] Interlink: "Keep going" block on the 7 topic pages — guides, assessment, toolkit, mental models. Toolkits link back to topic pages.
@@ -309,7 +309,7 @@ The site now has a lot of free content and lead capture. The next phase is makin
 - [ ] Publish the 2 case studies from AUTHORITY_PLAN.md (Section 3 / month-6 milestone). *(Needs Naval's real engagement details)*
 - [ ] Turn each toolkit into an article and newsletter issue (ready-made content).
 
-### P3 — Data for the premium report
+### PARKED — Data for the premium report *(until 50 leads or newsletter sign-ups)*
 - [ ] With consent, store anonymised assessment scores so real benchmarks exist when the premium report is built.
 
 ---
