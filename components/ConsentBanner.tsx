@@ -21,7 +21,7 @@ const apply = (choice: Choice) => {
   if (typeof window.gtag === 'function') window.gtag('consent', 'update', { analytics_storage: choice });
   if (choice === 'granted') {
     window.__loadGA?.();
-    if (typeof window.gtag === 'function') window.gtag('config', 'G-2T36Y7QSN6', { page_path: window.location.pathname });
+    if (typeof window.gtag === 'function') window.gtag('config', 'G-GGLY5JH35C', { page_path: window.location.pathname });
   }
 };
 

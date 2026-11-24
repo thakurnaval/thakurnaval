@@ -30,7 +30,7 @@
 | Animation | Motion (Framer Motion) | 12.34.3 |
 | Charts | Recharts | 2.12.2 |
 | Icons | Lucide React | 0.344.0 |
-| Analytics | Google Analytics 4 | G-2T36Y7QSN6 |
+| Analytics | Google Analytics 4 | G-GGLY5JH35C |
 | Data storage | Google Sheets via Apps Script | — |
 | Containerisation | Docker + Nginx | — |
 | Hosting | Google Cloud Run | asia-south1 |
@@ -327,7 +327,7 @@ Used by:
 **Storage:** Google Sheet linked to the Apps Script deployment. All form types write to the same sheet (separate tabs if the script routes by `type` field).
 
 ### Google Analytics 4
-**Measurement ID:** `G-2T36Y7QSN6`
+**Measurement ID:** `G-GGLY5JH35C`
 Script injected in `index.html`. Custom event tracking available via `src/services/analytics.ts` (`trackEvent(category, action, label?, value?)`).
 
 ### Sessionize

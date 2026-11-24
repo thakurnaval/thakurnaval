@@ -1,6 +1,8 @@
 # Measurement: what's tracked and the monthly review
 
-## What the site sends to Google Analytics (GA4, property G-2T36Y7QSN6)
+## What the site sends to Google Analytics (GA4, property G-GGLY5JH35C)
+
+*New GA4 account and property created 24 Nov 2026 (stream ID 16404136796); the previous property G-2T36Y7QSN6 was deleted, so history before this date is not available. Data sharing: only Technical support is on.*
 
 Only for visitors who click **Accept analytics** in the consent banner. Visitors who decline send nothing.
 

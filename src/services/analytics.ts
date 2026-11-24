@@ -1,4 +1,4 @@
-const GA_MEASUREMENT_ID = "G-2T36Y7QSN6";
+const GA_MEASUREMENT_ID = "G-GGLY5JH35C";
 
 /** localStorage key holding the visitor's analytics choice: 'granted' or 'denied'. */
 export const CONSENT_KEY = "nthakur.consent";
