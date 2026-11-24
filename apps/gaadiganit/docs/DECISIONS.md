@@ -76,3 +76,12 @@ Short records of significant technical decisions. Newest at the bottom.
   - **Catalogue entries carry `use`** (`commercial` for goods and passenger vehicles) and an optional `note` (e.g. "chassis price; body extra"). Picking a commercial model switches the scenario to commercial use. Until earnings are entered, the result shows costs and a prompt to add earnings, not a loss.
   - **Road tax stays a % of ex-showroom.** Many states tax commercial vehicles by weight, quarterly, so the result shows a note for commercial categories while road tax is on the default.
 - **Catalogue:** 71 models: 43 cars, plus MPVs, minibuses, small commercial vehicles and pickups, light, medium and heavy trucks, and buses. Truck and bus mileage figures are typical approximations; none are verified.
+
+## ADR-008 — Override workbox-build's glob to 14.x
+
+- **Date:** 2026-11-24
+- **Status:** Accepted
+- **Decision:** `package.json` overrides `workbox-build`'s `glob` dependency to `^14.0.6`. `workbox-build` 7.4.1 (used by `vite-plugin-pwa` 2.0.0) asks for `glob@^11`, which pulls `minimatch@10` (GHSA, ReDoS via globparts amplification, fixed in 11.0.1) and is itself flagged by GHSA-3g3m-2fjr-6pw4 (fixed in 14.0.2). `workbox-build` only calls `globSync`, which glob 14 keeps.
+- **How it was applied:** npm 12 records the override but does not re-resolve the tree, so the lockfile was edited by hand (glob 14.0.6, minimatch 11.0.9, path-scurry 3.0.0, @isaacs/nonrecursive-glob-match 1.1.0; 11 packages only glob 11 used were removed) and verified with `npm ci`, `npm ls`, `npm audit` (0 vulnerabilities), tests and a full build.
+- **Also:** `web/vite.config.ts` sets `css.postcss` to an empty inline config, so Vite never picks up a `postcss.config.js` from a parent folder (the portfolio's Tailwind 3 config broke local builds).
+- **Revisit:** remove the override once `workbox-build` depends on a fixed glob.

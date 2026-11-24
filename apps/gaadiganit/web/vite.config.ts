@@ -5,6 +5,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   base: '/',
+  // Tailwind 4 runs through its Vite plugin. An inline (empty) PostCSS config stops Vite
+  // from picking up a postcss.config.js from a parent folder, such as the portfolio
+  // site's Tailwind 3 config when this app sits inside that repo.
+  css: { postcss: {} },
   plugins: [
     react(),
     tailwindcss(),
