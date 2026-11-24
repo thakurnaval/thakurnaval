@@ -30,7 +30,7 @@ This is the single source of truth for all outstanding action items across the w
 | Website — digital products (Tier 2 free) | ✅ AI-Native SDLC Field Guide, DevSecOps Playbook, GenAI Adoption Framework, Terraform & Bicep templates (Nov 2026) |
 | Website — Free Resources hub | ✅ `/resources` lists every guide, template, assessment and library; in the Insights menu |
 | Website — assessment results | ✅ Pillar-by-pillar plans (80) in DevOps, FinOps, SecOps, GenAI and CognitiveOps results and PDFs |
-| Website — mental models | ✅ 210 models, all with detail; Practitioner's 25 pinned; 4 toolkits at `/explore/toolkits` |
+| Website — mental models | ✅ 214 models, all with detail; Practitioner's 25 pinned; 4 toolkits at `/explore/toolkits` |
 | Website — premium report | 🟡 Interest capture live at `/cognitiveops/premium-report`; build on first customer request |
 | Website — DevOpsism page | ✅ Book page + early-reader list at `/devopsism` |
 | Website — projects | ✅ GaadiGanit live at gg.nthakur.com; home page shows 4 projects |
@@ -56,10 +56,10 @@ This is the single source of truth for all outstanding action items across the w
 ### P1 — Mental Models & Toolkits ✅ COMPLETE (Nov 2026)
 - [x] Library organised by situation ("What are you trying to do?"), each model linkable (`/explore/mental-models#slug`)
 - [x] Practitioner's 25 pinned with "How I use it" notes (`pages/explore/practitioners25.ts`)
-- [x] "More detail" (when to use, how to apply, watch out for, related) for all 210 models (`pages/explore/modelDetails.ts`)
+- [x] "More detail" (when to use, how to apply, watch out for, related) for all 214 models (`pages/explore/modelDetails.ts`)
 - [x] Library trimmed from 233 to 210 (5 duplicates merged, 18 weak fits removed)
 - [x] Toolkits: Incident Review, Architecture Decisions, Platform Strategy, Better Reviews and Meetings (`pages/explore/toolkitData.ts`)
-- [ ] Optional: strengthen "Generate ideas" (only 5 models) with Brainstorming, Crazy 8s, How Might We, Design Thinking
+- [x] "Generate ideas" strengthened (5 to 9 models): Brainstorming, Crazy 8s, How Might We, Design Thinking
 - [ ] Optional: more toolkits — FinOps cost review, AI use-case selection, team health check
 
 ### P3 — Newsletter Archive Page ✅ COMPLETE
@@ -376,7 +376,7 @@ These items are done. Listed here for context only.
 | All guides, PDFs and new pages switched to the site blue theme | Nov 2026 |
 | Experience updated to 20+ years everywhere; home shows 8 talks and 4 articles; broken article images fixed | Nov 2026 |
 | Menu: Insights now holds Mental Models, Toolkits, Book Summaries, Free Resources; `/resources` hub | Nov 2026 |
-| Mental models: 210 models by situation, all with detail; Practitioner's 25; 4 toolkits | Nov 2026 |
+| Mental models: 214 models by situation, all with detail; Practitioner's 25; 4 toolkits | Nov 2026 |
 | CONTENT_REVIEW.md and PRACTITIONERS_25.md in Requirements/ | Nov 2026 |
 | Privacy policy, analytics consent banner, privacy notes on all forms | Nov 2026 |
 | Compiled Tailwind, HSTS, CSP (report-only), build-time link/CSS/CSP checks | Nov 2026 |

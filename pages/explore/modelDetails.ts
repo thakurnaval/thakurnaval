@@ -1352,6 +1352,50 @@ export const MODEL_DETAILS: Record<string, ModelDetail> = {
     watchOut: 'A mind map is a thinking tool, not a deliverable. Don\'t spend time making it pretty.',
     related: ['divide-and-conquer', 'systems-thinking', 'divergent-vs-convergent-thinking'],
   },
+  'brainstorming': {
+    whenToUse: 'When a team needs a wide range of options before choosing, such as ways to reduce toil, improve onboarding or cut cloud costs.',
+    howTo: [
+      'Write the question where everyone can see it, phrased as a problem to solve.',
+      'Give people a few minutes to write ideas silently first, so the loudest voice does not set the direction.',
+      'Share and build on each other\'s ideas without judging them, aiming for quantity.',
+      'Group similar ideas, then use dot voting or impact and effort to pick a few to try.',
+    ],
+    watchOut: 'Open, shout-out brainstorming often produces fewer and safer ideas, because people anchor on the first suggestions. Silent writing first, and a separate step for judging, fix most of this.',
+    related: ['how-might-we', 'crazy-8s', 'divergent-vs-convergent-thinking'],
+  },
+  'crazy-8s': {
+    whenToUse: 'Exploring the design of a screen, report, dashboard, workflow or API when the team is anchored on one idea.',
+    howTo: [
+      'Fold a sheet of paper into eight panels, or use eight boxes on a digital whiteboard.',
+      'Set a timer for eight minutes and sketch one idea per panel, one minute each.',
+      'Share sketches briefly, then mark the parts you like with dots.',
+      'Combine the strongest parts into one or two concepts to prototype.',
+    ],
+    watchOut: 'Sketches are for thinking, not presenting. Reassure people that rough drawings are the point, or the less confident will hold back.',
+    related: ['brainstorming', 'design-thinking', 'scamper'],
+  },
+  'how-might-we': {
+    whenToUse: 'Turning research findings, complaints or retrospective themes into questions a team can generate ideas for.',
+    howTo: [
+      'Start from a specific problem or insight, such as "new joiners take three weeks to ship their first change".',
+      'Rewrite it as a "How might we...?" question focused on the outcome you want.',
+      'Check the scope: too broad gives vague ideas, too narrow already contains the answer.',
+      'Write a few versions, pick the most useful, and use it to frame brainstorming.',
+    ],
+    watchOut: 'A question that names the solution ("How might we adopt tool X?") closes off other options. Keep the question about the outcome.',
+    related: ['brainstorming', 'design-thinking', 'jobs-to-be-done'],
+  },
+  'design-thinking': {
+    whenToUse: 'Building something for people whose needs are not yet clear, such as an internal developer platform, a new AI assistant or a customer-facing feature.',
+    howTo: [
+      'Empathise: talk to and watch the people affected before deciding what to build.',
+      'Define: write the problem in their terms, often as a "How might we" question.',
+      'Ideate and prototype: generate many options, then build the cheapest version that can be tested.',
+      'Test with real users, learn and loop back to whichever stage the evidence points to.',
+    ],
+    watchOut: 'Design thinking can become workshops and sticky notes with no follow-through. It only works if prototypes reach real users and the findings change what gets built.',
+    related: ['how-might-we', 'crazy-8s', 'minimum-viable-product'],
+  },
   'divergent-vs-convergent-thinking': {
     whenToUse: 'Design sessions, retrospectives, planning and problem solving, where generating ideas and choosing between them get mixed up.',
     howTo: [
