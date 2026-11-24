@@ -303,6 +303,8 @@ The site now has a lot of free content and lead capture. The next phase is makin
 
 ### P2 — Content structure and SEO
 - [x] Interlink: "Keep going" block on the 7 topic pages — guides, assessment, toolkit, mental models. Toolkits link back to topic pages.
+- [x] Thin pages expanded (Nov 2026): all 46 topic sub-pages now 600–860 words (shared `TopicArticle` layout, data in `*Topics.ts`); the 6 main topic pages 600+ (`PillarIntro`); the 8 assessments 306–331 (`AssessmentIntro`, below the Start button).
+- [ ] Still under 600 words, lower priority: /contact, /gallery, /explore/toolkits, /articles, /case-studies (needs real details), /explore/certifications, the 4 gated guides (292–487, mostly behind the email gate by design), /projects, /assessments, /resources, /talks, /devopsism. Expand only where the page is meant to rank.
 - [ ] Link each toolkit to an article once the articles exist.
 - [ ] Publish the 2 case studies from AUTHORITY_PLAN.md (Section 3 / month-6 milestone). *(Needs Naval's real engagement details)*
 - [ ] Turn each toolkit into an article and newsletter issue (ready-made content).
