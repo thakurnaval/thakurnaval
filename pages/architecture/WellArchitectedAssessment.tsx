@@ -7,6 +7,7 @@ import {
   AlertCircle, BarChart3, Settings2, Lock, Shield, Zap, DollarSign,
 } from 'lucide-react';
 import Section from '../../components/Section';
+import AssessmentIntro from '../../components/AssessmentIntro';
 import SEO from '../../components/SEO';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -502,6 +503,7 @@ const WellArchitectedAssessment: React.FC = () => {
           >
             Start Assessment <ArrowRight size={20} className="ml-2" />
           </button>
+          <AssessmentIntro id="architecture" />
         </div>
       </Section>
     </>

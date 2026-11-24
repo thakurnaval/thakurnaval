@@ -7,6 +7,7 @@ import {
   Users, GitBranch, ListChecks, RefreshCw, AlertCircle, BarChart3,
 } from 'lucide-react';
 import Section from '../../components/Section';
+import AssessmentIntro from '../../components/AssessmentIntro';
 import SEO from '../../components/SEO';
 
 interface Option { label: string; value: number; }
@@ -446,6 +447,7 @@ const AgileAssessment: React.FC = () => {
           <button onClick={() => setStep(1)} className="inline-flex items-center px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors text-lg shadow-lg">
             Start Assessment <ArrowRight size={20} className="ml-2" />
           </button>
+          <AssessmentIntro id="agile" />
         </div>
       </Section>
     </>

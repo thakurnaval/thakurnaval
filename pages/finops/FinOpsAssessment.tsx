@@ -7,6 +7,7 @@ import {
   Eye, Users, TrendingDown, BarChart2, AlertCircle, BarChart3,
 } from 'lucide-react';
 import Section from '../../components/Section';
+import AssessmentIntro from '../../components/AssessmentIntro';
 import SEO from '../../components/SEO';
 import { PillarPlans, pillarPlansHTML } from '../../components/PillarPlans';
 import { FINOPS_PLANS } from './finopsPlans';
@@ -356,6 +357,7 @@ const FinOpsAssessment: React.FC = () => {
             <ul className="space-y-2">{['Your FinOps maturity stage (Crawl → Walk → Run → Fly)', 'Per-pillar scores with a visual breakdown', 'Prioritised recommendations for your next stage', 'A downloadable PDF report for your records'].map(item => (<li key={item} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 className="w-4 h-4 text-secondary-dark dark:text-secondary shrink-0" />{item}</li>))}</ul>
           </div>
           <button onClick={() => setStep(1)} className="inline-flex items-center px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors text-lg shadow-lg">Start Assessment <ArrowRight size={20} className="ml-2" /></button>
+          <AssessmentIntro id="finops" />
         </div>
       </Section>
     </>

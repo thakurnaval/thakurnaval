@@ -7,6 +7,7 @@ import {
   BrainCircuit, ShieldCheck, TrendingUp, Terminal, AlertCircle, BarChart3,
 } from 'lucide-react';
 import Section from '../../components/Section';
+import AssessmentIntro from '../../components/AssessmentIntro';
 import SEO from '../../components/SEO';
 import { PillarPlans, pillarPlansHTML } from '../../components/PillarPlans';
 import { COGNITIVEOPS_PLANS } from './cognitiveopsPlans';
@@ -459,6 +460,7 @@ const CognitiveOpsAssessment: React.FC = () => {
           >
             Start Assessment <ArrowRight size={20} className="ml-2" />
           </button>
+          <AssessmentIntro id="cognitiveops" />
         </div>
       </Section>
     </>

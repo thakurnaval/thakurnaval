@@ -7,6 +7,7 @@ import {
   Lock, Eye, FileCheck, Bell, AlertCircle, BarChart3,
 } from 'lucide-react';
 import Section from '../../components/Section';
+import AssessmentIntro from '../../components/AssessmentIntro';
 import SEO from '../../components/SEO';
 import { PillarPlans, pillarPlansHTML } from '../../components/PillarPlans';
 import { SECOPS_PLANS } from './secopsPlans';
@@ -347,6 +348,7 @@ const SecOpsAssessment: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">{PILLARS.map(p => (<div key={p.key} className={`rounded-xl border p-4 text-center ${p.bgClass} ${p.borderClass}`}><p.icon className={`w-7 h-7 mx-auto mb-2 ${p.colorClass}`} /><div className="text-sm font-bold text-slate-700 dark:text-slate-200">{p.key}</div><div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{p.questions.length} questions</div></div>))}</div>
           <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 mb-8"><h3 className="font-bold text-slate-900 dark:text-white mb-3">What you will get</h3><ul className="space-y-2">{['Your security maturity layer (Reactive → Proactive → Predictive → Autonomous)', 'Per-pillar scores with a visual breakdown', 'Prioritised recommendations for your next layer', 'A downloadable PDF report for your records'].map(item => (<li key={item} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 className="w-4 h-4 text-secondary-dark dark:text-secondary shrink-0" />{item}</li>))}</ul></div>
           <button onClick={() => setStep(1)} className="inline-flex items-center px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors text-lg shadow-lg">Start Assessment <ArrowRight size={20} className="ml-2" /></button>
+          <AssessmentIntro id="secops" />
         </div>
       </Section>
     </>

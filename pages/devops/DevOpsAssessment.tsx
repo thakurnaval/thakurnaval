@@ -7,6 +7,7 @@ import {
   GitBranch, Server, Activity, Users, AlertCircle, BarChart3,
 } from 'lucide-react';
 import Section from '../../components/Section';
+import AssessmentIntro from '../../components/AssessmentIntro';
 import SEO from '../../components/SEO';
 import { PillarPlans, pillarPlansHTML } from '../../components/PillarPlans';
 import { DEVOPS_PLANS } from './devopsPlans';
@@ -485,6 +486,7 @@ const DevOpsAssessment: React.FC = () => {
           >
             Start Assessment <ArrowRight size={20} className="ml-2" />
           </button>
+          <AssessmentIntro id="devops" />
         </div>
       </Section>
     </>

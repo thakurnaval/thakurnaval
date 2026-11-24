@@ -7,6 +7,7 @@ import {
   AlertCircle, BarChart3, Briefcase, Calendar, AlertTriangle, MessageSquare,
 } from 'lucide-react';
 import Section from '../../components/Section';
+import AssessmentIntro from '../../components/AssessmentIntro';
 import SEO from '../../components/SEO';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -502,6 +503,7 @@ const PMAssessment: React.FC = () => {
           >
             Start Assessment <ArrowRight size={20} className="ml-2" />
           </button>
+          <AssessmentIntro id="pm" />
         </div>
       </Section>
     </>
