@@ -299,7 +299,8 @@ The site now has a lot of free content and lead capture. The next phase is makin
 - [ ] Switch the CSP to enforcing (rename the header in `nginx.conf`) after checking the browser console on a few pages shows no CSP reports.
 - [ ] Lighthouse and accessibility pass on mobile for the home page, a guide page, an assessment and the mental models page. *(Run in Chrome DevTools; couldn't be run from the build environment)*
 - [x] Build-time checks (`npm run check`, run in the Docker build): CSS coverage, internal links and anchors, CSP hashes.
-- [ ] Optional: Playwright smoke tests (home, an assessment through to results, a guide unlock).
+- [x] Playwright smoke tests (Nov 2026): `npm run build` then `npm run test:e2e`. 13 tests on desktop and mobile Chrome: key pages render without errors, home shows the 4 latest articles, consent Decline loads no analytics, DevOps assessment through to results, gated guide unlock. Lead capture and GA are stubbed, so tests never write to the Sheet. Run locally; not yet in CI.
+- [ ] No 404 page: unknown URLs have no catch-all route (found while writing the smoke tests). Add a NotFound page and make nginx return a real 404 status.
 - [x] GaadiGanit `minimatch` / `glob` advisories fixed (Nov 2026): workbox-build's glob overridden to 14.x, `npm audit` clean. See GaadiGanit ADR-008; remove the override when workbox-build updates.
 
 ### P2 — Content structure and SEO

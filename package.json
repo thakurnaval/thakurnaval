@@ -9,7 +9,8 @@
     "postbuild": "vite build --ssr entry-server.tsx --outDir dist/server && tsx prerender.ts",
     "lint": "tsc --noEmit",
     "preview": "vite preview",
-    "check": "node scripts/check-css-classes.mjs && node scripts/check-links.mjs && node scripts/check-csp.mjs"
+    "check": "node scripts/check-css-classes.mjs && node scripts/check-links.mjs && node scripts/check-csp.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
@@ -21,6 +22,7 @@
     "recharts": "^2.12.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@types/node": "^26.1.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
