@@ -104,14 +104,15 @@ All 8 assessments built and live. Hub page at `/assessments` added to nav. DevOp
 
 ## 3 — Content Publishing
 
-### Articles — 4 Published ✅
+### Articles — 11 Published ✅
 - BecomingFinOpsCertifiedPractitioner
 - CloudComputingFundamentals
 - GamifyingDevOpsPipeline
 - SecOpsBridgingTheGap
+- Nov 2026, one per toolkit (sources in `content/articles/*.md`, regenerate with `node scripts/generate-article.mjs`): BlamelessIncidentReview, ArchitectureDecisionRecords, PlatformEngineeringStrategy, BetterTechnicalReviewsAndMeetings, MonthlyFinopsCostReview, ChoosingAiUseCases, TeamHealthCheck. *(Naval: read and adjust the voice; add your own examples where you can.)*
 
 ### Next Articles — Keep the Cadence
-- [ ] Article 5 — next piece to write and publish to `/articles`
+- [ ] Article 12 — next piece. Still missing from the Q3 plan: a SecOps and a CognitiveOps article.
 
 ### Ongoing Content Cadence
 
@@ -305,9 +306,9 @@ The site now has a lot of free content and lead capture. The next phase is makin
 - [x] Interlink: "Keep going" block on the 7 topic pages — guides, assessment, toolkit, mental models. Toolkits link back to topic pages.
 - [x] Thin pages expanded (Nov 2026): all 46 topic sub-pages now 600–860 words (shared `TopicArticle` layout, data in `*Topics.ts`); the 6 main topic pages 600+ (`PillarIntro`); the 8 assessments 306–331 (`AssessmentIntro`, below the Start button).
 - [ ] Still under 600 words, lower priority: /contact, /gallery, /explore/toolkits, /articles, /case-studies (needs real details), /explore/certifications, the 4 gated guides (292–487, mostly behind the email gate by design), /projects, /assessments, /resources, /talks, /devopsism. Expand only where the page is meant to rank.
-- [ ] Link each toolkit to an article once the articles exist.
+- [x] Each toolkit links to its article ("Read the article" on the toolkit page), and each article links back to its toolkit.
 - [ ] Publish the 2 case studies from AUTHORITY_PLAN.md (Section 3 / month-6 milestone). *(Needs Naval's real engagement details)*
-- [ ] Turn each toolkit into an article and newsletter issue (ready-made content).
+- [x] Each toolkit turned into an article (Nov 2026). Newsletter issues can be cut from these articles.
 
 ### PARKED — Data for the premium report *(until 50 leads or newsletter sign-ups)*
 - [ ] With consent, store anonymised assessment scores so real benchmarks exist when the premium report is built.

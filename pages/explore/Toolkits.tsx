@@ -97,6 +97,16 @@ export const ToolkitPage: React.FC = () => {
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{t.outcome}</p>
           </div>
         </div>
+        {t.article && (
+          <div className="max-w-4xl mx-auto mt-6 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 p-4 flex items-start gap-3">
+            <BookOpen size={18} className="shrink-0 mt-0.5 text-blue-700 dark:text-blue-400" />
+            <p className="text-sm text-slate-700 dark:text-slate-300">
+              <span className="font-semibold">Read the article:</span>{' '}
+              <Link to={t.article.to} className="text-blue-700 dark:text-blue-400 hover:underline">{t.article.title}</Link>
+              {' '}explains the thinking behind each step.
+            </p>
+          </div>
+        )}
       </Section>
 
       <Section bg="gray">

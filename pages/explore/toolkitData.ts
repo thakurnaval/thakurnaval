@@ -14,6 +14,8 @@ export interface Toolkit {
   slug: string;
   title: string;
   tagline: string;
+  /** The long-form article that explains this toolkit. */
+  article?: { title: string; to: string };
   whenToUse: string;
   outcome: string;
   time: string;
@@ -28,6 +30,7 @@ export const TOOLKITS: Toolkit[] = [
     slug: 'incident-review',
     title: 'Incident Review Toolkit',
     tagline: 'Turn an outage into lasting improvement, without blame.',
+    article: { title: 'How to Run a Blameless Incident Review That Actually Prevents the Next Outage', to: '/articles/blameless-incident-review' },
     whenToUse: 'After any SEV1 or SEV2 incident, a near miss, a failed release, or an AI feature misbehaving in production. Hold the review within five working days, while memories are fresh.',
     outcome: 'A shared, factual timeline; the contributing causes across people, process and technology; and a short list of owned actions that make the same failure much less likely.',
     time: '60–90 minutes, plus an hour of preparation',
@@ -92,6 +95,7 @@ export const TOOLKITS: Toolkit[] = [
     slug: 'architecture-decisions',
     title: 'Architecture Decisions Toolkit',
     tagline: 'Make important technical decisions deliberately, and the rest quickly.',
+    article: { title: 'Making Better Architecture Decisions, and Writing Them Down', to: '/articles/architecture-decision-records' },
     whenToUse: 'Choosing a database, cloud service, framework, vendor or AI model; splitting or merging services; or any decision that will be expensive to reverse.',
     outcome: 'A decision made at the right speed, with options compared openly, risks surfaced, and the reasoning recorded so future teams understand why.',
     time: '30 minutes for a two-way door; a few short sessions over a week or two for a one-way door',
@@ -158,6 +162,7 @@ export const TOOLKITS: Toolkit[] = [
     slug: 'platform-strategy',
     title: 'Platform Strategy Toolkit',
     tagline: 'Decide what your platform team builds, buys and stops doing.',
+    article: { title: 'Building a Platform Strategy Developers Actually Want to Use', to: '/articles/platform-engineering-strategy' },
     whenToUse: 'Starting or resetting a platform, DevOps enablement or internal AI platform team; annual planning; or when the platform feels busy but teams still wait.',
     outcome: 'A one-page strategy: who the platform serves, where the constraint is, what to build versus buy, how to start small, and how you will measure success.',
     time: 'Two or three half-day workshops with the platform team and a few of its users',
@@ -223,6 +228,7 @@ export const TOOLKITS: Toolkit[] = [
     slug: 'reviews-and-meetings',
     title: 'Better Reviews and Meetings Toolkit',
     tagline: 'Fewer, shorter meetings that end in decisions.',
+    article: { title: 'Better Technical Reviews and Meetings: Decide More, Debate Less', to: '/articles/better-technical-reviews-and-meetings' },
     whenToUse: 'Design reviews, architecture boards, AI-adoption discussions, quarterly planning, or any recurring meeting that runs long without deciding much.',
     outcome: 'Meetings with a clear purpose and owner, where every voice is heard, risks surface early, and decisions are recorded.',
     time: 'Most reviews fit in 45 minutes with this structure',
@@ -287,6 +293,7 @@ export const TOOLKITS: Toolkit[] = [
     slug: 'finops-cost-review',
     title: 'FinOps Cost Review Toolkit',
     tagline: 'A monthly cost review that changes decisions, not just dashboards.',
+    article: { title: 'The Monthly FinOps Cost Review: Turning Cloud Bills Into Better Decisions', to: '/articles/monthly-finops-cost-review' },
     whenToUse: 'Once a month for each product or platform team, and whenever spend jumps unexpectedly. It works for cloud, SaaS and AI services alike, including GPU capacity and model API usage.',
     outcome: 'An explanation of what changed and why, cost tied to the value it produces, and three to five owned actions with expected savings, so the next review starts by checking what actually happened.',
     time: '45 minutes, plus 30 minutes of preparation',
@@ -353,6 +360,7 @@ export const TOOLKITS: Toolkit[] = [
     slug: 'ai-use-case-selection',
     title: 'AI Use-Case Selection Toolkit',
     tagline: 'Pick the AI use cases worth building, and drop the rest early.',
+    article: { title: 'How to Choose AI Use Cases That Make It to Production', to: '/articles/choosing-ai-use-cases' },
     whenToUse: 'When a team or leadership group has a long list of possible AI ideas and needs to choose a few to pilot, or when pilots are running but none are reaching production.',
     outcome: 'A short list of two or three use cases, each with an owner, a measured baseline, a clear success measure, a known risk tier and a plan for a small first release.',
     time: 'A 90-minute workshop, plus a week to measure baselines',
@@ -419,6 +427,7 @@ export const TOOLKITS: Toolkit[] = [
     slug: 'team-health-check',
     title: 'Team Health Check Toolkit',
     tagline: 'A regular, honest look at how a team is really doing.',
+    article: { title: 'The Quarterly Team Health Check: A Simple Way to See How Your Team Is Really Doing', to: '/articles/team-health-check' },
     whenToUse: 'Every quarter for each team, after a reorganisation or a hard stretch, or when delivery metrics look fine but something feels wrong.',
     outcome: 'A shared picture of the team\'s health across a few dimensions, the trend since last time, and one or two improvements the team chooses and owns.',
     time: '60 minutes, every quarter',

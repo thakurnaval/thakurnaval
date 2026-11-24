@@ -625,6 +625,48 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://nthakur.com/articles/team-health-check</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/articles/choosing-ai-use-cases</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/articles/monthly-finops-cost-review</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/articles/better-technical-reviews-and-meetings</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/articles/platform-engineering-strategy</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/articles/architecture-decision-records</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/articles/blameless-incident-review</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://nthakur.com/talks/scaling-devsecops-enterprise</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>

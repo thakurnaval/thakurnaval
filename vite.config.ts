@@ -132,6 +132,13 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/articles/gamifying-devops-pipeline',      priority: 0.8, changefreq: 'monthly' },
   { path: '/articles/secops-bridging-the-gap',        priority: 0.8, changefreq: 'monthly' },
   { path: '/articles/finops-certified-practitioner',  priority: 0.8, changefreq: 'monthly' },
+  { path: '/articles/team-health-check',   priority: 0.8, changefreq: 'monthly' },
+  { path: '/articles/choosing-ai-use-cases',   priority: 0.8, changefreq: 'monthly' },
+  { path: '/articles/monthly-finops-cost-review',   priority: 0.8, changefreq: 'monthly' },
+  { path: '/articles/better-technical-reviews-and-meetings',   priority: 0.8, changefreq: 'monthly' },
+  { path: '/articles/platform-engineering-strategy',   priority: 0.8, changefreq: 'monthly' },
+  { path: '/articles/architecture-decision-records',   priority: 0.8, changefreq: 'monthly' },
+  { path: '/articles/blameless-incident-review',   priority: 0.8, changefreq: 'monthly' },
   // Talk Pages
   { path: '/talks/scaling-devsecops-enterprise',     priority: 0.7, changefreq: 'monthly' },
   { path: '/talks/financial-impact-cloud-native',    priority: 0.7, changefreq: 'monthly' },

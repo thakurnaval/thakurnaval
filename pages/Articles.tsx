@@ -15,14 +15,14 @@ const TECH_IMAGES = [
   "1451187580459-43490279c0fa",
 ];
 
-const CATEGORIES = ['All', 'GenAI', 'DevOps', 'SecOps', 'FinOps', 'Career'];
+const CATEGORIES = ['All', 'GenAI', 'DevOps', 'SecOps', 'FinOps', 'Architecture', 'Leadership', 'Career'];
 
 const Articles: React.FC = () => {
   const [activeTag, setActiveTag] = useState('All');
   const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
-    return FEATURED_ARTICLES.filter(a => {
+    return [...FEATURED_ARTICLES].reverse().filter(a => {
       const matchesTag = activeTag === 'All' || a.tag === activeTag;
       const matchesQuery = query.trim() === '' ||
         a.title.toLowerCase().includes(query.toLowerCase()) ||

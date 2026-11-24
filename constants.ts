@@ -184,6 +184,55 @@ export const FEATURED_ARTICLES: ArticleProps[] = [
     tag: "FinOps",
     link: "/articles/finops-certified-practitioner",
     image: "1554224155-6726b3ff858f"
+  },
+  {
+    title: "How to Run a Blameless Incident Review That Actually Prevents the Next Outage",
+    summary: "A five-step method for turning outages into lasting improvements, with an agenda you can use at your next review.",
+    tag: "DevOps",
+    link: "/articles/blameless-incident-review",
+    image: "1558494949-ef010cbdcc31"
+  },
+  {
+    title: "Making Better Architecture Decisions, and Writing Them Down",
+    summary: "A practical method for framing, comparing and recording architecture decisions, with a ready-to-use ADR template.",
+    tag: "Architecture",
+    link: "/articles/architecture-decision-records",
+    image: "1454165804606-c3d57bc86b40"
+  },
+  {
+    title: "Building a Platform Strategy Developers Actually Want to Use",
+    summary: "How to choose what your internal platform should do first, decide what to build or buy, and show it is working.",
+    tag: "DevOps",
+    link: "/articles/platform-engineering-strategy",
+    image: "1551434678-e076c223a692"
+  },
+  {
+    title: "Better Technical Reviews and Meetings: Decide More, Debate Less",
+    summary: "A simple structure for design reviews, architecture boards and adoption decisions that ends with a decision, not another meeting.",
+    tag: "Leadership",
+    link: "/articles/better-technical-reviews-and-meetings",
+    image: "1517245386807-bb43f82c33c4"
+  },
+  {
+    title: "The Monthly FinOps Cost Review: Turning Cloud Bills Into Better Decisions",
+    summary: "A 45-minute monthly review that explains what changed, ties cost to value and produces a few owned actions.",
+    tag: "FinOps",
+    link: "/articles/monthly-finops-cost-review",
+    image: "1460925895917-afdab827c52f"
+  },
+  {
+    title: "How to Choose AI Use Cases That Make It to Production",
+    summary: "A five-step method for picking the AI ideas worth building, measuring them properly and stopping the rest early.",
+    tag: "GenAI",
+    link: "/articles/choosing-ai-use-cases",
+    image: "1677442136019-21780ecad995"
+  },
+  {
+    title: "The Quarterly Team Health Check: A Simple Way to See How Your Team Is Really Doing",
+    summary: "How to run an honest team health check, read the patterns and choose one or two improvements that stick.",
+    tag: "Leadership",
+    link: "/articles/team-health-check",
+    image: "1522071820081-009f0129c71c"
   }
 ];
 

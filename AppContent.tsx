@@ -122,6 +122,13 @@ import CloudComputingFundamentals from './pages/articles/CloudComputingFundament
 import GamifyingDevOpsPipeline from './pages/articles/GamifyingDevOpsPipeline';
 import SecOpsBridgingTheGap from './pages/articles/SecOpsBridgingTheGap';
 import BecomingFinOpsCertifiedPractitioner from './pages/articles/BecomingFinOpsCertifiedPractitioner';
+import TeamHealthCheck from './pages/articles/TeamHealthCheck';
+import ChoosingAiUseCases from './pages/articles/ChoosingAiUseCases';
+import MonthlyFinopsCostReview from './pages/articles/MonthlyFinopsCostReview';
+import BetterTechnicalReviewsAndMeetings from './pages/articles/BetterTechnicalReviewsAndMeetings';
+import PlatformEngineeringStrategy from './pages/articles/PlatformEngineeringStrategy';
+import ArchitectureDecisionRecords from './pages/articles/ArchitectureDecisionRecords';
+import BlamelessIncidentReview from './pages/articles/BlamelessIncidentReview';
 import ScalingDevSecOpsArticle from './pages/talks/ScalingDevSecOps';
 import FinancialImpactCloudNativeArticle from './pages/talks/FinancialImpactCloudNative';
 import GenAINewTeamMemberArticle from './pages/talks/GenAINewTeamMember';
@@ -251,6 +258,13 @@ const AppContent: React.FC = () => (
         <Route path="/articles/gamifying-devops-pipeline" element={<GamifyingDevOpsPipeline />} />
         <Route path="/articles/secops-bridging-the-gap" element={<SecOpsBridgingTheGap />} />
         <Route path="/articles/finops-certified-practitioner" element={<BecomingFinOpsCertifiedPractitioner />} />
+        <Route path="/articles/team-health-check" element={<TeamHealthCheck />} />
+        <Route path="/articles/choosing-ai-use-cases" element={<ChoosingAiUseCases />} />
+        <Route path="/articles/monthly-finops-cost-review" element={<MonthlyFinopsCostReview />} />
+        <Route path="/articles/better-technical-reviews-and-meetings" element={<BetterTechnicalReviewsAndMeetings />} />
+        <Route path="/articles/platform-engineering-strategy" element={<PlatformEngineeringStrategy />} />
+        <Route path="/articles/architecture-decision-records" element={<ArchitectureDecisionRecords />} />
+        <Route path="/articles/blameless-incident-review" element={<BlamelessIncidentReview />} />
         <Route path="/talks/scaling-devsecops-enterprise" element={<ScalingDevSecOpsArticle />} />
         <Route path="/talks/financial-impact-cloud-native" element={<FinancialImpactCloudNativeArticle />} />
         <Route path="/talks/genai-new-team-member" element={<GenAINewTeamMemberArticle />} />

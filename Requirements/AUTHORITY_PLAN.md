@@ -14,7 +14,7 @@ This is the strategy document. Website tasks live in `MASTER_ACTION_PLAN.md` and
 - Premium CognitiveOps Report: interest capture live at /cognitiveops/premium-report; build when the first customer asks.
 
 **Behind plan: content and channels**
-- **Articles:** still 4 (the same 4 as July). The plan called for 2 a month. This is the biggest gap.
+- **Articles:** 11 live. Seven practical articles, one per toolkit, were added on 24 Nov 2026 and need Naval's review for voice and personal examples. Still missing from the Q3 plan: a SecOps and a CognitiveOps article.
 - **Newsletter:** issues 1–6 not written; no issue sent.
 - **Case studies:** /case-studies page exists but has no real case studies yet (needs engagement details).
 - **Off-site channels, all *(to confirm)*:** Topmate profile, LinkedIn Featured section and cadence, X pinned thread, Sessionize CFPs, NASSCOM / Gartner Peer Insights applications. There is no Topmate link on the site yet.
@@ -24,7 +24,7 @@ This is the strategy document. Website tasks live in `MASTER_ACTION_PLAN.md` and
 - Moving subscribers from the Google Sheet to an email platform (double opt-in, welcome sequence, source tags).
 - Storing anonymised assessment scores for benchmarks.
 
-**Suggested focus for the rest of Q4 2026:** write and send newsletter issue 1, publish article 5, confirm the off-site channel status above, and submit the MVP nomination. Everything else in Q4 depends on content existing.
+**Suggested focus for the rest of Q4 2026:** review the seven new articles, write and send newsletter issue 1 (it can be cut from an article), confirm the off-site channel status above, and submit the MVP nomination. Everything else in Q4 depends on content existing.
 
 ---
 
@@ -168,7 +168,7 @@ The signature angle is the self-assessment hook. Most organisations believe they
 
 **Content priorities (by impact on authority):**
 1. CognitiveOps page and assessment — flagship, must stay current
-2. Long-form articles — 2 new articles per month minimum *(4 live; none added since July 2026)*
+2. Long-form articles — 2 new articles per month minimum *(11 live; 7 added Nov 2026)*
 3. Assessments hub — 8 assessments live with per-layer result pages ✅
 4. Case studies — start with 2 (SLB FinOps, DevSecOps transformation), add GenAI adoption as the third
 5. Newsletter archive — page live at /newsletter ✅; publish each issue there after send
@@ -479,7 +479,7 @@ Topmate session angle (if it generates 1:1 demand)
 - [ ] Major conference appearance confirmed and on calendar
 - [ ] Group Topmate session format launched
 - [ ] Book Chapter 1 draft (3,000–5,000 words) — book page live at /devopsism
-- [ ] 9 articles total on nthakur.com (from 4 live in July 2026)
+- [x] 9 articles total on nthakur.com — 11 live as of Nov 2026
 - [x] Assessment result pages: per-layer recommendations — done Nov 2026 for all 8 assessments
 
 ---

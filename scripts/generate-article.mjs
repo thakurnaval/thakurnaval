@@ -12,7 +12,7 @@ import { pickIcon } from './icon-map.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const KNOWN_TAGS = ['GenAI', 'DevOps', 'SecOps', 'FinOps', 'Career'];
+const KNOWN_TAGS = ['GenAI', 'DevOps', 'SecOps', 'FinOps', 'Architecture', 'Leadership', 'Career'];
 
 function fail(msg) {
   console.error(`\n✗ ${msg}\n`);
@@ -72,8 +72,14 @@ const keywords = (fm.keywords || '').split(',').map(s => s.trim()).filter(Boolea
 function esc(s) {
   return s.replace(/`/g, "'");
 }
+let usesLink = false;
 function inline(text) {
   let t = esc(text);
+  // Internal links (starting with /) navigate in-app; external links open in a new tab.
+  t = t.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g, (_, label, to) => {
+    usesLink = true;
+    return `<Link to="${to}" className="text-primary dark:text-secondary hover:underline">${label}</Link>`;
+  });
   t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-secondary hover:underline">$1</a>');
   t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -243,6 +249,7 @@ const iconImport = usedIcons.size ? `import { ${[...usedIcons].sort().join(', ')
 const fileLines = [
   '',
   "import React from 'react';",
+  usesLink ? "import { Link } from 'react-router-dom';" : '',
   "import SimplePage from '../../components/SimplePage';",
   iconImport.trimEnd(),
   '',
@@ -295,7 +302,9 @@ console.log('✓ wired route + import into AppContent.tsx');
 // ---------- Wire into constants.ts (FEATURED_ARTICLES) ----------
 const constantsPath = path.join(ROOT, 'constants.ts');
 let constants = readFileLF(constantsPath);
-const entry = `  {\n    title: "${esc(fm.title)}",\n    summary: "${esc(fm.subtitle)}",\n    tag: "${esc(fm.tag)}",\n    link: "${route}"\n  }`;
+// Optional `image:` frontmatter is an Unsplash photo id (e.g. 1504384308090-c894fdcc538d) for the card.
+const imageLine = fm.image ? `,\n    image: "${esc(fm.image)}"` : '';
+const entry = `  {\n    title: "${esc(fm.title)}",\n    summary: "${esc(fm.subtitle)}",\n    tag: "${esc(fm.tag)}",\n    link: "${route}"${imageLine}\n  }`;
 constants = replaceOrFail(
   constants,
   /(export const FEATURED_ARTICLES: ArticleProps\[\] = \[[\s\S]*?)\n\];/,

@@ -275,7 +275,7 @@ const Home: React.FC = () => {
           <p className="text-slate-600 dark:text-slate-400">Deep dives into tools, culture, and methodology. Explore our <Link to="/articles" className="text-secondary-dark dark:text-secondary hover:underline">article archives</Link>.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          {FEATURED_ARTICLES.map((article, idx) => (
+          {FEATURED_ARTICLES.slice(-4).reverse().map((article, idx) => (
             <Link key={idx} to={article.link} className="group block">
                <div className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700">
                  <div className="h-48 bg-slate-200 dark:bg-slate-700 w-full object-cover relative">
