@@ -350,79 +350,79 @@
   </url>
   <url>
     <loc>https://nthakur.com/architecture/design-patterns</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/solid-principles</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/system-design-process</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/cloud-architecture</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/data-architecture</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/microservices</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/api-design</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/system-security</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/twelve-factor</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/coding-standards</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/togaf</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/it-governance</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nthakur.com/architecture/software-engineering</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -579,6 +579,24 @@
   <url>
     <loc>https://nthakur.com/explore/toolkits/reviews-and-meetings</loc>
     <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/explore/toolkits/finops-cost-review</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/explore/toolkits/ai-use-case-selection</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nthakur.com/explore/toolkits/team-health-check</loc>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

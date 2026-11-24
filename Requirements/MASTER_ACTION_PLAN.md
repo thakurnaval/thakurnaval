@@ -30,7 +30,7 @@ This is the single source of truth for all outstanding action items across the w
 | Website — digital products (Tier 2 free) | ✅ AI-Native SDLC Field Guide, DevSecOps Playbook, GenAI Adoption Framework, Terraform & Bicep templates (Nov 2026) |
 | Website — Free Resources hub | ✅ `/resources` lists every guide, template, assessment and library; in the Insights menu |
 | Website — assessment results | ✅ Pillar-by-pillar plans (80) in DevOps, FinOps, SecOps, GenAI and CognitiveOps results and PDFs |
-| Website — mental models | ✅ 214 models, all with detail; Practitioner's 25 pinned; 4 toolkits at `/explore/toolkits` |
+| Website — mental models | ✅ 214 models, all with detail; Practitioner's 25 pinned; 7 toolkits at `/explore/toolkits` |
 | Website — premium report | 🟡 Interest capture live at `/cognitiveops/premium-report`; build on first customer request |
 | Website — DevOpsism page | ✅ Book page + early-reader list at `/devopsism` |
 | Website — projects | ✅ GaadiGanit live at gg.nthakur.com; home page shows 4 projects |
@@ -60,7 +60,7 @@ This is the single source of truth for all outstanding action items across the w
 - [x] Library trimmed from 233 to 210 (5 duplicates merged, 18 weak fits removed)
 - [x] Toolkits: Incident Review, Architecture Decisions, Platform Strategy, Better Reviews and Meetings (`pages/explore/toolkitData.ts`)
 - [x] "Generate ideas" strengthened (5 to 9 models): Brainstorming, Crazy 8s, How Might We, Design Thinking
-- [ ] Optional: more toolkits — FinOps cost review, AI use-case selection, team health check
+- [x] 3 more toolkits (Nov 2026): FinOps cost review, AI use-case selection, team health check. 7 in total.
 
 ### P3 — Newsletter Archive Page ✅ COMPLETE
 - [x] Create `/newsletter` route and page (`pages/Newsletter.tsx`)
@@ -376,7 +376,7 @@ These items are done. Listed here for context only.
 | All guides, PDFs and new pages switched to the site blue theme | Nov 2026 |
 | Experience updated to 20+ years everywhere; home shows 8 talks and 4 articles; broken article images fixed | Nov 2026 |
 | Menu: Insights now holds Mental Models, Toolkits, Book Summaries, Free Resources; `/resources` hub | Nov 2026 |
-| Mental models: 214 models by situation, all with detail; Practitioner's 25; 4 toolkits | Nov 2026 |
+| Mental models: 214 models by situation, all with detail; Practitioner's 25; 7 toolkits | Nov 2026 |
 | CONTENT_REVIEW.md and PRACTITIONERS_25.md in Requirements/ | Nov 2026 |
 | Privacy policy, analytics consent banner, privacy notes on all forms | Nov 2026 |
 | Compiled Tailwind, HSTS, CSP (report-only), build-time link/CSS/CSP checks | Nov 2026 |

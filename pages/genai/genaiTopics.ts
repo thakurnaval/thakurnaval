@@ -74,7 +74,7 @@ export const GENAI_TOPICS: Record<string, TopicContent> = {
       'Quality on your evaluation sets per model.',
       'Cost per task or per user.',
     ],
-    related: [assess, framework, { label: 'Prompt Engineering', to: '/genai/prompt-engineering' }, mm('the-map-is-not-the-territory', 'The Map Is Not the Territory'), mm('falsification-confirmation-bias', 'Confirmation Bias'), mm('circle-of-competence', 'Circle of Competence')],
+    related: [{ label: 'AI Use-Case Selection Toolkit', to: '/explore/toolkits/ai-use-case-selection' }, assess, framework, { label: 'Prompt Engineering', to: '/genai/prompt-engineering' }, mm('the-map-is-not-the-territory', 'The Map Is Not the Territory'), mm('falsification-confirmation-bias', 'Confirmation Bias'), mm('circle-of-competence', 'Circle of Competence')],
   },
 
   'prompt-engineering': {
@@ -479,6 +479,6 @@ export const GENAI_TOPICS: Record<string, TopicContent> = {
       'Policy violations and AI-related incidents.',
       'Coverage of high-risk use cases by testing and monitoring.',
     ],
-    related: [assess, framework, { label: 'AI Agents', to: '/genai/agents' }, { label: 'Privacy Policy (how this site handles data)', to: '/privacy' }, mm('second-order-thinking', 'Second-Order Thinking'), mm('unintended-consequences', 'Unintended Consequences')],
+    related: [{ label: 'AI Use-Case Selection Toolkit', to: '/explore/toolkits/ai-use-case-selection' }, assess, framework, { label: 'AI Agents', to: '/genai/agents' }, { label: 'Privacy Policy (how this site handles data)', to: '/privacy' }, mm('second-order-thinking', 'Second-Order Thinking'), mm('unintended-consequences', 'Unintended Consequences')],
   },
 };

@@ -225,7 +225,7 @@ export const DEVOPS_TOPICS: Record<string, TopicContent> = {
       'Share of teams using the standard pipeline and platform.',
       'Time spent on unplanned work versus planned work.',
     ],
-    related: [
+    related: [{ label: 'Team Health Check Toolkit', to: '/explore/toolkits/team-health-check' }, 
       { label: 'DevOps Maturity Assessment', to: '/devops/assessment' },
       { label: 'DevOps Maturity Roadmap (free PDF)', to: '/devops/roadmap-guide' },
       { label: 'CognitiveOps Model', to: '/cognitiveops' },
@@ -376,7 +376,7 @@ export const DEVOPS_TOPICS: Record<string, TopicContent> = {
       'Share of services with automated tests and pipelines.',
       'Team survey scores for psychological safety and ownership.',
     ],
-    related: [
+    related: [{ label: 'Team Health Check Toolkit', to: '/explore/toolkits/team-health-check' }, 
       { label: 'The 7 Cs of DevOps (free guide)', to: '/devops/7cs' },
       { label: 'AI-Native SDLC Field Guide', to: '/ai-sdlc/field-guide' },
       { label: 'DevOps Frameworks', to: '/devops/frameworks' },

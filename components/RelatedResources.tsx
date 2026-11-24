@@ -27,13 +27,13 @@ const BLOCKS: Record<Topic, Block> = {
   finops: {
     guides: [{ label: '30 Days of FinOps', to: '/finops/30-day-guide' }, { label: 'FinOps Certification Prep', to: '/finops/cert-prep' }],
     assessment: { label: 'FinOps Maturity Assessment', to: '/finops/assessment' },
-    toolkit: { label: 'Architecture Decisions Toolkit', to: '/explore/toolkits/architecture-decisions' },
+    toolkit: { label: 'FinOps Cost Review Toolkit', to: '/explore/toolkits/finops-cost-review' },
     models: [mm('pareto-principle', 'Pareto Principle'), mm('tragedy-of-the-commons', 'Tragedy of the Commons'), mm('goodharts-law', "Goodhart's Law")],
   },
   genai: {
     guides: [{ label: 'The GenAI Adoption Framework', to: '/genai/adoption-framework' }, { label: 'The AI-Native SDLC Field Guide', to: '/ai-sdlc/field-guide' }],
     assessment: { label: 'GenAI Readiness Assessment', to: '/genai/assessment' },
-    toolkit: { label: 'Better Reviews and Meetings Toolkit', to: '/explore/toolkits/reviews-and-meetings' },
+    toolkit: { label: 'AI Use-Case Selection Toolkit', to: '/explore/toolkits/ai-use-case-selection' },
     models: [mm('minimum-viable-product', 'Minimum Viable Product'), mm('cynefin-framework', 'Cynefin Framework'), mm('second-order-thinking', 'Second-Order Thinking')],
   },
   'ai-sdlc': {

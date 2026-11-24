@@ -9,7 +9,7 @@ This is the strategy document. Website tasks live in `MASTER_ACTION_PLAN.md` and
 
 **Website: ahead of plan**
 - 8 assessments live, each with per-pillar results, layer-specific recommendations and a PDF report (the Q1 2027 "result pages" deliverable).
-- Supporting content: CognitiveOps Playbook, AI-Native SDLC Field Guide, DevSecOps Playbook, GenAI Adoption Framework, FinOps 30-Day Guide, DevOps Roadmap Guide, IaC templates, 214 mental models, 6 toolkits, /devopsism book page, /newsletter archive page.
+- Supporting content: CognitiveOps Playbook, AI-Native SDLC Field Guide, DevSecOps Playbook, GenAI Adoption Framework, FinOps 30-Day Guide, DevOps Roadmap Guide, IaC templates, 214 mental models, 7 toolkits, /devopsism book page, /newsletter archive page.
 - All 46 topic sub-pages and the 6 main topic pages are 600+ words, so the SEO/AEO targets in Section 4.1 now have real pages behind them.
 - Premium CognitiveOps Report: interest capture live at /cognitiveops/premium-report; build when the first customer asks.
 

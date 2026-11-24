@@ -124,6 +124,9 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/explore/toolkits/architecture-decisions', priority: 0.75, changefreq: 'monthly' },
   { path: '/explore/toolkits/platform-strategy',      priority: 0.75, changefreq: 'monthly' },
   { path: '/explore/toolkits/reviews-and-meetings',   priority: 0.75, changefreq: 'monthly' },
+  { path: '/explore/toolkits/finops-cost-review',     priority: 0.75, changefreq: 'monthly' },
+  { path: '/explore/toolkits/ai-use-case-selection',  priority: 0.75, changefreq: 'monthly' },
+  { path: '/explore/toolkits/team-health-check',      priority: 0.75, changefreq: 'monthly' },
   // Article Pages
   { path: '/articles/cloud-computing-fundamentals',   priority: 0.8, changefreq: 'monthly' },
   { path: '/articles/gamifying-devops-pipeline',      priority: 0.8, changefreq: 'monthly' },

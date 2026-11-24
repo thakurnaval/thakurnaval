@@ -156,7 +156,7 @@ export const FINOPS_TOPICS: Record<string, TopicContent> = {
       'Number of teams actively using their dashboards.',
       'Time to detect and resolve cost anomalies.',
     ],
-    related: [assess, thirtyDays, { label: 'Terraform & Bicep templates (with tag policy)', to: '/architecture/iac-templates' }, mm('the-map-is-not-the-territory', 'The Map Is Not the Territory'), mm('externalities', 'Externalities'), mm('boiling-frog-symbol', 'Boiling Frog')],
+    related: [{ label: 'FinOps Cost Review Toolkit', to: '/explore/toolkits/finops-cost-review' }, assess, thirtyDays, { label: 'Terraform & Bicep templates (with tag policy)', to: '/architecture/iac-templates' }, mm('the-map-is-not-the-territory', 'The Map Is Not the Territory'), mm('externalities', 'Externalities'), mm('boiling-frog-symbol', 'Boiling Frog')],
   },
 
   'unit-economics': {
@@ -234,7 +234,7 @@ export const FINOPS_TOPICS: Record<string, TopicContent> = {
       'Decisions where unit cost was explicitly considered.',
       'Unit cost of AI features per request or conversation.',
     ],
-    related: [assess, { label: 'Cost Visibility and Allocation', to: '/finops/cost-visibility' }, { label: 'Forecasting', to: '/finops/forecasting' }, mm('economies-of-scale', 'Economies of Scale'), mm('proxy', 'Proxy'), mm('return-on-investment', 'Return on Investment')],
+    related: [{ label: 'FinOps Cost Review Toolkit', to: '/explore/toolkits/finops-cost-review' }, assess, { label: 'Cost Visibility and Allocation', to: '/finops/cost-visibility' }, { label: 'Forecasting', to: '/finops/forecasting' }, mm('economies-of-scale', 'Economies of Scale'), mm('proxy', 'Proxy'), mm('return-on-investment', 'Return on Investment')],
   },
 
   optimization: {
@@ -319,7 +319,7 @@ export const FINOPS_TOPICS: Record<string, TopicContent> = {
       'Share of non-production running outside working hours.',
       'Unit cost trend after optimisation.',
     ],
-    related: [assess, thirtyDays, { label: 'Unit Economics', to: '/finops/unit-economics' }, mm('pareto-principle', 'Pareto Principle'), mm('via-negativa', 'Via Negativa'), mm('5s', '5S')],
+    related: [{ label: 'FinOps Cost Review Toolkit', to: '/explore/toolkits/finops-cost-review' }, assess, thirtyDays, { label: 'Unit Economics', to: '/finops/unit-economics' }, mm('pareto-principle', 'Pareto Principle'), mm('via-negativa', 'Via Negativa'), mm('5s', '5S')],
   },
 
   forecasting: {
