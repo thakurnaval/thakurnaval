@@ -1,5 +1,6 @@
 import React from 'react';
 import RelatedResources from '../components/RelatedResources';
+import PillarIntro from '../components/PillarIntro';
 import { Link } from 'react-router-dom';
 import { Shield, Lock, AlertTriangle, Eye, ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
@@ -125,6 +126,7 @@ const SecOps: React.FC = () => {
           </div>
         </div>
       </Section>
+      <PillarIntro pillar="secops" />
       <RelatedResources topic="secops" />
     </>
   );

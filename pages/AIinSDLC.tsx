@@ -1,5 +1,6 @@
 import React from 'react';
 import RelatedResources from '../components/RelatedResources';
+import PillarIntro from '../components/PillarIntro';
 import { Link } from 'react-router-dom';
 import { Code, TestTube, FileText, CheckCircle, Rocket, Activity, Lightbulb, TrendingUp, AlertTriangle, Brain } from 'lucide-react';
 import Section from '../components/Section';
@@ -145,6 +146,7 @@ const AIinSDLC: React.FC = () => {
           </div>
         </div>
       </Section>
+      <PillarIntro pillar="ai-sdlc" />
       <RelatedResources topic="ai-sdlc" />
     </>
   );

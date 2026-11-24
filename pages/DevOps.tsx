@@ -1,5 +1,6 @@
 import React from 'react';
 import RelatedResources from '../components/RelatedResources';
+import PillarIntro from '../components/PillarIntro';
 import { Link } from 'react-router-dom';
 import { Settings, RefreshCw, BarChart2, GitMerge, ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
@@ -113,6 +114,7 @@ const DevOps: React.FC = () => {
           </div>
         </div>
       </Section>
+      <PillarIntro pillar="devops" />
       <RelatedResources topic="devops" />
     </>
   );
