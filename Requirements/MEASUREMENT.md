@@ -17,13 +17,16 @@ Code: `src/services/analytics.ts` (`trackLead`, `trackDownload`, `trackEvent`, `
 
 ## One-time setup in GA4 (5 minutes)
 
-1. **Admin → Events:** after the first lead arrives, mark `generate_lead` as a **key event** (conversion).
-2. **Admin → Custom definitions → Create custom dimension:** `lead_source` (event scope) and `file_name` (event scope), so they can be used in reports.
-3. **Admin → Data retention:** set to 14 months (matches the Privacy Policy).
+1. **Admin → Data display → Events:** mark `generate_lead` as a **key event** (conversion). *Done 24 Nov 2026 via Create event → "Create with code" (registers the name only, no duplicate events), no default value, counted once per event. The default key events `close_convert_lead` and `qualify_lead` are not sent by the site and can be unstarred.*
+2. **Admin → Custom definitions → Create custom dimension:** `lead_source` (event scope) and `file_name` (event scope), so they can be used in reports. *Done 24 Nov 2026 ("Lead source", "File name").*
+3. **Admin → Data retention:** set to 14 months (matches the Privacy Policy). *Done 24 Nov 2026.*
+4. **Enhanced measurement** (Data streams → nthakur-com): "Page changes based on browser history events" and "File downloads" are **off**, because the site sends its own `page_view` and `file_download`. *Done 24 Nov 2026.*
+
+*All of the above was checked through the Analytics API on 24 Nov 2026 (property ID 565716066, account nThakur). Read-only API access: service account `ga-mcp-reader@navalthakur.iam.gserviceaccount.com` (GA Viewer), used by the `analytics-mcp` server in `.mcp.json`.*
 
 ## One-time setup in Google Search Console
 
-*Status: verified and sitemap submitted on 24 Nov 2026. Remaining: step 4 (link to GA4).*
+*Status: complete. Verified, sitemap submitted and linked to GA4 (stream nthakur-com) on 24 Nov 2026.*
 
 1. Go to search.google.com/search-console and add the property **nthakur.com** (Domain property).
 2. Verify with the DNS TXT record it gives you, added at Hostinger (same place as the `gg` record). Alternatively choose the "HTML tag" method and send me the `google-site-verification` code to add to the site.
