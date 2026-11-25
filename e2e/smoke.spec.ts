@@ -104,7 +104,41 @@ test('gated guide unlocks after email', async ({ page }) => {
   await page.goto('/secops/devsecops-playbook');
   await page.locator('#gate-email').fill('smoke-test@example.com');
   await page.locator('form').filter({ has: page.locator('#gate-email') }).getByRole('button').last().click();
-  await expect(page.getByRole('button', { name: /Open|Save|Download/i }).first()).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Open & Save PDF' })).toBeVisible();
   expect(leads.length).toBe(1);
   expect(errors).toEqual([]);
+});
+
+test('unknown URL shows the 404 page, marked noindex', async ({ page }) => {
+  const { errors } = await prepare(page);
+  const res = await page.goto('/this-page-does-not-exist');
+  expect(res?.status()).toBe(404);
+  await expect(page.getByRole('heading', { level: 1, name: 'Page not found' })).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex');
+  await expect(page.getByRole('link', { name: 'Back to the home page' })).toHaveAttribute('href', '/');
+  expect(errors).toEqual([]);
+});
+
+test('home features mental models that open the right card', async ({ page }) => {
+  const { errors } = await prepare(page);
+  await page.goto('/');
+  const section = page.locator('section', { has: page.getByRole('heading', { name: 'Thinking Tools for Engineering Leaders' }) });
+  const cards = section.locator('a[href^="/explore/mental-models#"]');
+  await expect(cards).toHaveCount(6);
+  await cards.first().click();
+  await expect(page).toHaveURL(/\/explore\/mental-models#inversion$/);
+  await expect(page.locator('#inversion')).toBeInViewport();
+  expect(errors).toEqual([]);
+});
+
+test('social links appear in the hero, at the end of articles and in the footer', async ({ page }) => {
+  await prepare(page);
+  const linkedin = 'a[href="https://www.linkedin.com/in/navalthakur"]';
+  await page.goto('/');
+  await expect(page.locator('main').locator(linkedin).first()).toBeVisible();
+  await expect(page.locator('footer').locator(linkedin)).toBeVisible();
+  for (const path of ['/articles/choosing-ai-use-cases', '/devops/sre']) {
+    await page.goto(path);
+    await expect(page.getByRole('complementary', { name: 'Follow Naval' }).locator(linkedin)).toBeVisible();
+  }
 });

@@ -22,7 +22,8 @@ export default defineConfig({
     { name: 'mobile', use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
-    command: `npx vite preview --port ${PORT} --strictPort`,
+    // Serves dist/ with the same file resolution and 404 handling as nginx.conf.
+    command: `node scripts/serve-dist.mjs ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,

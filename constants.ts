@@ -3,6 +3,16 @@ import { NavItem, TalkProps, ArticleProps, FinOpsChartData, GalleryImage, Projec
 
 export const PROFILE_IMAGE_URL = "/assets/img/profile.jpg";
 
+/** Naval's social profiles: the one list used by the header, footer, home, article ends and schema `sameAs`. */
+export const SOCIAL_LINKS = [
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/navalthakur', label: "Connect with Naval on LinkedIn" },
+  { name: 'X', url: 'https://x.com/nthakur_dot_com', label: "Follow Naval on X (Twitter)" },
+  { name: 'YouTube', url: 'https://www.youtube.com/channel/UCNFBR2tvSzgZr481iyNaI7A', label: "Watch Naval's YouTube channel" },
+  { name: 'GitHub', url: 'https://github.com/thakurnaval', label: "View Naval's GitHub repositories" },
+] as const;
+
+export type SocialName = typeof SOCIAL_LINKS[number]['name'];
+
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'The Model', path: '/cognitiveops' },

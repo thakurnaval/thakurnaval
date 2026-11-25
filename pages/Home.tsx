@@ -1,11 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, TrendingUp, BrainCircuit, CheckCircle2, Terminal, Users, Lightbulb, Layers, GraduationCap, FileText, MessageSquare, Cpu } from 'lucide-react';
+import { ArrowRight, ShieldCheck, TrendingUp, BrainCircuit, CheckCircle2, Terminal, Users, Lightbulb, Layers, GraduationCap, FileText, MessageSquare, Cpu, Brain, Star } from 'lucide-react';
 import Section from '../components/Section';
 import NewsletterSignup from '../components/NewsletterSignup';
 import Testimonials from '../components/Testimonials';
 import SEO from '../components/SEO';
-import { FEATURED_ARTICLES, RECENT_TALKS, PROFILE_IMAGE_URL, PROJECTS } from '../constants';
+import { FEATURED_ARTICLES, RECENT_TALKS, PROFILE_IMAGE_URL, PROJECTS, SOCIAL_LINKS } from '../constants';
+import { SocialIcons } from '../components/SocialLinks';
+import { PRACTITIONERS_25 } from './explore/practitioners25';
+import { MODEL_COUNT, modelBySlug } from './explore/MentalModels';
+import { TOOLKITS } from './explore/toolkitData';
+
+/** Mental models featured on the home page: a spread from the Practitioner's 25, with Naval's "How I use it" note. */
+const FEATURED_MODEL_SLUGS = ['inversion', 'second-order-thinking', 'theory-of-constraints', 'conways-law', 'goodharts-law', 'pre-mortem'];
+const FEATURED_MODELS = FEATURED_MODEL_SLUGS.map(slug => {
+  const model = modelBySlug(slug);
+  const pick = PRACTITIONERS_25.find(p => p.slug === slug);
+  if (!model || !pick) throw new Error(`Home: featured mental model "${slug}" not found`);
+  return { slug, name: model.name, howIUse: pick.howIUse, rank: PRACTITIONERS_25.indexOf(pick) + 1 };
+});
 import ProjectCard from '../components/ProjectCard';
 
 const Home: React.FC = () => {
@@ -25,7 +38,8 @@ const Home: React.FC = () => {
     "author": {
       "@type": "Person",
       "name": "Naval Thakur",
-      "jobTitle": "DevOps & FinOps Coach"
+      "jobTitle": "DevOps & FinOps Coach",
+      "sameAs": SOCIAL_LINKS.map(l => l.url)
     }
   };
 
@@ -69,12 +83,16 @@ const Home: React.FC = () => {
                 Naval helps organizations bridge that gap — from <Link to="/devops" className="hover:text-secondary underline decoration-secondary/30">automated DevSecOps</Link> to <Link to="/genai" className="hover:text-secondary underline decoration-secondary/30">AI-native CloudOps</Link> — without losing the FinOps discipline that keeps it financially sustainable.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link to="/contact?topic=Workshop / Training" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md text-primary bg-secondary hover:bg-secondary-hover transition-all shadow-lg hover:shadow-secondary/25" aria-label="Book a talk or workshop with Naval">
+                <Link to="/contact?topic=Workshop / Training" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md text-primary bg-secondary hover:bg-secondary-hover transition-all shadow-lg hover:shadow-secondary/25">
                   Book a Talk / Workshop
                 </Link>
                 <Link to="/cognitiveops" className="inline-flex items-center justify-center px-6 py-3 border border-white/30 bg-white/10 backdrop-blur-sm text-base font-medium rounded-md text-white hover:bg-white/20 transition-all" aria-label="Explore the CognitiveOps Model">
                   The CognitiveOps Model <ArrowRight size={16} className="ml-2" />
                 </Link>
+              </div>
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-sm text-slate-200">Follow:</span>
+                <SocialIcons variant="dark" size={18} placement="home-hero" />
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center">
@@ -104,7 +122,7 @@ const Home: React.FC = () => {
               <div key={label} className="flex flex-col items-center">
                 <span className="text-3xl md:text-4xl font-bold text-primary dark:text-white">{value}</span>
                 <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">{label}</span>
-                <span className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{sub}</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{sub}</span>
               </div>
             ))}
           </div>
@@ -174,21 +192,21 @@ const Home: React.FC = () => {
               <div className="flex items-start space-x-4 mb-6">
                 <Lightbulb className="w-8 h-8 text-primary dark:text-secondary" />
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white text-lg">Thought Leadership</h4>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-lg">Thought Leadership</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Regular speaker at international conferences and author of <Link to="/articles" className="text-secondary-dark dark:text-secondary hover:underline">technical deep-dives</Link>.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4 mb-6">
                 <Cpu className="w-8 h-8 text-primary dark:text-secondary" />
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white text-lg">Technical & Strategic</h4>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-lg">Technical & Strategic</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Able to bridge the gap between C-suite strategy and engineering execution.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Users className="w-8 h-8 text-primary dark:text-secondary" />
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white text-lg">Community Builder</h4>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-lg">Community Builder</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Active mentor and coach for the next generation of DevOps engineers.</p>
                 </div>
               </div>
@@ -232,11 +250,11 @@ const Home: React.FC = () => {
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{talk.title}</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-grow">{talk.description}</p>
-              <div className="text-xs text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4 mt-auto flex justify-between items-center">
+              <div className="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4 mt-auto flex justify-between items-center">
                 <span>Audience: {talk.audience} • {talk.duration}</span>
                 {talk.link && (
                   <Link to={talk.link} className="text-primary dark:text-secondary font-bold hover:underline flex items-center ml-2">
-                    Read More <ArrowRight size={12} className="ml-1" />
+                    Read More<span className="sr-only"> about {talk.title}</span> <ArrowRight size={12} className="ml-1" />
                   </Link>
                 )}
               </div>
@@ -291,9 +309,9 @@ const Home: React.FC = () => {
                     </div>
                  </div>
                  <div className="p-6">
-                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-primary transition-colors line-clamp-2">{article.title}</h3>
+                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">{article.title}</h3>
                    <p className="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">{article.summary}</p>
-                   <div className="mt-4 text-sm font-medium text-primary dark:text-primary flex items-center">
+                   <div className="mt-4 text-sm font-medium text-primary dark:text-secondary flex items-center">
                      Read Article <ArrowRight size={14} className="ml-1" />
                    </div>
                  </div>
@@ -303,8 +321,48 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* Career Guidance Section */}
+      {/* Featured Mental Models */}
       <Section bg="gray">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-12">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 text-primary dark:text-secondary text-xs font-bold uppercase tracking-wider mb-4">
+              <Brain size={14} /> Mental Models
+            </div>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Thinking Tools for Engineering Leaders</h2>
+            <p className="text-slate-600 dark:text-slate-400">
+              A library of {MODEL_COUNT} mental models, organised by the situation you are in. These come from the <Link to="/explore/mental-models" className="text-secondary-dark dark:text-secondary hover:underline">Practitioner's {PRACTITIONERS_25.length}</Link>, the ones Naval uses most, each with a note on how he applies it.
+            </p>
+          </div>
+          <Link to="/explore/mental-models" className="hidden md:flex items-center font-medium text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary-hover flex-shrink-0">
+            Browse all {MODEL_COUNT} models <ArrowRight size={16} className="ml-1" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {FEATURED_MODELS.map(m => (
+            <Link key={m.slug} to={`/explore/mental-models#${m.slug}`} className="group bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary dark:hover:border-secondary transition-all flex flex-col h-full">
+              <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3">
+                <Star size={14} className="text-amber-500" /> Practitioner's 25 · #{m.rank}
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-secondary transition-colors">{m.name}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-grow"><span className="font-semibold text-slate-700 dark:text-slate-300">How I use it: </span>{m.howIUse}</p>
+              <div className="flex items-center text-sm font-semibold text-primary dark:text-secondary mt-auto">
+                Read the model <ArrowRight size={14} className="ml-1" />
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/explore/mental-models" className="inline-flex items-center justify-center px-6 py-3 rounded-md font-bold text-white bg-primary hover:bg-primary/90 transition-colors">
+            Explore the library <ArrowRight size={16} className="ml-2" />
+          </Link>
+          <Link to="/explore/toolkits" className="inline-flex items-center justify-center px-6 py-3 rounded-md font-medium text-primary dark:text-white border border-primary/30 dark:border-slate-600 hover:bg-primary/5 dark:hover:bg-slate-800 transition-colors">
+            Put them to work: {TOOLKITS.length} toolkits
+          </Link>
+        </div>
+      </Section>
+
+      {/* Career Guidance Section */}
+      <Section bg="white">
         <div className="text-center max-w-3xl mx-auto mb-12">
            <div className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-primary dark:text-secondary text-xs font-bold uppercase tracking-wider mb-4">
              Giving Back

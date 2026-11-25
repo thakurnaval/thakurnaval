@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from './Section';
 import SEO from './SEO';
+import { FollowBox } from './SocialLinks';
 
 interface SimplePageProps {
   title: string;
@@ -8,9 +9,11 @@ interface SimplePageProps {
   children: React.ReactNode;
   structuredData?: Record<string, any>;
   type?: 'website' | 'article';
+  /** Show the "Follow Naval" social box after the content (default on). */
+  follow?: boolean;
 }
 
-const SimplePage: React.FC<SimplePageProps> = ({ title, subtitle, children, structuredData, type = 'article' }) => {
+const SimplePage: React.FC<SimplePageProps> = ({ title, subtitle, children, structuredData, type = 'article', follow = true }) => {
   const seoTitle = `${title} | Naval Thakur`;
   const seoDesc = subtitle.length > 150 ? `${subtitle.substring(0, 150)}...` : subtitle;
 
@@ -29,6 +32,7 @@ const SimplePage: React.FC<SimplePageProps> = ({ title, subtitle, children, stru
       <Section>
         <div className="max-w-4xl mx-auto text-slate-600 dark:text-slate-300 space-y-6 leading-relaxed">
           {children}
+          {follow && <FollowBox placement="article-end" />}
         </div>
       </Section>
     </>

@@ -143,7 +143,7 @@ const CognitiveOps: React.FC = () => {
           <div className="w-full h-full bg-gradient-to-l from-secondary to-transparent"></div>
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-4xl">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary-dark dark:text-secondary text-sm font-bold mb-6">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary text-sm font-bold mb-6">
             Original Framework by Naval Thakur
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6">

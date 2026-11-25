@@ -460,7 +460,7 @@ const WellArchitectedAssessment: React.FC = () => {
       />
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary-dark dark:text-secondary text-sm font-bold mb-6">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary text-sm font-bold mb-6">
             Well-Architected Assessment
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">How well-architected is your cloud?</h1>
@@ -477,12 +477,12 @@ const WellArchitectedAssessment: React.FC = () => {
               <div key={p.key} className={`rounded-xl border p-4 text-center ${p.bgClass} ${p.borderClass}`}>
                 <p.icon className={`w-7 h-7 mx-auto mb-2 ${p.colorClass}`} />
                 <div className="text-xs font-bold text-slate-700 dark:text-slate-200 leading-tight">{p.key}</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{p.questions.length} questions</div>
+                <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">{p.questions.length} questions</div>
               </div>
             ))}
           </div>
           <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 mb-8">
-            <h3 className="font-bold text-slate-900 dark:text-white mb-3">What you will get</h3>
+            <h2 className="font-bold text-slate-900 dark:text-white mb-3">What you will get</h2>
             <ul className="space-y-2">
               {[
                 'Your maturity layer across all five Well-Architected pillars',
@@ -673,7 +673,7 @@ const WellArchitectedAssessment: React.FC = () => {
 
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary-dark dark:text-secondary text-sm font-bold mb-6">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary text-sm font-bold mb-6">
             Your Results
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">

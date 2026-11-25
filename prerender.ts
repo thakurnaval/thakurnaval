@@ -22,6 +22,10 @@ if (!routes.includes('/')) routes.unshift('/');
 let ok = 0;
 let fail = 0;
 
+// The catch-all NotFound page is written to dist/404.html (nginx `error_page 404`).
+const NOT_FOUND = '/404';
+routes.push(NOT_FOUND);
+
 for (const route of routes) {
   try {
     const { html, helmet } = render(route);
@@ -58,7 +62,9 @@ for (const route of routes) {
     const outputPath =
       route === '/'
         ? path.join(distDir, 'index.html')
-        : path.join(distDir, ...route.replace(/^\//, '').split('/'), 'index.html');
+        : route === NOT_FOUND
+          ? path.join(distDir, '404.html')
+          : path.join(distDir, ...route.replace(/^\//, '').split('/'), 'index.html');
 
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     fs.writeFileSync(outputPath, finalHtml, 'utf-8');

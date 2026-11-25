@@ -4,6 +4,7 @@ import { ArrowRight, Clock, Target, ListChecks, ClipboardList, AlertTriangle, Bo
 import Section from '../../components/Section';
 import SEO from '../../components/SEO';
 import { TOOLKITS, type Toolkit } from './toolkitData';
+import NotFound from '../NotFound';
 
 const BASE = 'https://nthakur.com/explore/toolkits';
 const modelHref = (anchor: string) => `/explore/mental-models#${anchor}`;
@@ -65,16 +66,8 @@ const howToSchema = (t: Toolkit) => ({
 export const ToolkitPage: React.FC = () => {
   const { slug } = useParams();
   const t = TOOLKITS.find(x => x.slug === slug);
-  if (!t) {
-    return (
-      <Section bg="white">
-        <div className="max-w-3xl mx-auto text-center py-16">
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Toolkit not found</h1>
-          <Link to="/explore/toolkits" className="text-blue-700 dark:text-blue-400 underline">See all toolkits</Link>
-        </div>
-      </Section>
-    );
-  }
+  // Unknown slug: same page nginx serves for it (dist/404.html), so hydration matches.
+  if (!t) return <NotFound />;
   const others = TOOLKITS.filter(x => x.slug !== t.slug);
   return (
     <>

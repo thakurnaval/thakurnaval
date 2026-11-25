@@ -90,7 +90,7 @@ const NewsletterSignup: React.FC = () => {
               )}
             </button>
           </form>
-<PrivacyNote /></>
+<PrivacyNote onDark /></>
         )}
         <p className="text-xs text-slate-400 mt-4 italic">
           No spam. Unsubscribe anytime.

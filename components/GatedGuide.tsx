@@ -145,7 +145,7 @@ export const GatedGuideHero: React.FC<Props> = (p) => {
                   </button>
                 </form>
 <PrivacyNote />
-                <p className="text-xs text-slate-400 dark:text-slate-500 mt-4 text-center">No spam. Unsubscribe from The CognitiveOps Brief anytime.</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center">No spam. Unsubscribe from The CognitiveOps Brief anytime.</p>
               </>
             )}
           </div>

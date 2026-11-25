@@ -428,6 +428,10 @@ const MODELS = MENTAL_MODELS.map(m => {
 
 const NAME_BY_SLUG = new Map(MODELS.map(m => [m.slug, m.name]));
 
+/** Total models in the library, and a lookup by anchor, for teasers elsewhere (e.g. the home page). */
+export const MODEL_COUNT = MODELS.length;
+export const modelBySlug = (slug: string) => MODELS.find(m => m.slug === slug);
+
 /** The pinned shortlist, in the order Naval chose. */
 const TOP_MODELS = PRACTITIONERS_25
   .map(p => MODELS.find(m => m.slug === p.slug))
@@ -472,7 +476,7 @@ const MentalModels: React.FC = () => {
       className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${active
         ? 'bg-primary text-white border-primary dark:bg-secondary dark:text-primary dark:border-secondary'
         : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-secondary'}`}>
-      {label} <span className="opacity-60">{count}</span>
+      {label} <span className="font-normal">{count}</span>
     </button>
   );
 
@@ -500,7 +504,7 @@ const MentalModels: React.FC = () => {
         <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-6 gap-y-2">
           {TOP_MODELS.map(m => (
             <li key={m.slug} className="flex gap-2 text-sm min-w-0">
-              <span className="w-6 shrink-0 text-right font-mono text-slate-400 tabular-nums">{m.top!.rank}.</span>
+              <span className="w-6 shrink-0 text-right font-mono text-slate-600 dark:text-slate-400 tabular-nums">{m.top!.rank}.</span>
               <a href={`#${m.slug}`} className="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-secondary hover:underline">{m.name}</a>
             </li>
           ))}
@@ -570,7 +574,7 @@ const MentalModels: React.FC = () => {
                   <div className="flex flex-wrap gap-x-2 text-xs font-semibold mt-1">
                     {model.top ? <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-300"><Star className="w-3 h-3 fill-current" /> #{model.top.rank} of 25</span> : null}
                     <span className="text-secondary-dark dark:text-secondary">{model.situation}</span>
-                    <span className="text-slate-400 uppercase tracking-wider">· {model.category}</span>
+                    <span className="text-slate-500 dark:text-slate-400 uppercase tracking-wider">· {model.category}</span>
                   </div>
                 </div>
               </div>

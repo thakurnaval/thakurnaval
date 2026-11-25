@@ -14,7 +14,7 @@ export default {
       colors: {
         primary: '#271789', // Deep Blue
         secondary: '#00f1d4', // Neon Turquoise
-        'secondary-dark': '#008577', // Dark Teal, readable on white
+        'secondary-dark': '#007a6d', // Dark Teal: 4.8:1 or better on white and slate-50/100
         'secondary-hover': '#00c2ab', // Darker Turquoise for hover
         surface: '#f8fafc', // Slate 50
         highlight: '#ffff00', // Yellow

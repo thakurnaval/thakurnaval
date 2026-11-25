@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ListOrdered, AlertTriangle, Gauge, BookOpen } from 'lucide-react';
 import Section from './Section';
 import SEO from './SEO';
+import { FollowBox } from './SocialLinks';
 
 export interface TopicSection {
   heading: string;
@@ -72,7 +73,7 @@ const TopicArticle: React.FC<{ content: TopicContent }> = ({ content: c }) => {
         <article className="max-w-3xl mx-auto text-slate-700 dark:text-slate-300 leading-relaxed">
           {c.quote ? (
             <blockquote className="bg-slate-100 dark:bg-slate-800 p-6 rounded-lg mb-8 italic border-l-4 border-primary dark:border-secondary">
-              "{c.quote.text}" <span className="not-italic text-sm text-slate-500 dark:text-slate-400">— {c.quote.by}</span>
+              "{c.quote.text}" <span className="not-italic text-sm text-slate-600 dark:text-slate-400">— {c.quote.by}</span>
             </blockquote>
           ) : null}
 
@@ -137,6 +138,7 @@ const TopicArticle: React.FC<{ content: TopicContent }> = ({ content: c }) => {
               ))}
             </ul>
           </section>
+          <FollowBox placement="topic-end" />
         </article>
       </Section>
     </>
