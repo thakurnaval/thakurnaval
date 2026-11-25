@@ -118,22 +118,26 @@ const INTROS: Record<Pillar, Intro> = {
   },
 };
 
-const PillarIntro: React.FC<{ pillar: Pillar }> = ({ pillar }) => {
+/**
+ * `embedded`: render inside the main column of a two-column topic page (DevOps, SecOps,
+ * FinOps, Architecture), so the sidebar stays alongside all the text. Otherwise it is its
+ * own full-width section (GenAI, AI in SDLC).
+ */
+const PillarIntro: React.FC<{ pillar: Pillar; embedded?: boolean }> = ({ pillar, embedded = false }) => {
   const c = INTROS[pillar];
-  return (
-    <Section bg="white">
-      <article className="max-w-3xl mx-auto text-slate-700 dark:text-slate-300 leading-relaxed">
-        <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-5">{c.heading}</h2>
-        {c.paragraphs.map(p => <p key={p.slice(0, 40)} className="mb-4">{p}</p>)}
-        <p className="mt-6 font-semibold text-slate-900 dark:text-white">Start here:</p>
-        <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
-          {c.startHere.map(s => (
-            <li key={s.to}><Link to={s.to} className="text-primary dark:text-secondary font-medium hover:underline">{s.label} →</Link></li>
-          ))}
-        </ul>
-      </article>
-    </Section>
+  const body = (
+    <article className={`text-slate-700 dark:text-slate-300 leading-relaxed ${embedded ? 'pt-4' : 'max-w-3xl mx-auto'}`}>
+      <h2 className={`${embedded ? 'text-2xl' : 'text-2xl md:text-3xl'} font-bold text-primary dark:text-white mb-5`}>{c.heading}</h2>
+      {c.paragraphs.map(p => <p key={p.slice(0, 40)} className="mb-4">{p}</p>)}
+      <p className="mt-6 font-semibold text-slate-900 dark:text-white">Start here:</p>
+      <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+        {c.startHere.map(s => (
+          <li key={s.to}><Link to={s.to} className="text-primary dark:text-secondary font-medium hover:underline">{s.label} →</Link></li>
+        ))}
+      </ul>
+    </article>
   );
+  return embedded ? body : <Section bg="white">{body}</Section>;
 };
 
 export default PillarIntro;

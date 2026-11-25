@@ -25,7 +25,7 @@ const SCHEMA = {
       "datePublished": "2026-11-24",
       "dateModified": "2026-11-24",
       "url": "https://nthakur.com/articles/monthly-finops-cost-review",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "FinOps, cloud cost review, cloud cost optimisation, unit economics, cost allocation, AI costs, FinOps practices",
       "mainEntityOfPage": {
         "@type": "WebPage",

@@ -77,6 +77,7 @@ const DevOps: React.FC = () => {
               </Link>
             </div>
             
+            <PillarIntro pillar="devops" embedded />
             <div className="pt-8">
               <h2 className="text-2xl font-bold text-primary dark:text-white mb-4">Related Topics</h2>
               <div className="flex flex-wrap gap-3">
@@ -114,7 +115,6 @@ const DevOps: React.FC = () => {
           </div>
         </div>
       </Section>
-      <PillarIntro pillar="devops" />
       <RelatedResources topic="devops" />
     </>
   );

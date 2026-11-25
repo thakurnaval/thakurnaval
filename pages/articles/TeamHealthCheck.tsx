@@ -25,7 +25,7 @@ const SCHEMA = {
       "datePublished": "2026-11-24",
       "dateModified": "2026-11-24",
       "url": "https://nthakur.com/articles/team-health-check",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "team health check, engineering team health, retrospectives, psychological safety, engineering management, developer experience, team improvement",
       "mainEntityOfPage": {
         "@type": "WebPage",

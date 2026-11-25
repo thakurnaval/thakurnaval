@@ -25,7 +25,7 @@ const SCHEMA = {
       "datePublished": "2026-11-24",
       "dateModified": "2026-11-24",
       "url": "https://nthakur.com/articles/choosing-ai-use-cases",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "AI use cases, generative AI adoption, AI pilots, GenAI strategy, AI governance, AI ROI, LLM use case selection",
       "mainEntityOfPage": {
         "@type": "WebPage",

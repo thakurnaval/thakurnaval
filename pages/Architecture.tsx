@@ -99,6 +99,7 @@ const Architecture: React.FC = () => {
                  <Link to="/architecture/iac-templates" className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm text-primary dark:text-slate-300 hover:bg-secondary hover:text-white transition-colors">📄 Terraform &amp; Bicep Templates</Link>
                </div>
             </div>
+            <PillarIntro pillar="architecture" embedded />
           </div>
 
           <div className="lg:col-span-1">
@@ -139,7 +140,6 @@ const Architecture: React.FC = () => {
           </div>
         </div>
       </Section>
-      <PillarIntro pillar="architecture" />
       <RelatedResources topic="architecture" />
     </>
   );

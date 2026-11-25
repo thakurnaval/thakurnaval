@@ -11,7 +11,7 @@ interface SEOProps {
 }
 
 const SITE_URL = 'https://nthakur.com';
-const DEFAULT_IMAGE = `${SITE_URL}/assets/img/profile.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/assets/img/gallery/profile.jpg`;
 const TWITTER_HANDLE = '@nthakur_dot_com';
 
 const SEO: React.FC<SEOProps> = ({ title, description, type = 'website', structuredData, image }) => {

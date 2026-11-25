@@ -25,7 +25,7 @@ const SCHEMA = {
       "datePublished": "2026-11-24",
       "dateModified": "2026-11-24",
       "url": "https://nthakur.com/articles/architecture-decision-records",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "architecture decision records, ADR, software architecture, technical decisions, one-way door decisions, pre-mortem, system design",
       "mainEntityOfPage": {
         "@type": "WebPage",

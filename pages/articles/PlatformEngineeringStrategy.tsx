@@ -25,7 +25,7 @@ const SCHEMA = {
       "datePublished": "2026-11-24",
       "dateModified": "2026-11-24",
       "url": "https://nthakur.com/articles/platform-engineering-strategy",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "platform engineering, internal developer platform, golden paths, platform strategy, developer experience, Wardley mapping, build vs buy",
       "mainEntityOfPage": {
         "@type": "WebPage",

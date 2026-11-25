@@ -22,7 +22,7 @@ const SCHEMA = {
       "datePublished": "2024-09-01",
       "dateModified": "2025-01-01",
       "url": "https://nthakur.com/articles/secops-bridging-the-gap",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "DevSecOps, SecOps, security as code, shift-left security, SAST, pipeline security, agile security",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nthakur.com/articles/secops-bridging-the-gap" }
     },

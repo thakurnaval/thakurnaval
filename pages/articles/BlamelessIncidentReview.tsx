@@ -25,7 +25,7 @@ const SCHEMA = {
       "datePublished": "2026-11-24",
       "dateModified": "2026-11-24",
       "url": "https://nthakur.com/articles/blameless-incident-review",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "incident review, blameless post-mortem, SRE, root cause analysis, incident management, 5 whys, fishbone diagram",
       "mainEntityOfPage": {
         "@type": "WebPage",

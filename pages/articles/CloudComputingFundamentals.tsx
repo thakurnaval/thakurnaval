@@ -15,7 +15,7 @@ const SCHEMA = {
       "datePublished": "2023-12-01",
       "dateModified": "2025-01-01",
       "url": "https://nthakur.com/articles/cloud-computing-fundamentals",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "cloud computing, IaaS, PaaS, SaaS, cloud infrastructure, cloud benefits, virtualization, cloud challenges",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nthakur.com/articles/cloud-computing-fundamentals" }
     },

@@ -15,7 +15,7 @@ const SCHEMA = {
       "datePublished": "2024-03-01",
       "dateModified": "2025-01-01",
       "url": "https://nthakur.com/articles/finops-certified-practitioner",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "FinOps, FOCP, FinOps Certified Practitioner, cloud cost management, FinOps Foundation, cloud financial management",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nthakur.com/articles/finops-certified-practitioner" }
     },

@@ -19,7 +19,8 @@ This is the single source of truth for all outstanding action items across the w
 | Website — Sessionize integration | ✅ Added to Talks page + WorkWithMe page |
 | LinkedIn — tagline & About | ✅ Content ready — apply manually |
 | LinkedIn — Featured section | 🔲 Not updated |
-| Content publishing | ✅ 4 articles live — cadence ongoing |
+| Content publishing | ✅ 11 articles live (7 Nov 2026 articles approved) — next titles in `ARTICLE_BACKLOG.md` |
+| Website — brand | ✅ DevOpsism emblem as logo and favicon; profile photo at `gallery/profile.jpg`; unused images removed |
 | Newsletter issues | 🔲 6 draft topics identified — none written |
 | Conference CFP | 🔲 Not submitted |
 | Speaker profile (Sessionize) | ✅ Profile live + `SpeakerProfile.md` created |
@@ -109,7 +110,7 @@ All 8 assessments built and live. Hub page at `/assessments` added to nav. DevOp
 - CloudComputingFundamentals
 - GamifyingDevOpsPipeline
 - SecOpsBridgingTheGap
-- Nov 2026, one per toolkit (sources in `content/articles/*.md`, regenerate with `node scripts/generate-article.mjs`): BlamelessIncidentReview, ArchitectureDecisionRecords, PlatformEngineeringStrategy, BetterTechnicalReviewsAndMeetings, MonthlyFinopsCostReview, ChoosingAiUseCases, TeamHealthCheck. *(Naval: read and adjust the voice; add your own examples where you can.)*
+- Nov 2026, one per toolkit (sources in `content/articles/*.md`, regenerate with `node scripts/generate-article.mjs`): BlamelessIncidentReview, ArchitectureDecisionRecords, PlatformEngineeringStrategy, BetterTechnicalReviewsAndMeetings, MonthlyFinopsCostReview, ChoosingAiUseCases, TeamHealthCheck. *(Reviewed and approved by Naval, 25 Nov 2026.)*
 
 ### Next Articles — Keep the Cadence
 - [ ] Article 12 — next piece. Still missing from the Q3 plan: a SecOps and a CognitiveOps article.
@@ -143,6 +144,15 @@ All 8 assessments built and live. Hub page at `/assessments` added to nav. DevOp
 - **SEO hook**: Title cards as "[Topic] Explained for Engineering Leaders" — targets the same AEO/SEO keywords as nthakur.com pages
 - **Playlist structure**: CognitiveOps Series · DevOps Maturity · FinOps Practitioner · GenAI in the Enterprise
 - **CTA in every video**: Subscribe + link to free assessment at nthakur.com/assessments
+
+### YouTube channel launch — when ready *(parked; reviewed 25 Nov 2026)*
+The old DevOpsism channel art and 39-second intro video were reviewed and deleted from the site. Recreate them before launch:
+- [ ] **Decide the name.** A personal name ("Naval Thakur") builds authority faster than a concept name; use DevOpsism as the show or series title, which also supports the book. The site already links to a YouTube channel (footer): check whether to reuse it.
+- [ ] **Banner (2560×1440).** Keep everything important inside the central ~1546×423 px safe area; phones and laptops crop the rest. Use the X logo, not the old Twitter bird, or drop it. Use one handle everywhere (the site uses `@nthakur_dot_com`; old art said `@DevOpsism`). Don't promise "New Video Every Week" unless that is the real pace. Pick one palette across banner, site and logo (site: deep blue #271789 + turquoise #00f1d4; logo: DevOpsism emblem).
+- [ ] **Intro.** A 3–5 second logo sting at most, or none: open each video with the hook instead. Viewers decide in the first 5–10 seconds.
+- [ ] **Channel trailer (30–60 s).** Naval on camera: who the channel is for and what they'll get. Not slides.
+- [ ] **Rights.** Use only graphics and music you're licensed for (the old intro used stock-looking icons and a music track).
+- [ ] **First five videos**, each paired with an article from `ARTICLE_BACKLOG.md`: From DevOps to CognitiveOps (#1) · Why FinOps Efforts Fail After the First Savings Win (#3) · How to Measure DevOps Maturity Without Gaming the Metrics (#4) · The Autonomy Slider (#26) · Tokenomics: The FinOps of LLMs (#37).
 
 ---
 
@@ -281,7 +291,7 @@ The site now has a lot of free content and lead capture. The next phase is makin
 - [x] Cookie/analytics consent banner — GA4 loads only after "Accept analytics" (Consent Mode); "Cookie settings" in the footer.
 - [x] Consent wording under every email form (18 forms), linking to the privacy policy.
 - [ ] Check the Google Apps Script sends notifications only to contact@nthakur.com. *(Naval — the script isn't in this repo)*
-- [ ] Review the Privacy Policy wording, especially retention periods and where submissions are stored. *(Naval)*
+- [x] Privacy Policy wording reviewed and approved by Naval (25 Nov 2026).
 
 ### PARKED — Email that actually nurtures leads *(until 50 leads or newsletter sign-ups; decided 24 Nov 2026)*
 - [ ] Move subscribers from the Google Sheet to an email platform (e.g. MailerLite, Buttondown, Kit) with double opt-in and real unsubscribe links (the forms already promise "unsubscribe anytime").
