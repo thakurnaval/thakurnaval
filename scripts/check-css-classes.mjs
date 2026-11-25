@@ -22,10 +22,12 @@ const IGNORE = new Set([
   // loaded (prose*), and primary-light is not a defined colour.
   'prose', 'prose-slate', 'dark:prose-invert', 'lg:prose-lg', 'not-prose', 'dark:text-primary-light',
 ]);
+// A leading digit is escaped as \3N plus an optional space; minifiers drop the space (.\32xl\:flex).
+const hasRule = t => css.includes('.' + esc(t)) || css.includes('.' + esc(t).replace(/^(\\3\d) /, '$1'));
 const esc = t => t.replace(/&amp;/g, '&').replace(/[^a-zA-Z0-9_-]/g, c => '\\' + c).replace(/^(\d)/, d => '\\3' + d + ' ');
 // lucide-* are icon marker classes; animate-in/slide-in-* come from a plugin the site never loaded (no effect before either).
 const isMarker = t => t === 'lucide' || t.startsWith('lucide-') || t === 'animate-in' || /^(slide|fade|zoom)-(in|out)/.test(t);
-const missing = [...tokens].filter(([t]) => !IGNORE.has(t) && !isMarker(t) && !t.startsWith('group/') && !css.includes('.' + esc(t)));
+const missing = [...tokens].filter(([t]) => !IGNORE.has(t) && !isMarker(t) && !t.startsWith('group/') && !hasRule(t));
 console.log(`${html.length} pages, ${tokens.size} distinct classes, ${missing.length} without CSS`);
 for (const [t, f] of missing.slice(0, 40)) console.log(`  ${t}  (first seen in ${f})`);
 process.exit(missing.length ? 1 : 0);

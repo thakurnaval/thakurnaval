@@ -413,7 +413,7 @@ const AgileAssessment: React.FC = () => {
       <SEO title="Agile Maturity Assessment | Naval Thakur" description={`${TOTAL_QUESTIONS} questions across Team Practices, Delivery Flow, Planning, and Culture. Find your agile maturity layer and download a personalised report.`} />
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary-dark dark:text-secondary text-sm font-bold mb-6">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary text-sm font-bold mb-6">
             Agile Maturity Assessment
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">How agile is your team — really?</h1>
@@ -430,12 +430,12 @@ const AgileAssessment: React.FC = () => {
               <div key={p.key} className={`rounded-xl border p-4 text-center ${p.bgClass} ${p.borderClass}`}>
                 <p.icon className={`w-7 h-7 mx-auto mb-2 ${p.colorClass}`} />
                 <div className="text-sm font-bold text-slate-700 dark:text-slate-200">{p.key}</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{p.questions.length} questions</div>
+                <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">{p.questions.length} questions</div>
               </div>
             ))}
           </div>
           <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 mb-8">
-            <h3 className="font-bold text-slate-900 dark:text-white mb-3">What you will get</h3>
+            <h2 className="font-bold text-slate-900 dark:text-white mb-3">What you will get</h2>
             <ul className="space-y-2">
               {['Your agile maturity layer (Ad Hoc → Defined → Performing → Optimising)', 'Per-pillar scores with a visual breakdown', 'Personalised recommendations for your next layer', 'A downloadable PDF report for your records'].map(item => (
                 <li key={item} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
@@ -565,7 +565,7 @@ const AgileAssessment: React.FC = () => {
       <SEO title={`Agile Results: ${LAYER_NAMES[overallLayer]} | Naval Thakur`} description={`Your team is at Agile Layer ${overallLayer}: ${LAYER_NAMES[overallLayer]}.`} />
       <div className="bg-primary text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary-dark dark:text-secondary text-sm font-bold mb-6">Your Results</div>
+          <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary text-sm font-bold mb-6">Your Results</div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <div className="bg-secondary/10 border-2 border-secondary/40 rounded-2xl px-8 py-5 text-center shrink-0">
               <div className="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Overall</div>

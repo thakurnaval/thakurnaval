@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { Menu, X, Linkedin, Github, Moon, Sun, ChevronDown, Twitter, Youtube, Search, ArrowRight, FileText, Hash } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown, Search, ArrowRight, FileText, Hash } from 'lucide-react';
 import { NAV_ITEMS, FEATURED_ARTICLES, PROFILE_IMAGE_URL } from '../constants';
 import { NavItem } from '../types';
 import { trackPageView, trackEvent } from '../src/services/analytics';
 import ConsentBanner, { OPEN_CONSENT_EVENT } from './ConsentBanner';
+import { SocialIcons } from './SocialLinks';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,30 +16,28 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Theme State
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      if (saved) return saved;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    return 'light';
-  });
+  // Theme: unknown (null) until mounted, so the first client render matches the prerendered
+  // HTML and React can hydrate it instead of re-rendering the page.
+  const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('theme');
+    setTheme(saved === 'dark' || saved === 'light'
+      ? saved
+      : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }, []);
 
   // Apply Theme
   useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
+    if (!theme) return;
+    window.document.documentElement.classList.toggle('dark', theme === 'dark');
     localStorage.setItem('theme', theme);
-    trackEvent('Theme', 'Toggle', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    const next = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    trackEvent('Theme', 'Toggle', next);
   };
 
   // Close menus on route change
@@ -119,10 +118,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     ).slice(0, 8);
   }, [searchQuery, searchableItems]);
 
-  const isActive = (path?: string) => path && location.pathname === path;
-  
+  // Ignore a trailing slash (/devops/sre/ is the same page as /devops/sre).
+  const currentPath = location.pathname.length > 1 ? location.pathname.replace(/\/+$/, '') : location.pathname;
+  const isActive = (path?: string) => !!path && currentPath === path;
+
   const isChildActive = (children?: NavItem[]) => {
-    return children?.some(child => child.path && location.pathname === child.path);
+    return children?.some(child => isActive(child.path));
   };
 
   return (
@@ -269,6 +270,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               </nav>
               
               <div className="flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-700">
+                <SocialIcons variant="header" only={['LinkedIn', 'X', 'YouTube']} size={18} placement="header" className="flex items-center gap-1 pr-2 mr-1 border-r border-slate-200 dark:border-slate-700" />
                 <button
                   onClick={() => {
                     setIsSearchOpen(true);
@@ -365,6 +367,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 )}
               </React.Fragment>
             ))}
+            <div className="px-4 pt-4 mt-2 border-t border-slate-200 dark:border-slate-800">
+              <div className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">Follow Naval</div>
+              <SocialIcons variant="header" placement="mobile-menu" className="flex items-center gap-2" />
+            </div>
           </div>
         )}
       </header>
@@ -392,34 +398,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <p className="text-sm leading-relaxed mb-6 text-slate-200">
                 Helping organizations build resilient, secure, and cost-effective cloud ecosystems through DevOps, SecOps, FinOps, and GenAI coaching.
               </p>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://www.linkedin.com/in/navalthakur" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" 
-                  aria-label="Visit Naval's LinkedIn Profile"
-                  onClick={() => trackEvent('Social', 'Click', 'LinkedIn')}
-                >
-                  <Linkedin size={20} />
-                </a>
-                <a 
-                  href="https://x.com/nthakur_dot_com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" 
-                  aria-label="Follow Naval on X (Twitter)"
-                  onClick={() => trackEvent('Social', 'Click', 'Twitter')}
-                >
-                  <Twitter size={20} />
-                </a>
-                <a href="https://github.com/thakurnaval" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" aria-label="View Naval's GitHub Repositories">
-                  <Github size={20} />
-                </a>
-                <a href="https://www.youtube.com/channel/UCNFBR2tvSzgZr481iyNaI7A" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 rounded-full hover:bg-secondary hover:text-primary transition-colors" aria-label="Watch Naval's YouTube channel">
-                  <Youtube size={20} />
-                </a>
-              </div>
+              <SocialIcons variant="dark" placement="footer" className="flex space-x-4" />
             </div>
 
             <div>

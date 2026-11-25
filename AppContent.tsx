@@ -19,6 +19,7 @@ import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import CaseStudies from './pages/CaseStudies';
 import Community from './pages/Community';
+import NotFound from './pages/NotFound';
 
 // DevOps Subpages
 import DevOpsFrameworks from './pages/devops/DevOpsFrameworks';
@@ -297,6 +298,9 @@ const AppContent: React.FC = () => (
         <Route path="/projects" element={<Projects />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/contact" element={<Contact />} />
+
+        {/* Anything else: prerendered to 404.html, served by nginx with a 404 status */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   </Layout>

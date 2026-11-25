@@ -37,7 +37,7 @@ This is the single source of truth for all outstanding action items across the w
 | Website — security & ops | ✅ Dependabot high/moderate fixed (React Router 7, Vite 7.3.8); Cloud Run 5xx email alert; all services scale to zero |
 | Website — privacy & consent | ✅ `/privacy` policy (DPDP Act + GDPR), analytics consent banner, privacy note on all 18 forms |
 | Website — measurement | ✅ GA4 `generate_lead` + `file_download` events (consent-gated); setup and monthly review in `MEASUREMENT.md` |
-| Website — performance & checks | ✅ Compiled Tailwind (CDN removed), HSTS + CSP (report-only), build fails on broken links / missing CSS / unlisted inline scripts |
+| Website — performance & checks | ✅ Compiled Tailwind, HSTS + enforcing CSP, real 404s, pages hydrate instead of re-rendering; 189 Playwright tests (smoke, accessibility, CSP + hydration on every page) run in CI before deploy |
 
 ---
 
@@ -113,6 +113,7 @@ All 8 assessments built and live. Hub page at `/assessments` added to nav. DevOp
 
 ### Next Articles — Keep the Cadence
 - [ ] Article 12 — next piece. Still missing from the Q3 plan: a SecOps and a CognitiveOps article.
+- Titles, order and search targets for future articles: **`ARTICLE_BACKLOG.md`** (38 titles, about 19 months at 2 a month, including 7 on AI-native engineering and 6 on AI tooling ecosystems and tokenomics). Write from the top.
 
 ### Ongoing Content Cadence
 
@@ -289,20 +290,24 @@ The site now has a lot of free content and lead capture. The next phase is makin
 
 ### P1 — Measurement
 - [x] GA4 events: `generate_lead` (with `lead_source`) on every form, `file_download` on every PDF and template — see `MEASUREMENT.md`.
-- [ ] In GA4, mark `generate_lead` as a key event and add `lead_source` / `file_name` custom dimensions. *(Naval, 5 min — steps in `MEASUREMENT.md`)*
+- [x] In GA4: `generate_lead` is a key event (no default value), `lead_source` / `file_name` custom dimensions, 14-month retention, Enhanced measurement duplicates off. Verified through the API (24 Nov 2026).
 - [x] Google Search Console: nthakur.com verified and sitemap submitted (24 Nov 2026).
-- [ ] Link Search Console to GA4 (GA4 Admin → Search Console links). *(Naval)*
+- [x] Search Console linked to GA4 (24 Nov 2026).
 - [ ] Early December: check Search Console → Pages for indexing errors and Sitemaps for "Success" with 123 discovered URLs.
 - [x] Monthly review template in `MEASUREMENT.md` (first review: early December 2026).
 
 ### P2 — Performance and robustness
 - [x] Replaced the Tailwind play CDN with a compiled Tailwind 3.4 build (71 KB CSS, 11 KB gzipped).
 - [x] Content-Security-Policy added in **report-only** mode, plus HSTS and Permissions-Policy.
-- [ ] Switch the CSP to enforcing (rename the header in `nginx.conf`) after checking the browser console on a few pages shows no CSP reports.
-- [ ] Lighthouse and accessibility pass on mobile for the home page, a guide page, an assessment and the mental models page. *(Run in Chrome DevTools; couldn't be run from the build environment)*
+- [x] CSP switched to enforcing (Nov 2026). `e2e/csp.spec.ts` loads all 123 pages with the nginx.conf policy enforced and fails on any violation; it found GA4 posting to `www.google.com/g/collect`, now allowed (enforcing without it would have stopped GA recording).
+- [x] Lighthouse and accessibility pass (Nov 2026). axe (WCAG 2.1 AA) now clean on 7 key pages in light/dark, desktop/mobile (`e2e/a11y.spec.ts`): contrast fixes (secondary-dark darkened to #007a6d, small grey text), inline links underlined, heading order, link text. Lighthouse mobile: accessibility 98–100, best practices 100, SEO 92–100. Found the site was re-rendering every page from scratch instead of hydrating the prerendered HTML; fixed (blocking time 520→150 ms home, 3,800→340 ms assessment, locally). Broken favicon fixed.
+- [ ] Re-run Lighthouse on nthakur.com after the next deploy to confirm the LCP gain (before: home 82, DevOps assessment 67 with 6.9 s LCP).
+- [ ] Performance: the site ships one 2.3 MB JS bundle (660 KB gzipped) for every page. Split it per route (lazy-load pages on the client, keep eager imports for prerendering) — the biggest remaining performance win.
 - [x] Build-time checks (`npm run check`, run in the Docker build): CSS coverage, internal links and anchors, CSP hashes.
-- [x] Playwright smoke tests (Nov 2026): `npm run build` then `npm run test:e2e`. 13 tests on desktop and mobile Chrome: key pages render without errors, home shows the 4 latest articles, consent Decline loads no analytics, DevOps assessment through to results, gated guide unlock. Lead capture and GA are stubbed, so tests never write to the Sheet. Run locally; not yet in CI.
-- [ ] No 404 page: unknown URLs have no catch-all route (found while writing the smoke tests). Add a NotFound page and make nginx return a real 404 status.
+- [x] Playwright smoke tests (Nov 2026): `npm run build` then `npm run test:e2e`. 13 tests on desktop and mobile Chrome: key pages render without errors, home shows the 4 latest articles, consent Decline loads no analytics, DevOps assessment through to results, gated guide unlock. Lead capture and GA are stubbed, so tests never write to the Sheet. Now 189 tests incl. accessibility and CSP, served by `scripts/serve-dist.mjs` (same file resolution and 404 handling as nginx), and run in CI: the deploy job waits for the `test` job.
+- [x] 404 page (Nov 2026): catch-all NotFound route prerendered to `dist/404.html`; nginx returns a real 404 (verified in nginx:alpine). Unknown toolkit slugs use it too.
+- [x] Social links on more pages (Nov 2026): header (desktop and mobile menu), home hero, a "Follow Naval" box at the end of every article and topic page, footer; one list in `constants.ts` (`SOCIAL_LINKS`), also used for schema `sameAs`.
+- [x] Home page "Thinking Tools" section (Nov 2026): 6 of the Practitioner's 25 with "How I use it" notes, each linking to its card on /explore/mental-models.
 - [x] GaadiGanit `minimatch` / `glob` advisories fixed (Nov 2026): workbox-build's glob overridden to 14.x, `npm audit` clean. See GaadiGanit ADR-008; remove the override when workbox-build updates.
 
 ### P2 — Content structure and SEO

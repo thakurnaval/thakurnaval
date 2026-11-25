@@ -85,8 +85,50 @@ env:
   IMAGE: asia-south1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_ARTIFACT_REGISTRY }}/${{ secrets.GCP_SERVICE_NAME }}
 
 jobs:
+  # Build the site and run the Playwright tests (smoke, accessibility, CSP and hydration on
+  # every page). Deploy only runs if this passes. Lead capture and analytics are stubbed in
+  # the tests, so nothing reaches the Google Sheet or GA.
+  test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build
+        run: npm run build
+
+      - name: Build checks (CSS, links, CSP hashes)
+        run: npm run check
+
+      - name: Playwright tests
+        run: npm run test:e2e
+
+      - name: Upload Playwright traces on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-results
+          path: test-results/
+          retention-days: 7
+
   build-and-deploy:
     name: Build, Push & Deploy
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: read
