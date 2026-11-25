@@ -1,7 +1,10 @@
 
 import { NavItem, TalkProps, ArticleProps, FinOpsChartData, GalleryImage, ProjectProps, SpeakingAppearance } from './types';
 
-export const PROFILE_IMAGE_URL = "/assets/img/profile.jpg";
+export const PROFILE_IMAGE_URL = "/assets/img/gallery/profile.jpg";
+
+/** Site logo (header, footer): the DevOpsism emblem, 96px for sharp display at 40-48px. Favicons are in index.html. */
+export const LOGO_URL = "/assets/img/gallery/devopsism-emblem-96.png";
 
 /** Naval's social profiles: the one list used by the header, footer, home, article ends and schema `sameAs`. */
 export const SOCIAL_LINKS = [

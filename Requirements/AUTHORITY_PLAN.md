@@ -14,7 +14,7 @@ This is the strategy document. Website tasks live in `MASTER_ACTION_PLAN.md` and
 - Premium CognitiveOps Report: interest capture live at /cognitiveops/premium-report; build when the first customer asks.
 
 **Behind plan: content and channels**
-- **Articles:** 11 live. Seven practical articles, one per toolkit, were added on 24 Nov 2026 and need Naval's review for voice and personal examples. Still missing from the Q3 plan: a SecOps and a CognitiveOps article.
+- **Articles:** 11 live. Seven practical articles, one per toolkit, were added on 24 Nov 2026 and approved by Naval on 25 Nov 2026. Still missing from the Q3 plan: a SecOps and a CognitiveOps article.
 - **Newsletter:** issues 1–6 not written; no issue sent.
 - **Case studies:** /case-studies page exists but has no real case studies yet (needs engagement details).
 - **Off-site channels, all *(to confirm)*:** Topmate profile, LinkedIn Featured section and cadence, X pinned thread, Sessionize CFPs, NASSCOM / Gartner Peer Insights applications. There is no Topmate link on the site yet.
@@ -24,7 +24,7 @@ This is the strategy document. Website tasks live in `MASTER_ACTION_PLAN.md` and
 - Moving subscribers from the Google Sheet to an email platform (double opt-in, welcome sequence, source tags).
 - Storing anonymised assessment scores for benchmarks.
 
-**Suggested focus for the rest of Q4 2026:** review the seven new articles, write and send newsletter issue 1 (it can be cut from an article), confirm the off-site channel status above, and submit the MVP nomination. Everything else in Q4 depends on content existing.
+**Suggested focus for the rest of Q4 2026:** write and send newsletter issue 1 (it can be cut from an article), confirm the off-site channel status above, and submit the MVP nomination. Everything else in Q4 depends on content existing.
 
 ---
 

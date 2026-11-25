@@ -25,7 +25,7 @@ const SCHEMA = {
       "datePublished": "2026-11-24",
       "dateModified": "2026-11-24",
       "url": "https://nthakur.com/articles/better-technical-reviews-and-meetings",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "technical reviews, design review, architecture review board, effective meetings, six thinking hats, decision making, pre-mortem",
       "mainEntityOfPage": {
         "@type": "WebPage",

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Moon, Sun, ChevronDown, Search, ArrowRight, FileText, Hash } from 'lucide-react';
-import { NAV_ITEMS, FEATURED_ARTICLES, PROFILE_IMAGE_URL } from '../constants';
+import { NAV_ITEMS, FEATURED_ARTICLES, LOGO_URL } from '../constants';
 import { NavItem } from '../types';
 import { trackPageView, trackEvent } from '../src/services/analytics';
 import ConsentBanner, { OPEN_CONSENT_EVENT } from './ConsentBanner';
@@ -205,9 +205,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <img
-                src={PROFILE_IMAGE_URL}
-                alt="Naval Thakur - Professional Portfolio Logo"
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover object-top shadow-sm transition-transform duration-300 group-hover:rotate-12 border border-slate-200 dark:border-slate-700"
+                src={LOGO_URL}
+                alt="Naval Thakur logo"
+                className="w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:rotate-12"
                 width="48"
                 height="48"
               />
@@ -386,9 +386,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div className="col-span-1">
               <div className="flex items-center gap-2 mb-4">
                  <img
-                   src={PROFILE_IMAGE_URL}
-                   alt="Naval Thakur - Footer Logo"
-                   className="w-8 h-8 rounded-full object-cover object-top border border-slate-700"
+                   src={LOGO_URL}
+                   alt="Naval Thakur logo"
+                   className="w-8 h-8"
                    width="32"
                    height="32"
                    loading="lazy"

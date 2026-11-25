@@ -15,7 +15,7 @@ const SCHEMA = {
       "datePublished": "2024-06-01",
       "dateModified": "2025-01-01",
       "url": "https://nthakur.com/articles/gamifying-devops-pipeline",
-      "image": "https://nthakur.com/assets/img/profile.jpg",
+      "image": "https://nthakur.com/assets/img/gallery/profile.jpg",
       "keywords": "DevOps gamification, CI/CD engagement, DORA metrics, deployment frequency, DevOps culture, pipeline quality",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nthakur.com/articles/gamifying-devops-pipeline" }
     },
